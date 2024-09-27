@@ -78,8 +78,7 @@
     description = "Dan";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+
     ];
   };
 
@@ -114,6 +113,8 @@
   vlc
   wireshark
   zoom-us
+  kate
+  thunderbird
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
