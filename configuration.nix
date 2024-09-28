@@ -117,6 +117,7 @@
   thunderbird
   ];
   
+  programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
   # Some programs need SUID wrappers, can be configured further or are
