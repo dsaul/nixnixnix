@@ -34,16 +34,26 @@ let
     '';
   };
 
+  seafile-desktop = pkgs.makeDesktopItem {
+	name = "Seafile";
+	version = "9.0.8";
+	type = "Application";
+	exec = "${seafile}/bin/seafile";
+	icon = "${seafile}/share/icons/hicolor/scalable/apps/seafile.png";
+	startupWMClass = "AppRun";
+  };
+
+
   # Create the desktop entry
-  seafile-desktop = writeTextDir "$out/share/applications/seafile.desktop" ''
-    [Desktop Entry]
-    Version=9.0.8
-    Type=Application
-    Name=Seafile
-    Exec=${seafile}/bin/seafile
-    Icon=${seafile}/share/icons/hicolor/scalable/apps/seafile.png
-    StartupWMClass=AppRun
-  '';
+  #seafile-desktop = writeTextDir "$out/share/applications/seafile.desktop" ''
+  #  [Desktop Entry]
+  #  Version=9.0.8
+  #  Type=Application
+  #  Name=Seafile
+  #  Exec=${seafile}/bin/seafile
+  #  Icon=${seafile}/share/icons/hicolor/scalable/apps/seafile.png
+  #  StartupWMClass=AppRun
+  #'';
 in
 {
   inherit seafile seafile-desktop;
