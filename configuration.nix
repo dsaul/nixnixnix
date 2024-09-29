@@ -4,9 +4,9 @@
 
 { config, pkgs, ... }:
 
-let
-  seafilePkg = import ./seafile.nix { inherit pkgs; };
-in
+#let
+#  seafilePkg = import ./seafile.nix { inherit pkgs; };
+#in
 
 {
   imports =
@@ -127,7 +127,8 @@ in
   thunderbird
   onlyoffice-bin
   libreoffice-qt6-fresh
-  seafilePkg.seafile
+  seafile-client
+  #seafilePkg.seafile
   ];
   
   fonts.packages = with pkgs; [
