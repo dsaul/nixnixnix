@@ -129,10 +129,6 @@ in
   libreoffice-qt6-fresh
   seafilePkg.seafile
   ];
-
-  environment.extraDesktopFiles = [
-	seafilePkg.seafile-desktop
-  ];
   
   fonts.packages = with pkgs; [
   noto-fonts
