@@ -43,6 +43,8 @@
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
   services.xrdp.openFirewall = true;
+  
+  # The following is so that the rdp session doesn't break.
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
@@ -119,6 +121,7 @@
   zoom-us
   kate
   thunderbird
+  onlyoffice-bin
   ];
   
   programs.appimage.enable = true;
