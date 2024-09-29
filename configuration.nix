@@ -4,11 +4,14 @@
 
 { config, pkgs, ... }:
 
+let
+  seafilePkg = import ./seafile.nix { inherit pkgs; };
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-	  ./seafile.nix
     ];
 
   # Bootloader.
@@ -124,11 +127,11 @@
   thunderbird
   onlyoffice-bin
   libreoffice-qt6-fresh
-  seafile908
+  seafilePkg.seafile
   ];
 
   environment.extraDesktopFiles = [
-	seafile-desktop
+	seafilePkg.seafile-desktop
   ];
   
   fonts.packages = with pkgs; [
