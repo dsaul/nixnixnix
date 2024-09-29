@@ -4,10 +4,6 @@
 
 { config, pkgs, ... }:
 
-#let
-#  seafilePkg = import ./seafile.nix { inherit pkgs; };
-#in
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -128,7 +124,6 @@
   onlyoffice-bin
   libreoffice-qt6-fresh
   seafile-client
-  #seafilePkg.seafile
   ];
   
   fonts.packages = with pkgs; [
