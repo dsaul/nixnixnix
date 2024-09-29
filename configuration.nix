@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+	  ./seafile.nix
     ];
 
   # Bootloader.
@@ -123,6 +124,11 @@
   thunderbird
   onlyoffice-bin
   libreoffice-qt6-fresh
+  seafile908
+  ];
+
+  environment.extraDesktopFiles = [
+	seafile-desktop
   ];
   
   fonts.packages = with pkgs; [
@@ -135,7 +141,6 @@
   mplus-outline-fonts.githubRelease
   dina-font
   proggyfonts
-  nerdfonts
 ];
   
   programs.appimage.enable = true;
