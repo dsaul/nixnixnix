@@ -122,6 +122,7 @@
   kate
   thunderbird
   onlyoffice-bin
+  libreoffice-qt6-fresh
   ];
   
   fonts.packages = with pkgs; [
