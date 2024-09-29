@@ -35,7 +35,7 @@ let
   };
 
   # Create the desktop entry
-  seafile-desktop = writeTextDir "share/applications/seafile908.desktop" ''
+  seafile-desktop = writeTextDir "$out/share/applications/seafile.desktop" ''
     [Desktop Entry]
     Version=9.0.8
     Type=Application
