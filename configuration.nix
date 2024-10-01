@@ -2,9 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-#git pull && nixos-rebuild switch
-
-
 { config, pkgs, ... }:
 
 {
@@ -13,53 +10,77 @@
 		./hardware-configuration.nix
 	];
 
+	nix.settings.experimental-features = ["nix-command" "flakes"];
+
 	# Bootloader.
-	boot.loader.grub.enable = true;
-	boot.loader.grub.device = "/dev/sda";
-	boot.loader.grub.useOSProber = true;
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
 
-	networking.hostName = "nixos"; # Define your hostname.
-	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+	# Enable support for directly running app images.
+	programs.appimage.enable = true;
+	programs.appimage.binfmt = true;
 
-	nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-
-	# Configure network proxy if necessary
-	# networking.proxy.default = "http://user:password@proxy:port/";
-	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-	# Enable networking
+	# Networking
+	networking.hostName = "framework"; # Define your hostname.
 	networking.networkmanager.enable = true;
 
-	# Set your time zone.
-	time.timeZone = "America/Winnipeg";
+	# MDNS
+	services.avahi = { # So we can discover our printer.
+		enable = true;
+		nssmdns4 = true;
+		openFirewall = true;
+	};
+	
+	# Docker
+	virtualisation.docker.enable = true;
+	
+	# Libvirt
+	virtualisation.libvirtd.enable = true;
+	virtualisation.spiceUSBRedirection.enable = true;
+	virtualisation.libvirtd.qemu = {
+		swtpm.enable = true;
+		ovmf.packages = [ pkgs.OVMFFull.fd ];
+	};
 
-	# Select internationalisation properties.
+	# Region Settings
+	time.timeZone = "America/Winnipeg";
 	i18n.defaultLocale = "en_CA.UTF-8";
 
 	# Enable the X11 windowing system.
 	# You can disable this if you're only using the Wayland session.
 	services.xserver.enable = true;
-
+	services.xserver.excludePackages = [pkgs.xterm];
+	services.xserver.xkb = { # Configure keymap in X11
+		layout = "us";
+		variant = "";
+	};
+	
 	# Enable the KDE Plasma Desktop Environment.
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
+	programs.kdeconnect.enable = true;
 
 	# RDP
 	services.xrdp.enable = true;
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
-
-	# Configure keymap in X11
-	services.xserver.xkb = {
-		layout = "us";
-		variant = "";
-	};
-
-	# Enable CUPS to print documents.
+	
+	# Printing
 	services.printing.enable = true;
-
-	# Enable sound with pipewire.
+	services.printing.drivers = [
+		pkgs.brlaser
+	];
+	
+	# SSHD
+	services.openssh = {
+		enable = true;
+		settings.PasswordAuthentication = false;
+		settings.KbdInteractiveAuthentication = false;
+		settings.PermitRootLogin = "yes";
+	};
+	programs.ssh.startAgent = true;
+	
+	# Sound
 	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
 	services.pipewire = {
@@ -75,30 +96,53 @@
 		#media-session.enable = true;
 	};
 
+	# Hardware
+	hardware.bluetooth.enable = true;
+	hardware.bluetooth.powerOnBoot = true;
+
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
-	# Define a user account. Don't forget to set a password with ‘passwd’.
+	# Users
 	users.users.dan = {
 		isNormalUser = true;
-		description = "Dan";
-		extraGroups = [ "networkmanager" "wheel" "docker" ];
+		description = "Dan Saul";
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+			"docker"
+			"libvirtd"
+		];
 		packages = with pkgs; [
-
+			
+		];
+		openssh.authorizedKeys.keys = [
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
 		];
 	};
 
-	# Install firefox.
-	programs.firefox.enable = true;
+	users.users.root.openssh.authorizedKeys.keys = [
+		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
+	];
+
+	
+	
 
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
-	# List packages installed in system profile. To search, run:
-	# $ nix search wget
+
+	# Required for Steam
+	hardware.opengl.enable = true;
+	hardware.opengl.driSupport = true;
+	hardware.opengl.driSupport32Bit = true;
+
+
+	# Installed Packages
 	environment.systemPackages = with pkgs; [
-		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+		vim
 		wget
+		winbox
 		obsidian
 		mtr
 		mtr-gui
@@ -124,7 +168,16 @@
 		onlyoffice-bin
 		libreoffice-qt6-fresh
 		seafile-client
+		texmaker
+		wineWowPackages.waylandFull
+		python3
+		qemu
+		quickemu
+		virt-manager
+		libvirt
+		kdePackages.kcalc
 	];
+	programs.firefox.enable = true;
 
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
@@ -138,9 +191,11 @@
 		dina-font
 		proggyfonts
 	];
+	
+	
+	
 
-	programs.appimage.enable = true;
-	programs.appimage.binfmt = true;
+	
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
@@ -150,16 +205,11 @@
 	#   enableSSHSupport = true;
 	# };
 
-	# List services that you want to enable:
-	# Enable the OpenSSH daemon.
-	services.openssh.enable = true;
-
 	# Open ports in the firewall.
 	# networking.firewall.allowedTCPPorts = [ ... ];
 	# networking.firewall.allowedUDPPorts = [ ... ];
 	# Or disable the firewall altogether.
 	# networking.firewall.enable = false;
-	virtualisation.docker.enable = true;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
