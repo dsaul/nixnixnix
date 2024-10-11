@@ -23,6 +23,11 @@
 	# Networking
 	networking.hostName = "framework"; # Define your hostname.
 	networking.networkmanager.enable = true;
+	services.gvfs.enable = true;
+
+	# Fingerprint Sensor
+	# services.fprintd.enable = true; # currently broken, messes with initial login
+
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -44,8 +49,9 @@
 
 	# Region Settings
 	time.timeZone = "America/Winnipeg";
+	services.automatic-timezoned.enable = true;
 	i18n.defaultLocale = "en_CA.UTF-8";
-
+	
 	# Enable the X11 windowing system.
 	# You can disable this if you're only using the Wayland session.
 	services.xserver.enable = true;
@@ -103,8 +109,14 @@
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
+	# Groups
+	users.groups.media = {
+		gid=990;
+	};
+
 	# Users
 	users.users.dan = {
+		uid=1000;
 		isNormalUser = true;
 		description = "Dan Saul";
 		extraGroups = [
@@ -112,6 +124,7 @@
 			"wheel"
 			"docker"
 			"libvirtd"
+			"media"
 		];
 		packages = with pkgs; [
 			
@@ -132,6 +145,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 
+
 	# Required for Steam
 	hardware.opengl.enable = true;
 	hardware.opengl.driSupport = true;
@@ -140,6 +154,15 @@
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
+		dig
+		usbutils
+		pciutils
+		xfsprogs
+		gedit
+		kid3-qt
+		cifs-utils
+		kdePackages.yakuake
+		remmina
 		vim
 		wget
 		winbox
@@ -153,7 +176,7 @@
 		ffmpeg_7-full
 		freecad
 		git
-		delfin
+		jellyfin-media-player
 		keepassxc
 		texliveFull
 		sunshine
@@ -175,7 +198,15 @@
 		quickemu
 		virt-manager
 		libvirt
-		kdePackages.kcalc
+		qalculate-qt
+		yt-dlp
+		freerdp
+		freerdp3
+		bc
+		anki
+		feishin
+		spotify
+		ryujinx
 	];
 	programs.firefox.enable = true;
 
@@ -190,10 +221,28 @@
 		mplus-outline-fonts.githubRelease
 		dina-font
 		proggyfonts
+		atkinson-hyperlegible
 	];
 	
 	
-	
+	# Shares
+	# For mount.cifs, required unless domain name resolution is not needed.
+	fileSystems."/mnt/MISC-01" = {
+		device = "//10.5.5.10/MISC-01";
+		fsType = "cifs";
+		options = let
+		# this line prevents hanging on network split
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
+	};
+	fileSystems."/mnt/DOCUMENTS-01" = {
+		device = "//10.5.5.10/DOCUMENTS-01";
+		fsType = "cifs";
+		options = let
+		# this line prevents hanging on network split
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
+	};
 
 	
 
