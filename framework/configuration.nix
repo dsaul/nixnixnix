@@ -138,7 +138,9 @@
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
 	];
 
-	
+	environment.sessionVariables = rec {
+		ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
+	};
 	
 
 	# Allow unfree packages
@@ -147,68 +149,146 @@
 
 
 	# Required for Steam
-	hardware.opengl.enable = true;
-	hardware.opengl.driSupport = true;
-	hardware.opengl.driSupport32Bit = true;
+	# Required for Steam
+	hardware.opengl = {
+		enable = true; # Enable OpenGL required for nvidia
+		driSupport = true;
+		driSupport32Bit = true;
+		extraPackages = with pkgs; [
+			libGL
+		];
+		setLdLibraryPath = true;
+	};
 
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
+		# Expected commands
 		dig
 		usbutils
 		pciutils
 		xfsprogs
-		gedit
-		kid3-qt
-		cifs-utils
-		kdePackages.yakuake
-		remmina
-		vim
 		wget
-		winbox
-		obsidian
-		mtr
 		mtr-gui
-		audacity
-		dbeaver-bin
-		discord
-		element-desktop
-		ffmpeg_7-full
-		freecad
-		git
-		jellyfin-media-player
-		keepassxc
-		texliveFull
-		sunshine
-		moonlight-qt
-		steam
-		vscode
+		bc
+		curl
+		htop
+		procps
+		util-linux
+		unzip
+
+		# Filesystems
+		ntfs3g
+		gparted
+		cifs-utils
+
+		# Media
+		par2cmdline-turbo
+		kid3-qt
 		vlc
+		ffmpeg_7-full
+		yt-dlp
+		spotify
+		mkvtoolnix
+		metamorphose2
+		handbrake
+		calibre
+		jellyfin-media-player
+
+		# Network
+		transmission_4-qt
+		winbox
+		remmina
 		wireshark
-		zoom-us
+		seafile-client
+		freerdp
+		freerdp3
+		ungoogled-chromium
+
+		# Editors
+		gedit
+		obsidian
+		vim
 		kate
-		thunderbird
 		onlyoffice-bin
 		libreoffice-qt6-fresh
-		seafile-client
 		texmaker
-		wineWowPackages.waylandFull
-		python3
+		texliveFull
+		perlPackages.YAMLTiny #latexindent
+		perlPackages.FileHomeDir #latexindent
+		perlPackages.UnicodeLineBreak #latexindent
+
+		# KDE
+		kdePackages.yakuake
+		xdg-desktop-portal-kde
+		xdg-desktop-portal
+
+		# Communication
+		discord
+		element-desktop
+		zoom-us
+		thunderbird
+
+		# Audio
+		audacity
+
+		# Graphics
+		gimp
+		#krita #doesn't work on 4090
+
+		# Development
+		dbeaver-bin
+		git
+		vscode
+		python312
+		python312Packages.pip
+		libgcc
+		cargo
+		gitRepo
+		gnupg
+		autoconf
+		gnumake
+		m4
+		gperf
+		cudatoolkit
+		ncurses5
+		stdenv.cc
+		binutils
+
+		# Security
+		freecad
+		keepassxc
+
+		# Games
+		steam
+		sunshine
+		moonlight-qt
+		ryujinx
+
+		# Virtualization
 		qemu
 		quickemu
 		virt-manager
 		libvirt
-		qalculate-qt
-		yt-dlp
-		freerdp
-		freerdp3
-		bc
+
+		# Education
 		anki
-		feishin
-		spotify
-		ryujinx
+		qalculate-qt
+
+		#feishin
+		#nheko
 	];
-	programs.firefox.enable = true;
+
+	programs.firefox = {
+		enable = true;
+		preferences = {
+			"widget.use-xdg-desktop-portal.file-picker" = 1;
+		};
+	};
+	programs.mtr.enable = true;
+	programs.nix-ld.enable = true;
+	services.gvfs.enable = true;
+	services.tumbler.enable = true;
 
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [

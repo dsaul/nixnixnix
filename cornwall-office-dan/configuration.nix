@@ -24,7 +24,7 @@
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	#networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+	services.gvfs.enable = true;
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -142,13 +142,6 @@
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 	};
 
-
-
-
-
-
-
-
 	# Groups
 	users.groups.media = {
 		gid=990;
@@ -200,94 +193,120 @@
 	# Installed Packages
 	nixpkgs.config.permittedInsecurePackages = [  "olm-3.2.16" ];
 	environment.systemPackages = with pkgs; [
-		ntfs3g
-		gparted
-		transmission_4-qt
-		par2cmdline-turbo
+		# Expected commands
 		dig
 		usbutils
 		pciutils
 		xfsprogs
-		gedit
-		kid3-qt
-		cifs-utils
-		kdePackages.yakuake
-		remmina
-		vim
 		wget
-		winbox
-		obsidian
-		mtr
 		mtr-gui
-		audacity
-		dbeaver-bin
-		discord
-		element-desktop
-		ffmpeg_7-full
-		freecad
-		git
-		keepassxc
-		texliveFull
-		sunshine
-		moonlight-qt
-		steam
-		vscode
-		vlc
-		wireshark
-		zoom-us
-		kate
-		thunderbird
-		onlyoffice-bin
-		libreoffice-qt6-fresh
-		seafile-client
-		texmaker
-		wineWowPackages.waylandFull
-		python312
-		python312Packages.pip
-		qemu
-		quickemu
-		virt-manager
-		libvirt
-		qalculate-qt
-		yt-dlp
-		freerdp
-		freerdp3
 		bc
-		anki
-		feishin
+		curl
+		htop
+		procps
+		util-linux
+		unzip
+
+		# Filesystems
+		ntfs3g
+		gparted
+		cifs-utils
+
+		# Media
+		par2cmdline-turbo
+		kid3-qt
+		vlc
+		ffmpeg_7-full
+		yt-dlp
 		spotify
-		ryujinx
-		#nheko
-		distrobox
 		mkvtoolnix
 		metamorphose2
-		xdg-desktop-portal-kde
-		xdg-desktop-portal
+		handbrake
 		calibre
-		#krita #doesn't work on 4090
-		gimp
+		jellyfin-media-player
+
+		# Network
+		transmission_4-qt
+		winbox
+		remmina
+		wireshark
+		seafile-client
+		freerdp
+		freerdp3
+		ungoogled-chromium
+
+		# Editors
+		gedit
+		obsidian
+		vim
+		kate
+		onlyoffice-bin
+		libreoffice-qt6-fresh
+		texmaker
+		texliveFull
 		perlPackages.YAMLTiny #latexindent
 		perlPackages.FileHomeDir #latexindent
 		perlPackages.UnicodeLineBreak #latexindent
-		ungoogled-chromium
+
+		# KDE
+		kdePackages.yakuake
+		xdg-desktop-portal-kde
+		xdg-desktop-portal
+
+		# Communication
+		discord
+		element-desktop
+		zoom-us
+		thunderbird
+
+		# Audio
+		audacity
+
+		# Graphics
+		gimp
+		#krita #doesn't work on 4090
+
+		# Development
+		dbeaver-bin
+		git
+		vscode
+		python312
+		python312Packages.pip
 		libgcc
 		cargo
 		gitRepo
 		gnupg
 		autoconf
-		curl
-		procps
 		gnumake
-		util-linux
 		m4
 		gperf
-		unzip
 		cudatoolkit
 		ncurses5
 		stdenv.cc
 		binutils
-		handbrake
-		htop
+
+		# Security
+		freecad
+		keepassxc
+
+		# Games
+		steam
+		sunshine
+		moonlight-qt
+		ryujinx
+
+		# Virtualization
+		qemu
+		quickemu
+		virt-manager
+		libvirt
+
+		# Education
+		anki
+		qalculate-qt
+
+		#feishin
+		#nheko
 	];
 
 	programs.firefox = {
@@ -296,6 +315,7 @@
 			"widget.use-xdg-desktop-portal.file-picker" = 1;
 		};
 	};
+	programs.mtr.enable = true;
 	programs.nix-ld.enable = true;
 	services.gvfs.enable = true;
 	services.tumbler.enable = true;
@@ -489,7 +509,6 @@
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
-	# programs.mtr.enable = true;
 	# programs.gnupg.agent = {
 	#   enable = true;
 	#   enableSSHSupport = true;
