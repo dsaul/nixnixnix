@@ -23,7 +23,6 @@
 	# Networking
 	networking.hostName = "framework"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	services.gvfs.enable = true;
 
 	# Fingerprint Sensor
 	# services.fprintd.enable = true; # currently broken, messes with initial login
@@ -287,7 +286,6 @@
 	};
 	programs.mtr.enable = true;
 	programs.nix-ld.enable = true;
-	services.gvfs.enable = true;
 	services.tumbler.enable = true;
 
 	fonts.enableDefaultPackages = true;
@@ -305,7 +303,9 @@
 	];
 	
 	
-	# Shares
+	# Filesystems
+	services.gvfs.enable = true;
+
 	# For mount.cifs, required unless domain name resolution is not needed.
 	fileSystems."/mnt/MISC-01" = {
 		device = "//10.5.5.10/MISC-01";

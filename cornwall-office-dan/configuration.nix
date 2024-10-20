@@ -24,7 +24,6 @@
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	services.gvfs.enable = true;
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -317,7 +316,6 @@
 	};
 	programs.mtr.enable = true;
 	programs.nix-ld.enable = true;
-	services.gvfs.enable = true;
 	services.tumbler.enable = true;
 
 	fonts.enableDefaultPackages = true;
@@ -334,7 +332,11 @@
 		atkinson-hyperlegible
 	];
 
-	# Shares
+
+
+	# Filesystems
+	services.gvfs.enable = true;
+
 	# For mount.cifs, required unless domain name resolution is not needed.
 	fileSystems."/mnt/MISC-01" = {
 		device = "//10.5.5.10/MISC-01";
