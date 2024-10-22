@@ -1,10 +1,16 @@
- 
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+#sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+#sudo nix-channel --update nixos-unstable
 
+
+{ config, pkgs, ... }:
+let
+  unstable = import <nixos-unstable> {};
+in
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -17,6 +23,8 @@
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
+	boot.kernelParams = ["nvidia-drm.modeset=1"];
+
 	# Enable support for directly running app images.
 	programs.appimage.enable = true;
 	programs.appimage.binfmt = true;
@@ -24,6 +32,12 @@
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
+	networking.extraHosts =
+		''
+		0.0.0.0 youtube.com
+		0.0.0.0 www.youtube.com
+		0.0.0.0 news.ycombinator.com
+		'';
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -66,11 +80,41 @@
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
 
+
 	# Printing
 	services.printing.enable = true;
 	services.printing.drivers = [
+		pkgs.gutenprint
+		pkgs.gutenprintBin
+		pkgs.brgenml1lpr
+		pkgs.brgenml1cupswrapper
 		pkgs.brlaser
+		pkgs.mfcl3770cdwlpr
+		pkgs.mfcl8690cdwcupswrapper
+		(pkgs.callPackage ./mfcl8900cdw.nix {}) # At some point if we need the exact driver, get this to work.
 	];
+	#services.printing.logLevel = "debug";
+	hardware.printers = {
+		ensurePrinters = [
+			#https://discourse.nixos.org/t/declarative-printer-setup-missing-driver/33777/6
+			{
+				name = "Brother_MFCL8900CDW";
+				location = "Cornwall";
+				deviceUri = "ipp://10.5.5.14";
+				#model = "brother_mfcl8900cdw_printer_en.ppd"; # Brother Provided, Broken
+				model = "brother_mfcl8690cdw_printer_en.ppd";
+				ppdOptions = {
+					PageSize = "Letter";
+					Duplex = "DuplexNoTumble";
+					Resolution = "600dpi";
+					PrintQuality = "4";
+					PwgRasterDocumentType = "Rgb_8";
+				};
+			}
+		];
+		ensureDefaultPrinter = "Brother_MFCL8900CDW";
+	};
+
 
 	# SSHD
 	services.openssh = {
@@ -172,6 +216,7 @@
 
 	environment.sessionVariables = rec {
 		ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
+		GSK_RENDERER = "gl";
 	};
 
 	# Allow unfree packages
@@ -205,6 +250,7 @@
 		procps
 		util-linux
 		unzip
+		psmisc
 
 		# Filesystems
 		ntfs3g
@@ -222,7 +268,8 @@
 		metamorphose2
 		handbrake
 		calibre
-		jellyfin-media-player
+		#unstable.jellyfin-media-player
+		flac
 
 		# Network
 		transmission_4-qt
@@ -246,6 +293,7 @@
 		perlPackages.YAMLTiny #latexindent
 		perlPackages.FileHomeDir #latexindent
 		perlPackages.UnicodeLineBreak #latexindent
+		ocrmypdf
 
 		# KDE
 		kdePackages.yakuake
@@ -260,13 +308,17 @@
 
 		# Audio
 		audacity
+		wireplumber
 
 		# Graphics
 		gimp
 		#krita #doesn't work on 4090
 
-		# Development
+		# Development Tools
 		dbeaver-bin
+		bruno
+
+		# Development Backend
 		git
 		vscode
 		python312
@@ -306,6 +358,7 @@
 
 		#feishin
 		#nheko
+		#unstable.delfin
 	];
 
 	programs.firefox = {
@@ -532,3 +585,4 @@
 	system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
