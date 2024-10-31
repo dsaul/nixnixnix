@@ -1,4 +1,4 @@
-
+ 
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -9,8 +9,8 @@
 
 { config, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> {};
-in
+  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+in 
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,7 +22,7 @@ in
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
-
+	
 	boot.kernelParams = ["nvidia-drm.modeset=1"];
 
 	# Enable support for directly running app images.
@@ -32,11 +32,15 @@ in
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	networking.extraHosts =
+	networking.extraHosts = 
 		''
-		0.0.0.0 youtube.com
 		0.0.0.0 www.youtube.com
+		0.0.0.0 youtube.com
 		0.0.0.0 news.ycombinator.com
+		0.0.0.0 facebook.com
+		0.0.0.0 www.facebook.com
+		0.0.0.0 linkedin.com
+		0.0.0.0 www.linkedin.com
 		'';
 
 	# MDNS
@@ -48,6 +52,8 @@ in
 
 	# Docker
 	virtualisation.docker.enable = true;
+	virtualisation.docker.package = pkgs.docker_25;
+	virtualisation.docker.liveRestore = false;
 
 	# Libvirt
 	virtualisation.libvirtd.enable = true;
@@ -74,15 +80,20 @@ in
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
 	programs.kdeconnect.enable = true;
+	
+	environment.plasma6.excludePackages = with pkgs.kdePackages; [
+		
+	];
 
 	# RDP
 	services.xrdp.enable = true;
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
 
-
+	
 	# Printing
 	services.printing.enable = true;
+	systemd.services.cups-browsed.enable = false;
 	services.printing.drivers = [
 		pkgs.gutenprint
 		pkgs.gutenprintBin
@@ -93,7 +104,7 @@ in
 		pkgs.mfcl8690cdwcupswrapper
 		(pkgs.callPackage ./mfcl8900cdw.nix {}) # At some point if we need the exact driver, get this to work.
 	];
-	#services.printing.logLevel = "debug";
+	services.printing.logLevel = "debug";
 	hardware.printers = {
 		ensurePrinters = [
 			#https://discourse.nixos.org/t/declarative-printer-setup-missing-driver/33777/6
@@ -114,7 +125,7 @@ in
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
 	};
-
+	
 
 	# SSHD
 	services.openssh = {
@@ -144,7 +155,7 @@ in
 	# Hardware
 	hardware.bluetooth.enable = true;
 	hardware.bluetooth.powerOnBoot = true;
-
+	
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
@@ -184,6 +195,7 @@ in
 		# Optionally, you may need to select the appropriate driver version for your specific GPU.
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 	};
+	hardware.nvidia-container-toolkit.enable = true;
 
 	# Groups
 	users.groups.media = {
@@ -251,6 +263,7 @@ in
 		util-linux
 		unzip
 		psmisc
+		nvtopPackages.full
 
 		# Filesystems
 		ntfs3g
@@ -273,7 +286,8 @@ in
 
 		# Network
 		transmission_4-qt
-		winbox
+		#winbox
+		unstable.winbox4
 		remmina
 		wireshark
 		seafile-client
@@ -294,7 +308,8 @@ in
 		perlPackages.FileHomeDir #latexindent
 		perlPackages.UnicodeLineBreak #latexindent
 		ocrmypdf
-
+		# dia # Broken
+	
 		# KDE
 		kdePackages.yakuake
 		xdg-desktop-portal-kde
@@ -307,17 +322,22 @@ in
 		thunderbird
 
 		# Audio
-		audacity
+		unstable.audacity
 		wireplumber
 
 		# Graphics
 		gimp
 		#krita #doesn't work on 4090
-
+		inkscape
+		librsvg
+	
 		# Development Tools
 		dbeaver-bin
 		bruno
-
+		#unstable.kdePackages.umbrello
+		umlet
+		
+		
 		# Development Backend
 		git
 		vscode
@@ -337,7 +357,7 @@ in
 		binutils
 
 		# Security
-		freecad
+		unstable.freecad-wayland
 		keepassxc
 
 		# Games
@@ -359,6 +379,9 @@ in
 		#feishin
 		#nheko
 		#unstable.delfin
+		
+		# NVIDIA
+		#nvidia-container-toolkit
 	];
 
 	programs.firefox = {
