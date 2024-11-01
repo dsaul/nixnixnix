@@ -101,6 +101,20 @@
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
 	};
+
+	#SMB
+	services.samba = {
+ 		enable = true;
+ 		securityType = "user";
+		openFirewall = true;
+		shares = {
+			homes = {
+				browseable = "no";  # note: each home will be browseable; the "homes" share will not.
+				"read only" = "no";
+				"guest ok" = "no";
+			};
+		};
+	};
 	
 	# SSHD
 	services.openssh = {
@@ -279,7 +293,8 @@
 		ncurses5
 		stdenv.cc
 		binutils
-
+		umlet
+		
 		# Security
 		freecad
 		keepassxc
