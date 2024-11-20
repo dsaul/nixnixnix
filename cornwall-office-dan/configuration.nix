@@ -1,4 +1,4 @@
- 
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -10,7 +10,7 @@
 { config, pkgs, ... }:
 let
   unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
-in 
+in
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,7 +22,7 @@ in
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
-	
+
 	boot.kernelParams = ["nvidia-drm.modeset=1"];
 
 	# Enable support for directly running app images.
@@ -32,16 +32,16 @@ in
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	networking.extraHosts = 
+	networking.extraHosts =
 		''
-		0.0.0.0 www.youtube.com
-		0.0.0.0 youtube.com
+
 		0.0.0.0 news.ycombinator.com
-		0.0.0.0 facebook.com
-		0.0.0.0 www.facebook.com
 		0.0.0.0 linkedin.com
 		0.0.0.0 www.linkedin.com
 		'';
+
+		#		0.0.0.0 www.youtube.com
+	#	0.0.0.0 youtube.com
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -79,10 +79,10 @@ in
 	# Enable the KDE Plasma Desktop Environment.
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
-	programs.kdeconnect.enable = true;
-	
+	#programs.kdeconnect.enable = true;
+
 	environment.plasma6.excludePackages = with pkgs.kdePackages; [
-		
+
 	];
 
 	# RDP
@@ -90,7 +90,7 @@ in
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
 
-	
+
 	# Printing
 	services.printing.enable = true;
 	systemd.services.cups-browsed.enable = false;
@@ -125,7 +125,21 @@ in
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
 	};
-	
+
+	#SMB
+	services.samba = {
+ 		enable = true;
+ 		securityType = "user";
+		openFirewall = true;
+		shares = {
+			homes = {
+				browseable = "no";  # note: each home will be browseable; the "homes" share will not.
+				"read only" = "no";
+				"guest ok" = "no";
+			};
+		};
+	};
+
 
 	# SSHD
 	services.openssh = {
@@ -155,7 +169,7 @@ in
 	# Hardware
 	hardware.bluetooth.enable = true;
 	hardware.bluetooth.powerOnBoot = true;
-	
+
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
@@ -300,7 +314,8 @@ in
 		obsidian
 		vim
 		kate
-		onlyoffice-bin
+		#onlyoffice-bin
+		unstable.onlyoffice-desktopeditors
 		libreoffice-qt6-fresh
 		texmaker
 		texliveFull
@@ -309,7 +324,7 @@ in
 		perlPackages.UnicodeLineBreak #latexindent
 		ocrmypdf
 		# dia # Broken
-	
+
 		# KDE
 		kdePackages.yakuake
 		xdg-desktop-portal-kde
@@ -327,17 +342,17 @@ in
 
 		# Graphics
 		gimp
-		#krita #doesn't work on 4090
+		krita #doesn't work on 4090
 		inkscape
 		librsvg
-	
+
 		# Development Tools
 		dbeaver-bin
 		bruno
 		#unstable.kdePackages.umbrello
 		umlet
-		
-		
+
+
 		# Development Backend
 		git
 		vscode
@@ -355,6 +370,14 @@ in
 		ncurses5
 		stdenv.cc
 		binutils
+		nodejs
+		go
+		python311
+		python311Packages.torch-bin
+		python311Packages.unidecode
+		python311Packages.inflect
+		python311Packages.librosa
+		python311Packages.pip
 
 		# Security
 		unstable.freecad-wayland
@@ -379,9 +402,21 @@ in
 		#feishin
 		#nheko
 		#unstable.delfin
-		
+
 		# NVIDIA
 		#nvidia-container-toolkit
+
+		basiliskii
+		krusader
+		xfce.thunar
+
+		(pkgs.wrapOBS {
+			plugins = with pkgs.obs-studio-plugins; [
+				wlrobs
+				obs-backgroundremoval
+				obs-pipewire-audio-capture
+			];
+		})
 	];
 
 	programs.firefox = {
@@ -608,4 +643,3 @@ in
 	system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-
