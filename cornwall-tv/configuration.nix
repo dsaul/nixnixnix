@@ -1,16 +1,13 @@
-
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-#sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-#sudo nix-channel --update nixos-unstable
+#sudo nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
+#sudo nix-channel --update "nixos-unstable"
 
 
 { config, pkgs, ... }:
-let
-  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
-in
+
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -23,25 +20,17 @@ in
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
-	boot.kernelParams = ["nvidia-drm.modeset=1"];
+	boot.kernelParams = [
+		"nvidia-drm.modeset=1"
+	];
 
 	# Enable support for directly running app images.
 	programs.appimage.enable = true;
 	programs.appimage.binfmt = true;
 
 	# Networking
-	networking.hostName = "cornwall-office-dan"; # Define your hostname.
+	networking.hostName = "cornwall-tv"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	networking.extraHosts =
-		''
-
-		0.0.0.0 news.ycombinator.com
-		0.0.0.0 linkedin.com
-		0.0.0.0 www.linkedin.com
-		'';
-
-		#		0.0.0.0 www.youtube.com
-	#	0.0.0.0 youtube.com
 
 	# MDNS
 	services.avahi = { # So we can discover our printer.
@@ -52,8 +41,6 @@ in
 
 	# Docker
 	virtualisation.docker.enable = true;
-	virtualisation.docker.package = pkgs.docker_25;
-	virtualisation.docker.liveRestore = false;
 
 	# Libvirt
 	virtualisation.libvirtd.enable = true;
@@ -62,9 +49,6 @@ in
 		swtpm.enable = true;
 		ovmf.packages = [ pkgs.OVMFFull.fd ];
 	};
-
-	#waydroid
-	virtualisation.waydroid.enable = true;
 
 	time.timeZone = "America/Winnipeg";
 	services.automatic-timezoned.enable = true;
@@ -79,14 +63,18 @@ in
 		variant = "";
 	};
 
+	#services.xserver.upscaleDefaultCursor = true;
+	#services.xserver.dpi = 220;
+
 	# Enable the KDE Plasma Desktop Environment.
 	services.displayManager.sddm.enable = true;
-	services.desktopManager.plasma6.enable = true;
-	#programs.kdeconnect.enable = true;
+	#services.displayManager.sddm.autoLogin.relogin = true;
+	#services.displayManager.autoLogin.user = "dan";
+	#services.displayManager.autoLogin.enable = true;
+	#services.desktopManager.plasma6.enable = true;
+	services.xserver.desktopManager.plasma5.enable = true;
 
-	environment.plasma6.excludePackages = with pkgs.kdePackages; [
-
-	];
+	programs.kdeconnect.enable = true;
 
 	# RDP
 	services.xrdp.enable = true;
@@ -96,7 +84,6 @@ in
 
 	# Printing
 	services.printing.enable = true;
-	systemd.services.cups-browsed.enable = false;
 	services.printing.drivers = [
 		pkgs.gutenprint
 		pkgs.gutenprintBin
@@ -105,9 +92,8 @@ in
 		pkgs.brlaser
 		pkgs.mfcl3770cdwlpr
 		pkgs.mfcl8690cdwcupswrapper
-		(pkgs.callPackage ./mfcl8900cdw.nix {}) # At some point if we need the exact driver, get this to work.
 	];
-	services.printing.logLevel = "debug";
+	#services.printing.logLevel = "debug";
 	hardware.printers = {
 		ensurePrinters = [
 			#https://discourse.nixos.org/t/declarative-printer-setup-missing-driver/33777/6
@@ -115,7 +101,6 @@ in
 				name = "Brother_MFCL8900CDW";
 				location = "Cornwall";
 				deviceUri = "ipp://10.5.5.14";
-				#model = "brother_mfcl8900cdw_printer_en.ppd"; # Brother Provided, Broken
 				model = "brother_mfcl8690cdw_printer_en.ppd";
 				ppdOptions = {
 					PageSize = "Letter";
@@ -127,20 +112,6 @@ in
 			}
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
-	};
-
-	#SMB
-	services.samba = {
- 		enable = true;
- 		securityType = "user";
-		openFirewall = true;
-		shares = {
-			homes = {
-				browseable = "no";  # note: each home will be browseable; the "homes" share will not.
-				"read only" = "no";
-				"guest ok" = "no";
-			};
-		};
 	};
 
 
@@ -212,7 +183,6 @@ in
 		# Optionally, you may need to select the appropriate driver version for your specific GPU.
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 	};
-	hardware.nvidia-container-toolkit.enable = true;
 
 	# Groups
 	users.groups.media = {
@@ -226,7 +196,7 @@ in
 		description = "Dan Saul";
 		extraGroups = [
 			"networkmanager"
-			"wheel"
+			#"wheel"
 			"docker"
 			"libvirtd"
 			"media"
@@ -244,8 +214,10 @@ in
 	];
 
 	environment.sessionVariables = rec {
-		ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
+		#ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
 		GSK_RENDERER = "gl";
+		XCURSOR_SIZE = "64";
+		PULSE_LATENCY_MSEC = "60";
 	};
 
 	# Allow unfree packages
@@ -280,15 +252,13 @@ in
 		util-linux
 		unzip
 		psmisc
+		read-edid
 		nvtopPackages.full
 
 		# Filesystems
 		ntfs3g
 		gparted
 		cifs-utils
-
-		#waydroid
-		wl-clipboard
 
 		# Media
 		par2cmdline-turbo
@@ -301,38 +271,34 @@ in
 		metamorphose2
 		handbrake
 		calibre
-		#unstable.jellyfin-media-player
 		flac
 
 		# Network
 		transmission_4-qt
 		#winbox
-		unstable.winbox4
-		remmina
-		wireshark
+		#remmina
+		#wireshark
 		seafile-client
-		freerdp
-		freerdp3
+		#freerdp
+		#freerdp3
 		ungoogled-chromium
 
 		# Editors
 		gedit
-		obsidian
+		#obsidian
 		vim
 		kate
-		#onlyoffice-bin
-		unstable.onlyoffice-desktopeditors
+		onlyoffice-bin
 		libreoffice-qt6-fresh
-		texmaker
-		texliveFull
-		perlPackages.YAMLTiny #latexindent
-		perlPackages.FileHomeDir #latexindent
-		perlPackages.UnicodeLineBreak #latexindent
-		ocrmypdf
-		# dia # Broken
+		#texmaker
+		#texliveFull
+		#perlPackages.YAMLTiny #latexindent
+		#perlPackages.FileHomeDir #latexindent
+		#perlPackages.UnicodeLineBreak #latexindent
+		#ocrmypdf
 
 		# KDE
-		kdePackages.yakuake
+		#kdePackages.yakuake
 		xdg-desktop-portal-kde
 		xdg-desktop-portal
 
@@ -340,53 +306,41 @@ in
 		discord
 		element-desktop
 		zoom-us
-		thunderbird
+		#thunderbird
 
 		# Audio
-		unstable.audacity
+		audacity
 		wireplumber
+		spotify
 
 		# Graphics
-		gimp
-		krita #doesn't work on 4090
-		inkscape
-		librsvg
+		#gimp
+		#krita #doesn't work on 4090
 
 		# Development Tools
-		dbeaver-bin
-		bruno
-		#unstable.kdePackages.umbrello
-		umlet
-
+		#dbeaver-bin
+		#bruno
 
 		# Development Backend
-		git
-		vscode
-		python312
-		python312Packages.pip
-		libgcc
-		cargo
-		gitRepo
-		gnupg
-		autoconf
-		gnumake
-		m4
-		gperf
-		cudatoolkit
-		ncurses5
-		stdenv.cc
-		binutils
-		nodejs
-		go
-		python311
-		python311Packages.torch-bin
-		python311Packages.unidecode
-		python311Packages.inflect
-		python311Packages.librosa
-		python311Packages.pip
+		#git
+		#vscode
+		#python312
+		#python312Packages.pip
+		#libgcc
+		#cargo
+		#gitRepo
+		#gnupg
+		#autoconf
+		#gnumake
+		#m4
+		#gperf
+		#cudatoolkit
+		#ncurses5
+		#stdenv.cc
+		#binutils
 
 		# Security
-		unstable.freecad-wayland
+		#freecad
 		keepassxc
 
 		# Games
@@ -396,33 +350,18 @@ in
 		ryujinx
 
 		# Virtualization
-		qemu
-		quickemu
-		virt-manager
-		libvirt
+		#qemu
+		#quickemu
+		#virt-manager
+		#libvirt
 
 		# Education
-		anki
-		qalculate-qt
+		#anki
+		#qalculate-qt
 
 		#feishin
 		#nheko
-		#unstable.delfin
-
-		# NVIDIA
-		#nvidia-container-toolkit
-
-		basiliskii
-		krusader
-		xfce.thunar
-
-		(pkgs.wrapOBS {
-			plugins = with pkgs.obs-studio-plugins; [
-				wlrobs
-				obs-backgroundremoval
-				obs-pipewire-audio-capture
-			];
-		})
+		jami
 	];
 
 	programs.firefox = {
@@ -460,15 +399,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
-	};
-	fileSystems."/mnt/DOCUMENTS-01" = {
-		device = "//10.5.5.10/DOCUMENTS-01";
-		fsType = "cifs";
-		options = let
-		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 
@@ -477,7 +408,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-02" = {
@@ -485,7 +416,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-03" = {
@@ -493,7 +424,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-04" = {
@@ -501,7 +432,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-05" = {
@@ -509,7 +440,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-06" = {
@@ -517,7 +448,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-07" = {
@@ -525,7 +456,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-08" = {
@@ -533,7 +464,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-09" = {
@@ -541,7 +472,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-10" = {
@@ -549,7 +480,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-11" = {
@@ -557,7 +488,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-12" = {
@@ -565,7 +496,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-13" = {
@@ -573,7 +504,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-14" = {
@@ -581,7 +512,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-15" = {
@@ -589,7 +520,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-16" = {
@@ -597,7 +528,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-17" = {
@@ -605,7 +536,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 	fileSystems."/mnt/MEDIA-18" = {
@@ -613,7 +544,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 
@@ -622,7 +553,7 @@ in
 		fsType = "cifs";
 		options = let
 		# this line prevents hanging on network split
-		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		automount_opts = "x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,ro";
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 
