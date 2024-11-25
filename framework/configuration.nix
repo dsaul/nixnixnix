@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+in
 {
 	imports =
 	[ # Include the results of the hardware scan.
@@ -34,10 +36,10 @@
 		nssmdns4 = true;
 		openFirewall = true;
 	};
-	
+
 	# Docker
 	virtualisation.docker.enable = true;
-	
+
 	# Libvirt
 	virtualisation.libvirtd.enable = true;
 	virtualisation.spiceUSBRedirection.enable = true;
@@ -50,7 +52,7 @@
 	time.timeZone = "America/Winnipeg";
 	services.automatic-timezoned.enable = true;
 	i18n.defaultLocale = "en_CA.UTF-8";
-	
+
 	# Enable the X11 windowing system.
 	# You can disable this if you're only using the Wayland session.
 	services.xserver.enable = true;
@@ -59,17 +61,17 @@
 		layout = "us";
 		variant = "";
 	};
-	
+
 	# Enable the KDE Plasma Desktop Environment.
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
-	programs.kdeconnect.enable = true;
+	#programs.kdeconnect.enable = true;
 
 	# RDP
 	services.xrdp.enable = true;
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
-	
+
 	# Printing
 	services.printing.enable = true;
 	services.printing.drivers = [
@@ -115,7 +117,7 @@
 			};
 		};
 	};
-	
+
 	# SSHD
 	services.openssh = {
 		enable = true;
@@ -124,7 +126,7 @@
 		settings.PermitRootLogin = "yes";
 	};
 	programs.ssh.startAgent = true;
-	
+
 	# Sound
 	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
@@ -166,7 +168,7 @@
 			"media"
 		];
 		packages = with pkgs; [
-			
+
 		];
 		openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
@@ -180,7 +182,7 @@
 	environment.sessionVariables = rec {
 		ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
 	};
-	
+
 
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
@@ -269,7 +271,7 @@
 		thunderbird
 
 		# Audio
-		audacity
+		unstable.audacity
 
 		# Graphics
 		gimp
@@ -294,7 +296,7 @@
 		stdenv.cc
 		binutils
 		umlet
-		
+
 		# Security
 		freecad
 		keepassxc
@@ -317,12 +319,89 @@
 
 		#feishin
 		#nheko
+		jami
+		fw-ectool
+		(pkgs.wrapOBS {
+			plugins = with pkgs.obs-studio-plugins; [
+				wlrobs
+				obs-backgroundremoval
+				obs-pipewire-audio-capture
+			];
+		})
 	];
 
 	programs.firefox = {
 		enable = true;
 		preferences = {
 			"widget.use-xdg-desktop-portal.file-picker" = 1;
+
+			# Disable mozilla injecting preferences.
+			"app.normandy.api_url" = "";
+			"app.normandy.enabled" = false;
+
+			# No we don't want to be your guinea pigs.
+			"app.shield.optoutstudies.enabled" = false;
+
+
+			"app.update.auto" = false; # No auto updates.
+			"beacon.enabled" = false; # Don't tell websites what you click on.
+			"browser.send_pings" = false; # Don't tell websites what you click on.
+			"breakpad.reportURL" = ""; # Don't send crash reports.
+			"browser.crashReports.unsubmittedCheck.autoSubmit" = false; # Don't send crash reports.
+			"browser.crashReports.unsubmittedCheck.autoSubmit2" = false; # Don't send crash reports.
+			"browser.crashReports.unsubmittedCheck.enabled" = false; # Don't send crash reports.
+
+			"browser.disableResetPrompt" = true; # don't prompt to reset after period of inactivity
+
+			"browser.aboutConfig.showWarning" = false; # don't show danger warning on about:config
+			"browser.fixup.alternate.enabled" = false; # don't have firefox attempt to change uris
+
+			"browser.newtab.preload" = false; # disable preloading of pages on new tab
+			"browser.newtabpage.activity-stream.section.highlights.includePocket" = false; # fuck pocket
+			"browser.newtabpage.enhanced" = false; # disable new tab ads
+			"browser.newtabpage.introShown" = true;  # disable new tab ads
+
+			# disable safebrowsing (send everything to google)
+			"browser.safebrowsing.appRepURL" = "";
+			"browser.safebrowsing.blockedURIs.enabled" = false;
+			"browser.safebrowsing.downloads.enabled" = false;
+			"browser.safebrowsing.downloads.remote.enabled" = false;
+			"browser.safebrowsing.downloads.remote.url" = "";
+			"browser.safebrowsing.enabled" = false;
+			"browser.safebrowsing.malware.enabled" = false;
+			"browser.safebrowsing.phishing.enabled" = false;
+
+
+			"browser.search.suggest.enabled" = false; # disable sending typed form data to search provider
+
+			"browser.selfsupport.url" = ""; # Disable metrics to mozilla.
+
+			"browser.sessionstore.privacy_level" = 0; # Allow session restore to contain form fields.
+			"browser.shell.checkDefaultBrowser" = true; # prompt if not default browser
+			"browser.startup.homepage_override.mstone" = "ignore"; # no you don't change my homepage automatically, wtf
+			"browser.tabs.crashReporting.sendReport" = false; # disable sending of crash reports
+			"browser.urlbar.groupLabels.enabled" = false; # disable firefox suggest
+			"browser.urlbar.quicksuggest.enabled" = false; # disable firefox suggest
+			"browser.urlbar.speculativeConnect.enabled" = false; # don't connect unless we actually try to connect
+			"browser.urlbar.trimURLs" = false; # don't hide part of the url bar, wtf
+
+			# disable telemetry
+			"toolkit.telemetry.archive.enabled" = false;
+			"toolkit.telemetry.bhrPing.enabled" = false;
+			"toolkit.telemetry.cachedClientID" = "";
+			"toolkit.telemetry.enabled" = false;
+			"toolkit.telemetry.firstShutdownPing.enabled" = false;
+			"toolkit.telemetry.hybridContent.enabled" = false;
+			"toolkit.telemetry.newProfilePing.enabled" = false;
+			"toolkit.telemetry.prompted" = 2;
+			"toolkit.telemetry.rejected" = true;
+			"toolkit.telemetry.reportingpolicy.firstRun" = false;
+			"toolkit.telemetry.server" = "";
+			"toolkit.telemetry.shutdownPingSender.enabled" = false;
+			"toolkit.telemetry.unified" = false;
+			"toolkit.telemetry.unifiedIsOptIn" = false;
+			"toolkit.telemetry.updatePing.enabled" = false;
+
 		};
 	};
 	programs.mtr.enable = true;
@@ -342,8 +421,8 @@
 		proggyfonts
 		atkinson-hyperlegible
 	];
-	
-	
+
+
 	# Filesystems
 	services.gvfs.enable = true;
 
@@ -365,7 +444,7 @@
 		in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.dan.uid},gid=${toString config.users.groups.media.gid}"];
 	};
 
-	
+
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
