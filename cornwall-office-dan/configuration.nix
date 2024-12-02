@@ -67,7 +67,7 @@ in
 	virtualisation.waydroid.enable = true;
 
 	time.timeZone = "America/Winnipeg";
-	services.automatic-timezoned.enable = true;
+	#services.automatic-timezoned.enable = true;
 	i18n.defaultLocale = "en_CA.UTF-8";
 
 	# Enable the X11 windowing system.
@@ -132,9 +132,9 @@ in
 	#SMB
 	services.samba = {
  		enable = true;
- 		securityType = "user";
 		openFirewall = true;
-		shares = {
+		settings = {
+			global.security = "user";
 			homes = {
 				browseable = "no";  # note: each home will be browseable; the "homes" share will not.
 				"read only" = "no";
@@ -252,19 +252,16 @@ in
 	nixpkgs.config.allowUnfree = true;
 
 	# Required for Steam
-	hardware.opengl = {
-		enable = true; # Enable OpenGL required for nvidia
-		driSupport = true;
-		driSupport32Bit = true;
+	hardware.graphics = {
+		enable = true;
 		extraPackages = with pkgs; [
-			libGL
-		];
-		setLdLibraryPath = true;
+                        libGL
+                ];
+		enable32Bit = true;
 	};
 
 
 	# Installed Packages
-	nixpkgs.config.permittedInsecurePackages = [  "olm-3.2.16" ];
 	environment.systemPackages = with pkgs; [
 		# Expected commands
 		dig
@@ -373,8 +370,8 @@ in
 		# Development Backend
 		git
 		vscode
-		python312
-		python312Packages.pip
+		#python312
+		#python312Packages.pip
 		libgcc
 		cargo
 		gitRepo
@@ -389,12 +386,12 @@ in
 		binutils
 		nodejs
 		go
-		python311
-		python311Packages.torch-bin
-		python311Packages.unidecode
-		python311Packages.inflect
-		python311Packages.librosa
-		python311Packages.pip
+		#python311
+		#python311Packages.torch-bin
+		#python311Packages.unidecode
+		#python311Packages.inflect
+		#python311Packages.librosa
+		#python311Packages.pip
 
 		# Security
 		unstable.freecad-wayland
@@ -453,7 +450,7 @@ in
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts
-		noto-fonts-cjk
+		noto-fonts-cjk-sans
 		noto-fonts-emoji
 		liberation_ttf
 		fira-code
