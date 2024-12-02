@@ -14,6 +14,10 @@
 		variant = "";
 	};
 
+	xdg.portal.enable = true;
+	xdg.portal.xdgOpenUsePortal = true;
+	services.tumbler.enable = true;
+
 	# Enable the KDE Plasma Desktop Environment.
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
@@ -22,4 +26,18 @@
 	environment.plasma6.excludePackages = with pkgs.kdePackages; [
 		
 	];		
+
+	environment.systemPackages = with pkgs; [
+		kdePackages.yakuake
+		kdePackages.xdg-desktop-portal-kde
+		xdg-desktop-portal	
+		xfce.thunar # sshfs works best with this
+		qalculate-qt # a better calculator
+	];
+
+	environment.sessionVariables = rec {
+                ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
+                GSK_RENDERER = "gl";
+        };
+
 }

@@ -1,6 +1,8 @@
 
 { config, lib, pkgs, modulesPath, ... }:
-
+let
+  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+in 
 {
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -20,4 +22,10 @@
 		# no need to redefine it in your config for now)
 		#media-session.enable = true;
 	};
+
+	environment.systemPackages = with pkgs; [
+		wireplumber
+		qpwgraph
+		unstable.sonusmix
+	];
 }

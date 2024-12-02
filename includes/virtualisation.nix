@@ -20,4 +20,15 @@
 
 	#waydroid
 	virtualisation.waydroid.enable = true;
+
+
+	environment.systemPackages = with pkgs; [
+		wl-clipboard
+
+		qemu
+		quickemu
+		virt-manager
+		libvirt
+		basiliskii
+	];
 }

@@ -4,7 +4,14 @@
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
-
-	time.timeZone = "America/Winnipeg";
-	i18n.defaultLocale = "en_CA.UTF-8";
+	
+	
+	environment.systemPackages = with pkgs; [
+		gimp
+		krita #doesn't work on 4090
+		inkscape
+		librsvg
+	];
 }
+	
+
