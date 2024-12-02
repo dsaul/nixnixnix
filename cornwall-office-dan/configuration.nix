@@ -1,4 +1,4 @@
-
+ 
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -10,7 +10,7 @@
 { config, pkgs, ... }:
 let
   unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
-in
+in 
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,7 +22,7 @@ in
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
-
+	
 	boot.kernelParams = ["nvidia-drm.modeset=1"];
 
 	# Enable support for directly running app images.
@@ -32,14 +32,14 @@ in
 	# Networking
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	networking.extraHosts =
+	networking.extraHosts = 
 		''
 
 		0.0.0.0 news.ycombinator.com
 		0.0.0.0 linkedin.com
 		0.0.0.0 www.linkedin.com
 		'';
-
+		
 		#		0.0.0.0 www.youtube.com
 	#	0.0.0.0 youtube.com
 
@@ -62,7 +62,7 @@ in
 		swtpm.enable = true;
 		ovmf.packages = [ pkgs.OVMFFull.fd ];
 	};
-
+	
 	#waydroid
 	virtualisation.waydroid.enable = true;
 
@@ -83,9 +83,9 @@ in
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
 	#programs.kdeconnect.enable = true;
-
+	
 	environment.plasma6.excludePackages = with pkgs.kdePackages; [
-
+		
 	];
 
 	# RDP
@@ -93,7 +93,7 @@ in
 	services.xrdp.defaultWindowManager = "startplasma-x11";
 	services.xrdp.openFirewall = true;
 
-
+	
 	# Printing
 	services.printing.enable = true;
 	systemd.services.cups-browsed.enable = false;
@@ -128,7 +128,7 @@ in
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
 	};
-
+	
 	#SMB
 	services.samba = {
  		enable = true;
@@ -142,7 +142,7 @@ in
 			};
 		};
 	};
-
+	
 
 	# SSHD
 	services.openssh = {
@@ -162,7 +162,7 @@ in
 		alsa.support32Bit = true;
 		pulse.enable = true;
 		# If you want to use JACK applications, uncomment this
-		#jack.enable = true;
+		jack.enable = true;
 
 		# use the example session manager (no others are packaged yet so this is enabled by default,
 		# no need to redefine it in your config for now)
@@ -172,7 +172,7 @@ in
 	# Hardware
 	hardware.bluetooth.enable = true;
 	hardware.bluetooth.powerOnBoot = true;
-
+	
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
@@ -286,7 +286,7 @@ in
 		ntfs3g
 		gparted
 		cifs-utils
-
+		
 		#waydroid
 		wl-clipboard
 
@@ -294,6 +294,7 @@ in
 		par2cmdline-turbo
 		kid3-qt
 		vlc
+		mplayer
 		ffmpeg_7-full
 		yt-dlp
 		spotify
@@ -314,6 +315,7 @@ in
 		freerdp
 		freerdp3
 		ungoogled-chromium
+		wireguard-tools
 
 		# Editors
 		gedit
@@ -330,14 +332,21 @@ in
 		perlPackages.UnicodeLineBreak #latexindent
 		ocrmypdf
 		# dia # Broken
-
+	
 		# KDE
 		kdePackages.yakuake
-		xdg-desktop-portal-kde
+		kdePackages.xdg-desktop-portal-kde
 		xdg-desktop-portal
 
 		# Communication
-		discord
+		#discord
+		#(discord.override {
+		#	# withOpenASAR = true; # can do this here too
+		#	withVencord = true;
+		#})
+		vesktop
+		jami
+		
 		element-desktop
 		zoom-us
 		thunderbird
@@ -345,20 +354,22 @@ in
 		# Audio
 		unstable.audacity
 		wireplumber
-
+		qpwgraph
+		unstable.sonusmix
+		
 		# Graphics
 		gimp
 		krita #doesn't work on 4090
 		inkscape
 		librsvg
-
+	
 		# Development Tools
 		dbeaver-bin
 		bruno
 		#unstable.kdePackages.umbrello
 		umlet
-
-
+		
+		
 		# Development Backend
 		git
 		vscode
@@ -408,14 +419,14 @@ in
 		#feishin
 		#nheko
 		#unstable.delfin
-
+		
 		# NVIDIA
 		#nvidia-container-toolkit
-
+		
 		basiliskii
 		krusader
 		xfce.thunar
-
+		
 		(pkgs.wrapOBS {
 			plugins = with pkgs.obs-studio-plugins; [
 				wlrobs
@@ -429,12 +440,16 @@ in
 		enable = true;
 		preferences = {
 			"widget.use-xdg-desktop-portal.file-picker" = 1;
+			"PULSE_LATENCY_MSEC" = "60";
 		};
 	};
 	programs.mtr.enable = true;
 	programs.nix-ld.enable = true;
 	services.tumbler.enable = true;
 
+	xdg.portal.enable = true;
+	xdg.portal.xdgOpenUsePortal = true;
+	
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts
@@ -649,3 +664,4 @@ in
 	system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
