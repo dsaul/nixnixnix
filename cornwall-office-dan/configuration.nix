@@ -73,10 +73,10 @@ in
 	environment.systemPackages = with pkgs; [
 	];
 
-	fileSystems."/Drive2" =
-    { device = "/dev/disk/by-label/Drive2";
-      fsType = "xfs";
-    };
+	#fileSystems."/Drive2" =
+    #{ device = "/dev/disk/by-label/Drive2";
+    #  fsType = "xfs";
+    #};
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
