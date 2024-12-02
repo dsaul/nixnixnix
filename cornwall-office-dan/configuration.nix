@@ -73,11 +73,10 @@ in
 	environment.systemPackages = with pkgs; [
 	];
 
-	# Open ports in the firewall.
-	# networking.firewall.allowedTCPPorts = [ ... ];
-	# networking.firewall.allowedUDPPorts = [ ... ];
-	# Or disable the firewall altogether.
-	# networking.firewall.enable = false;
+	fileSystems."/Drive2" =
+    { device = "/dev/disk/by-label/Drive2";
+      fsType = "xfs";
+    };
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
