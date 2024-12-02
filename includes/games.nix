@@ -6,7 +6,7 @@
 	#  ];
 
 	environment.systemPackages = with pkgs; [
-                steam
+		steam
 		sunshine
 		moonlight-qt
 		ryujinx
@@ -17,15 +17,15 @@
 				obs-pipewire-audio-capture
 			];
 		})
-        ];
+	];
 
 
 	# Required for Steam
 	hardware.graphics = {
 		enable = true;
 		extraPackages = with pkgs; [
-                        libGL
-                ];
+			libGL
+		];
 		enable32Bit = true;
 	};	
 }

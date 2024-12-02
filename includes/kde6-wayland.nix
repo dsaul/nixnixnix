@@ -25,7 +25,7 @@
 	
 	environment.plasma6.excludePackages = with pkgs.kdePackages; [
 		
-	];		
+	];
 
 	environment.systemPackages = with pkgs; [
 		kdePackages.yakuake
@@ -36,8 +36,8 @@
 	];
 
 	environment.sessionVariables = rec {
-                ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
-                GSK_RENDERER = "gl";
-        };
+			ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
+			GSK_RENDERER = "gl";
+	};
 
 }
