@@ -27,6 +27,7 @@
 		util-linux
 		unzip
 		psmisc
+		git
 
 		# Filesystems
 		xfsprogs

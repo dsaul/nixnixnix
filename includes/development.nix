@@ -15,7 +15,6 @@
 		
 		
 		# Development Backend
-		git
 		vscode
 		#python312
 		#python312Packages.pip
