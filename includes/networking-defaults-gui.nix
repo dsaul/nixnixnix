@@ -32,7 +32,10 @@ in
 			
 			# No we don't want to be your guinea pigs.
 			"app.shield.optoutstudies.enabled" = false;
-			
+			"experiments.activeExperiment" = false;
+			"experiments.enabled" = false;
+			"experiments.manifest.uri" = "";
+			"experiments.supported" = false;
 			
 			"app.update.auto" = false; # No auto updates.
 			"beacon.enabled" = false; # Don't tell websites what you click on.
@@ -64,7 +67,6 @@ in
 			
 			
 			"browser.search.suggest.enabled" = false; # disable sending typed form data to search provider
-			
 			"browser.selfsupport.url" = ""; # Disable metrics to mozilla.
 
 			"browser.sessionstore.privacy_level" = 0; # Allow session restore to contain form fields.
@@ -75,6 +77,8 @@ in
 			"browser.urlbar.quicksuggest.enabled" = false; # disable firefox suggest
 			"browser.urlbar.speculativeConnect.enabled" = false; # don't connect unless we actually try to connect
 			"browser.urlbar.trimURLs" = false; # don't hide part of the url bar, wtf
+			"keyword.enabled" = false;
+			"network.IDN_show_punycode" = false;
 			
 			# disable telemetry
 			"toolkit.telemetry.archive.enabled" = false;
@@ -92,6 +96,49 @@ in
 			"toolkit.telemetry.unified" = false;
 			"toolkit.telemetry.unifiedIsOptIn" = false;
 			"toolkit.telemetry.updatePing.enabled" = false;
+			"datareporting.healthreport.service.enabled" = false;
+			"datareporting.healthreport.uploadEnabled" = false;
+			"datareporting.policy.dataSubmissionEnabled" = false;
+
+			# Fingerprinting Prefs
+			"device.sensors.ambientLight.enabled" = false;
+			"device.sensors.enabled" = false;
+			"device.sensors.motion.enabled" = false;
+			"device.sensors.orientation.enabled" = false;
+			"device.sensors.proximity.enabled" = false;
+			"dom.battery.enabled" = false;
+			"dom.event.clipboardevents.enabled" = false;
+			"dom.private-attribution.submission.enabled" = false;
+			"media.video_stats.enabled" = false;
+
+			# Extensions
+			"extensions.FirefoxMulti-AccountContainers@mozilla.whiteList" = "";
+			"extensions.TemporaryContainers@stoically.whiteList" = "";
+			"extensions.getAddons.cache.enabled" = false;
+			"extensions.getAddons.showPane" = false;
+			"extensions.greasemonkey.stats.optedin" = false;
+			"extensions.greasemonkey.stats.url" = "";
+			"extensions.pocket.enabled" = false;
+			"extensions.shield-recipe-client.api_url" = "";
+			"extensions.shield-recipe-client.enabled" = false;
+			"extensions.webservice.discoverURL" = "";
+
+			# Generic User Agent
+			"general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.3";
+
+			# No autoplay
+			"media.autoplay.default" = 0;
+			"media.autoplay.enabled"  = false;
+
+			# No encrypted media
+			"media.eme.enabled" = false;
+			"media.gmp-widevinecdm.enabled" = false;
+			"browser.eme.ui.enabled" = false;
+
+
+
+
+
 		};
 	};
 
