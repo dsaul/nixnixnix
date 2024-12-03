@@ -32,7 +32,7 @@
 
 		];
 		openssh.authorizedKeys.keys = [
-			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd"
 		];
 	};
 
@@ -56,7 +56,7 @@
 		uid=1999;
 		isNormalUser = true;
 		description = "TV";
-		hashedPassword = "";
+		hashedPassword = "$y$j9T$0Aj5Gx4w/9139z1kNZJrj1$.kAIIBxO9zkq0IsRDi6dP8ypZKJl8Y67Ee5kVOZVVm8";
 		createHome = true;
 		extraGroups = [
 			"networkmanager"
@@ -71,7 +71,7 @@
 	users.users.root = {
 		hashedPassword = "$y$j9T$htmwtfRKe.JTWSYBFx2t//$vdFRKshNW4quHTF1F76d2zoF7BHNJNAdVAhpNzcyKk1";
 		openssh.authorizedKeys.keys = [
-			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd dan@dsaul.ca"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd"
 		];
 	};
 
