@@ -58,8 +58,10 @@
 		description = "TV";
 		hashedPassword = "";
 		createHome = true;
-		"networkmanager"
-		"media"
+		extraGroups = [
+			"networkmanager"
+			"media"
+		];
 	};
 
 
