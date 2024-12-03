@@ -7,7 +7,9 @@
 
 
 { config, pkgs, ... }:
-
+let
+  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+in
 {
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -51,7 +53,6 @@
 	};
 
 	time.timeZone = "America/Winnipeg";
-	services.automatic-timezoned.enable = true;
 	i18n.defaultLocale = "en_CA.UTF-8";
 
 	# Enable the X11 windowing system.
@@ -62,7 +63,7 @@
 		layout = "us";
 		variant = "";
 	};
-
+	
 	#services.xserver.upscaleDefaultCursor = true;
 	#services.xserver.dpi = 220;
 
@@ -73,7 +74,7 @@
 	#services.displayManager.autoLogin.enable = true;
 	#services.desktopManager.plasma6.enable = true;
 	services.xserver.desktopManager.plasma5.enable = true;
-
+	
 	programs.kdeconnect.enable = true;
 
 	# RDP
@@ -133,12 +134,73 @@
 		alsa.support32Bit = true;
 		pulse.enable = true;
 		# If you want to use JACK applications, uncomment this
-		#jack.enable = true;
+		jack.enable = true;
 
 		# use the example session manager (no others are packaged yet so this is enabled by default,
 		# no need to redefine it in your config for now)
 		#media-session.enable = true;
 	};
+	
+	services.pipewire.extraConfig.pipewire."91-null-sinks" = {
+		
+		"context.objects" = [
+			{
+				factory = "adapter";
+				args = {
+					"factory.name"     = "support.null-audio-sink";
+					"node.name"        = "Virtual-Sink";
+					"node.description" = "Virtual Sink";
+					"media.class"      = "Audio/Sink";
+					"audio.position"   = "FL FR FC LFE RL RR";
+					"monitor.channel-volumes" = true;
+				};
+			}
+			
+			
+			#{
+			#	# A default dummy driver. This handles nodes marked with the "node.always-driver"
+			#	# properyty when no other driver is currently active. JACK clients need this.
+			#	factory = "spa-node-factory";
+			#	args = {
+			#	"factory.name"     = "support.node.driver";
+			#	"node.name"        = "Dummy-Driver";
+			#	"priority.driver"  = 8000;
+			#	};
+			#}
+			#{
+			#	factory = "adapter";
+			#	args = {
+			#	"factory.name"     = "support.null-audio-sink";
+			#	"node.name"        = "Microphone-Proxy";
+			#	"node.description" = "Microphone";
+			#	"media.class"      = "Audio/Source/Virtual";
+			#	"audio.position"   = "MONO";
+			#	};
+			#}
+			#{
+			#	factory = "adapter";
+			#	args = {
+			#	"factory.name"     = "support.null-audio-sink";
+			#	"node.name"        = "Main-Output-Proxy";
+			#	"node.description" = "Main Output";
+			#	"media.class"      = "Audio/Sink";
+			#	"audio.position"   = "FL,FR";
+			#	};
+			#}
+		];
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	# Hardware
 	hardware.bluetooth.enable = true;
@@ -217,22 +279,20 @@
 		#ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
 		GSK_RENDERER = "gl";
 		XCURSOR_SIZE = "64";
-		PULSE_LATENCY_MSEC = "60";
+		PULSE_LATENCY_MSEC = "60"; 
 	};
 
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
 	# Required for Steam
-	hardware.opengl = {
-		enable = true; # Enable OpenGL required for nvidia
-		driSupport = true;
-		driSupport32Bit = true;
+	hardware.graphics = {
+		enable = true;
 		extraPackages = with pkgs; [
 			libGL
 		];
-		setLdLibraryPath = true;
-	};
+		enable32Bit = true;
+	};	
 
 
 	# Installed Packages
@@ -254,7 +314,8 @@
 		psmisc
 		read-edid
 		nvtopPackages.full
-
+		git
+		
 		# Filesystems
 		ntfs3g
 		gparted
@@ -312,6 +373,10 @@
 		audacity
 		wireplumber
 		spotify
+		qpwgraph
+		pulseaudio
+		calf
+		lsp-plugins
 
 		# Graphics
 		#gimp
@@ -377,7 +442,7 @@
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts
-		noto-fonts-cjk
+		noto-fonts-cjk-sans
 		noto-fonts-emoji
 		liberation_ttf
 		fira-code
@@ -580,3 +645,4 @@
 	system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
