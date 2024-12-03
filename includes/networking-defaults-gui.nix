@@ -77,7 +77,7 @@ in
 			"browser.urlbar.quicksuggest.enabled" = false; # disable firefox suggest
 			"browser.urlbar.speculativeConnect.enabled" = false; # don't connect unless we actually try to connect
 			"browser.urlbar.trimURLs" = false; # don't hide part of the url bar, wtf
-			"keyword.enabled" = false;
+			#"keyword.enabled" = false;
 			"network.IDN_show_punycode" = false;
 			
 			# disable telemetry
