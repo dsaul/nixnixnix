@@ -27,5 +27,9 @@
 			libGL
 		];
 		enable32Bit = true;
-	};	
+	};
+
+	environment.sessionVariables = rec {
+		PULSE_LATENCY_MSEC = "60";
+	};
 }
