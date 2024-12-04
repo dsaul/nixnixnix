@@ -33,7 +33,7 @@ in
 		../includes/games.nix
 		../includes/usersandgroups.nix
 		../includes/virtualisation.nix
-		../includes/xrdp-kde.nix
+		#../includes/xrdp-kde.nix
 		../includes/filesystems-documents.nix
 		../includes/filesystems-media.nix
 		../includes/filesystems-fs.nix
