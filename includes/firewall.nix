@@ -8,8 +8,8 @@ in
 	#  ];
 
 	# Open ports in the firewall.
-	networking.firewall.allowedTCPPorts = [ 3389 ];
-	networking.firewall.allowedUDPPorts = [ 3389 ];
+	#networking.firewall.allowedTCPPorts = [  ];
+	#networking.firewall.allowedUDPPorts = [  ];
 	# Or disable the firewall altogether.
 	# networking.firewall.enable = false;	
 }
