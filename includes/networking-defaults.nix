@@ -11,5 +11,6 @@
 		curl
 		yt-dlp
 		wireguard-tools
+		inetutils
 	];	
 }
