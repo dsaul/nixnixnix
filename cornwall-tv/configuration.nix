@@ -39,7 +39,7 @@ in
 		../includes/fonts.nix
 		#../includes/tex.nix
 		#../includes/editors-text.nix
-		#../includes/editors-daw.nix
+		../includes/editors-daw.nix
 		#../includes/editors-office.nix
 		#../includes/editors-notes.nix
 		#../includes/editors-graphics.nix
