@@ -34,7 +34,7 @@
 		openRPCPort = true; #Open firewall for RPC
 		settings = { #Override default settings
 			rpc-bind-address = "0.0.0.0"; #Bind to own IP
-			rpc-whitelist = "127.0.0.1,10.5.5.20"; #Whitelist your remote machine (10.0.0.1 in this example)
+			rpc-whitelist = "127.0.0.1,10.5.5.*,172.16.0.*"; #Whitelist your remote machine (10.0.0.1 in this example)
 			incomplete-dir = "/srv/FS/Filesharing/incomplete";
 			download-dir = "/srv/FS/Filesharing/complete";
 			watch-dir = "/srv/FS/Filesharing/watch";
