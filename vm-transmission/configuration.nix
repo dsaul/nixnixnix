@@ -26,7 +26,13 @@
 	boot.loader.grub.useOSProber = true;
 
 	networking.hostName = "transmission"; # Define your hostname.
-	networking.networkmanager.enable = true;
+	#networking.networkmanager.enable = true;
+
+	networking = {
+		interfaces.ens18 = {
+			useDHCP = true;
+		};
+	};
 
 	#networking.wg-quick.interfaces = {
 	#	wg0 = {
