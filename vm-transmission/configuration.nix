@@ -28,22 +28,22 @@
 	networking.hostName = "transmission"; # Define your hostname.
 	networking.networkmanager.enable = true;
 
-	networking.wg-quick.interfaces = {
-    wg0 = {
-      address = [ "10.11.162.47" ];
-      dns = [ "10.0.0.243" "10.0.0.242" ];
-      privateKeyFile = "/etc/nixos/vm-transmission/secrets-vpn.txt";
+	#networking.wg-quick.interfaces = {
+	#	wg0 = {
+	#		address = [ "10.11.162.47" ];
+	#		dns = [ "10.0.0.243" "10.0.0.242" ];
+	#		privateKeyFile = "/etc/nixos/vm-transmission/secrets-vpn.txt";
 
-      peers = [
-        {
-          publicKey = "6sG1zN6gjvHv4H9TJkwpTrpyGaFIspPYD2wAfQAEVDc=";
-          allowedIPs = [ "0.0.0.0/0" ];
-          endpoint = "156.146.60.140:1337";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
+	#		peers = [
+	#			{
+	#				publicKey = "6sG1zN6gjvHv4H9TJkwpTrpyGaFIspPYD2wAfQAEVDc=";
+	#				allowedIPs = [ "0.0.0.0/0" ];
+	#				endpoint = "156.146.60.140:1337";
+	#				persistentKeepalive = 25;
+	#			}
+	#		];
+	#	};
+	#};
 
 
 
