@@ -52,7 +52,7 @@
 	#};
 
 	services.openvpn.servers = {
-		vpn  = { config = '' config /etc/nixos/vm-transmission/austria-aes-256-gcm-tcp-dns.ovpn ''; };
+		vpn  = { config = '' config //etc/nixos/vm-transmission/austria-aes-256-gcm-tcp-dns.ovpn ''; };
 	};
 
 
