@@ -36,6 +36,8 @@ in
 			"experiments.enabled" = false;
 			"experiments.manifest.uri" = "";
 			"experiments.supported" = false;
+			"network.allow-experiments" = false;
+			"network.cookie.cookieBehavior" = 1;
 			
 			"app.update.auto" = false; # No auto updates.
 			"beacon.enabled" = false; # Don't tell websites what you click on.
@@ -54,6 +56,13 @@ in
 			"browser.newtabpage.activity-stream.section.highlights.includePocket" = false; # fuck pocket
 			"browser.newtabpage.enhanced" = false; # disable new tab ads
 			"browser.newtabpage.introShown" = true;  # disable new tab ads
+			"services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
+			"browser.newtabpage.introShown" = true;
+			"pdfjs.enableScripting" = false;
+
+
+
+
 
 			# disable safebrowsing (send everything to google)
 			"browser.safebrowsing.appRepURL" = "";
@@ -64,7 +73,7 @@ in
 			"browser.safebrowsing.enabled" = false;
 			"browser.safebrowsing.malware.enabled" = false;
 			"browser.safebrowsing.phishing.enabled" = false;
-			
+
 			
 			"browser.search.suggest.enabled" = false; # disable sending typed form data to search provider
 			"browser.selfsupport.url" = ""; # Disable metrics to mozilla.
@@ -110,6 +119,28 @@ in
 			"dom.event.clipboardevents.enabled" = false;
 			"dom.private-attribution.submission.enabled" = false;
 			"media.video_stats.enabled" = false;
+
+			# Privacy Settings
+			"network.http.referer.spoofSource" = true;
+			"network.dns.disablePrefetchFromHTTPS" = true;
+			"network.dns.disablePrefetch" = true;
+			"network.http.speculative-parallel-limit" = 0;
+			"network.predictor.enable-prefetch" = false;
+			"network.predictor.enabled" = false;
+			"network.prefetch-next" = false;
+			"network.trr.mode" = 5;
+			"privacy.donottrackheader.enabled" = true;
+			"privacy.donottrackheader.value" = 1;
+			"privacy.query_stripping" = true;
+			"privacy.trackingprotection.cryptomining.enabled" = true;
+			"privacy.trackingprotection.enabled" = true;
+			"privacy.trackingprotection.fingerprinting.enabled" = true;
+			"privacy.trackingprotection.pbmode.enabled" = true;
+			"privacy.usercontext.about_newtab_segregation.enabled" = true;
+			"security.ssl.disable_session_identifiers" = true;
+			"signon.autofillForms" = false;
+			"webgl.renderer-string-override" = " ";
+			"webgl.vendor-string-override" = " ";
 
 			# Extensions
 			"extensions.FirefoxMulti-AccountContainers@mozilla.whiteList" = "";
