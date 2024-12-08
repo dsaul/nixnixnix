@@ -7,7 +7,7 @@ in
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
 	
-	programs.mtr.enable = true;	
+	programs.mtr.enable = true;
 
 	environment.systemPackages = with pkgs; [
 		mtr-gui
@@ -57,7 +57,6 @@ in
 			"browser.newtabpage.enhanced" = false; # disable new tab ads
 			"browser.newtabpage.introShown" = true;  # disable new tab ads
 			"services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
-			"browser.newtabpage.introShown" = true;
 			"pdfjs.enableScripting" = false;
 
 
