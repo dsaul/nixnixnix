@@ -92,6 +92,9 @@ services:
       PUBLIC_WHISHPER_PROFILE: gpu
       WHISPER_MODELS_DIR: /app/models
       UPLOAD_DIR: /app/uploads
+      DB_USER: ${DB_USER}
+      DB_USER: ${DB_PASS}
+
     deploy:
       resources:
         reservations:
