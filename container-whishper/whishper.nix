@@ -52,6 +52,8 @@ services:
       LT_DISABLE_WEB_UI: True
       LT_LOAD_ONLY: ${LT_LOAD_ONLY}
       LT_UPDATE_MODELS: True
+      DB_USER: ${DB_USER}
+      DB_USER: ${DB_PASS}
     expose:
       - 5000
     networks:
