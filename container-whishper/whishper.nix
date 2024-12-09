@@ -106,7 +106,7 @@ services:
 
       '';
 
-      systemd.services.whichper = {
+      config.systemd.services.whichper = {
 		wantedBy = ["multi-user.target"];
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
