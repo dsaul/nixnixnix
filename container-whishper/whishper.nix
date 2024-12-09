@@ -27,6 +27,7 @@ services:
   mongo:
     image: mongo
     restart: unless-stopped
+    user: root
     volumes:
       - /var/whishper/mongo/data:/data/db
       - /var/whishper/mongo/logs:/var/log/mongodb/
@@ -72,6 +73,7 @@ services:
       - /var/whishper/uploads:/app/uploads
       - /var/whishper/logs:/var/log/whishper
     container_name: whishper
+    user: root
     restart: unless-stopped
     networks:
       default:
@@ -105,7 +107,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose -f /etc/stacks/${packageName}/compose.yaml up
+			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
@@ -119,6 +121,8 @@ services:
 		mkdir -p /var/whishper/libretranslate/cache
 		mkdir -p /var/whishper/uploads
 		mkdir -p /var/whishper/logs
+		chmod -R 999:999 /var/whishper/mongo/logs
+		chmod -R 999:999 /var/whishper/mongo/data
 	'';
 
 
