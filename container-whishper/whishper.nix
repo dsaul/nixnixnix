@@ -53,7 +53,7 @@ services:
       LT_LOAD_ONLY: ${LT_LOAD_ONLY}
       LT_UPDATE_MODELS: True
       DB_USER: ${DB_USER}
-      DB_USER: ${DB_PASS}
+      DB_PASS: ${DB_PASS}
     expose:
       - 5000
     networks:
@@ -95,7 +95,7 @@ services:
       WHISPER_MODELS_DIR: /app/models
       UPLOAD_DIR: /app/uploads
       DB_USER: ${DB_USER}
-      DB_USER: ${DB_PASS}
+      DB_PASS: ${DB_PASS}
 
     deploy:
       resources:
