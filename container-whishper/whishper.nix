@@ -11,6 +11,8 @@ let
 	WHISPER_MODELS = "large-v3";
 
 	WHISHPER_HOST = "https://whishper.dsaul.ca";
+
+	WHISHPER_VERSION = "-latest-gpu";
 in
 {
 	#imports =
@@ -31,8 +33,8 @@ services:
       - /var/whishper/mongo/data:/data/db
       - /var/whishper/mongo/logs:/var/log/mongodb/
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USER:-whishper}
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS:-whishper}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
     expose:
       - 27017
     command: ['--logpath', '/var/log/mongodb/mongod.log']
@@ -50,7 +52,7 @@ services:
     tty: true
     environment:
       LT_DISABLE_WEB_UI: True
-      LT_LOAD_ONLY: ${LT_LOAD_ONLY:-en,fr}
+      LT_LOAD_ONLY: ${LT_LOAD_ONLY}
       LT_UPDATE_MODELS: True
     expose:
       - 5000
@@ -69,7 +71,7 @@ services:
 
   whishper:
     pull_policy: always
-    image: pluja/whishper:${WHISHPER_VERSION:-latest-gpu}
+    image: pluja/whishper:${WHISHPER_VERSION}
     env_file:
       - .env
     volumes:
@@ -89,7 +91,7 @@ services:
     environment:
       PUBLIC_INTERNAL_API_HOST: "http://127.0.0.1:80"
       PUBLIC_TRANSLATION_API_HOST: ""
-      PUBLIC_API_HOST: ${WHISHPER_HOST:-}
+      PUBLIC_API_HOST: ${WHISHPER_HOST}
       PUBLIC_WHISHPER_PROFILE: gpu
       WHISPER_MODELS_DIR: /app/models
       UPLOAD_DIR: /app/uploads
