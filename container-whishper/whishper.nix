@@ -126,11 +126,11 @@ services:
 		mkdir -p /var/whishper/mongo/logs
 		chown -R 999:999 /var/whishper/mongo/logs
 		mkdir -p /var/whishper/libretranslate/data
+		chown -R 1032:1032 /var/whishper/libretranslate/data
 		mkdir -p /var/whishper/libretranslate/cache
+		chown -R 1032:1032 /var/whishper/libretranslate/cache
 		mkdir -p /var/whishper/uploads
 		mkdir -p /var/whishper/logs
-
-		chmod a+w /var/whishper
 	'';
 
 
