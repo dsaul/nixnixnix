@@ -26,8 +26,6 @@ in
 services:
   mongo:
     image: mongo
-    #env_file:
-    #  - .env
     restart: unless-stopped
     volumes:
       - /var/whishper/mongo/data:/data/db
@@ -46,8 +44,6 @@ services:
     volumes:
       - /var/whishper/libretranslate/data:/home/libretranslate/.local/share
       - /var/whishper/libretranslate/cache:/home/libretranslate/.local/cache
-    env_file:
-      - .env
     user: root
     tty: true
     environment:
@@ -72,8 +68,6 @@ services:
   whishper:
     pull_policy: always
     image: pluja/whishper:${WHISHPER_VERSION}
-    env_file:
-      - .env
     volumes:
       - /var/whishper/uploads:/app/uploads
       - /var/whishper/logs:/var/log/whishper
