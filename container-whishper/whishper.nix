@@ -116,13 +116,15 @@ services:
 
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p /var/whishper/mongo/data
+		chown -R 999:999 /var/whishper/mongo/data
 		mkdir -p /var/whishper/mongo/logs
+		chown -R 999:999 /var/whishper/mongo/logs
 		mkdir -p /var/whishper/libretranslate/data
 		mkdir -p /var/whishper/libretranslate/cache
 		mkdir -p /var/whishper/uploads
 		mkdir -p /var/whishper/logs
-		chown -R 999:999 /var/whishper/mongo/logs
-		chown -R 999:999 /var/whishper/mongo/data
+
+		chmod a+w /var/whishper
 	'';
 
 
