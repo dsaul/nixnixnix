@@ -12,7 +12,7 @@ let
 
 	WHISHPER_HOST = "https://whishper.dsaul.ca";
 
-	WHISHPER_VERSION = "-latest-gpu";
+	WHISHPER_VERSION = "latest-gpu";
 in
 {
 	#imports =
