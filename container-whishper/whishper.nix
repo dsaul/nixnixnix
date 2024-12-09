@@ -121,8 +121,8 @@ services:
 		mkdir -p /var/whishper/libretranslate/cache
 		mkdir -p /var/whishper/uploads
 		mkdir -p /var/whishper/logs
-		chmod -R 999:999 /var/whishper/mongo/logs
-		chmod -R 999:999 /var/whishper/mongo/data
+		chown -R 999:999 /var/whishper/mongo/logs
+		chown -R 999:999 /var/whishper/mongo/data
 	'';
 
 
