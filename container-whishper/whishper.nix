@@ -40,7 +40,7 @@ services:
     command: ['--logpath', '/var/log/mongodb/mongod.log']
 
   translate:
-    container_name: whisper-libretranslate
+    container_name: whishper-libretranslate
     image: libretranslate/libretranslate:latest-cuda
     restart: unless-stopped
     volumes:
@@ -75,7 +75,7 @@ services:
     volumes:
       - /var/whishper/uploads:/app/uploads
       - /var/whishper/logs:/var/log/whishper
-    container_name: whishper
+    container_name: whishper-app
     user: root
     restart: unless-stopped
     networks:
