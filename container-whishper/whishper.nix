@@ -27,6 +27,7 @@ services:
   mongo:
     image: mongo
     restart: unless-stopped
+    container_name: whishper-mongo
     user: root
     volumes:
       - /var/whishper/mongo/data:/data/db
