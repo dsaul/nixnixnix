@@ -11,6 +11,7 @@ let
 	WHISPER_MODELS = "large-v3";
 
 	WHISHPER_HOST = "https://whishper.dsaul.ca";
+in
 {
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
