@@ -26,8 +26,8 @@ in
 services:
   mongo:
     image: mongo
-    env_file:
-      - .env
+    #env_file:
+    #  - .env
     restart: unless-stopped
     volumes:
       - /var/whishper/mongo/data:/data/db
@@ -106,7 +106,7 @@ services:
 
       '';
 
-      config.systemd.services.whishper = {
+      config.systemd.services."${packageName}" = {
 		wantedBy = ["multi-user.target"];
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
