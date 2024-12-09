@@ -20,7 +20,7 @@ in
 	#  ];
 	
 	
-	environment.etc."stacks/${packageName}/compose.yaml".text =
+	config.environment.etc."stacks/${packageName}/compose.yaml".text =
       /* yaml */
       ''
 services:
