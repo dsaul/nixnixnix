@@ -49,7 +49,7 @@ in
 		../includes/communication.nix
 		../includes/development.nix
 		../includes/education.nix
-		../container-whishper/whishper.nix
+		#../container-whishper/whishper.nix
 	];
 
 	# Bootloader.
