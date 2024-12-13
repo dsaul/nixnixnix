@@ -5,9 +5,9 @@
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
 	
-	permittedInsecurePackages = [
-		"olm-3.2.16"
-	];
+	#permittedInsecurePackages = [
+	#	"olm-3.2.16"
+	#];
 
 	environment.systemPackages = with pkgs; [
 		#discord
@@ -27,7 +27,7 @@
 				pidginPackages.pidgin-otr
 				pidginPackages.purple-slack
 				pidginPackages.pidgin-latex
-				pidginPackages.purple-matrix
+				#pidginPackages.purple-matrix
 				pidginPackages.purple-discord
 				pidginPackages.purple-facebook
 				pidginPackages.pidgin-opensteamworks
