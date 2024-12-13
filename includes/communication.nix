@@ -9,7 +9,7 @@
 		"olm-3.2.16"
 	];
 
-	environment.systemPackages = with pkgs; [
+	config.environment.systemPackages = with pkgs; [
 		#discord
 		#(discord.override {
 		#	# withOpenASAR = true; # can do this here too
