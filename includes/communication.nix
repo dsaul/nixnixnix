@@ -5,11 +5,11 @@
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
 	
-	config.permittedInsecurePackages = [
+	permittedInsecurePackages = [
 		"olm-3.2.16"
 	];
 
-	config.environment.systemPackages = with pkgs; [
+	environment.systemPackages = with pkgs; [
 		#discord
 		#(discord.override {
 		#	# withOpenASAR = true; # can do this here too
