@@ -29,7 +29,7 @@
 				pidginPackages.pidgin-latex
 				#pidginPackages.purple-matrix
 				pidginPackages.purple-discord
-				pidginPackages.purple-facebook
+				#pidginPackages.purple-facebook #broken
 				pidginPackages.pidgin-opensteamworks
 			];
 		})
