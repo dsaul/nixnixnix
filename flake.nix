@@ -13,7 +13,7 @@
             framework = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
-                    nixos-hardware.nixosModules.framework-11th-gen-intel
+                    #nixos-hardware.nixosModules.framework-11th-gen-intel
                     ./hosts/framework-hardware-configuration.nix
                     ./hosts/framework.nix
                     #./hosts/thinknix52.nix
