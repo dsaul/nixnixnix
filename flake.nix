@@ -14,7 +14,7 @@
                 modules = [
                     nixos-hardware.nixosModules.framework-11th-gen-intel
                     ./hosts/framework-hardware-configuration.nix
-
+                    ./hosts/framework.nix
                     #./hosts/thinknix52.nix
                     #./users/chrism/user.nix
                     #home-manager.nixosModules.home-manager {
