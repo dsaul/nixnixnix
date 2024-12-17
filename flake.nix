@@ -8,7 +8,7 @@
         unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
-    outputs = { self, nixpkgs, nix, nixos-hardware, home-manager}: {
+    outputs = { self, nixpkgs, nix, nixos-hardware, home-manager, unstable}: {
         nixosConfigurations = {
             framework = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
