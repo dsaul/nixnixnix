@@ -9,6 +9,8 @@
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
+	services.fwupd.enable = true;
+
 	# Filesystems
 	services.gvfs.enable = true;
 
