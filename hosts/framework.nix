@@ -52,7 +52,7 @@
 	# Networking
 	networking.hostName = "framework"; # Define your hostname.
 	networking.networkmanager.enable = true;
-	networking.wireless.enable = true;
+	#networking.wireless.enable = true;
 
 	# Fingerprint Sensor
 	# services.fprintd.enable = true; # currently broken, messes with initial login
