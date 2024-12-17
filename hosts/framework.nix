@@ -11,7 +11,7 @@ in
 
 	imports =
 	[
-		./hardware-configuration.nix
+		./framework-hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
 		../includes/generic-defaults.nix

@@ -12,7 +12,9 @@
             framework = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
-                    #nixos-hardware.nixosModules.lenovo-thinkpad-p52
+                    nixos-hardware.nixosModules.framework-11th-gen-intel
+                    ./hosts/framework-hardware-configuration.nix
+
                     #./hosts/thinknix52.nix
                     #./users/chrism/user.nix
                     #home-manager.nixosModules.home-manager {
