@@ -1,7 +1,10 @@
 {
 lib,
 stdenv,
-fetchurl
+fetchurl,
+pkgs,
+ffmpeg_6-full,
+python312Full
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -13,7 +16,22 @@ stdenv.mkDerivation (finalAttrs: {
 		hash = "sha256-OvcxLPX2I4qb1vtPI7eQdEIhmBhZCoIIYBDLjCKxwlw=";
 	};
 
+	nativeBuildInputs = [ pkgs.python312Full ];
 
+	installPhase = ''
+		runHook preInstall
+
+		#cd FastFlix
+		#python3.12 -m pip install --upgrade pip
+		#python3.12 -m venv venv
+		#. ./venv/bin/activate       # venv\Scripts\activate.bat or venv\Scripts\activate.ps1 on windows
+		#pip install setuptools
+		#pip install .
+
+		runHook postInstall
+	'';
+
+	#venv/bin/python -m fastflix
 
 	meta = {
 		homepage = "https://fastflix.org/";
