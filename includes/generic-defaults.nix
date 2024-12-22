@@ -36,8 +36,8 @@
 		ntfs3g
 		cifs-utils
 		
-		
-		libstdcxx5
+		#tmp
+		patchelf
 	];
 	
 	services.envfs.enable = true;
