@@ -45,6 +45,7 @@
 		xorg.libxcb
 		xkeyboard_config
 		libstdcxx5
+		rubberband
 	];
 
 	nix.gc = {
