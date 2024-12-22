@@ -22,7 +22,7 @@ python312Packages.buildPythonApplication rec {
 	};
 
 	propagatedPythonDeps = with python312Packages; [
-		"annotated-types"
+		annotated-types
 		appdirs # appdirs~=1.4
 		certifi
 		chardet # chardet<5.2.0,>=5.1.0
@@ -39,12 +39,12 @@ python312Packages.buildPythonApplication rec {
 		pip
 		psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
-		"pydantic-core"
+		pydantic-core
 		pyside6 # pyside6==6.7.2
-		"python-box" # python-box[all]<7.0,>=6.0
+		python-box # python-box[all]<7.0,>=6.0
 		requests # requests<3.0,>=2.28
-		"ruamel-yaml"
-		"ruamel-yaml-clib"
+		ruamel-yaml
+		ruamel-yaml-clib
 		setuptools
 		shiboken6
 		toml
