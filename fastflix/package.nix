@@ -2,6 +2,7 @@
 lib,
 stdenv,
 fetchurl,
+fetchFromGitHub,
 pkgs,
 ffmpeg_6-full,
 python312Full
