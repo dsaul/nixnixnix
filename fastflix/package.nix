@@ -11,14 +11,23 @@ python312Packages
 }:
 let
 	chardet510 = (python312Packages.buildPythonPackage {
-        pname = "chardet";
-        version = "5.1.0";
-        src = pkgs.fetchPypi {
-          pname = "chardet";
-        version = "5.1.0";
-          sha256 = "DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
-        };
-      });
+		pname = "chardet";
+		version = "5.1.0";
+		src = pkgs.fetchPypi {
+			pname = "chardet";
+			version = "5.1.0";
+			sha256 = "DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
+		};
+	});
+	iso639lang009 = (python312Packages.buildPythonPackage {
+		pname = "iso639-lang";
+		version = "0.0.9";
+		src = pkgs.fetchPypi {
+			pname = "iso639-lang";
+			version = "0.0.9";
+			sha256 = "DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
+		};
+	});
 in
 python312Packages.buildPythonApplication rec {
 	pname = "fastflix";
@@ -45,7 +54,7 @@ python312Packages.buildPythonApplication rec {
 		charset-normalizer
 		colorama # colorama<1.0,>=0.4
 		coloredlogs # coloredlogs<16.0,>=15.0
-		# iso639-lang==0.0.9
+		iso639lang009 # iso639-lang==0.0.9
 		humanfriendly
 		idna
 		mistune # mistune<3.0,>=2.0
