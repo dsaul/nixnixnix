@@ -9,14 +9,14 @@ python312Full,
 python3Packages
 }:
 
-stdenv.mkDerivation (finalAttrs: {
+python3Packages.buildPythonApplication rec {
 	pname = "fastflix";
 	version = "5.8.2";
 
 	src = fetchFromGitHub {
 		owner = "cdgriffith";
 		repo = "FastFlix";
-		rev = "refs/tags/${finalAttrs.version}";
+		rev = "refs/tags/${version}";
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
 		longDescription = ''
 			FastFlix is a free GUI for H.264, HEVC and AV1 hardware and software encoding!
 		'';
-		changelog = "https://github.com/cdgriffith/FastFlix/releases/tag/${finalAttrs.version}";
+		changelog = "https://github.com/cdgriffith/FastFlix/releases/tag/${version}";
 		platforms = lib.platforms.linux;
 		runInstructions = ''
 			To run FastFlix:
