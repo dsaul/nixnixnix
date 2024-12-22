@@ -14,7 +14,8 @@ let
         pname = "chardet";
         version = "5.1.0";
         src = pkgs.fetchPypi {
-          inherit pname version;
+          pname = "chardet";
+        version = "5.1.0";
           sha256 = "0f0d39...";
         };
       });
