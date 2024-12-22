@@ -16,7 +16,7 @@ let
         src = pkgs.fetchPypi {
           pname = "chardet";
         version = "5.1.0";
-          sha256 = "0f0d39...";
+          sha256 = "M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
         };
       });
 in
