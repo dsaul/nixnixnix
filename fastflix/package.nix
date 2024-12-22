@@ -87,8 +87,8 @@ let
 			"psutil"
 		];
 	});
-
-
+	shiboken672 = (pkgs.callPackage ./shiboken6/default.nix {})
+	pyside672 = (pkgs.callPackage ./pyside/default.nix {})
 
 
 
