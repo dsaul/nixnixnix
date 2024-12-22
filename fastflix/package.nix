@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
 	src = fetchFromGitHub {
 		owner = "cdgriffith";
 		repo = "FastFlix";
-		rev = "refs/tags/${version}";
+		rev = "refs/tags/${finalAttrs.version}";
 		hash = "sha256-VDlJsEJtdRhYAp8pOEAIp5lov+UUcRf29JCDT82tRkU=";
 	};
 
