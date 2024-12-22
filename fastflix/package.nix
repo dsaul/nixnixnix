@@ -14,6 +14,7 @@ let
 		buildPythonPackage = python312Packages.buildPythonPackage;
 		hypothesis = python312Packages.hypothesis;
 		pytestCheckHook = python312Packages.pytestCheckHook;
+		setuptools = python312Packages.setuptools;
 	});
 	#chardet510 = (python312Packages.buildPythonPackage rec {
 	#	pname = "chardet";
@@ -49,7 +50,10 @@ let
 	});
 
 	# https://github.com/NixOS/nixpkgs/blob/294f94582559690359b28a044cbe96659091f118/pkgs/development/python-modules/mistune/default.nix
-	mistune205 = (pkgs.callPackage ./mistune205/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	mistune205 = (pkgs.callPackage ./mistune205/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		setuptools = python312Packages.setuptools;
+	});
 
 	#mistune205 = (python312Packages.buildPythonPackage rec {
 	#	pname = "mistune";
@@ -67,7 +71,10 @@ let
 	#});
 
 	# https://github.com/NixOS/nixpkgs/blob/nixos-24.11/pkgs/development/python-modules/pathvalidate/default.nix#L29
-	pathvalidate252 = (pkgs.callPackage ./pathvalidate252/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	pathvalidate252 = (pkgs.callPackage ./pathvalidate252/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		setuptools-scm = python312Packages.setuptools-scm;
+	});
 
 	#pathvalidate252 = (python312Packages.buildPythonPackage rec {
 	#	pname = "pathvalidate";
