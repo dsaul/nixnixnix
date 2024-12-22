@@ -66,4 +66,4 @@ python3Packages.buildPythonApplication rec {
 			$ $out/bin/fastflix
 		'';
 	};
-})
+}
