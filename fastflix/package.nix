@@ -22,8 +22,6 @@ stdenv.mkDerivation (finalAttrs: {
 
 	propagatedBuildInputs = with python3Packages; [ setuptools ];
 
-	nativeBuildInputs = [ stdenv.mkDerivation ];
-
 	  # FastFlix dependencies
 	propagatedPythonDeps = with python3Packages; [
 		pip
