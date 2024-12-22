@@ -69,6 +69,23 @@ let
 			"pathvalidate"
 		];
 	});
+	psutil598 = (python312Packages.buildPythonPackage rec {
+		pname = "psutil";
+		version = "5.9.8";
+		format = "setuptools";
+
+		src = pkgs.fetchPypi {
+			inherit pname version;
+			hash = "sha256-a+Em4yJUht/yhqj7mgYkalJT9MfFO0depfWsk05kGUw=";
+		};
+
+		doCheck = false;
+
+		pythonImportsCheck = [
+			"psutil"
+		];
+	});
+
 
 
 
@@ -110,7 +127,7 @@ python312Packages.buildPythonApplication rec {
 		packaging # packaging>=23.2
 		pathvalidate252 # pathvalidate # pathvalidate<3.0,>=2.4
 		pip
-		psutil # psutil<6.0,>=5.9
+		psutil598 # psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
 		pyside6 # pyside6==6.7.2
@@ -154,7 +171,7 @@ python312Packages.buildPythonApplication rec {
 		packaging # packaging>=23.2
 		pathvalidate252 # pathvalidate # pathvalidate<3.0,>=2.4
 		pip
-		psutil # psutil<6.0,>=5.9
+		psutil598 # psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
 		pyside6 # pyside6==6.7.2
