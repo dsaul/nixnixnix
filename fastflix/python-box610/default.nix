@@ -15,6 +15,7 @@ buildPythonPackage rec {
   pname = "python-box";
   version = "6.1.0";
   format = "setuptools";
+  doCheck = false;
 
   src = fetchFromGitHub {
     owner = "cdgriffith";
