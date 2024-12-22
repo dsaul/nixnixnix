@@ -7,6 +7,7 @@
 , ffmpeg_6-full
 , python312Full
 , python312Packages
+, pythonOlder
 }:
 let
 	# https://github.com/NixOS/nixpkgs/blob/00000000b0be738315769701d1bc6ee298ad44a9/pkgs/development/python-modules/chardet/default.nix
@@ -14,6 +15,7 @@ let
 		buildPythonPackage = python312Packages.buildPythonPackage;
 		hypothesis = python312Packages.hypothesis;
 		pytestCheckHook = python312Packages.pytestCheckHook;
+		pythonOlder = pythonOlder;
 	});
 	#chardet510 = (python312Packages.buildPythonPackage rec {
 	#	pname = "chardet";
