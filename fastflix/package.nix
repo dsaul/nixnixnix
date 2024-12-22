@@ -1,13 +1,12 @@
-{
-lib,
-stdenv,
-fetchurl,
-fetchFromGitHub,
-fetchPypi,
-pkgs,
-ffmpeg_6-full,
-python312Full,
-python312Packages,
+{ lib,
+, stdenv
+, fetchurl
+, fetchFromGitHub
+, fetchPypi
+, pkgs
+, ffmpeg_6-full
+, python312Full
+, python312Packages
 }:
 let
 	chardet510 = (python312Packages.buildPythonPackage rec {
@@ -39,6 +38,27 @@ let
 			hash = "sha256-teH7pM6sevpoSfPx9zUDUbFCCFJnQ5HOGMIIskJ/BMM=";
 		};
 	});
+	mistune205 = (python312Packages.buildPythonPackage rec {
+		pname = "mistune";
+		version = "2.0.5";
+		format = "pyproject";
+		src = pkgs.fetchPypi {
+			inherit pname version;
+			hash = "sha256-AkYRPLJJLbh1xr5Wl0p8iTMzvybNkokchfYxUc7gnTQ=";
+		};
+		nativeBuildInputs = [
+			python312Packages.setuptools
+		];
+		pythonImportsCheck = [ "mistune" ];
+	});
+
+
+
+
+
+
+
+
 in
 python312Packages.buildPythonApplication rec {
 	pname = "fastflix";
@@ -68,7 +88,7 @@ python312Packages.buildPythonApplication rec {
 		iso639lang009 # iso639-lang==0.0.9
 		humanfriendly
 		idna
-		mistune # mistune<3.0,>=2.0
+		mistune205 # mistune # mistune<3.0,>=2.0
 		msgpack
 		packaging # packaging>=23.2
 		pathvalidate # pathvalidate<3.0,>=2.4
@@ -112,7 +132,7 @@ python312Packages.buildPythonApplication rec {
 		iso639lang009 # iso639-lang==0.0.9
 		humanfriendly
 		idna
-		mistune # mistune<3.0,>=2.0
+		mistune205 # mistune # mistune<3.0,>=2.0
 		msgpack
 		packaging # packaging>=23.2
 		pathvalidate # pathvalidate<3.0,>=2.4
