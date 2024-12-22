@@ -65,13 +65,13 @@ stdenv.mkDerivation (finalAttrs: {
 
   propagatedBuildInputs = [ shiboken6 ];
 
-  cmakeFlags = [ "-DBUILD_TESTS=OFF --skip-modules=QtTest" ];
+  cmakeFlags = [ "-DBUILD_TESTS=OFF" ];
 
   dontWrapQtApps = true;
 
   postInstall = ''
     cd ../../..
-    ${python.pythonOnBuildForHost.interpreter} setup.py egg_info --build-type=pyside6
+    ${python.pythonOnBuildForHost.interpreter} setup.py egg_info --build-type=pyside6  --skip-modules=QtTest
     cp -r PySide6.egg-info $out/${python.sitePackages}/
   '';
 
