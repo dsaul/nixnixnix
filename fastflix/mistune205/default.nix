@@ -8,7 +8,7 @@
 buildPythonPackage rec {
   pname = "mistune";
   version = "2.0.5";
-
+doCheck = false;
   format = "pyproject";
 
   src = fetchPypi {

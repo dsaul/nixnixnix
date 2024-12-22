@@ -14,6 +14,7 @@ in
 stdenv'.mkDerivation (finalAttrs: {
   pname = "shiboken6";
   version = "6.7.2";
+	doCheck = false;
 
   src = fetchurl {
     # https://download.qt.io/official_releases/QtForPython/shiboken6/

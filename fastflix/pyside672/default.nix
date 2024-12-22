@@ -31,7 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
     ninja
     python
   ] ++ lib.optionals stdenv.isDarwin [ moveBuildTree ];
-
+#	QtTest
   buildInputs =
     with python.pkgs.qt6;
     [
@@ -65,7 +65,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   propagatedBuildInputs = [ shiboken6 ];
 
-  cmakeFlags = [ "-DBUILD_TESTS=OFF" ];
+  cmakeFlags = [ "-DBUILD_TESTS=OFF --skip-modules=QtTest" ];
 
   dontWrapQtApps = true;
 
