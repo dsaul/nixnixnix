@@ -7,7 +7,8 @@ fetchPypi,
 pkgs,
 ffmpeg_6-full,
 python312Full,
-python312Packages
+python312Packages,
+pythonOlder
 }:
 let
 	chardet510 = (python312Packages.buildPythonPackage rec {
