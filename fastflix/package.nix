@@ -13,7 +13,7 @@ stdenv.mkDerivation (finalAttrs: {
 
 	src = fetchurl {
 		url = "https://github.com/cdgriffith/FastFlix/archive/refs/tags/${finalAttrs.version}.tar.gz";
-		hash = "sha256-OvcxLPX2I4qb1vtPI7eQdEIhmBhZCoIIYBDLjCKxwlw=";
+		hash = "sha256-VDlJsEJtdRhYAp8pOEAIp5lov+UUcRf29JCDT82tRkU=";
 	};
 
 	nativeBuildInputs = [ pkgs.python312Full ];
