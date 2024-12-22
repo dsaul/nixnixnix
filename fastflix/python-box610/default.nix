@@ -8,6 +8,7 @@
 , toml
 , tomli
 , tomli-w
+, cython
 }:
 
 buildPythonPackage rec {
@@ -27,6 +28,7 @@ buildPythonPackage rec {
       msgpack
       ruamel-yaml
       toml
+      cython
     ];
     yaml = [
       ruamel-yaml

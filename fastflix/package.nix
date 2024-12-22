@@ -124,6 +124,7 @@ let
 		toml = python312Packages.toml;
 		tomli = python312Packages.tomli;
 		tomli-w = python312Packages.tomli-w;
+		cython = python312Packages.cython;
 	});
 
 
