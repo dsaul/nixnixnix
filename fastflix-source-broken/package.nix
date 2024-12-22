@@ -1,0 +1,75 @@
+{ lib
+, stdenv
+, fetchurl
+, fetchFromGitHub
+, fetchPypi
+, pkgs
+, ffmpeg_6-full
+, python312Full
+, python312Packages
+}:
+let
+
+
+
+
+	#buildPhase = ''
+	#	python -m venv venv
+	#	source venv/bin/activate
+	#	#pip install --no-cache-dir  setuptools
+	#	#pip install --no-cache-dir  .
+	#'';
+
+
+
+
+
+
+
+
+	  # FastFlix dependencies
+	#propagatedPythonDeps = with python312Packages; [
+	#	setuptools
+	#	pip
+	#	wheel
+	#];
+
+	#buildPhase = ''
+	#	python -m venv venv
+	#	source venv/bin/activate
+	#	#pip install --no-cache-dir  setuptools
+	#	#pip install --no-cache-dir  .
+	#'';
+
+	#installPhase = ''
+	#	mkdir -p $out/bin
+	#	cp -r venv $out/venv
+	#	ln -s $out/venv/bin/python $out/bin/fastflix
+	#'';
+
+	# Set up the run environment for `fastflix` script
+	#postInstall = ''
+	#	wrapProgram $out/bin/fastflix \
+	#	--set PYTHONPATH $out/venv
+	#'';
+
+	# Runtime test command
+	#checkPhase = ''
+	#	$out/bin/fastflix --help
+	#'';
+
+	meta = {
+		homepage = "https://fastflix.org/";
+		description = "Transcoding assistant.";
+		longDescription = ''
+			FastFlix is a free GUI for H.264, HEVC and AV1 hardware and software encoding!
+		'';
+		changelog = "https://github.com/cdgriffith/FastFlix/releases/tag/${version}";
+		platforms = lib.platforms.linux;
+		runInstructions = ''
+			To run FastFlix:
+
+			$ $out/bin/fastflix
+		'';
+	};
+}

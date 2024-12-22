@@ -31,7 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
     ninja
     python
   ] ++ lib.optionals stdenv.isDarwin [ moveBuildTree ];
-#	QtTest
+
   buildInputs =
     with python.pkgs.qt6;
     [
