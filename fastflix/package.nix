@@ -36,7 +36,7 @@ python312Packages.buildPythonApplication rec {
 	  buildPhase = ''
 		python -m venv venv
 		source venv/bin/activate
-		pip install --no-cache-dir  setuptools
+		#pip install --no-cache-dir  setuptools
 		pip install --no-cache-dir  .
 	'';
 
