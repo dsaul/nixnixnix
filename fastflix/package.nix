@@ -11,8 +11,10 @@ stdenv.mkDerivation (finalAttrs: {
 	pname = "fastflix";
 	version = "5.8.2";
 
-	src = fetchurl {
-		url = "https://github.com/cdgriffith/FastFlix/archive/refs/tags/${finalAttrs.version}.tar.gz";
+	src = fetchFromGitHub {
+		owner = "cdgriffith";
+		repo = "FastFlix";
+		rev = "refs/tags/${version}";
 		hash = "sha256-VDlJsEJtdRhYAp8pOEAIp5lov+UUcRf29JCDT82tRkU=";
 	};
 
@@ -21,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
 	installPhase = ''
 		runHook preInstall
 
-		#cd FastFlix
+		cd FastFlix-${finalAttrs.version}
 		#python3.12 -m pip install --upgrade pip
 		#python3.12 -m venv venv
 		#. ./venv/bin/activate       # venv\Scripts\activate.bat or venv\Scripts\activate.ps1 on windows
@@ -40,6 +42,6 @@ stdenv.mkDerivation (finalAttrs: {
 			FastFlix is a free GUI for H.264, HEVC and AV1 hardware and software encoding!
 		'';
 		changelog = "https://github.com/cdgriffith/FastFlix/releases/tag/${finalAttrs.version}";
-		platforms = lib.platforms.unix;
+		platforms = lib.platforms.linux;
 	};
 })
