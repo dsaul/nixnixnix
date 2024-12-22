@@ -9,6 +9,8 @@
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
+	services.fwupd.enable = true;
+
 	# Filesystems
 	services.gvfs.enable = true;
 
@@ -32,10 +34,21 @@
 		# Filesystems
 		xfsprogs
 		ntfs3g
-		cifs-utils	
-
-
+		cifs-utils
 	];
 	
 	programs.nix-ld.enable = true;
+
+	nix.gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 30d";
+	};
+
+	nix.settings.auto-optimise-store = true;
+
+
+
+
+
 }

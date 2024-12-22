@@ -22,16 +22,16 @@
 		thunderbird
 		hexchat
 		#nheko
-		(pidgin.override {
-			plugins = [
-				pidginPackages.pidgin-otr
-				pidginPackages.purple-slack
-				pidginPackages.pidgin-latex
-				#pidginPackages.purple-matrix
-				pidginPackages.purple-discord
-				#pidginPackages.purple-facebook #broken
-				pidginPackages.pidgin-opensteamworks
-			];
-		})
+		#(pidgin.override {
+		#	plugins = [
+		#		pidginPackages.pidgin-otr
+		#		pidginPackages.purple-slack
+		#		pidginPackages.pidgin-latex
+		#		#pidginPackages.purple-matrix
+		#		pidginPackages.purple-discord
+		#		#pidginPackages.purple-facebook #broken
+		#		pidginPackages.pidgin-opensteamworks
+		#	];
+		#})
 	];	
 }

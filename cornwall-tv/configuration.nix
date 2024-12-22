@@ -55,6 +55,8 @@ in
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
+	boot.consoleLogLevel = 3; # STFU about ACPI errors.
+
 
 	# Networking
 	networking.hostName = "cornwall-tv"; # Define your hostname.
