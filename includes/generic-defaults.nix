@@ -38,17 +38,12 @@
 		
 		#tmp
 		patchelf
+		bintools
 	];
 	
 	services.envfs.enable = true;
 	programs.nix-ld.enable = true;
 	
-	programs.nix-ld.libraries = with pkgs; [
-		libGL
-		xorg.libxcb
-		xkeyboard_config
-	];
-
 	nix.gc = {
 		automatic = true;
 		dates = "weekly";

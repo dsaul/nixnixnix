@@ -51,6 +51,14 @@ in
 		../includes/education.nix
 		#../container-whishper/whishper.nix
 	];
+	
+	programs.nix-ld.libraries = with pkgs; [
+		libGL
+		xorg.libxcb
+		xkeyboard_config
+		ffmpeg_7-full
+	];
+	
 
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
