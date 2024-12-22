@@ -33,6 +33,7 @@ let
 	iso639lang009 = (python312Packages.buildPythonPackage rec {
 		pname = "iso639-lang";
 		version = "0.0.9";
+
 		src = pkgs.fetchPypi {
 			inherit pname version;
 			hash = "sha256-teH7pM6sevpoSfPx9zUDUbFCCFJnQ5HOGMIIskJ/BMM=";
@@ -42,6 +43,7 @@ let
 		pname = "mistune";
 		version = "2.0.5";
 		format = "pyproject";
+
 		src = pkgs.fetchPypi {
 			inherit pname version;
 			hash = "sha256-AkYRPLJJLbh1xr5Wl0p8iTMzvybNkokchfYxUc7gnTQ=";
@@ -51,7 +53,22 @@ let
 		];
 		pythonImportsCheck = [ "mistune" ];
 	});
+	pathvalidate252 = (python312Packages.buildPythonPackage rec {
+		pname = "pathvalidate";
+		version = "2.5.2";
+		format = "setuptools";
 
+		src = pkgs.fetchPypi {
+			inherit pname version;
+			hash = "sha256-X/V9D6vl7Lek8eSVe/61rYq1q0wPpx95xrvCS9m30U0=";
+		};
+
+		doCheck = false;
+
+		pythonImportsCheck = [
+			"pathvalidate"
+		];
+	});
 
 
 
@@ -91,7 +108,7 @@ python312Packages.buildPythonApplication rec {
 		mistune205 # mistune # mistune<3.0,>=2.0
 		msgpack
 		packaging # packaging>=23.2
-		pathvalidate # pathvalidate<3.0,>=2.4
+		pathvalidate252 # pathvalidate # pathvalidate<3.0,>=2.4
 		pip
 		psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
@@ -135,7 +152,7 @@ python312Packages.buildPythonApplication rec {
 		mistune205 # mistune # mistune<3.0,>=2.0
 		msgpack
 		packaging # packaging>=23.2
-		pathvalidate # pathvalidate<3.0,>=2.4
+		pathvalidate252 # pathvalidate # pathvalidate<3.0,>=2.4
 		pip
 		psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
