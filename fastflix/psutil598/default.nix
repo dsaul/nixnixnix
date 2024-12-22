@@ -1,9 +1,9 @@
 { lib
 , stdenv
 , buildPythonPackage
-, CoreFoundation
+#, CoreFoundation
 , fetchPypi
-, IOKit
+#, IOKit
 , pytestCheckHook
 , python
 }:
@@ -28,13 +28,13 @@ buildPythonPackage rec {
       --replace-fail kIOMainPortDefault kIOMasterPortDefault
   '';
 
-  buildInputs =
-    # workaround for https://github.com/NixOS/nixpkgs/issues/146760
-    lib.optionals (stdenv.isDarwin && stdenv.isx86_64) [
-      CoreFoundation
-    ] ++ lib.optionals stdenv.isDarwin [
-      IOKit
-  ];
+  #buildInputs =
+  #  # workaround for https://github.com/NixOS/nixpkgs/issues/146760
+  #  lib.optionals (stdenv.isDarwin && stdenv.isx86_64) [
+  #    CoreFoundation
+  #  ] ++ lib.optionals stdenv.isDarwin [
+  #    IOKit
+  #];
 
   nativeCheckInputs = [
     pytestCheckHook
