@@ -66,6 +66,38 @@ python312Packages.buildPythonApplication rec {
 		pre-commit-hooks # pre-commit>=3.0.3
 		setuptools
 		setuptools-scm
+
+
+		annotated-types
+		appdirs # appdirs~=1.4
+		certifi
+		chardet # chardet<5.2.0,>=5.1.0
+		"charset-normalizer"
+		colorama # colorama<1.0,>=0.4
+		coloredlogs # coloredlogs<16.0,>=15.0
+		# iso639-lang==0.0.9
+		humanfriendly
+		idna
+		mistune # mistune<3.0,>=2.0
+		msgpack
+		packaging # packaging>=23.2
+		pathvalidate # pathvalidate<3.0,>=2.4
+		pip
+		psutil # psutil<6.0,>=5.9
+		pydantic # pydantic<3.0,>=2.0
+		pydantic-core
+		pyside6 # pyside6==6.7.2
+		python-box # python-box[all]<7.0,>=6.0
+		requests # requests<3.0,>=2.28
+		ruamel-yaml
+		ruamel-yaml-clib
+		setuptools
+		setuptools-scm
+		shiboken6
+		toml
+
+		urllib3
+		# reusables<0.10.0,>=0.9.6
 	];
 
 
