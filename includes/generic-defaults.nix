@@ -44,6 +44,7 @@
 		libGL
 		xorg.libxcb
 		xkeyboard_config
+		libstdcxx5
 	];
 
 	nix.gc = {
