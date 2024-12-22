@@ -69,6 +69,8 @@ let
 			"pathvalidate"
 		];
 	});
+
+	# https://github.com/NixOS/nixpkgs/blob/96f7b8213bd9f6aebc4a54815195de827a05b561/pkgs/development/python-modules/psutil/default.nix
 	psutil598 = (python312Packages.buildPythonPackage rec {
 		pname = "psutil";
 		version = "5.9.8";
