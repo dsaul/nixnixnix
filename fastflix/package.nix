@@ -53,6 +53,7 @@ let
 	mistune205 = (pkgs.callPackage ./mistune205/default.nix {
 		buildPythonPackage = python312Packages.buildPythonPackage;
 		setuptools = python312Packages.setuptools;
+		pytestCheckHook = python312Packages.pytestCheckHook;
 	});
 
 	#mistune205 = (python312Packages.buildPythonPackage rec {
@@ -94,7 +95,10 @@ let
 	#});
 
 	# https://github.com/NixOS/nixpkgs/blob/96f7b8213bd9f6aebc4a54815195de827a05b561/pkgs/development/python-modules/psutil/default.nix
-	psutil598 = (pkgs.callPackage ./psutil598/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	psutil598 = (pkgs.callPackage ./psutil598/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		pytestCheckHook = python312Packages.pytestCheckHook;
+	});
 
 	#psutil598 = (python312Packages.buildPythonPackage rec {
 	#	pname = "psutil";
@@ -112,7 +116,10 @@ let
 	#		"psutil"
 	#	];
 	#});
-	python-box610 = (pkgs.callPackage ./python-box610/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	python-box610 = (pkgs.callPackage ./python-box610/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		pytestCheckHook = python312Packages.pytestCheckHook;
+	});
 
 
 	# Not in nixpkgs
