@@ -8,14 +8,12 @@ pkgs,
 ffmpeg_6-full,
 python312Full,
 python312Packages,
-pythonOlder,
 }:
 let
 	chardet510 = (python312Packages.buildPythonPackage rec {
 		pname = "chardet";
   version = "5.1.0";
   format = "pyproject";
-  disabled = pythonOlder "3.6";
 
   src = fetchPypi {
     inherit pname version;
