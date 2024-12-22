@@ -64,6 +64,8 @@ python312Packages.buildPythonApplication rec {
 		types-setuptools # types-setuptools>=65.7
 		types-requests
 		pre-commit-hooks # pre-commit>=3.0.3
+		setuptools
+		setuptools-scm
 	];
 
 
