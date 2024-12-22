@@ -35,6 +35,9 @@
 		xfsprogs
 		ntfs3g
 		cifs-utils
+		
+		
+		libstdcxx5
 	];
 	
 	services.envfs.enable = true;
@@ -44,8 +47,6 @@
 		libGL
 		xorg.libxcb
 		xkeyboard_config
-		libstdcxx5
-		rubberband
 	];
 
 	nix.gc = {
