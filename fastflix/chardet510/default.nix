@@ -2,7 +2,6 @@
 , buildPythonPackage
 , fetchPypi
 , hypothesis
-, pythonOlder
 , pytestCheckHook
 , setuptools
 }:
