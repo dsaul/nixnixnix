@@ -20,7 +20,11 @@ python3Packages.buildPythonApplication rec {
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
-	propagatedBuildInputs = with python3Packages; [ setuptools ];
+	propagatedBuildInputs = with python3Packages; [
+		setuptools
+		wheel
+		pip
+	];
 
 	  # FastFlix dependencies
 	propagatedPythonDeps = with python3Packages; [
@@ -31,8 +35,8 @@ python3Packages.buildPythonApplication rec {
 	  buildPhase = ''
 		python -m venv venv
 		source venv/bin/activate
-		pip install setuptools
-		pip install .
+		pip install --no-cache-dir  setuptools
+		pip install --no-cache-dir  .
 	'';
 
 	  installPhase = ''
