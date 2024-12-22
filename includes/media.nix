@@ -10,7 +10,7 @@
 		kid3-qt
 		vlc
 		mplayer
-		ffmpeg_7-full
+		ffmpeg_7
 		spotify
 		mkvtoolnix
 		metamorphose2

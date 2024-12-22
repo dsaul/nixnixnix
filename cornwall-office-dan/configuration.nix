@@ -56,7 +56,6 @@ in
 		libGL
 		xorg.libxcb
 		xkeyboard_config
-		ffmpeg_7-full
 	];
 	
 
