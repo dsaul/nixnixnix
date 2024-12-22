@@ -119,6 +119,11 @@ let
 	python-box610 = (pkgs.callPackage ./python-box610/default.nix {
 		buildPythonPackage = python312Packages.buildPythonPackage;
 		pytestCheckHook = python312Packages.pytestCheckHook;
+		pyyaml = python312Packages.pyyaml;
+		ruamel-yaml = python312Packages.ruamel-yaml;
+		toml = python312Packages.toml;
+		tomli = python312Packages.tomli;
+		tomli-w = python312Packages.tomli-w;
 	});
 
 
