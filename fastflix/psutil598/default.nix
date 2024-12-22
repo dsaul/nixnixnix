@@ -6,7 +6,6 @@
 , IOKit
 , pytestCheckHook
 , python
-, pythonOlder
 }:
 
 buildPythonPackage rec {
@@ -15,8 +14,6 @@ buildPythonPackage rec {
   format = "setuptools";
 
   inherit stdenv;
-
-  disabled = pythonOlder "3.7";
 
   src = fetchPypi {
     inherit pname version;

@@ -3,7 +3,6 @@
 , fetchFromGitHub
 , msgpack
 , pytestCheckHook
-, pythonOlder
 , pyyaml
 , ruamel-yaml
 , toml
@@ -15,8 +14,6 @@ buildPythonPackage rec {
   pname = "python-box";
   version = "6.1.0";
   format = "setuptools";
-
-  disabled = pythonOlder "3.7";
 
   src = fetchFromGitHub {
     owner = "cdgriffith";
