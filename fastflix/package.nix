@@ -5,7 +5,8 @@ fetchurl,
 fetchFromGitHub,
 pkgs,
 ffmpeg_6-full,
-python312Full
+python312Full,
+python3Packages
 }:
 
 stdenv.mkDerivation (finalAttrs: {
