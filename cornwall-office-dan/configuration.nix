@@ -72,7 +72,7 @@ in
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
-		(pkgs.callPackage ./fastflix/package.nix {})
+		(pkgs.callPackage ../fastflix/package.nix {})
 	];
 
 	fileSystems."/mnt/Drive2" =
