@@ -15,7 +15,7 @@ let
 		buildPythonPackage = python312Packages.buildPythonPackage;
 		hypothesis = python312Packages.hypothesis;
 		pytestCheckHook = python312Packages.pytestCheckHook;
-		pythonOlder;
+		pythonOlder = pythonOlder;
 	});
 	#chardet510 = (python312Packages.buildPythonPackage rec {
 	#	pname = "chardet";
