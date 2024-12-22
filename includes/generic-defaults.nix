@@ -44,6 +44,7 @@
 		xorg.libxcb
 		xkeyboard_config
 	];
+	services.xserver.exportConfiguration = true;
 
 	nix.gc = {
 		automatic = true;
