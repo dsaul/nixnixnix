@@ -10,7 +10,7 @@ stdenv.mkDerivation (finalAttrs: {
 
 	src = fetchurl {
 		url = "https://github.com/cdgriffith/FastFlix/archive/refs/tags/${finalAttrs.version}.tar.gz";
-		hash = "sha256-3af7312cf5f6238a9bd6fb4f23b7907442219818590a82086010cb8c22b1c25c";
+		hash = "sha256-OvcxLPX2I4qb1vtPI7eQdEIhmBhZCoIIYBDLjCKxwlw=";
 	};
 
 
