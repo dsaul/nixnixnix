@@ -41,6 +41,7 @@
 	
 	programs.nix-ld.libraries = with pkgs; [
 		libGL
+		xorg.libxcb
 	];
 
 	nix.gc = {
