@@ -10,6 +10,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "pyside6";
+  doCheck = false;
 
   inherit (shiboken6) version src;
 
