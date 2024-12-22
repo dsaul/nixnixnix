@@ -127,6 +127,13 @@ let
 		cython = python312Packages.cython;
 	});
 
+	# https://github.com/NixOS/nixpkgs/blob/nixos-24.05/pkgs/development/python-modules/pytest-runner/default.nix#L36
+	pytest-runner601 = (pkgs.callPackage ./pytest-runner601/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		setuptools-scm = python312Packages.setuptools-scm;
+		pytest = python312Packages.pytest;
+	});
+
 
 	# Not in nixpkgs
 	reusables096 = (python312Packages.buildPythonPackage rec {
@@ -139,8 +146,9 @@ let
 			hash = "sha256-2A5ULQgP7HQUeIUUmMx+X3xiTU7hTXOo/UxIwsbCE1U=";
 		};
 
-			nativeBuildInputs = [
+		nativeBuildInputs = [
 			python312Packages.pip
+			pytest-runner601
 		];
 	});
 
