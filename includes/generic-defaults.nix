@@ -38,6 +38,10 @@
 	];
 	
 	programs.nix-ld.enable = true;
+	
+	programs.nix-ld.libraries = with pkgs; [
+		libGL
+	];
 
 	nix.gc = {
 		automatic = true;
@@ -45,7 +49,7 @@
 		options = "--delete-older-than 30d";
 	};
 
-	nix.settings.auto-optimise-store = true;
+	nix.settings.auto-optimise-store = true; 
 
 
 
