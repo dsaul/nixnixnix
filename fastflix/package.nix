@@ -3,12 +3,22 @@ lib,
 stdenv,
 fetchurl,
 fetchFromGitHub,
+fetchPypi,
 pkgs,
 ffmpeg_6-full,
 python312Full,
 python312Packages
 }:
-
+let
+	chardet510 = (python-packages.buildPythonPackage {
+        pname = "chardet";
+        version = "5.1.0";
+        src = pkgs.fetchPypi {
+          inherit pname version;
+          sha256 = "0f0d39...";
+        };
+      });
+in
 python312Packages.buildPythonApplication rec {
 	pname = "fastflix";
 	version = "5.8.2";
@@ -22,6 +32,19 @@ python312Packages.buildPythonApplication rec {
 	};
 
 	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
+
+	poolsense = super.poolsense.overridePythonAttrs (oldAttrs: rec {
+		version = "0.0.8";
+		src = fetchPypi {
+		pname = "poolsense";
+		inherit version;
+		hash = "sha256-17MHrYRmqkH+1QLtgq2d6zaRtqvb9ju9dvPt9gB2xCc=";
+		};
+	});
+
+
+
+
 
 	propagatedPythonDeps = with python312Packages; [
 		annotated-types
