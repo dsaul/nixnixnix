@@ -10,7 +10,7 @@ python312Full,
 python312Packages
 }:
 let
-	chardet510 = (python-packages.buildPythonPackage {
+	chardet510 = (python312Packages.buildPythonPackage {
         pname = "chardet";
         version = "5.1.0";
         src = pkgs.fetchPypi {
