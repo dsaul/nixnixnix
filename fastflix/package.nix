@@ -21,6 +21,8 @@ python312Packages.buildPythonApplication rec {
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
+	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
+
 	propagatedPythonDeps = with python312Packages; [
 		annotated-types
 		appdirs # appdirs~=1.4
@@ -46,6 +48,7 @@ python312Packages.buildPythonApplication rec {
 		ruamel-yaml
 		ruamel-yaml-clib
 		setuptools
+		setuptools-scm
 		shiboken6
 		toml
 
@@ -62,6 +65,8 @@ python312Packages.buildPythonApplication rec {
 		types-requests
 		pre-commit-hooks # pre-commit>=3.0.3
 	];
+
+
 
 	#buildPhase = ''
 	#	python -m venv venv
