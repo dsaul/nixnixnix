@@ -34,16 +34,6 @@ python312Packages.buildPythonApplication rec {
 
 	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
 
-	poolsense = super.poolsense.overridePythonAttrs (oldAttrs: rec {
-		version = "0.0.8";
-		src = fetchPypi {
-		pname = "poolsense";
-		inherit version;
-		hash = "sha256-17MHrYRmqkH+1QLtgq2d6zaRtqvb9ju9dvPt9gB2xCc=";
-		};
-	});
-
-
 
 
 
@@ -51,7 +41,7 @@ python312Packages.buildPythonApplication rec {
 		annotated-types
 		appdirs # appdirs~=1.4
 		certifi
-		chardet # chardet<5.2.0,>=5.1.0
+		chardet510#chardet # chardet<5.2.0,>=5.1.0
 		charset-normalizer
 		colorama # colorama<1.0,>=0.4
 		coloredlogs # coloredlogs<16.0,>=15.0
