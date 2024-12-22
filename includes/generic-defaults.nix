@@ -37,6 +37,7 @@
 		cifs-utils
 	];
 	
+	services.envfs.enable = true;
 	programs.nix-ld.enable = true;
 	
 	programs.nix-ld.libraries = with pkgs; [
@@ -44,7 +45,6 @@
 		xorg.libxcb
 		xkeyboard_config
 	];
-	services.xserver.exportConfiguration = true;
 
 	nix.gc = {
 		automatic = true;
