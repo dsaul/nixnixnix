@@ -6,10 +6,10 @@ fetchFromGitHub,
 pkgs,
 ffmpeg_6-full,
 python312Full,
-python3Packages
+python312Packages
 }:
 
-python3Packages.buildPythonApplication rec {
+python312Packages.buildPythonApplication rec {
 	pname = "fastflix";
 	version = "5.8.2";
 
@@ -20,14 +20,15 @@ python3Packages.buildPythonApplication rec {
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
-	propagatedBuildInputs = with python3Packages; [
+	propagatedBuildInputs = with python312Packages; [
 		setuptools
 		wheel
 		pip
 	];
 
 	  # FastFlix dependencies
-	propagatedPythonDeps = with python3Packages; [
+	propagatedPythonDeps = with python312Packages; [
+		setuptools
 		pip
 		wheel
 	];
