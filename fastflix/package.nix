@@ -10,7 +10,11 @@
 }:
 let
 	# https://github.com/NixOS/nixpkgs/blob/00000000b0be738315769701d1bc6ee298ad44a9/pkgs/development/python-modules/chardet/default.nix
-	chardet510 = (pkgs.callPackage ./chardet510/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; hypothesis = python312Packages.hypothesis; });
+	chardet510 = (pkgs.callPackage ./chardet510/default.nix {
+		buildPythonPackage = python312Packages.buildPythonPackage;
+		hypothesis = python312Packages.hypothesis;
+		pytestCheckHook = python312Packages.pytestCheckHook;
+	});
 	#chardet510 = (python312Packages.buildPythonPackage rec {
 	#	pname = "chardet";
 	#	version = "5.1.0";
