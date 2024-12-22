@@ -105,11 +105,11 @@ python312Packages.buildPythonApplication rec {
 		annotated-types
 		appdirs # appdirs~=1.4
 		certifi
-		chardet # chardet<5.2.0,>=5.1.0
+		chardet510#chardet # chardet<5.2.0,>=5.1.0
 		charset-normalizer
 		colorama # colorama<1.0,>=0.4
 		coloredlogs # coloredlogs<16.0,>=15.0
-		# iso639-lang==0.0.9
+		iso639lang009 # iso639-lang==0.0.9
 		humanfriendly
 		idna
 		mistune # mistune<3.0,>=2.0
