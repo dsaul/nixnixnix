@@ -9,8 +9,6 @@ ffmpeg_6-full,
 python312Full,
 python312Packages,
 pythonOlder,
-pytestCheckHook,
-hypothesis
 }:
 let
 	chardet510 = (python312Packages.buildPythonPackage rec {
@@ -26,11 +24,6 @@ let
 
   nativeBuildInputs = [
     python312Packages.setuptools
-  ];
-
-  nativeCheckInputs = [
-    hypothesis
-    pytestCheckHook
   ];
 
   disabledTests = [
