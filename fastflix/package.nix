@@ -137,6 +137,10 @@ let
 			inherit pname version;
 			hash = "sha256-2A5ULQgP7HQUeIUUmMx+X3xiTU7hTXOo/UxIwsbCE1U=";
 		};
+
+			nativeBuildInputs = [
+			python312Packages.pip
+		];
 	});
 
 
