@@ -24,7 +24,9 @@ stdenv.mkDerivation (finalAttrs: {
 	installPhase = ''
 		runHook preInstall
 		ls -la
-		cd FastFlix-${finalAttrs.version}
+
+		python3.12 -v
+
 		#python3.12 -m pip install --upgrade pip
 		#python3.12 -m venv venv
 		#. ./venv/bin/activate       # venv\Scripts\activate.bat or venv\Scripts\activate.ps1 on windows
