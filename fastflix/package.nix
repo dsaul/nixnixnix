@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
 		owner = "cdgriffith";
 		repo = "FastFlix";
 		rev = "refs/tags/${finalAttrs.version}";
-		hash = "sha256-VDlJsEJtdRhYAp8pOEAIp5lov+UUcRf29JCDT82tRkU=";
+		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
 	nativeBuildInputs = [ pkgs.python312Full ];
