@@ -132,14 +132,14 @@ python312Packages.buildPythonApplication rec {
 		psutil598 # psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
-		pyside6 # pyside6==6.7.2
+		pyside672 # pyside6 # pyside6==6.7.2
 		python-box # python-box[all]<7.0,>=6.0
 		requests # requests<3.0,>=2.28
 		ruamel-yaml
 		ruamel-yaml-clib
 		setuptools
 		setuptools-scm
-		shiboken6
+		shiboken672 # shiboken6
 		toml
 
 		urllib3
@@ -176,14 +176,14 @@ python312Packages.buildPythonApplication rec {
 		psutil598 # psutil # psutil<6.0,>=5.9
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
-		pyside6 # pyside6==6.7.2
+		pyside672 # pyside6 # pyside6==6.7.2
 		python-box # python-box[all]<7.0,>=6.0
 		requests # requests<3.0,>=2.28
 		ruamel-yaml
 		ruamel-yaml-clib
 		setuptools
 		setuptools-scm
-		shiboken6
+		shiboken672 # shiboken6
 		toml
 
 		urllib3
