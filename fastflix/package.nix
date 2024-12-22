@@ -88,7 +88,7 @@ let
 		];
 	});
 	shiboken672 = (pkgs.callPackage ./shiboken6/default.nix {});
-	pyside672 = (pkgs.callPackage ./pyside/default.nix {});
+	pyside672 = (pkgs.callPackage ./pyside/default.nix { shiboken6 = shiboken672; });
 
 
 
