@@ -19,24 +19,39 @@ stdenv.mkDerivation (finalAttrs: {
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
 
-	nativeBuildInputs = [ pkgs.python312Full ];
+	propagatedBuildInputs = with python3Packages; [ setuptools ];
 
-	installPhase = ''
-		runHook preInstall
-		ls -la
+	nativeBuildInputs = [ stdenv.mkDerivation ];
 
-		python3.12 -v
+	  # FastFlix dependencies
+	propagatedPythonDeps = with python3Packages; [
+		pip
+		wheel
+	];
 
-		#python3.12 -m pip install --upgrade pip
-		#python3.12 -m venv venv
-		#. ./venv/bin/activate       # venv\Scripts\activate.bat or venv\Scripts\activate.ps1 on windows
-		#pip install setuptools
-		#pip install .
-
-		runHook postInstall
+	  buildPhase = ''
+		python -m venv venv
+		source venv/bin/activate
+		pip install setuptools
+		pip install .
 	'';
 
-	#venv/bin/python -m fastflix
+	  installPhase = ''
+		mkdir -p $out/bin
+		cp -r venv $out/venv
+		ln -s $out/venv/bin/python $out/bin/fastflix
+	'';
+
+	  # Set up the run environment for `fastflix` script
+	postInstall = ''
+		wrapProgram $out/bin/fastflix \
+		--set PYTHONPATH $out/venv
+	'';
+
+	# Runtime test command
+	checkPhase = ''
+		$out/bin/fastflix --help
+	'';
 
 	meta = {
 		homepage = "https://fastflix.org/";
@@ -46,5 +61,10 @@ stdenv.mkDerivation (finalAttrs: {
 		'';
 		changelog = "https://github.com/cdgriffith/FastFlix/releases/tag/${finalAttrs.version}";
 		platforms = lib.platforms.linux;
+		runInstructions = ''
+			To run FastFlix:
+
+			$ $out/bin/fastflix
+		'';
 	};
 })
