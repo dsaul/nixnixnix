@@ -39,7 +39,6 @@ buildPythonPackage rec {
     ];
     tomli = [
       tomli-w
-    ] ++ lib.optionals (pythonOlder "3.11") [
       tomli
     ];
     toml = [
