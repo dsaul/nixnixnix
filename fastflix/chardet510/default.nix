@@ -11,7 +11,6 @@ buildPythonPackage rec {
   pname = "chardet";
   version = "5.1.0";
   format = "pyproject";
-  disabled = pythonOlder "3.6";
 
   src = fetchPypi {
     inherit pname version;
