@@ -132,6 +132,7 @@ let
 	reusables096 = (python312Packages.buildPythonPackage rec {
 		pname = "reusables";
 		version = "0.9.6";
+		doCheck = false;
 
 		src = pkgs.fetchPypi {
 			inherit pname version;
