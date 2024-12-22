@@ -18,6 +18,7 @@ let
 			version = "5.1.0";
 			sha256 = "DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
 		};
+		format = "pyproject";
 	});
 	iso639lang009 = (python312Packages.buildPythonPackage {
 		pname = "iso639-lang";
