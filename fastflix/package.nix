@@ -55,12 +55,12 @@ python312Packages.buildPythonApplication rec {
 
 	propagatedBuildInputs = with python312Packages; [
 		wheel # wheel>=0.38.4
-		"typing-extensions" # typing_extensions>=4.4
+		typing-extensions # typing_extensions>=4.4
 		pyinstaller # pyinstaller==6.9.0
 		pytest # pytest>=7.3 # types-requests>=2.28
-		"types-setuptools" # types-setuptools>=65.7
-		"types-requests"
-		"pre-commit-hooks" # pre-commit>=3.0.3
+		types-setuptools # types-setuptools>=65.7
+		types-requests
+		pre-commit-hooks # pre-commit>=3.0.3
 	];
 
 	#buildPhase = ''
