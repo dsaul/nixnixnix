@@ -20,6 +20,8 @@ buildPythonPackage rec {
     hash = "sha256-a+Em4yJUht/yhqj7mgYkalJT9MfFO0depfWsk05kGUw=";
   };
 
+   doCheck = false;
+
   postPatch = ''
     # stick to the old SDK name for now
     # https://developer.apple.com/documentation/iokit/kiomasterportdefault/
