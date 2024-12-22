@@ -9,27 +9,31 @@
 , python312Packages
 }:
 let
-	chardet510 = (python312Packages.buildPythonPackage rec {
-		pname = "chardet";
-		version = "5.1.0";
-		format = "pyproject";
+	# https://github.com/NixOS/nixpkgs/blob/00000000b0be738315769701d1bc6ee298ad44a9/pkgs/development/python-modules/chardet/default.nix
+	chardet510 = (pkgs.callPackage ./chardet510/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	#chardet510 = (python312Packages.buildPythonPackage rec {
+	#	pname = "chardet";
+	#	version = "5.1.0";
+	#	format = "pyproject";
 
-		src = fetchPypi {
-			inherit pname version;
-			hash = "sha256-DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
-		};
+	#	src = fetchPypi {
+	#		inherit pname version;
+	#		hash = "sha256-DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
+	#	};
 
-		nativeBuildInputs = [
-			python312Packages.setuptools
-		];
+	#	nativeBuildInputs = [
+	#		python312Packages.setuptools
+	#	];
 
-		disabledTests = [
-			# flaky; https://github.com/chardet/chardet/issues/256
-			"test_detect_all_and_detect_one_should_agree"
-		];
+	#	disabledTests = [
+	#		# flaky; https://github.com/chardet/chardet/issues/256
+	#		"test_detect_all_and_detect_one_should_agree"
+	#	];
 
-		pythonImportsCheck = [ "chardet" ];
-	});
+	#	pythonImportsCheck = [ "chardet" ];
+	#});
+
+	# Not in nixpkgs
 	iso639lang009 = (python312Packages.buildPythonPackage rec {
 		pname = "iso639-lang";
 		version = "0.0.9";
@@ -39,56 +43,67 @@ let
 			hash = "sha256-teH7pM6sevpoSfPx9zUDUbFCCFJnQ5HOGMIIskJ/BMM=";
 		};
 	});
-	mistune205 = (python312Packages.buildPythonPackage rec {
-		pname = "mistune";
-		version = "2.0.5";
-		format = "pyproject";
 
-		src = pkgs.fetchPypi {
-			inherit pname version;
-			hash = "sha256-AkYRPLJJLbh1xr5Wl0p8iTMzvybNkokchfYxUc7gnTQ=";
-		};
-		nativeBuildInputs = [
-			python312Packages.setuptools
-		];
-		pythonImportsCheck = [ "mistune" ];
-	});
-	pathvalidate252 = (python312Packages.buildPythonPackage rec {
-		pname = "pathvalidate";
-		version = "2.5.2";
-		format = "setuptools";
+	# https://github.com/NixOS/nixpkgs/blob/294f94582559690359b28a044cbe96659091f118/pkgs/development/python-modules/mistune/default.nix
+	mistune205 = (pkgs.callPackage ./mistune205/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
 
-		src = pkgs.fetchPypi {
-			inherit pname version;
-			hash = "sha256-X/V9D6vl7Lek8eSVe/61rYq1q0wPpx95xrvCS9m30U0=";
-		};
+	#mistune205 = (python312Packages.buildPythonPackage rec {
+	#	pname = "mistune";
+	#	version = "2.0.5";
+	#	format = "pyproject";
 
-		doCheck = false;
+	#	src = pkgs.fetchPypi {
+	#		inherit pname version;
+	#		hash = "sha256-AkYRPLJJLbh1xr5Wl0p8iTMzvybNkokchfYxUc7gnTQ=";
+	#	};
+	#	nativeBuildInputs = [
+	#		python312Packages.setuptools
+	#	];
+	#	pythonImportsCheck = [ "mistune" ];
+	#});
 
-		pythonImportsCheck = [
-			"pathvalidate"
-		];
-	});
+	# https://github.com/NixOS/nixpkgs/blob/nixos-24.11/pkgs/development/python-modules/pathvalidate/default.nix#L29
+	pathvalidate252 = (pkgs.callPackage ./pathvalidate252/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+
+	#pathvalidate252 = (python312Packages.buildPythonPackage rec {
+	#	pname = "pathvalidate";
+	#	version = "2.5.2";
+	#	format = "setuptools";
+
+	#	src = pkgs.fetchPypi {
+	#		inherit pname version;
+	#		hash = "sha256-X/V9D6vl7Lek8eSVe/61rYq1q0wPpx95xrvCS9m30U0=";
+	#	};
+
+	#	doCheck = false;
+
+	#	pythonImportsCheck = [
+	#		"pathvalidate"
+	#	];
+	#});
 
 	# https://github.com/NixOS/nixpkgs/blob/96f7b8213bd9f6aebc4a54815195de827a05b561/pkgs/development/python-modules/psutil/default.nix
-	psutil598 = (python312Packages.buildPythonPackage rec {
-		pname = "psutil";
-		version = "5.9.8";
-		format = "setuptools";
+	psutil598 = (pkgs.callPackage ./psutil598/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
 
-		src = pkgs.fetchPypi {
-			inherit pname version;
-			hash = "sha256-a+Em4yJUht/yhqj7mgYkalJT9MfFO0depfWsk05kGUw=";
-		};
+	#psutil598 = (python312Packages.buildPythonPackage rec {
+	#	pname = "psutil";
+	#	version = "5.9.8";
+	#	format = "setuptools";
 
-		doCheck = false;
+	#	src = pkgs.fetchPypi {
+	#		inherit pname version;
+	#		hash = "sha256-a+Em4yJUht/yhqj7mgYkalJT9MfFO0depfWsk05kGUw=";
+	#	};
 
-		pythonImportsCheck = [
-			"psutil"
-		];
-	});
-	shiboken672 = (pkgs.callPackage ./shiboken6/default.nix { python = python312Full; });
-	pyside672 = (pkgs.callPackage ./pyside/default.nix { shiboken6 = shiboken672; python = python312Full;  });
+	#	doCheck = false;
+
+	#	pythonImportsCheck = [
+	#		"psutil"
+	#	];
+	#});
+	python-box610 = (pkgs.callPackage ./python-box610/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+	shiboken672 = (pkgs.callPackage ./shiboken672/default.nix { python = python312Full; });
+	pyside672 = (pkgs.callPackage ./pyside672/default.nix { shiboken6 = shiboken672; python = python312Full;  });
 
 
 
