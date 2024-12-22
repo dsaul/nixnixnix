@@ -87,8 +87,8 @@ let
 			"psutil"
 		];
 	});
-	shiboken672 = (pkgs.callPackage ./shiboken6/default.nix {});
-	pyside672 = (pkgs.callPackage ./pyside/default.nix { shiboken6 = shiboken672; });
+	shiboken672 = (pkgs.callPackage ./shiboken6/default.nix { python = python312Full; });
+	pyside672 = (pkgs.callPackage ./pyside/default.nix { shiboken6 = shiboken672; python = python312Full;  });
 
 
 
