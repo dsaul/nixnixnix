@@ -102,10 +102,22 @@ let
 	#	];
 	#});
 	python-box610 = (pkgs.callPackage ./python-box610/default.nix { buildPythonPackage = python312Packages.buildPythonPackage; });
+
+
+	# Not in nixpkgs
+	reusables096 = (python312Packages.buildPythonPackage rec {
+		pname = "reusables";
+		version = "0.9.6";
+
+		src = pkgs.fetchPypi {
+			inherit pname version;
+			hash = "sha256-teH7pM6sevpoSfPx9zUDUbFCCFJnQ5HOGMIIskJ/BMM=";
+		};
+	});
+
+
 	shiboken672 = (pkgs.callPackage ./shiboken672/default.nix { python = python312Full; });
 	pyside672 = (pkgs.callPackage ./pyside672/default.nix { shiboken6 = shiboken672; python = python312Full;  });
-
-
 
 
 
@@ -148,7 +160,7 @@ python312Packages.buildPythonApplication rec {
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
 		pyside672 # pyside6 # pyside6==6.7.2
-		python-box # python-box[all]<7.0,>=6.0
+		python-box610 # python-box # python-box[all]<7.0,>=6.0
 		requests # requests<3.0,>=2.28
 		ruamel-yaml
 		ruamel-yaml-clib
@@ -158,7 +170,7 @@ python312Packages.buildPythonApplication rec {
 		toml
 
 		urllib3
-		# reusables<0.10.0,>=0.9.6
+		reusables096 # reusables<0.10.0,>=0.9.6
 	];
 
 	propagatedBuildInputs = with python312Packages; [
@@ -192,7 +204,7 @@ python312Packages.buildPythonApplication rec {
 		pydantic # pydantic<3.0,>=2.0
 		pydantic-core
 		pyside672 # pyside6 # pyside6==6.7.2
-		python-box # python-box[all]<7.0,>=6.0
+		python-box610 # python-box # python-box[all]<7.0,>=6.0
 		requests # requests<3.0,>=2.28
 		ruamel-yaml
 		ruamel-yaml-clib
@@ -202,7 +214,7 @@ python312Packages.buildPythonApplication rec {
 		toml
 
 		urllib3
-		# reusables<0.10.0,>=0.9.6
+		reusables096 # reusables<0.10.0,>=0.9.6
 	];
 
 
