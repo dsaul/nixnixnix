@@ -10,15 +10,40 @@ python312Full,
 python312Packages
 }:
 let
-	chardet510 = (python312Packages.buildPythonPackage {
+	chardet510 = (python312Packages.buildPythonPackage rec {
 		pname = "chardet";
-		version = "5.1.0";
-		src = pkgs.fetchPypi {
-			pname = "chardet";
-			version = "5.1.0";
-			sha256 = "DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
-		};
-		format = "pyproject";
+  version = "5.1.0";
+  format = "pyproject";
+  disabled = pythonOlder "3.6";
+
+  src = fetchPypi {
+    inherit pname version;
+    hash = "sha256-DWJxK5VrwVT4X7CiZuKjxZE8KWfgA0hwGzJBHW3vMeU=";
+  };
+
+  nativeBuildInputs = [
+    setuptools
+  ];
+
+  nativeCheckInputs = [
+    hypothesis
+    pytestCheckHook
+  ];
+
+  disabledTests = [
+    # flaky; https://github.com/chardet/chardet/issues/256
+    "test_detect_all_and_detect_one_should_agree"
+  ];
+
+  pythonImportsCheck = [ "chardet" ];
+
+  meta = with lib; {
+    changelog = "https://github.com/chardet/chardet/releases/tag/${version}";
+    description = "Universal encoding detector";
+    homepage = "https://github.com/chardet/chardet";
+    license = licenses.lgpl21Plus;
+    maintainers = with maintainers; [ domenkozar ];
+  };
 	});
 	iso639lang009 = (python312Packages.buildPythonPackage {
 		pname = "iso639-lang";
