@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
 
 	installPhase = ''
 		runHook preInstall
-
+		ls -la
 		cd FastFlix-${finalAttrs.version}
 		#python3.12 -m pip install --upgrade pip
 		#python3.12 -m venv venv
