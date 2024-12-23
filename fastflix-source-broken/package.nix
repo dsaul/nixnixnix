@@ -7,6 +7,7 @@
 , ffmpeg_7-full
 , python312Full
 , python312Packages
+, makeDesktopItem
 }:
 let
 	# https://github.com/NixOS/nixpkgs/blob/00000000b0be738315769701d1bc6ee298ad44a9/pkgs/development/python-modules/chardet/default.nix
@@ -115,12 +116,6 @@ python312Packages.buildPythonApplication rec {
 		./subtitle_panel.py.patch
 	];
 	
-	postPatch = ''
-    # Ensure resources are available in the build environment
-    mkdir -p ./resources
-    cp -r ${src}/resources/* ./resources
-	'';
-	
 
 	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
 
@@ -217,13 +212,13 @@ python312Packages.buildPythonApplication rec {
 	Categories=AudioVideo;Video;Utility;
 EOF
 
-	install -Dm644 ./resources/icon_16x16x32.png $out/share/icons/hicolor/16x16/apps/fastflix.png
-	install -Dm644 ./resources/icon_32x32x32.png $out/share/icons/hicolor/32x32/apps/fastflix.png
-	install -Dm644 ./resources/icon_64x64x32.png $out/share/icons/hicolor/64x64/apps/fastflix.png
-	install -Dm644 ./resources/icon_128x128x32.png $out/share/icons/hicolor/128x128/apps/fastflix.png
-	install -Dm644 ./resources/icon_256x256x32.png $out/share/icons/hicolor/256x256/apps/fastflix.png
-	install -Dm644 ./resources/icon_512x512x32.png $out/share/icons/hicolor/512x512/apps/fastflix.png
-	install -Dm644 ./resources/icon_1024x1024x32.png $out/share/icons/hicolor/1024x1024/apps/fastflix.png
+	install -Dm644 ${./resources/icon_16x16x32.png} $out/share/icons/hicolor/16x16/apps/fastflix.png
+	install -Dm644 ${./resources/icon_32x32x32.png} $out/share/icons/hicolor/32x32/apps/fastflix.png
+	install -Dm644 ${./resources/icon_64x64x32.png} $out/share/icons/hicolor/64x64/apps/fastflix.png
+	install -Dm644 ${./resources/icon_128x128x32.png} $out/share/icons/hicolor/128x128/apps/fastflix.png
+	install -Dm644 ${./resources/icon_256x256x32.png} $out/share/icons/hicolor/256x256/apps/fastflix.png
+	install -Dm644 ${./resources/icon_512x512x32.png} $out/share/icons/hicolor/512x512/apps/fastflix.png
+	install -Dm644 ${./resources/icon_1024x1024x32.png} $out/share/icons/hicolor/1024x1024/apps/fastflix.png
   '';
 
 	meta = {
