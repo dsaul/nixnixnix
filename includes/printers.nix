@@ -36,8 +36,8 @@ in
 				location = "Cornwall";
 				#deviceUri = "ipp://10.5.5.14";
 				deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
-				#model = "brother_mfcl8900cdw_printer_en.ppd"; # Brother Provided, Broken
-				model = "brother_mfcl8690cdw_printer_en.ppd";
+				model = "brother_mfcl8900cdw_printer_en.ppd";
+				#model = "brother_mfcl8690cdw_printer_en.ppd";
 				ppdOptions = {
 					PageSize = "Letter";
 					Duplex = "DuplexNoTumble";
