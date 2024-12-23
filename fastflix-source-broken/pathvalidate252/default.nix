@@ -1,26 +1,24 @@
-{
-  lib,
-  buildPythonPackage,
-  fetchPypi,
-  setuptools-scm,
+{ lib
+, buildPythonPackage
+, fetchPypi
 }:
 
 buildPythonPackage rec {
   pname = "pathvalidate";
-  version = "3.2.1";
-  pyproject = true;
+  version = "2.5.2";
+  format = "setuptools";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-9dB7HiN0GHBAYSofzSvLKRn42xgN8lTJWBu5C/kDN30=";
+    hash = "sha256-X/V9D6vl7Lek8eSVe/61rYq1q0wPpx95xrvCS9m30U0=";
   };
-
-  build-system = [ setuptools-scm ];
 
   # Requires `pytest-md-report`, causing infinite recursion.
   doCheck = false;
 
-  pythonImportsCheck = [ "pathvalidate" ];
+  pythonImportsCheck = [
+    "pathvalidate"
+  ];
 
   meta = with lib; {
     description = "Library to sanitize/validate a string such as filenames/file-paths/etc";
