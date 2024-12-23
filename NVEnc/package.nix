@@ -44,7 +44,6 @@ stdenv.mkDerivation rec {
         --prefix LD_LIBRARY_PATH : "${
           lib.makeLibraryPath [
             addDriverRunpath.driverLink
-            vulkan-loader
           ]
         }"
     done
