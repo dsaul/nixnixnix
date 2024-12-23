@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
     for program in $out/bin/*; do
       isELF "$program" || continue
 	  
-	  wrapProgram $out/bin/$f \
+	  wrapProgram $program \
         --prefix LD_LIBRARY_PATH : "${
           lib.makeLibraryPath [
             addDriverRunpath.driverLink
