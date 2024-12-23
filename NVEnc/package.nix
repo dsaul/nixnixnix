@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
 		hash = "sha256-yl9VSFnKZrhwDGfAjcKbFclghXy2xJtWceAcESyZw9E=";
 	};
 	
-	unpackPhase = "dpkg-deb -X $src $out";
+	#unpackPhase = "";
 	
 	nativeBuildInputs = with pkgs; [
 		dpkg
@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
 	];
 	
 	installPhase = ''
-		ls -l $out
+		dpkg-deb -X $src $out
 	'';
 	
 	
