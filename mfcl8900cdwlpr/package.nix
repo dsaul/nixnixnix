@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 		hash = "sha256-+TWcnO4dInPzSrqsjx8qHJPtUllmptbNdkJSRQu4Igc=";
 	};
 	
-	programs.nix-ld.enable = true; # libstdc++.so.6
+	#programs.nix-ld.enable = true; # libstdc++.so.6
 	
 	buildInputs = with pkgs; [
 		
