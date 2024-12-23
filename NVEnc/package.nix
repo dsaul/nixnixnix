@@ -3,7 +3,7 @@
 , pkgs
 , fetchurl
 , ffmpeg_6
-, autoAddDriverRunpath
+, addDriverRunpath
 }:
 
 stdenv.mkDerivation rec {
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
 		gcc
 		libass
 		ffmpeg_6
-		cudatoolkit
+		cudatoolkit-legacy-runfile
 		#nvidia-x11
 	];
 	# https://nixos.org/manual/nixpkgs/stable/#setup-hook-autopatchelfhook
@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
 	postFixup = ''
     for program in $out/bin/*; do
       isELF "$program" || continue
-      autoAddDriverRunpath "$program"
+      addDriverRunpath "$program"
     done
   '';
 	
