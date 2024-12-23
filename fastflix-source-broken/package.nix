@@ -25,7 +25,7 @@ let
 		
 		src = pkgs.fetchPypi {
 			inherit pname version;
-			hash = "sha256-FO/DJp2shmTcb4fp7Pu9w5o20Y+ZnnnHqp6/r6puLrM=";
+			hash = "sha256-yeMR7CtvEAXrNtOgoPa7+CiYy00831aLaq5KBwWhndU=";
 		};
 	});
 
