@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
 		glibc
 		gcc
 		libass
-		ffmpeg
+		ffmpeg_7-full
 		cudatoolkit
 	];
 	# https://nixos.org/manual/nixpkgs/stable/#setup-hook-autopatchelfhook
