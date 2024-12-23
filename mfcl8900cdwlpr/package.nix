@@ -55,7 +55,7 @@ stdenv.mkDerivation rec {
 
 		# need to use i686 glibc here, these are 32bit proprietary binaries
 		interpreter=${pkgs.pkgsi686Linux.glibc}/lib/ld-linux.so.2
-		patchelf --set-interpreter "$interpreter" $dir/lpd/brmfcl8900cdwfilter
+		patchelf --set-interpreter "$interpreter" $dir/lpd/i686/brmfcl8900cdwfilter
 	'';
 
 	meta = {
