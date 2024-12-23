@@ -38,7 +38,6 @@ let
 	# https://github.com/NixOS/nixpkgs/blob/nixos-24.11/pkgs/development/python-modules/pathvalidate/default.nix#L29
 	pathvalidate252 = (pkgs.callPackage ./pathvalidate252/default.nix {
 		buildPythonPackage = python312Packages.buildPythonPackage;
-		setuptools-scm = python312Packages.setuptools-scm;
 	});
 
 	# https://github.com/NixOS/nixpkgs/blob/96f7b8213bd9f6aebc4a54815195de827a05b561/pkgs/development/python-modules/psutil/default.nix
