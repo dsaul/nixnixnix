@@ -1,6 +1,9 @@
 
 { config, lib, pkgs, modulesPath, ... }:
-
+let
+	mfcl8900cdwlpr = (pkgs.callPackage ./mfcl8900cdwlpr/package.nix {});
+	mfcl8900cdwcupswrapper = (pkgs.callPackage ./mfcl8900cdwcupswrapper/package.nix { mfcl8900cdwlpr = mfcl8900cdwlpr; });
+in
 {
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -17,7 +20,8 @@
 		pkgs.brlaser
 		pkgs.mfcl3770cdwlpr
 		pkgs.mfcl8690cdwcupswrapper
-		(pkgs.callPackage ./mfcl8900cdw.nix {}) # At some point if we need the exact driver, get this to work.
+		mfcl8900cdwlpr
+		mfcl8900cdwcupswrapper
 	];
 	services.printing.logLevel = "debug";
 	hardware.printers = {
@@ -26,7 +30,8 @@
 			{
 				name = "Brother_MFCL8900CDW";
 				location = "Cornwall";
-				deviceUri = "ipp://10.5.5.14";
+				#deviceUri = "ipp://10.5.5.14";
+				deviceUri = "cornwall-printer.infra.dsaul.ca";
 				#model = "brother_mfcl8900cdw_printer_en.ppd"; # Brother Provided, Broken
 				model = "brother_mfcl8690cdw_printer_en.ppd";
 				ppdOptions = {
