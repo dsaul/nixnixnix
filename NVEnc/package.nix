@@ -4,6 +4,7 @@
 , fetchurl
 , ffmpeg_6
 , addDriverRunpath
+, makeWrapper
 }:
 
 stdenv.mkDerivation rec {
@@ -21,6 +22,7 @@ stdenv.mkDerivation rec {
 	nativeBuildInputs = with pkgs; [
 		dpkg
 		autoPatchelfHook
+		makeWrapper
 	];
 
 	buildInputs = with pkgs; [
