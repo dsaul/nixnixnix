@@ -109,6 +109,7 @@ python312Packages.buildPythonApplication rec {
 	
 	patches = [
 		./pyproject.toml.patch
+		./audio_panel.py.patch
 	];
 	
 
