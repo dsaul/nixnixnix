@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
       hash = "sha256-yl9VSFnKZrhwDGfAjcKbFclghXy2xJtWceAcESyZw9E=";
     };
 	
-	unpackPhase = "dpkg-deb -x $src/nvencc_${version}_Ubuntu24.04_amd64.deb unpack";
+	unpackPhase = "dpkg-deb -x $src $out";
 	
 	nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook ];
 	
