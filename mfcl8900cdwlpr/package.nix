@@ -25,6 +25,7 @@ stdenv.mkDerivation rec {
 
 	nativeBuildInputs = [
 		dpkg
+		autoPatchelfHook
 		makeWrapper
 	];
 
