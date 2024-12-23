@@ -42,8 +42,9 @@ stdenv.mkDerivation rec {
 	
 	installPhase = ''
 		dpkg-deb -X $src $out
-		mv $out/usr/bin/* $out/bin
-		rm -r $out/usr
+		mkdir -p $out/bin
+		mv $out/usr/bin/* $out/bin/
+		rmdir $out/usr/bin || true
 	'';
 	
 	
