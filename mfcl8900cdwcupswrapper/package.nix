@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
 	};
 	
 	buildInputs = with pkgs; [
-		glibc,
+		glibc
 		gcc
 	];
 
