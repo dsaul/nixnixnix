@@ -115,6 +115,12 @@ python312Packages.buildPythonApplication rec {
 		./subtitle_panel.py.patch
 	];
 	
+	postPatch = ''
+    # Ensure resources are available in the build environment
+    mkdir -p ./resources
+    cp -r ${src}/resources/* ./resources
+	'';
+	
 
 	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
 
