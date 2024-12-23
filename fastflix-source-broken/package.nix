@@ -18,9 +18,9 @@ let
 	});
 
 	# Not in nixpkgs
-	iso639lang251 = (python312Packages.buildPythonPackage rec {
+	iso639lang = (python312Packages.buildPythonPackage rec {
 		pname = "iso639-lang";
-		version = "2.5.1";
+		version = "2.5.0";
 
 		src = pkgs.fetchPypi {
 			inherit pname version;
@@ -120,7 +120,7 @@ python312Packages.buildPythonApplication rec {
 		charset-normalizer
 		colorama # colorama<1.0,>=0.4
 		coloredlogs # coloredlogs<16.0,>=15.0
-		iso639lang251 # iso639-lang==0.0.9
+		iso639lang # iso639-lang==0.0.9
 		humanfriendly
 		idna
 		mistune205 # mistune # mistune<3.0,>=2.0
@@ -164,7 +164,7 @@ python312Packages.buildPythonApplication rec {
 		charset-normalizer
 		colorama # colorama<1.0,>=0.4
 		coloredlogs # coloredlogs<16.0,>=15.0
-		iso639lang251 # iso639-lang==0.0.9
+		iso639lang # iso639-lang==0.0.9
 		humanfriendly
 		idna
 		mistune205 # mistune # mistune<3.0,>=2.0
