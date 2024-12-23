@@ -101,6 +101,11 @@ python312Packages.buildPythonApplication rec {
 		rev = "refs/tags/${version}";
 		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
 	};
+	
+	patches = [
+		./pyproject.toml.patch
+	];
+	
 
 	#env.SETUPTOOLS_SCM_PRETEND_VERSION = ;
 
