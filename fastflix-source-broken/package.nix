@@ -209,7 +209,7 @@ python312Packages.buildPythonApplication rec {
 	Terminal=true
 	Type=Application
 	Categories=AudioVideo;Video;Utility;
-	EOF
+EOF
 
 	install -Dm644 ${src}/resources/icon_16x16x32.png $out/share/icons/hicolor/16x16/apps/fastflix.png
 	install -Dm644 ${src}/resources/icon_32x32x32.png $out/share/icons/hicolor/32x32/apps/fastflix.png
