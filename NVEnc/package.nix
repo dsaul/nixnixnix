@@ -37,12 +37,12 @@ stdenv.mkDerivation rec {
 	];
 	# https://nixos.org/manual/nixpkgs/stable/#setup-hook-autopatchelfhook
 	autoPatchelfIgnoreMissingDeps = [
-		"libcuda.so.1"
-		"libswresample.so.4"
-		"libavutil.so.58"
-		"libavcodec.so.60"
-		"libavformat.so.60"
-		"libavfilter.so.9"
+	#	"libcuda.so.1"
+	#	"libswresample.so.4"
+	#	"libavutil.so.58"
+	#	"libavcodec.so.60"
+	#	"libavformat.so.60"
+	#	"libavfilter.so.9"
 	];
 	
 	installPhase = ''
