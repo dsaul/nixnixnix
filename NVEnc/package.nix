@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
 		gcc
 		libass
 		ffmpeg_6
-		cudatoolkit-legacy-runfile
+		cudatoolkit
 		#nvidia-x11
 	];
 	# https://nixos.org/manual/nixpkgs/stable/#setup-hook-autopatchelfhook
