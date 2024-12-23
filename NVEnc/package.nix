@@ -40,6 +40,13 @@ stdenv.mkDerivation rec {
 		"libcuda.so.1"
 	];
 	
+	postFixup = ''
+    for program in $out/bin/*; do
+      isELF "$program" || continue
+      addOpenGLRunpath "$program"
+    done
+  '';
+	
 	installPhase = ''
 		dpkg-deb -X $src $out
 		mkdir -p $out/bin
