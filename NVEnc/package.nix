@@ -15,18 +15,19 @@ stdenv.mkDerivation rec {
 	version = "7.77";
 	format = "pyproject";
 	
-	src = fetchFromGitHub {
-		owner = "rigaya";
-		repo = "NVEnc";
-		rev = "refs/tags/${version}";
-		hash = "sha256-M8vjim5ZX1jTRAi69E2tZE/5BMTxfGztwH2CCYv3TUs=";
-		recursive = true;
-	};
+	src = pkgs.fetchurl
+    {
+      url = "https://github.com/rigaya/NVEnc/releases/download/${version}/nvencc_${version}_Ubuntu24.04_amd64.deb";
+      hash = "sha256-aWAvwtGrFH2HUNkzLW1WqukIy4NemN9Vrb/DMGYGf5Y=";
+    };
 	
-	buildPhase = ''
-		cd $src;
-		./configure
-		make
-	'';
+	unpackPhase = "dpkg-deb -x $src unpack";
+	
+	nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook ];
+	
+	installPhase = ''
+      ls -l $src
+    '';
+	
 	
 }
