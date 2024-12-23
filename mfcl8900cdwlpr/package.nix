@@ -48,21 +48,21 @@ stdenv.mkDerivation rec {
 		filter=$dir/lpd/filter_mfcl8900cdw
 
 		substituteInPlace $filter \
-		--replace /usr/bin/perl ${perl}/bin/perl \
-		--replace "BR_PRT_PATH =~" "BR_PRT_PATH = \"$dir/\"; #" \
-		--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
+			--replace /usr/bin/perl ${perl}/bin/perl \
+			--replace "BR_PRT_PATH =~" "BR_PRT_PATH = \"$dir/\"; #" \
+			--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $filter \
-		--prefix PATH : ${
-			lib.makeBinPath [
-			coreutils
-			file
-			ghostscript
-			gnugrep
-			gnused
-			which
-			]
-		}
+			--prefix PATH : ${
+				lib.makeBinPath [
+				coreutils
+				file
+				ghostscript
+				gnugrep
+				gnused
+				which
+				]
+			}
 
 		# need to use i686 glibc here, these are 32bit proprietary binaries
 		interpreter=${pkgs.pkgsi686Linux.glibc}/lib/ld-linux.so.2
@@ -71,13 +71,10 @@ stdenv.mkDerivation rec {
 
 	meta = {
 		description = "Brother MFC-L8900CDW LPR printer driver";
-		homepage = "http://www.brother.com/";
+		homepage = "https://support.brother.com/g/b/downloadlist.aspx?c=ca&lang=en&prod=mfcl8900cdw_all&os=128";
 		sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
 		license = lib.licenses.unfree;
 		maintainers = [ ];
-		platforms = [
-		"x86_64-linux"
-		"i686-linux"
-		];
+		platforms = lib.platforms.linux;
 	};
 }

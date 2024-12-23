@@ -45,18 +45,18 @@ stdenv.mkDerivation rec {
 		dir=$out/opt/brother/Printers/mfcl8900cdw
 
 		substituteInPlace $dir/cupswrapper/brother_lpdwrapper_mfcl8900cdw \
-		--replace /usr/bin/perl ${perl}/bin/perl \
-		--replace "basedir =~" "basedir = \"$basedir/\"; #" \
-		--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
+			--replace /usr/bin/perl ${perl}/bin/perl \
+			--replace "basedir =~" "basedir = \"$basedir/\"; #" \
+			--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $dir/cupswrapper/brother_lpdwrapper_mfcl8900cdw \
-		--prefix PATH : ${
-			lib.makeBinPath [
-			coreutils
-			gnugrep
-			gnused
-			]
-		}
+			--prefix PATH : ${
+				lib.makeBinPath [
+				coreutils
+				gnugrep
+				gnused
+				]
+			}
 
 		mkdir -p $out/lib/cups/filter
 		mkdir -p $out/share/cups/model
@@ -67,7 +67,7 @@ stdenv.mkDerivation rec {
 
 	meta = {
 		description = "Brother MFC-L8900CDW CUPS wrapper driver";
-		homepage = "http://www.brother.com/";
+		homepage = "https://support.brother.com/g/b/downloadlist.aspx?c=ca&lang=en&prod=mfcl8900cdw_all&os=128";
 		license = lib.licenses.unfree;
 		platforms = lib.platforms.linux;
 		maintainers = [ ];
