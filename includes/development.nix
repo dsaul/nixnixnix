@@ -32,6 +32,7 @@
 		binutils
 		nodejs
 		go
+		libicns
 		#python311
 		#python311Packages.torch-bin
 		#python311Packages.unidecode
