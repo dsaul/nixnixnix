@@ -1,16 +1,15 @@
-{
-coreutils,
-dpkg,
-fetchurl,
-gnugrep,
-gnused,
-makeWrapper,
-mfcl8900cdwlpr,
-perl,
-lib,
-stdenv,
-autoPatchelfHook,
-pkgs
+{lib
+, coreutils
+, dpkg
+, fetchurl
+, gnugrep
+, gnused
+, makeWrapper
+, mfcl8900cdwlpr
+, perl
+, stdenv
+, autoPatchelfHook
+, pkgs
 }:
 
 stdenv.mkDerivation rec {

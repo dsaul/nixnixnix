@@ -1,18 +1,17 @@
-{
-coreutils,
-dpkg,
-fetchurl,
-file,
-ghostscript,
-gnugrep,
-gnused,
-makeWrapper,
-perl,
-pkgs,
-lib,
-stdenv,
-which,
-autoPatchelfHook
+{lib
+, coreutils
+, dpkg
+, fetchurl
+, file
+, ghostscript
+, gnugrep
+, gnused
+, makeWrapper
+, perl
+, pkgs
+, stdenv
+, which
+, autoPatchelfHook
 }:
 
 stdenv.mkDerivation rec {
