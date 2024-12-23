@@ -19,7 +19,7 @@ let
 
 	# Not in nixpkgs
 	iso639lang = (python312Packages.buildPythonPackage rec {
-		pname = "iso639-lang";
+		pname = "iso639_lang";
 		version = "2.5.0";
 
 		src = pkgs.fetchPypi {
