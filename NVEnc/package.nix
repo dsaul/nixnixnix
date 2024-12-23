@@ -8,6 +8,7 @@
 #, python312Full
 #, python312Packages
 #, makeDesktopItem
+, addOpenGLRunpath
 }:
 
 stdenv.mkDerivation rec {
