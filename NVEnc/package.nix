@@ -1,14 +1,9 @@
 { lib
 , stdenv
 , pkgs
-#, fetchurl
-, fetchFromGitHub
-#, fetchPypi
-, ffmpeg_7-full
-#, python312Full
-#, python312Packages
-#, makeDesktopItem
-, addOpenGLRunpath
+, fetchurl
+, ffmpeg_6
+, autoAddDriverRunpath
 }:
 
 stdenv.mkDerivation rec {
@@ -44,7 +39,7 @@ stdenv.mkDerivation rec {
 	postFixup = ''
     for program in $out/bin/*; do
       isELF "$program" || continue
-      addOpenGLRunpath "$program"
+      autoAddDriverRunpath "$program"
     done
   '';
 	
