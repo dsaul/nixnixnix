@@ -80,7 +80,8 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		(pkgs.callPackage ../fastflix/package.nix {})
-		(pkgs.callPackage ../NVEnc/package.nix {})
+		cudaPackages.cudatoolkit
+		#(pkgs.callPackage ../NVEnc/package.nix {})
 		libGL
 	];
 
