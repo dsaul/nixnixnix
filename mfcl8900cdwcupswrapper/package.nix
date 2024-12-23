@@ -22,12 +22,14 @@ stdenv.mkDerivation rec {
 		hash = "sha256-XmfzLwnOw9DDzVwEDLIL07nPEUffCB1KcDya8B+9yss=";
 	};
 	
+	programs.nix-ld.enable = true; # libstdc++.so.6
+	
 	buildInputs = with pkgs; [
-		glibc
-		gcc
-		libstdcxx5
-		libgcc
-		nix-ld
+		
+	];
+	
+	autoPatchelfIgnoreMissingDeps = [
+		"libstdc++.so.6"
 	];
 
 	nativeBuildInputs = [
