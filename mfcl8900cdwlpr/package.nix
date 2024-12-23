@@ -23,6 +23,10 @@ stdenv.mkDerivation rec {
 		url = "http://download.brother.com/welcome/dlf103242/${pname}-${version}.i386.deb";
 		hash = "sha256-+TWcnO4dInPzSrqsjx8qHJPtUllmptbNdkJSRQu4Igc=";
 	};
+	
+	buildInputs = with pkgs; [
+		glibc
+	];
 
 	nativeBuildInputs = [
 		dpkg
