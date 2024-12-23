@@ -21,7 +21,8 @@ let
 	iso639lang = (python312Packages.buildPythonPackage rec {
 		pname = "iso639_lang";
 		version = "2.5.0";
-
+		format = "pyproject";
+		
 		src = pkgs.fetchPypi {
 			inherit pname version;
 			hash = "sha256-FO/DJp2shmTcb4fp7Pu9w5o20Y+ZnnnHqp6/r6puLrM=";
