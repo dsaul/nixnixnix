@@ -25,7 +25,7 @@ in
 	];
 	services.printing.logLevel = "debug";
 	
-	programs.nix-ld.enable = true; # for mfcl8900
+	#programs.nix-ld.enable = true; # for mfcl8900
 	
 	
 	hardware.printers = {
