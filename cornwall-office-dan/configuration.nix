@@ -52,11 +52,11 @@ in
 		#../container-whishper/whishper.nix
 	];
 	
-	programs.nix-ld.libraries = with pkgs; [
-		libGL
-		xorg.libxcb
-		xkeyboard_config
-	];
+	#programs.nix-ld.libraries = with pkgs; [
+	#	libGL
+	#	xorg.libxcb
+	#	xkeyboard_config
+	#];
 	
 
 	# Bootloader.
@@ -79,7 +79,7 @@ in
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
-		#(pkgs.callPackage ../fastflix/package.nix {})
+		(pkgs.callPackage ../fastflix-source-broken/package.nix {})
 		libGL
 	];
 
