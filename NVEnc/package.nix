@@ -39,7 +39,15 @@ stdenv.mkDerivation rec {
 	postFixup = ''
     for program in $out/bin/*; do
       isELF "$program" || continue
-      addDriverRunpath "$program"
+	  
+	  wrapProgram $out/bin/$f \
+        --prefix LD_LIBRARY_PATH : "${
+          lib.makeLibraryPath [
+            addDriverRunpath.driverLink
+            ocl-icd
+            vulkan-loader
+          ]
+        }"
     done
   '';
 	
