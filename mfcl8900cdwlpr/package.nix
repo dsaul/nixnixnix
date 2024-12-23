@@ -12,7 +12,8 @@ pkgs,
 lib,
 stdenv,
 which,
-autoPatchelfHook
+autoPatchelfHook,
+pkgs
 }:
 
 stdenv.mkDerivation rec {

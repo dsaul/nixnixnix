@@ -9,7 +9,8 @@ mfcl8900cdwlpr,
 perl,
 lib,
 stdenv,
-autoPatchelfHook
+autoPatchelfHook,
+pkgs
 }:
 
 stdenv.mkDerivation rec {
