@@ -24,6 +24,10 @@ in
 		mfcl8900cdwcupswrapper
 	];
 	services.printing.logLevel = "debug";
+	
+	programs.nix-ld.enable = true; # for mfcl8900
+	
+	
 	hardware.printers = {
 		ensurePrinters = [
 			#https://discourse.nixos.org/t/declarative-printer-setup-missing-driver/33777/6
