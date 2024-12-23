@@ -23,6 +23,10 @@ let
 		version = "2.5.1";
 		format = "pyproject";
 		
+		nativeBuildInputs = [
+			python312Packages.setuptools
+		];
+		
 		src = pkgs.fetchPypi {
 			inherit pname version;
 			hash = "sha256-yeMR7CtvEAXrNtOgoPa7+CiYy00831aLaq5KBwWhndU=";
