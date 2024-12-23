@@ -1,0 +1,11 @@
+--- FastFlix-5.8.2/fastflix/widgets/panels/subtitle_panel.py	2024-12-22 20:34:44.433522930 -0600
++++ FastFlix-5.8.2/fastflix/widgets/panels/subtitle_panel.py	2024-12-22 20:36:04.340434106 -0600
+@@ -41,7 +41,7 @@
+     "xsub": "text",
+ }
+ 
+-language_list = sorted((k for k, v in Lang._data["name"].items() if v["pt2B"] and v["pt1"]), key=lambda x: x.lower())
++language_list = sorted((k for k, v in Lang._data["name"].items() if v.get("pt2b") and v.get("pt1")), key=lambda x: x.lower())
+ 
+ # TODO give warning about exact time needed for text based subtitles
+ 

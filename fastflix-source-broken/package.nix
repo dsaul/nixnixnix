@@ -108,8 +108,11 @@ python312Packages.buildPythonApplication rec {
 	};
 	
 	patches = [
-		./pyproject.toml.patch
 		./audio_panel.py.patch
+		./profile_window.py.patch
+		./pyproject.toml.patch
+		./settings.py.patch
+		./subtitle_panel.py.patch
 	];
 	
 
