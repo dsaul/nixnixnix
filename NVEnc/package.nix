@@ -2,7 +2,7 @@
 , stdenv
 , pkgs
 #, fetchurl
-#, fetchFromGitHub
+, fetchFromGitHub
 #, fetchPypi
 #, ffmpeg_7-full
 #, python312Full
