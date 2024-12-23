@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
       hash = "sha256-yl9VSFnKZrhwDGfAjcKbFclghXy2xJtWceAcESyZw9E=";
     };
 	
-	unpackPhase = "dpkg-deb -x $src $out";
+	unpackPhase = "dpkg-deb -X $src $out";
 	
 	nativeBuildInputs = with pkgs; [ dpkg autoPatchelfHook ];
 	
