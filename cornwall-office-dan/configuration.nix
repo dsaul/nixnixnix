@@ -79,7 +79,7 @@ in
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
-		#(pkgs.callPackage ../fastflix-source-broken/package.nix {})
+		(pkgs.callPackage ../fastflix-source-broken/package.nix {})
 		libGL
 	];
 

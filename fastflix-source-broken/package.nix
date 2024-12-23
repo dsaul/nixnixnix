@@ -199,20 +199,25 @@ python312Packages.buildPythonApplication rec {
 	];
 	
 	postInstall = ''
-    mkdir -p $out/share/applications
-    cat > $out/share/applications/fastflix.desktop << EOF
-    [Desktop Entry]
-    Name=FastFlix
-    Comment=Transcoding assistant
-    Exec=$out/bin/fastflix
-    Icon=$out/share/icons/fastflix.png
-    Terminal=true
-    Type=Application
-    Categories=AudioVideo;Video;Utility;
-    EOF
+	mkdir -p $out/share/applications
+	cat > $out/share/applications/fastflix.desktop << EOF
+	[Desktop Entry]
+	Name=FastFlix
+	Comment=Transcoding assistant
+	Exec=$out/bin/fastflix
+	Icon=fastflix
+	Terminal=true
+	Type=Application
+	Categories=AudioVideo;Video;Utility;
+	EOF
 
-    mkdir -p $out/share/icons
-    cp ${src}/resources/fastflix_icon.png $out/share/icons/fastflix.png
+	install -Dm644 ${src}/resources/icon_16x16x32.png $out/share/icons/hicolor/16x16/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_32x32x32.png $out/share/icons/hicolor/32x32/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_64x64x32.png $out/share/icons/hicolor/64x64/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_128x128x32.png $out/share/icons/hicolor/128x128/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_256x256x32.png $out/share/icons/hicolor/256x256/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_512x512x32.png $out/share/icons/hicolor/512x512/apps/fastflix.png
+	install -Dm644 ${src}/resources/icon_1024x1024x32.png $out/share/icons/hicolor/1024x1024/apps/fastflix.png
   '';
 
 	meta = {
