@@ -28,6 +28,7 @@ stdenv.mkDerivation rec {
 		glibc
 		gcc
 		libstdcxx5
+		libgcc
 	];
 
 	nativeBuildInputs = [
