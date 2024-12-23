@@ -1,5 +1,5 @@
---- FastFlix-5.8.2/fastflix/windows/profile_window.py	2024-12-22 20:34:49.057691686 -0600
-+++ FastFlix-5.8.2/fastflix/windows/profile_window.py	2024-12-22 20:36:57.851378209 -0600
+--- FastFlix-5.8.2/fastflix/widgets/windows/profile_window.py	2024-12-22 20:34:49.057691686 -0600
++++ FastFlix-5.8.2/fastflix/widgets/windows/profile_window.py	2024-12-22 20:36:57.851378209 -0600
 @@ -15,7 +15,7 @@
  from fastflix.shared import error_message
  from fastflix.encoders.common.audio import channel_list
