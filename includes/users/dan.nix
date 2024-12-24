@@ -9,8 +9,8 @@ let
 			dontUnpack = true;
 			
 			installPhase = ''
-				mkdir -p $out/var/lib/AccountsService/icons/
-				cp ${src} $out/var/lib/AccountsService/icons/dan
+				mkdir -p $out/etc/usericons.d/
+				cp ${src} $out/etc/usericons.d/dan
 			'';
 			
 			# /var/lib/AccountsService/icons/
