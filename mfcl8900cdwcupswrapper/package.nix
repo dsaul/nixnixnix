@@ -49,6 +49,7 @@ stdenv.mkDerivation rec {
 			--replace-fail "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $dir/cupswrapper/brother_lpdwrapper_mfcl8900cdw \
+			--set LPD_DEBUG 1\
 			--prefix PATH : ${
 				lib.makeBinPath [
 				coreutils

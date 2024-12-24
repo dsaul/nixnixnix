@@ -53,6 +53,7 @@ stdenv.mkDerivation rec {
 			--replace-fail "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $filter \
+			--set LPD_DEBUG 1\
 			--prefix PATH : ${
 				lib.makeBinPath [
 				coreutils
