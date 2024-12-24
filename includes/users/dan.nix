@@ -4,6 +4,8 @@ let
 			pname = "dan-icon";
 			version = "1";
 			
+			src = ./;
+			
 			installPhase = ''
 				cp ${./dan.png} $out/var/lib/AccountsService/icons/dan
 			'';
