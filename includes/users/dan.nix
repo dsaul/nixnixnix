@@ -1,6 +1,6 @@
-{ config, lib, pkgs, modulesPath, stdenv, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 let
-	icon = (stdenv.mkDerivation rec {
+	icon = (pkgs.stdenv.mkDerivation rec {
 			pname = "dan-icon";
 			version = "1";
 			
