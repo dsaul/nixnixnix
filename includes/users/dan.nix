@@ -6,6 +6,8 @@ let
 			
 			src = ./dan.png;
 			
+			dontUnpack = false;
+			
 			installPhase = ''
 				mkdir -p $out/var/lib/AccountsService/icons/
 				cp ${src} $out/var/lib/AccountsService/icons/dan
