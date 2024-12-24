@@ -2,9 +2,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
+	imports =
+	  [ 
+		./dan.nix
+	  ];
 
 	# Groups
 	users.groups.media = {

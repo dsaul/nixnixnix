@@ -31,7 +31,7 @@ in
 		../includes/sound.nix
 		../includes/sshd.nix
 		../includes/games.nix
-		../includes/usersandgroups.nix
+		../includes/users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
 		../includes/filesystems-documents.nix
