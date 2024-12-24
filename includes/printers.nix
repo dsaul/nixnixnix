@@ -42,7 +42,7 @@
 			{
 				name = "Cornwall_Brother_MFCL8900CDW";
 				location = "Cornwall";
-				deviceUri = "ipp://10.5.5.14/";
+				deviceUri = "ipp://cornwall-printer.infra.dsaul.ca/";
 				model = "everywhere";
 				#deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
 				#model = "brother_mfcl8900cdw_printer_en.ppd";
