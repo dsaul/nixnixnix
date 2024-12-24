@@ -79,10 +79,7 @@ in
 
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
-		(pkgs.callPackage ../packages/fastflix/package.nix {})
 		cudaPackages.cudatoolkit
-		(pkgs.callPackage ../packages/NVEnc/package.nix {})
-		libGL
 	];
 
 	fileSystems."/mnt/Drive2" =
