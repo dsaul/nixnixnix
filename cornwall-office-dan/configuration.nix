@@ -60,6 +60,9 @@ in
 	#];
 	
 
+	hardware.nvidia.powerManagement.enable = false;
+	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
