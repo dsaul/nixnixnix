@@ -40,7 +40,7 @@ in
 		ensurePrinters = [
 			# This works, but print options don't work.
 			{
-				name = "Brother_MFCL8900CDW";
+				name = "Cornwall_Brother_MFCL8900CDW";
 				location = "Cornwall";
 				deviceUri = "ipp://10.5.5.14/";
 				model = "everywhere";
@@ -55,6 +55,6 @@ in
 				#};
 			}
 		];
-		ensureDefaultPrinter = "Brother_MFCL8900CDW";
+		ensureDefaultPrinter = "Cornwall_Brother_MFCL8900CDW";
 	};
 }
