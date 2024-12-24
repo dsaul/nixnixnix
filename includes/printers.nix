@@ -8,10 +8,19 @@ in
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
+	
+	#journalctl --follow --unit=cups
+	#journalctl --follow --unit=cups | grep -C10 --color=always -i -e 'No such file or directory' -e 'error:'
+	#http://localhost:631/printers/
 
 	# Printing
 	services.printing.enable = true;
 	systemd.services.cups-browsed.enable = false;
+	
+	services.printing.extraConf = ''
+    DefaultEncryption Never
+  '';
+	
 	services.printing.drivers = [
 		pkgs.gutenprint
 		pkgs.gutenprintBin
@@ -34,8 +43,8 @@ in
 			{
 				name = "Brother_MFCL8900CDW";
 				location = "Cornwall";
-				#deviceUri = "ipp://10.5.5.14";
-				deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
+				deviceUri = "ipp://10.5.5.14";
+				#deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
 				model = "brother_mfcl8900cdw_printer_en.ppd";
 				#model = "brother_mfcl8690cdw_printer_en.ppd";
 				ppdOptions = {
