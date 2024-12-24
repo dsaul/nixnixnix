@@ -27,12 +27,13 @@ stdenv.mkDerivation rec {
 		
 	];
 	
-	autoPatchelfIgnoreMissingDeps = [
-		"libstdc++.so.6"
-	];
+	#autoPatchelfIgnoreMissingDeps = [
+	#	"libstdc++.so.6"
+	#];
 	
 
 	nativeBuildInputs = [
+		stdenv.cc.cc.lib
 		dpkg
 		autoPatchelfHook
 		makeWrapper
