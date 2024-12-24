@@ -67,8 +67,8 @@ stdenv.mkDerivation rec {
 		interpreter=${pkgs.pkgsi686Linux.glibc}/lib/ld-linux.so.2
 		patchelf --set-interpreter "$interpreter" $dir/lpd/i686/brmfcl8900cdwfilter
 		
-		ln -s $dir/lpd/brmfcl8900cdwfilter/x86_64/brmfcl8900cdwfilter $dir/lpd/brmfcl8900cdwfilter/brmfcl8900cdwfilter
-		ln -s $dir/lpd/brmfcl8900cdwfilter/x86_64/brprintconf_mfcl8900cdw $dir/lpd/brmfcl8900cdwfilter/brprintconf_mfcl8900cdw
+		ln $dir/lpd/x86_64/brmfcl8900cdwfilter $dir/lpd/brmfcl8900cdwfilter
+		ln $dir/lpd/x86_64/brprintconf_mfcl8900cdw $dir/lpd/brprintconf_mfcl8900cdw
 	'';
 
 	meta = {
