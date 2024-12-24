@@ -1,9 +1,9 @@
 
 { config, lib, pkgs, modulesPath, ... }:
-let
-	mfcl8900cdwlpr = (pkgs.callPackage ../mfcl8900cdwlpr/package.nix {});
-	mfcl8900cdwcupswrapper = (pkgs.callPackage ../mfcl8900cdwcupswrapper/package.nix { mfcl8900cdwlpr = mfcl8900cdwlpr; });
-in
+#let
+#	mfcl8900cdwlpr = (pkgs.callPackage ../mfcl8900cdwlpr/package.nix {});
+#	mfcl8900cdwcupswrapper = (pkgs.callPackage ../mfcl8900cdwcupswrapper/package.nix { mfcl8900cdwlpr = mfcl8900cdwlpr; });
+#in
 {
 	#imports =
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -17,20 +17,20 @@ in
 	services.printing.enable = true;
 	systemd.services.cups-browsed.enable = false;
 	
-	services.printing.extraConf = ''
-    DefaultEncryption Never
-  '';
+	#services.printing.extraConf = ''
+    #DefaultEncryption Never
+	#'';
 	
-	services.printing.drivers = [
-		pkgs.gutenprint
-		pkgs.gutenprintBin
-		pkgs.brgenml1lpr
-		pkgs.brgenml1cupswrapper
-		pkgs.brlaser
-		mfcl8900cdwlpr
-		mfcl8900cdwcupswrapper
-	];
-	services.printing.logLevel = "debug";
+	#services.printing.drivers = [
+	#	pkgs.gutenprint
+	#	pkgs.gutenprintBin
+	#	pkgs.brgenml1lpr
+	#	pkgs.brgenml1cupswrapper
+	#	pkgs.brlaser
+	#	mfcl8900cdwlpr
+	#	mfcl8900cdwcupswrapper
+	#];
+	#services.printing.logLevel = "debug";
 	
 	environment.systemPackages = with pkgs; [
 		cups-filters
