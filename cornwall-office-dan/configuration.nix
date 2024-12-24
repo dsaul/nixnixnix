@@ -60,7 +60,7 @@ in
 	#];
 	
 
-	hardware.nvidia.powerManagement.enable = false;
+	#hardware.nvidia.powerManagement.enable = false;
 	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
 	# Bootloader.
