@@ -44,9 +44,9 @@ stdenv.mkDerivation rec {
 		dir=$out/opt/brother/Printers/mfcl8900cdw
 
 		substituteInPlace $dir/cupswrapper/brother_lpdwrapper_mfcl8900cdw \
-			--replace /usr/bin/perl ${perl}/bin/perl \
-			--replace "basedir =~" "basedir = \"$basedir/\"; #" \
-			--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
+			--replace-fail /usr/bin/perl ${perl}/bin/perl \
+			--replace-fail "basedir =~" "basedir = \"$basedir/\"; #" \
+			--replace-fail "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $dir/cupswrapper/brother_lpdwrapper_mfcl8900cdw \
 			--prefix PATH : ${

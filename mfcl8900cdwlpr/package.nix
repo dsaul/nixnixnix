@@ -47,9 +47,9 @@ stdenv.mkDerivation rec {
 		filter=$dir/lpd/filter_mfcl8900cdw
 
 		substituteInPlace $filter \
-			--replace /usr/bin/perl ${perl}/bin/perl \
-			--replace "BR_PRT_PATH =~" "BR_PRT_PATH = \"$dir/\"; #" \
-			--replace "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
+			--replace-fail /usr/bin/perl ${perl}/bin/perl \
+			--replace-fail "BR_PRT_PATH =~" "BR_PRT_PATH = \"$dir/\"; #" \
+			--replace-fail "PRINTER =~" "PRINTER = \"mfcl8900cdw\"; #"
 
 		wrapProgram $filter \
 			--prefix PATH : ${
