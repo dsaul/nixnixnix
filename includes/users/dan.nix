@@ -4,10 +4,11 @@ let
 			pname = "dan-icon";
 			version = "1";
 			
-			src = ./;
+			src = ./dan.png;
 			
 			installPhase = ''
-				cp ${./dan.png} $out/var/lib/AccountsService/icons/dan
+				mkdir -p $out/var/lib/AccountsService/icons/
+				cp ${src} $out/var/lib/AccountsService/icons/dan
 			'';
 			
 			# /var/lib/AccountsService/icons/
