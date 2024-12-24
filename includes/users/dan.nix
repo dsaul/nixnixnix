@@ -1,7 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
 	environment.etc = {
-		"usericons.d/dan".source = ${./dan.png};
+		"usericons.d/dan".source = "${./dan.png}";
 	}
 	
 	
