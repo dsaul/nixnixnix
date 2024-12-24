@@ -26,7 +26,7 @@ in
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
 		../includes/nvidia.nix
-		#../includes/printers.nix
+		../includes/printers.nix
 		../includes/sound.nix
 		../includes/sshd.nix
 		../includes/games.nix
