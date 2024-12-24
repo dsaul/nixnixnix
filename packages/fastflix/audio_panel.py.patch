@@ -1,0 +1,11 @@
+--- FastFlix-5.8.2/fastflix/widgets/panels/audio_panel.py	2024-11-19 20:31:37.000000000 -0600
++++ FastFlix-5.8.2/fastflix/widgets/panels/audio_panel.py	2024-12-22 20:30:55.349331850 -0600
+@@ -20,7 +20,7 @@
+ from fastflix.widgets.windows.audio_conversion import AudioConversion
+ from fastflix.widgets.windows.disposition import Disposition
+ 
+-language_list = sorted((k for k, v in Lang._data["name"].items() if v["pt2B"] and v["pt1"]), key=lambda x: x.lower())
++language_list = sorted((k for k, v in Lang._data["name"].items() if v.get("pt2b") and v.get("pt1")), key=lambda x: x.lower())
+ logger = logging.getLogger("fastflix")
+ 
+ disposition_options = [

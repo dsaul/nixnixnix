@@ -1,8 +1,8 @@
 
 { config, lib, pkgs, modulesPath, ... }:
 #let
-#	mfcl8900cdwlpr = (pkgs.callPackage ../mfcl8900cdwlpr/package.nix {});
-#	mfcl8900cdwcupswrapper = (pkgs.callPackage ../mfcl8900cdwcupswrapper/package.nix { mfcl8900cdwlpr = mfcl8900cdwlpr; });
+#	mfcl8900cdwlpr = (pkgs.callPackage ../packages/mfcl8900cdwlpr/package.nix {});
+#	mfcl8900cdwcupswrapper = (pkgs.callPackage ../packages/mfcl8900cdwcupswrapper/package.nix { mfcl8900cdwlpr = mfcl8900cdwlpr; });
 #in
 {
 	#imports =
