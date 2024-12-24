@@ -49,7 +49,7 @@ in
 		../includes/communication.nix
 		../includes/development.nix
 		../includes/education.nix
-		../includes/fastflix.nix
+		../includes/utilities-fastflix.nix
 		#../container-whishper/whishper.nix
 	];
 	
