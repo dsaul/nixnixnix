@@ -27,26 +27,24 @@ in
 		pkgs.brgenml1lpr
 		pkgs.brgenml1cupswrapper
 		pkgs.brlaser
-		pkgs.mfcl3770cdwlpr
-		pkgs.mfcl8690cdwcupswrapper
 		mfcl8900cdwlpr
 		mfcl8900cdwcupswrapper
 	];
 	services.printing.logLevel = "debug";
 	
-	#programs.nix-ld.enable = true; # for mfcl8900
-	
+	environment.systemPackages = with pkgs; [
+		cups-filters
+	];
 	
 	hardware.printers = {
 		ensurePrinters = [
-			#https://discourse.nixos.org/t/declarative-printer-setup-missing-driver/33777/6
+			# This works, but print options don't work.
 			{
 				name = "Brother_MFCL8900CDW";
 				location = "Cornwall";
 				deviceUri = "ipp://10.5.5.14";
 				#deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
 				model = "brother_mfcl8900cdw_printer_en.ppd";
-				#model = "brother_mfcl8690cdw_printer_en.ppd";
 				#ppdOptions = {
 				#	PageSize = "Letter";
 				#	Duplex = "DuplexNoTumble";

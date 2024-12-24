@@ -75,6 +75,7 @@ stdenv.mkDerivation rec {
 
 	meta = {
 		description = "Brother MFC-L8900CDW LPR printer driver";
+		longDescription = "Works, but not without issues, print options such as monocrome or duplex don't current work.";
 		homepage = "https://support.brother.com/g/b/downloadlist.aspx?c=ca&lang=en&prod=mfcl8900cdw_all&os=128";
 		sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
 		license = lib.licenses.unfree;
