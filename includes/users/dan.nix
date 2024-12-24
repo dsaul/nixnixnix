@@ -2,7 +2,7 @@
 {
 	environment.etc = {
 		"usericons.d/dan".source = "${./dan.png}";
-	}
+	};
 	
 	
 	
