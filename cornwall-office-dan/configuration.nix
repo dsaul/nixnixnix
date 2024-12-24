@@ -87,14 +87,14 @@ in
 	{
 		device = "/dev/disk/by-label/Drive2";
 		fsType = "xfs";
-		options = [ "nofail" ];
+		options = [ "nofail" "noexec" "nosuid" ];
 	};
 
 	fileSystems."/mnt/Scratch" =
 	{
 		device = "/dev/disk/by-label/Scratch";
 		fsType = "xfs";
-		options = [ "nofail" ];
+		options = [ "nofail" "noexec" "nosuid" ];
 	};
 
 	# This value determines the NixOS release from which the default
