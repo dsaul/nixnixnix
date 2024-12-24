@@ -3,7 +3,7 @@
 {
 	
 	environment.systemPackages = with pkgs; [
-		(stdenv.mkDerivation rec rec {
+		(stdenv.mkDerivation rec {
 			pname = "dan-icon";
 			version = "1";
 			
