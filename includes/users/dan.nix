@@ -6,7 +6,7 @@ let
 			
 			src = ./dan.png;
 			
-			dontUnpack = false;
+			dontUnpack = true;
 			
 			installPhase = ''
 				mkdir -p $out/var/lib/AccountsService/icons/
