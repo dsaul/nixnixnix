@@ -30,6 +30,7 @@
 		unzip
 		psmisc
 		git
+		nix-index
 
 		# Filesystems
 		xfsprogs
