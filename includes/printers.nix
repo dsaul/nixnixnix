@@ -47,13 +47,13 @@ in
 				#deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
 				model = "brother_mfcl8900cdw_printer_en.ppd";
 				#model = "brother_mfcl8690cdw_printer_en.ppd";
-				ppdOptions = {
-					PageSize = "Letter";
-					Duplex = "DuplexNoTumble";
-					Resolution = "600dpi";
-					PrintQuality = "4";
-					PwgRasterDocumentType = "Rgb_8";
-				};
+				#ppdOptions = {
+				#	PageSize = "Letter";
+				#	Duplex = "DuplexNoTumble";
+				#	Resolution = "600dpi";
+				#	PrintQuality = "4";
+				#	PwgRasterDocumentType = "Rgb_8";
+				#};
 			}
 		];
 		ensureDefaultPrinter = "Brother_MFCL8900CDW";
