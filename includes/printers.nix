@@ -42,9 +42,10 @@ in
 			{
 				name = "Brother_MFCL8900CDW";
 				location = "Cornwall";
-				deviceUri = "ipp://10.5.5.14";
+				deviceUri = "ipp://10.5.5.14/";
+				model = "everywhere";
 				#deviceUri = "ipp://cornwall-printer.infra.dsaul.ca";
-				model = "brother_mfcl8900cdw_printer_en.ppd";
+				#model = "brother_mfcl8900cdw_printer_en.ppd";
 				#ppdOptions = {
 				#	PageSize = "Letter";
 				#	Duplex = "DuplexNoTumble";
