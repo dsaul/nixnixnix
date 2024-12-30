@@ -21,6 +21,8 @@
 		credentialsFile = config.age.secrets."hetzner-dns.age".path;
 	};
 	
+	networking.firewall.allowedTCPPorts = [ 80 443 ];
+	
 	services.nginx = {
 		enable = true;
 		recommendedProxySettings = true;
