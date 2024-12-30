@@ -1,0 +1,11 @@
+--- FastFlix-5.8.2/fastflix/widgets/settings.py	2024-12-22 20:34:45.175550013 -0600
++++ FastFlix-5.8.2/fastflix/widgets/settings.py	2024-12-22 20:35:30.442200374 -0600
+@@ -14,7 +14,7 @@
+ from fastflix.shared import error_message, link
+ 
+ logger = logging.getLogger("fastflix")
+-language_list = sorted((k for k, v in Lang._data["name"].items() if v["pt2B"] and v["pt1"]), key=lambda x: x.lower())
++language_list = sorted((k for k, v in Lang._data["name"].items() if v.get("pt2b") and v.get("pt1")), key=lambda x: x.lower())
+ 
+ known_language_list = [
+     "English",
