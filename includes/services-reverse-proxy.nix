@@ -2,6 +2,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	age.secrets."hetzner-dns.age".file = ../../secrets/hetzner-dns.age;
+	
 	security.acme.acceptTerms = true;
 	security.acme.defaults.email = "dan@dsaul.ca";
 	
@@ -13,10 +15,7 @@
 		# contents in the credentialsFile below.
 		dnsProvider = "hetzner";
 		dnsPropagationCheck = true;
-		# agenix will decrypt our secrets file (below) on the server and make it available
-		# under /run/agenix/secrets/hetzner-dns-token (by default):
-		# credentialsFile = "/run/agenix/secrets/hetzner-dns-token";
-		credentialsFile = config.age.secrets."hetzner-dns-token.age".path;
+		credentialsFile = config.age.secrets."hetzner-dns.age".path;
 	};
 	
 	services.nginx = {
