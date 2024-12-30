@@ -9,7 +9,7 @@
 	security.acme.defaults.dnsPropagationCheck = false;
 	security.acme.defaults.extraLegoRunFlags = [
 		#"--dns.propagation-rns=true"
-		"--dns.propagation-disable-ans true"
+		#"--dns.propagation-disable-ans true"
 	];
 	
 	# systemctl status acme-dsaul.ca.service
