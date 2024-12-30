@@ -8,7 +8,7 @@
 	security.acme.defaults.email = "dan@dsaul.ca";
 	security.acme.defaults.dnsPropagationCheck = false;
 	security.acme.defaults.extraLegoRunFlags = [
-		"--dns.propagation-rns"
+		"--dns.propagation-rns true"
 		"--dns.propagation-disable-ans"
 	];
 	
