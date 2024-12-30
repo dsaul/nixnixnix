@@ -11,7 +11,7 @@ in
 		
 		openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd" # dan
-		]
+		];
 		
 		#openssh.authorizedKeys.keys = [
 		#] ++ config.users.users.dan.openssh.authorizedKeys.keys;
