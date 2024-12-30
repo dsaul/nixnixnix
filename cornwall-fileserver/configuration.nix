@@ -36,7 +36,7 @@ in
 		
 	];	
 	
-	
+	networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 	
 
 	# This value determines the NixOS release from which the default
