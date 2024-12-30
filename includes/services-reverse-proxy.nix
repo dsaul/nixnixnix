@@ -27,10 +27,6 @@
 		recommendedGzipSettings = true;
 		recommendedOptimisation = true;
 		
-		
-			
-			
-		};
 	};
 	
 	
