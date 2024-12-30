@@ -26,7 +26,7 @@
 					#"" #+
 					# required when the server wants to use HTTP Authentication
 					#"proxy_pass_header Authorization;"
-				;
+				#;
 			};
 			
 			extraConfig = ''
