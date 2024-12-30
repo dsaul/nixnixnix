@@ -39,6 +39,7 @@
 		rar
 		par2cmdline-turbo
 		ffmpeg-headless
+		elinks
 		
 		# Filesystems
 		xfsprogs
