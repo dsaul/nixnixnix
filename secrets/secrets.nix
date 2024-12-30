@@ -1,8 +1,8 @@
 let
-	user-dan = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd";
-	user-lindsey = "";
-	users = [ user-dan ];
-	users-admin = [ user-dan user-lindsey ];
+	user-dan = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd"];
+	user-lindsey = [];
+	users = [ ] ++ user-dan ++ user-lindsey;
+	users-admin = [ ] ++  user-dan ++ user-lindsey;
 
 	system-cornwall-office-dan = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKTiiLVGhBMNj+VkMvCl3w1gQTT0Ah8Siw/cP6fZCdVn";
 	system-cornwall-fileserver = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBIYQ275Dy/Kv3k2VjQuAk9SONeRilpky7zZ0CkcN+UZ";
@@ -16,8 +16,9 @@ let
 	];
 in
 {
-	"userHashedPasswordFile-dan.age".publicKeys = systems ++ users-admin ++ [ user-dan ];
-	"userHashedPasswordFile-lindsey.age".publicKeys = systems ++ users-admin ++ [ user-lindsey ];
+	"userHashedPasswordFile-dan.age".publicKeys = systems ++ users-admin ++ user-dan;
+	"userHashedPasswordFile-lindsey.age".publicKeys = systems ++ users-admin ++ user-lindsey;
 	"userHashedPasswordFile-root.age".publicKeys = systems ++ users-admin;
 	"userHashedPasswordFile-tv.age".publicKeys = systems ++ users-admin;
+	"fileserver-smb.age".publicKeys = systems ++ user-dan;
 }
