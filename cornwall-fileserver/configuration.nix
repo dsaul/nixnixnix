@@ -22,6 +22,7 @@ in
 		../includes/qemu-guest.nix
 		../includes/services-unifi.nix
 		../includes/services-reverse-proxy.nix
+		../includes/services-http-vhost-calendar.dsaul.ca.nix
 	];
 
 	# Bootloader.
