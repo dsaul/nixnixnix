@@ -37,7 +37,7 @@ in
 		
 	];	
 	
-	networking.networkmanager.insertNameservers = [ "1.1.1.1" "9.9.9.9" ];
+	#networking.networkmanager.insertNameservers = [ "1.1.1.1" "9.9.9.9" ];
 	
 
 	# This value determines the NixOS release from which the default
