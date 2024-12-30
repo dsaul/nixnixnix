@@ -9,6 +9,6 @@ in
 	users.users."${username}" = {
 		hashedPasswordFile = config.age.secrets."userHashedPasswordFile-${username}".path;
 		openssh.authorizedKeys.keys = [
-		] ++ users.users.dan.openssh.authorizedKeys.keys;
+		] ++ config.users.users.dan.openssh.authorizedKeys.keys;
 	};
 }
