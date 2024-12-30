@@ -29,7 +29,7 @@
 		
 		virtualHosts."calendar.dsaul.ca" = {
 			#forceSSL = true;
-			#useACMEHost = "dsaul.ca";
+			useACMEHost = "*.dsaul.ca";
 			
 			#locations."/" = {
 			#	proxyPass = "http://10.5.5.10:9900";
