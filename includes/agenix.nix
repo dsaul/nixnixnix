@@ -1,4 +1,8 @@
 # nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
+# nix-channel --update
+# agenix -e fileserver-smb.age
+# agenix --rekey
+
 { config, lib, pkgs, modulesPath, ... }:
 
 {

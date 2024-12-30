@@ -14,7 +14,8 @@ in
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	imports =
-	[ # Include the results of the hardware scan.
+	[
+		../includes/agenix.nix
 		./hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
