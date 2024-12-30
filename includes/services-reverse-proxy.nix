@@ -11,7 +11,7 @@
 	# journalctl -u  acme-dsaul.ca.service --since today --follow
 	security.acme.certs."dsaul.ca" = {
 		domain = "dsaul.ca";
-		extraDomainNames = [ "www.dsaul.ca" ];
+		extraDomainNames = [ "www.dsaul.ca" "*.dsaul.ca" ];
 		
 		# The LEGO DNS provider name. Depending on the provider, need different
 		# contents in the credentialsFile below.
@@ -27,32 +27,33 @@
 		recommendedGzipSettings = true;
 		recommendedOptimisation = true;
 		
-		#virtualHosts."calendar.dsaul.ca" =  {
-		#	enableACME = true;
-		#	forceSSL = true;
+		virtualHosts."calendar.dsaul.ca" =  {
+			enableACME = true;
+			forceSSL = true;
+			useACMEHost = "dsaul.ca";
 			
-		#	locations."/" = {
-		#		proxyPass = "http://10.5.5.10:9900";
-		#		proxyWebsockets = true; # needed if you need to use WebSocket
+			locations."/" = {
+				proxyPass = "http://10.5.5.10:9900";
+				proxyWebsockets = true; # needed if you need to use WebSocket
 				
-		#		extraConfig = ''
-		#			proxy_ssl_server_name on;
-		#			rewrite ^/.well-known/carddav /dav/ redirect;
-		#			rewrite ^/.well-known/caldav /dav/ redirect;
-		#		'';
+				extraConfig = ''
+					proxy_ssl_server_name on;
+					rewrite ^/.well-known/carddav /dav/ redirect;
+					rewrite ^/.well-known/caldav /dav/ redirect;
+				'';
 					# required when the target is also TLS server with multiple hosts
 					#"" #+
 					# required when the server wants to use HTTP Authentication
 					#"proxy_pass_header Authorization;"
 				#;
-		#	};
+			};
 			
-		#	extraConfig = ''
+			extraConfig = ''
 			
-		#	'';
+			'';
 			
 			
-		#};
+		};
 	};
 	
 	
