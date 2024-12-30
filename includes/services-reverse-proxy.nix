@@ -7,6 +7,10 @@
 	security.acme.acceptTerms = true;
 	security.acme.defaults.email = "dan@dsaul.ca";
 	security.acme.defaults.dnsPropagationCheck = false;
+	security.acme.defaults.extraLegoRunFlags = [
+		"--dns.propagation-rns"
+		"--dns.propagation-disable-ans"
+	];
 	
 	# systemctl status acme-dsaul.ca.service
 	# journalctl -u  acme-dsaul.ca.service --since today --follow
