@@ -2,7 +2,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	age.secrets."hetzner-dns.age".file = ../../secrets/hetzner-dns.age;
+	age.secrets."hetzner-dns.age".file = ../secrets/hetzner-dns.age;
 	
 	security.acme.acceptTerms = true;
 	security.acme.defaults.email = "dan@dsaul.ca";
