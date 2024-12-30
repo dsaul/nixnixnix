@@ -64,9 +64,9 @@ in
 	networking.hostName = "cornwall-office-dan"; # Define your hostname.
 	networking.networkmanager.enable = true;
 	
-	networking.extraHosts = ''
-	10.5.5.5 calendar.dsaul.ca
-	'';
+	#networking.extraHosts = ''
+	#10.5.5.5 calendar.dsaul.ca
+	#'';
 	
 	#networking.extraHosts =
 	#	''
