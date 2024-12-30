@@ -14,16 +14,16 @@
 	
 	# systemctl status acme-dsaul.ca.service
 	# journalctl -u  acme-dsaul.ca.service --since today --follow
-	security.acme.certs."dsaul.ca" = {
-		domain = "dsaul.ca";
-		extraDomainNames = [ "www.dsaul.ca" ];
+	#security.acme.certs."dsaul.ca" = {
+	#	domain = "dsaul.ca";
+	#	extraDomainNames = [ "www.dsaul.ca" ];
 		
 		# The LEGO DNS provider name. Depending on the provider, need different
 		# contents in the credentialsFile below.
-		dnsProvider = "hetzner";
-		dnsPropagationCheck = true;
-		credentialsFile = config.age.secrets."hetzner-dns.age".path;
-	};
+	#	dnsProvider = "hetzner";
+	#	dnsPropagationCheck = true;
+	#	credentialsFile = config.age.secrets."hetzner-dns.age".path;
+	#};
 	
 	services.nginx = {
 		enable = true;
