@@ -6,7 +6,10 @@
 	
 	security.acme.acceptTerms = true;
 	security.acme.defaults.email = "dan@dsaul.ca";
+	security.acme.defaults.dnsPropagationCheck = false;
 	
+	# systemctl status acme-dsaul.ca.service
+	# journalctl -u  acme-dsaul.ca.service --since today --follow
 	security.acme.certs."dsaul.ca" = {
 		domain = "dsaul.ca";
 		extraDomainNames = [ "www.dsaul.ca" ];
