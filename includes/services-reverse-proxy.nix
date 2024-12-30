@@ -11,7 +11,7 @@
 	# journalctl -u  acme-dsaul.ca.service --since today --follow
 	security.acme.certs."dsaul.ca" = {
 		domain = "dsaul.ca";
-		extraDomainNames = [ "www.dsaul.ca" "*.dsaul.ca" ];
+		extraDomainNames = [ "*.dsaul.ca" ];
 		
 		# The LEGO DNS provider name. Depending on the provider, need different
 		# contents in the credentialsFile below.
