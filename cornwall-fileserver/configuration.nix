@@ -21,6 +21,7 @@ in
 		../users/usersandgroups.nix
 		../includes/qemu-guest.nix
 		../includes/services-unifi.nix
+		../includes/services-reverse-proxy.nix
 	];
 
 	# Bootloader.
