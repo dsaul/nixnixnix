@@ -5,6 +5,7 @@
 	#  [ (modulesPath + "/installer/scan/not-detected.nix")
 	#  ];
 	
+	age.secrets."fileserver-smb.age".file = ../secrets/fileserver-smb.age;
 	
 	fileSystems."/mnt/MEDIA-01" = {
 		device = "//10.5.5.10/MEDIA-01";
