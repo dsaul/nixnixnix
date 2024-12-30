@@ -27,6 +27,18 @@
 		recommendedGzipSettings = true;
 		recommendedOptimisation = true;
 		
+		virtualHosts."calendar.dsaul.ca" = {
+			enableACME = true;
+			forceSSL = true;
+			useACMEHost = "dsaul.ca";
+			
+			locations."/" = {
+				proxyPass = "http://10.5.5.10:9900";
+				proxyWebsockets = true; # needed if you need to use WebSocket
+			};
+			
+			
+		};
 	};
 	
 	
