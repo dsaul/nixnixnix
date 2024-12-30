@@ -12,6 +12,7 @@
 	security.acme.certs."dsaul.ca" = {
 		domain = "dsaul.ca";
 		extraDomainNames = [ "*.dsaul.ca" ];
+		group = config.services.nginx.group;
 		
 		# The LEGO DNS provider name. Depending on the provider, need different
 		# contents in the credentialsFile below.
