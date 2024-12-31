@@ -10,6 +10,7 @@ in
       ''
 services:
   ${packageName}:
+    user: "${UID}:${GID}"
     container_name: ${packageName}
     image: hkotel/mealie:v2.4.1
     restart: always
