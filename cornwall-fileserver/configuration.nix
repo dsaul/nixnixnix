@@ -24,6 +24,9 @@ in
 		../services/services-reverse-proxy.nix
 		../services/services-http-vhost-calendar.dsaul.ca.nix
 		../services/services-http-vhost-esphome.dsaul.ca.nix
+		../services/services-http-vhost-gitea.dsaul.ca.nix
+		../services/services-http-vhost-homeassistant.dsaul.ca.nix
+		../services/services.http-vhost-immich.dsaul.ca.nix
 	];
 
 	# Bootloader.
