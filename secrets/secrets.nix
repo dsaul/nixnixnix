@@ -1,3 +1,5 @@
+# Do not do this!
+# config.password = builtins.readFile config.age.secrets.secret1.path;
 let
 	user-dan = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd"];
 	user-lindsey = [];
