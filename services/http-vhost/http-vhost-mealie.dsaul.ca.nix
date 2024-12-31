@@ -13,7 +13,7 @@
 			useACMEHost = "dsaul.ca";
 			
 			locations."/" = {
-				proxyPass = "http://10.5.5.10:9091";
+				proxyPass = "http://10.5.5.5:9091";
 				proxyWebsockets = true; # needed if you need to use WebSocket
 				
 				extraConfig = ''
