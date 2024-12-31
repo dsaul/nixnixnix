@@ -23,18 +23,18 @@ in
 		../includes/docker.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
-		../services/services-http-vhost-calendar.dsaul.ca.nix
-		../services/services-http-vhost-esphome.dsaul.ca.nix
-		../services/services-http-vhost-gitea.dsaul.ca.nix
-		../services/services-http-vhost-homeassistant.dsaul.ca.nix
-		../services/services-http-vhost-immich.dsaul.ca.nix
-		../services/services-http-vhost-jellyfin.dsaul.ca.nix
-		../services/services-http-vhost-mealie.dsaul.ca.nix
-		../services/services-http-vhost-navidrome.dsaul.ca.nix
-		../services/services-http-vhost-nodered.dsaul.ca.nix
-		../services/services-http-vhost-paperless.dsaul.ca.nix
-		../services/services-http-vhost-seafile.dsaul.ca.nix
-		../services/services-http-vhost-whishper.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-calendar.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-esphome.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-gitea.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-homeassistant.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-immich.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-jellyfin.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-mealie.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-navidrome.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-nodered.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-paperless.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-seafile.dsaul.ca.nix
+		../services/http-vhost/services-http-vhost-whishper.dsaul.ca.nix
 		../containers/mumble-server/mumble-server.nix
 	];
 
