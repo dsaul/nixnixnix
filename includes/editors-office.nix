@@ -6,7 +6,7 @@ in
 	environment.systemPackages = with pkgs; [
 		unstable.onlyoffice-desktopeditors
 		libreoffice-qt6-fresh
-		dia # Broken
+		dia
 		ocrmypdf
 	];
 }
