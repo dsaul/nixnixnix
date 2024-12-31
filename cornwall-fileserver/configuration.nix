@@ -20,6 +20,7 @@ in
 		../includes/sshd.nix
 		../users/usersandgroups.nix
 		../includes/qemu-guest.nix
+		../includes/docker.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/services-http-vhost-calendar.dsaul.ca.nix
