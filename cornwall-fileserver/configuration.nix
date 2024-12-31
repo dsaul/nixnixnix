@@ -34,6 +34,7 @@ in
 		../services/services-http-vhost-paperless.dsaul.ca.nix
 		../services/services-http-vhost-seafile.dsaul.ca.nix
 		../services/services-http-vhost-whishper.dsaul.ca.nix
+		../containers/mumble-server/mumble-server.nix
 	];
 
 	# Bootloader.
