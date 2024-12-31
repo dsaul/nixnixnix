@@ -32,7 +32,7 @@ services:
       - MUMBLE_CONFIG_bonjour=false
       - MUMBLE_CONFIG_registerName=${MUMBLE_CONFIG_registerName}
       - MUMBLE_CONFIG_registerPassword=
-	  '';
+'';
 	
 	config.systemd.services."${packageName}" = {
 		wantedBy = ["multi-user.target"];
