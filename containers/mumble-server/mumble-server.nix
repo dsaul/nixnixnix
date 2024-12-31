@@ -50,6 +50,6 @@ services:
 		mkdir -p /var/stacks/${packageName}/data
 	'';
 	
-	networking.firewall.allowedTCPPorts = [ 64738 ];
-	networking.firewall.allowedUDPPorts = [ 64738 ];
+	config.networking.firewall.allowedTCPPorts = [ 64738 ];
+	config.networking.firewall.allowedUDPPorts = [ 64738 ];
 }
