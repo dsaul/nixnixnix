@@ -19,6 +19,8 @@ services:
     ports:
       - 9091:9000
     environment:
+      PUID: ${UID}
+      PGID: ${GID}
       ALLOW_SIGNUP: "false"
       LOG_LEVEL: "DEBUG"
 
