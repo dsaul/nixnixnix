@@ -12,10 +12,10 @@ in
       /* yaml */
       ''
 services:
-  mumble-server:
+  ${packageName}:
     user: "${UID}:${GID}"
     image: mumblevoip/mumble-server:latest
-    container_name: mumble
+    container_name: ${packageName}
     hostname: mumble
     restart: unless-stopped
     ports:

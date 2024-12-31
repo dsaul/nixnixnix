@@ -36,6 +36,7 @@ in
 		../services/http-vhost/http-vhost-seafile.dsaul.ca.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		../stacks/mumble-server/mumble-server.nix
+		../stacks/mumble-server/mealie.nix
 	];
 
 	# Bootloader.
