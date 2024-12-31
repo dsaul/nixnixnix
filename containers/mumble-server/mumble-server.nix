@@ -32,8 +32,8 @@ services:
       - MUMBLE_CONFIG_bonjour=false
       - MUMBLE_CONFIG_registerName=${MUMBLE_CONFIG_registerName}
       - MUMBLE_CONFIG_registerPassword=
-	  - MUMBLE_UID=0
-	  - MUMBLE_GID=0
+      - MUMBLE_UID=0
+      - MUMBLE_GID=0
 '';
 	
 	config.systemd.services."${packageName}" = {
