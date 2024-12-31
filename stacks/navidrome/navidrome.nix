@@ -39,14 +39,7 @@ services:
     volumes:
       - "/var/stacks/${packageName}/data-navidrome:/data"
       - "/srv/MISC-01/Audio/Music:/music:ro"
-    networks:
-      - backend
     restart: unless-stopped
-networks:
-  backend:
-    name: backend
-    external: true
-
 '';
 	
 	config.systemd.services."${packageName}" = {
