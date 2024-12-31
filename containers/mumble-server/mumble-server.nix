@@ -44,7 +44,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			UID=${UID} GID=${GID} docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
