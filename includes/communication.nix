@@ -21,6 +21,7 @@
 		zoom-us
 		thunderbird
 		hexchat
+		mumble
 		#nheko
 		#(pidgin.override {
 		#	plugins = [
