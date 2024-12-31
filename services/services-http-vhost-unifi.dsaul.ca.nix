@@ -3,14 +3,16 @@
 
 {
 	
+	
+	
 	services.nginx = {
 		
-		virtualHosts."whishper.dsaul.ca" = {
+		virtualHosts."unifi.dsaul.ca" = {
 			forceSSL = true;
 			useACMEHost = "dsaul.ca";
 			
 			locations."/" = {
-				proxyPass = "http://10.5.5.20:8082";
+				proxyPass = "https://10.5.5.5:8443";
 				proxyWebsockets = true; # needed if you need to use WebSocket
 				
 				extraConfig = ''
@@ -25,6 +27,5 @@
 			
 		};
 	};
-	
 	
 }
