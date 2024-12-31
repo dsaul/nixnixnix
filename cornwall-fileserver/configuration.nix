@@ -28,6 +28,12 @@ in
 		../services/services-http-vhost-homeassistant.dsaul.ca.nix
 		../services/services-http-vhost-immich.dsaul.ca.nix
 		../services/services-http-vhost-jellyfin.dsaul.ca.nix
+		../services/services-http-vhost-mealie.dsaul.ca.nix
+		../services/services-http-vhost-navidrome.dsaul.ca.nix
+		../services/services-http-vhost-nodered.dsaul.ca.nix
+		../services/services-http-vhost-paperless.dsaul.ca.nix
+		../services/services-http-vhost-seafile.dsaul.ca.nix
+		../services/services-http-vhost-whishper.dsaul.ca.nix
 	];
 
 	# Bootloader.
