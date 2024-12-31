@@ -26,7 +26,8 @@ in
 		../services/services-http-vhost-esphome.dsaul.ca.nix
 		../services/services-http-vhost-gitea.dsaul.ca.nix
 		../services/services-http-vhost-homeassistant.dsaul.ca.nix
-		../services/services.http-vhost-immich.dsaul.ca.nix
+		../services/services-http-vhost-immich.dsaul.ca.nix
+		../services/services-http-vhost-jellyfin.dsaul.ca.nix
 	];
 
 	# Bootloader.
