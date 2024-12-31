@@ -6,7 +6,7 @@ let
 in
 {
 	imports = [
-		../../services/http-vhost/http-vhost-mealie.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-navidrome.dsaul.ca.nix
 	];
 	
 	
