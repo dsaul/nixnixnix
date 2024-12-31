@@ -62,8 +62,10 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data
+		mkdir -p /var/stacks/${packageName}/data-config
+		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-config
+		mkdir -p /var/stacks/${packageName}/data-cache
+		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-cache
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 8096 ];

@@ -62,8 +62,8 @@ networks:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data
+		mkdir -p /var/stacks/${packageName}/data-navidrome
+		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-navidrome
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 4533 ];
