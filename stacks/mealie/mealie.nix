@@ -5,6 +5,11 @@ let
 	GID = "0";
 in
 {
+	imports = [
+		../../services/http-vhost/http-vhost-mealie.dsaul.ca.nix
+	];
+	
+	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
       /* yaml */
       ''
