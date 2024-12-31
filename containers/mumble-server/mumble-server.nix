@@ -4,8 +4,8 @@ let
 	MUMBLE_CONFIG_SERVER_PASSWORD = "244466666";
 	MUMBLE_CONFIG_welcometext = "Welcome to the Winespring Inn";
 	MUMBLE_CONFIG_registerName = "The Winespring Inn";
-	UID = 0;
-	GID = 0;
+	UID = "0";
+	GID = "0";
 in
 {
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
