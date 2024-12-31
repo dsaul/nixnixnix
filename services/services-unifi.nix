@@ -3,7 +3,7 @@
 
 {
 	imports = [
-		./http-vhost/services-http-vhost-unifi.dsaul.ca.nix
+		./http-vhost/http-vhost-unifi.dsaul.ca.nix
 	];
 	
 	services.unifi.enable = true;
