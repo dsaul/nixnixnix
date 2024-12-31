@@ -2,10 +2,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-
 	boot.kernelParams = ["nvidia-drm.modeset=1"];
 
 	environment.systemPackages = with pkgs; [

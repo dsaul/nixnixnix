@@ -1,10 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-
 	# Enable the X11 windowing system.
 	# You can disable this if you're only using the Wayland session.
 	services.xserver.enable = true;

@@ -1,10 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-	
 	age.secrets."fileserver-smb.age".file = ../secrets/fileserver-smb.age;
 	
 	fileSystems."/mnt/MISC-01" = {

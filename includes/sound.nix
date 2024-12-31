@@ -4,10 +4,6 @@ let
   unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
 in 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-
 	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
 	services.pipewire = {

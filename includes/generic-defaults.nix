@@ -1,11 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-	
-	
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
@@ -58,9 +53,4 @@
 	};
 
 	nix.settings.auto-optimise-store = true; 
-
-
-
-
-
 }

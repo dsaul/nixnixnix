@@ -4,11 +4,6 @@ let
   unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
 in
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-
-
 	services.pipewire.extraConfig.pipewire."91-null-sinks" = {
 
 		"context.objects" = [

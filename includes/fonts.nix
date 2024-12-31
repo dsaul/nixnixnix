@@ -1,11 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	#imports =
-	#  [ (modulesPath + "/installer/scan/not-detected.nix")
-	#  ];
-	
-	
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts
