@@ -5,12 +5,12 @@
 	
 	services.nginx = {
 		
-		virtualHosts."whishper.dsaul.ca" = {
+		virtualHosts."seafile.dsaul.ca" = {
 			forceSSL = true;
 			useACMEHost = "dsaul.ca";
 			
 			locations."/" = {
-				proxyPass = "http://10.5.5.20:8082";
+				proxyPass = "http://10.5.5.10:3900";
 				proxyWebsockets = true; # needed if you need to use WebSocket
 				
 				extraConfig = ''
