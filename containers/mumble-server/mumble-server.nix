@@ -4,6 +4,8 @@ let
 	MUMBLE_CONFIG_SERVER_PASSWORD = "244466666";
 	MUMBLE_CONFIG_welcometext = "Welcome to the Winespring Inn";
 	MUMBLE_CONFIG_registerName = "The Winespring Inn";
+	UID = 0;
+	GID = 0;
 in
 {
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
@@ -11,6 +13,7 @@ in
       ''
 services:
   mumble-server:
+    user: "${UID}:${GID}"
     image: mumblevoip/mumble-server:latest
     container_name: mumble
     hostname: mumble
@@ -32,8 +35,8 @@ services:
       - MUMBLE_CONFIG_bonjour=false
       - MUMBLE_CONFIG_registerName=${MUMBLE_CONFIG_registerName}
       - MUMBLE_CONFIG_registerPassword=
-      - MUMBLE_UID=0
-      - MUMBLE_GID=0
+      - MUMBLE_UID=${UID}
+      - MUMBLE_GID=${GID}
 '';
 	
 	config.systemd.services."${packageName}" = {
@@ -41,7 +44,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			UID=${UID} GID=${GID} docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
@@ -50,6 +53,7 @@ services:
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p /var/stacks/${packageName}/data
+		chown -R ${UID}:${GID} /var/stacks/${packageName}/data
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 64738 ];
