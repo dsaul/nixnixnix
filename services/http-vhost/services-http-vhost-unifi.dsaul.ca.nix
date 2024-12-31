@@ -2,8 +2,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	
-	
+	imports = [
+		../http-acme/certificate-dsaul.ca.nix
+	];
 	
 	services.nginx = {
 		
