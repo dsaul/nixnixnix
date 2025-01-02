@@ -52,6 +52,149 @@ in
 	
 	#networking.networkmanager.insertNameservers = [ "1.1.1.1" "9.9.9.9" ];
 	
+	
+	fileSystems."/mnt/DOCUMENTS-01" =
+	{
+		device = "/dev/disk/by-label/DOCUMENTS-01";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MISC-01" =
+	{
+		device = "/dev/disk/by-label/MISC-01";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-01" =
+	{
+		device = "/dev/disk/by-label/MEDIA-01";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-02" =
+	{
+		device = "/dev/disk/by-label/MEDIA-02";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-03" =
+	{
+		device = "/dev/disk/by-label/MEDIA-03";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-04" =
+	{
+		device = "/dev/disk/by-label/MEDIA-04";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-05" =
+	{
+		device = "/dev/disk/by-label/MEDIA-05";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-06" =
+	{
+		device = "/dev/disk/by-label/MEDIA-06";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-07" =
+	{
+		device = "/dev/disk/by-label/MEDIA-07";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-08" =
+	{
+		device = "/dev/disk/by-label/MEDIA-08";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-09" =
+	{
+		device = "/dev/disk/by-label/MEDIA-09";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-10" =
+	{
+		device = "/dev/disk/by-label/MEDIA-10";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-11" =
+	{
+		device = "/dev/disk/by-label/MEDIA-11";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-12" =
+	{
+		device = "/dev/disk/by-label/MEDIA-12";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-13" =
+	{
+		device = "/dev/disk/by-label/MEDIA-13";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-14" =
+	{
+		device = "/dev/disk/by-label/MEDIA-14";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-15" =
+	{
+		device = "/dev/disk/by-label/MEDIA-15";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-16" =
+	{
+		device = "/dev/disk/by-label/MEDIA-16";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-17" =
+	{
+		device = "/dev/disk/by-label/MEDIA-17";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	fileSystems."/mnt/MEDIA-18" =
+	{
+		device = "/dev/disk/by-label/MEDIA-18";
+		fsType = "xfs";
+		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
+	};
+	
+	
+	
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
