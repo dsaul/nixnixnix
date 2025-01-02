@@ -6,7 +6,7 @@ let
 	MUMBLE_CONFIG_registerName = "The Winespring Inn";
 	UID = "0";
 	GID = "0";
-	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks;
+	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
 in
 {
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =

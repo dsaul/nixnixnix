@@ -3,7 +3,7 @@ let
 	packageName = "mealie";
 	UID = "0";
 	GID = "0";
-	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks;
+	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
 in
 {
 	imports = [
