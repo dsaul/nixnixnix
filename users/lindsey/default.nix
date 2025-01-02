@@ -19,6 +19,7 @@ in
 		extraGroups = [
 			"networkmanager"
 			"libvirtd"
+			"users"
 		];
 		packages = with pkgs; [
 

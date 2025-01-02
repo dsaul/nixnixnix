@@ -22,6 +22,7 @@ in
 			"docker"
 			"libvirtd"
 			"media"
+			"users"
 		];
 		packages = with pkgs; [
 
