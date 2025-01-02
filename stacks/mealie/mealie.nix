@@ -3,6 +3,7 @@ let
 	packageName = "mealie";
 	UID = "0";
 	GID = "0";
+	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks;
 in
 {
 	imports = [
@@ -20,7 +21,7 @@ services:
     image: hkotel/mealie:v2.4.1
     restart: always
     volumes:
-      - /var/stacks/${packageName}/data:/app/data/
+      - ${stacksDataRoot}/${packageName}/data:/app/data/
     ports:
       - 9091:9000
     environment:
@@ -61,8 +62,8 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data
+		mkdir -p ${stacksDataRoot}/stacks/${packageName}/data
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 9091 ];

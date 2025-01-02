@@ -6,6 +6,7 @@ let
 	MUMBLE_CONFIG_registerName = "The Winespring Inn";
 	UID = "0";
 	GID = "0";
+	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks;
 in
 {
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
@@ -22,7 +23,7 @@ services:
      - 64738:64738
      - 64738:64738/udp
     volumes:
-     - /var/stacks/${packageName}/data:/data
+     - ${stacksDataRoot}/${packageName}/data:/data
     environment:
       # https://wiki.mumble.info/wiki/Murmur.ini
       - MUMBLE_CONFIG_SERVER_PASSWORD=${MUMBLE_CONFIG_SERVER_PASSWORD}
@@ -52,8 +53,8 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data
+		mkdir -p ${stacksDataRoot}/${packageName}/data
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 64738 ];
