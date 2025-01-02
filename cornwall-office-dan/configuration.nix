@@ -4,7 +4,8 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 #sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-#sudo nix-channel --update nixos-unstable
+# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+#sudo nix-channel --update
 
 
 { config, pkgs, ... }:
@@ -16,6 +17,7 @@ in
 
 	imports =
 	[
+		<home-manager/nixos> 
 		../includes/agenix.nix
 		../hardware-configuration.nix
 		../includes/bluetooth.nix
@@ -97,6 +99,19 @@ in
 		fsType = "xfs";
 		options = [ "nofail" "noexec" "nosuid" ];
 	};
+
+	home-manager.users.dan = { pkgs, ... }: {
+		home.packages = [ pkgs.httpie ];
+		programs.bash.enable = true;
+
+		# The state version is required and should stay at the version you
+		# originally installed.
+		home.stateVersion = "24.11";
+	};
+
+
+
+
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
