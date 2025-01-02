@@ -100,25 +100,6 @@ in
 		options = [ "nofail" "noexec" "nosuid" ];
 	};
 
-	home-manager.users.dan = { pkgs, ... }: {
-		home.packages = [ pkgs.httpie ];
-		programs.bash.enable = true;
-		
-		programs.git = {
-			enable = true;
-			userName = "Dan Saul";
-			userEmail = "dan@dsaul.ca";
-		};
-
-		# The state version is required and should stay at the version you
-		# originally installed.
-		home.stateVersion = "24.11";
-	};
-
-
-
-
-
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
 	# on your system were taken. It‘s perfectly fine and recommended to leave

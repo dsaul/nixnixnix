@@ -31,4 +31,19 @@ in
 		];
 	};
 	
+	home-manager.users.dan = { pkgs, ... }: {
+		home.packages = [ ];
+		programs.bash.enable = true;
+		
+		programs.git = {
+			enable = true;
+			userName = "Dan Saul";
+			userEmail = "dan@dsaul.ca";
+		};
+
+		# The state version is required and should stay at the version you
+		# originally installed.
+		home.stateVersion = "24.11";
+	};
+	
 }
