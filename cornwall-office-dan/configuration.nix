@@ -37,8 +37,8 @@ in
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/filesystems-documents.nix
-		../includes/filesystems-media.nix
+		#../includes/filesystems-documents.nix
+		#../includes/filesystems-media.nix
 		../includes/filesystems-fs.nix
 		../includes/fonts.nix
 		../includes/tex.nix

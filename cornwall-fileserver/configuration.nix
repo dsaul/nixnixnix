@@ -194,6 +194,7 @@ in
 		options = [ "nofail" "noexec" "nosuid" "x-systemd.device-timeout=4" ];
 	};
 	
+	#showmount -e 10.5.5.5
 	services.nfs.server.enable = true;
 	services.nfs.server.exports = ''
 	/mnt			10.5.5.0/24(rw,nohide,sync,no_subtree_check)
