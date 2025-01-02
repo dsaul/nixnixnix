@@ -6,7 +6,7 @@ in
 	programs.mtr.enable = true;
 
 	environment.systemPackages = with pkgs; [
-		mtr-gui
+		#mtr-gui
 		transmission_4-qt
 		unstable.winbox4
 		remmina
