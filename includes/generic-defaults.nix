@@ -18,6 +18,7 @@
 		"riscv64-linux"
 	];
 
+	services.rpcbind.enable = true; # nfs
 	
 	# Expected Packages
 	environment.systemPackages = with pkgs; [
