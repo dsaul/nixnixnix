@@ -4,7 +4,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	includes = [
+	imports = [
 		<home-manager/nixos> 
 	];
 	config.home-manager.useGlobalPkgs = true;
