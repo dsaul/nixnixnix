@@ -62,7 +62,7 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p ${stacksDataRoot}/stacks/${packageName}/data
+		mkdir -p ${stacksDataRoot}/${packageName}/data
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
 	'';
 	
