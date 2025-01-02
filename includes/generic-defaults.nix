@@ -36,6 +36,7 @@
 		ffmpeg-headless
 		elinks
 		nfs-utils
+		rpcbind
 		
 		# Filesystems
 		xfsprogs
