@@ -16,6 +16,7 @@ in
 	imports =
 	[
 		../includes/agenix.nix
+		../includes/home-manager.nix
 		./hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
