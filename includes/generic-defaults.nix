@@ -35,6 +35,7 @@
 		par2cmdline-turbo
 		ffmpeg-headless
 		elinks
+		nfs-utils
 		
 		# Filesystems
 		xfsprogs
