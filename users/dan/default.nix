@@ -4,10 +4,6 @@ let
 	fullName = "Dan Saul";
 in
 {
-	#imports = [
-	#	../../includes/home-manager.nix
-	#];
-	
 	environment.etc = {
 		"usericons.d/${username}".source = "${./icon.png}";
 	};
