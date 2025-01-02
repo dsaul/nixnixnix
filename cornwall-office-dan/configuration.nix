@@ -3,9 +3,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-#sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+# nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 # nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
-#sudo nix-channel --update
+# nix-channel --update
 
 
 { config, pkgs, ... }:
@@ -17,7 +17,7 @@ in
 
 	imports =
 	[
-		<home-manager/nixos> 
+		../includes/home-manager.nix
 		../includes/agenix.nix
 		../hardware-configuration.nix
 		../includes/bluetooth.nix
@@ -103,6 +103,12 @@ in
 	home-manager.users.dan = { pkgs, ... }: {
 		home.packages = [ pkgs.httpie ];
 		programs.bash.enable = true;
+		
+		programs.git = {
+			enable = true;
+			userName = "Dan Saul";
+			userEmail = "dan@dsaul.ca";
+		};
 
 		# The state version is required and should stay at the version you
 		# originally installed.
