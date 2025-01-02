@@ -8,5 +8,6 @@ in
 		libreoffice-qt6-fresh
 		dia
 		ocrmypdf
+		qcal
 	];
 }
