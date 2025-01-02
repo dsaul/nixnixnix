@@ -100,8 +100,8 @@ in
 		options = [ "nofail" "noexec" "nosuid" ];
 	};
 	
-	networking.firewall.allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 ];
-	networking.firewall.allowedUDPPorts = [ 111 2049 4000 4001 4002 20048 ];
+	#networking.firewall.allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 ];
+	#networking.firewall.allowedUDPPorts = [ 111 2049 4000 4001 4002 20048 ];
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
