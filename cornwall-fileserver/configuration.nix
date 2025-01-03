@@ -36,7 +36,7 @@ in
 		../stacks/mumble-server/mumble-server.nix
 		../stacks/mealie/mealie.nix
 		../stacks/davis/davis.nix
-		../stacks/seafile/seafile.nix
+		../services/services-seafile.nix
 	];
 
 	# Bootloader.
