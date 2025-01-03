@@ -18,7 +18,7 @@ in
       ''
 services:
   db:
-    image: mariadb:10.5
+    image: mariadb:10.11
     container_name: ${packageName}-mariadb
     user: "${UID}:${GID}"
     environment:
@@ -26,18 +26,19 @@ services:
       PGID: ${GID}
       MYSQL_ROOT_PASSWORD: ''${MYSQL_ROOT_PASSWORD}
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
+      MARIADB_AUTO_UPGRADE=1
     volumes:
       - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
 
   memcached:
-    image: memcached:1.5.6
+    image: memcached:1.6.18
     container_name: ${packageName}-memcached
     entrypoint: memcached -m 256
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:10.0.1
+    image: seafileltd/seafile-mc:11.0-latest
     container_name: ${packageName}
     user: "${UID}:${GID}"
     environment:
@@ -47,6 +48,9 @@ services:
       DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
       TIME_ZONE: ''${TIME_ZONE}
       SEAFILE_SERVER_HOSTNAME: ''${SEAFILE_SERVER_HOSTNAME}
+	  SEAFILE_ADMIN_EMAIL: ''${SEAFILE_ADMIN_EMAIL}
+	  SEAFILE_ADMIN_PASSWORD: ''${SEAFILE_ADMIN_PASSWORD}
+	  SEAFILE_SERVER_LETSENCRYPT: ''${SEAFILE_SERVER_LETSENCRYPT}
     ports:
       - "3900:80"
 #     - "443:443"  # If https is enabled, cancel the comment.
