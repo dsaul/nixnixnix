@@ -1,8 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 let
 	packageName = "gitea";
-	UID = "0";
-	GID = "0";
+	UID = "1000";
+	GID = "1000";
 	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
 in
 {
