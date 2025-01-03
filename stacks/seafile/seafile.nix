@@ -77,6 +77,7 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
       - ${config.age.secrets."seafile-env.age".path}:/opt/seafile/seafile-server-12.0.6/.env
+	  - ${config.age.secrets."seafile-env.age".path}:/opt/seafile/.env
     depends_on:
       - db
       - memcached
