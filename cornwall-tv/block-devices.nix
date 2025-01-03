@@ -3,8 +3,8 @@
 
 {
 	imports = [
-		../includes/shares-media.nix
-		../includes/shares-fs.nix
+		../shares/shares-media.nix
+		../shares/shares-fs.nix
 	];
 	
 	fileSystems."/" = {

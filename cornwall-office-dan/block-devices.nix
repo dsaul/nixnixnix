@@ -3,9 +3,9 @@
 
 {
 	imports = [
-		../includes/shares-documents.nix
-		../includes/shares-media.nix
-		../includes/shares-fs.nix
+		../shares/shares-documents.nix
+		../shares/shares-media.nix
+		../shares/shares-fs.nix
 	];
 	
 	fileSystems."/" = { 

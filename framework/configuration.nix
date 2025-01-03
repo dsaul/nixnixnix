@@ -31,13 +31,13 @@ in
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/editors-tex.nix
-		../includes/editors-text.nix
-		../includes/editors-daw.nix
-		../includes/editors-office.nix
-		../includes/editors-notes.nix
-		../includes/editors-graphics.nix
-		../includes/editors-cad.nix
+		../editors/editors-tex.nix
+		../editors/editors-text.nix
+		../editors/editors-daw.nix
+		../editors/editors-office.nix
+		../editors/editors-notes.nix
+		../editors/editors-graphics.nix
+		../editors/editors-cad.nix
 		../includes/media.nix
 		../includes/communication.nix
 		../includes/development.nix

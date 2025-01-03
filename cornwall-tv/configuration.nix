@@ -33,7 +33,7 @@ in
 		../services/services-sshd.nix
 		../includes/generic-games.nix
 		../users/usersandgroups.nix
-		../includes/editors-daw.nix
+		../editors/editors-daw.nix
 		../includes/media.nix
 		../includes/communication.nix
 		./subwoofer-virtual-sink.nix
