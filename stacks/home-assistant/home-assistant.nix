@@ -27,6 +27,10 @@ services:
     restart: unless-stopped
     environment:
      - TZ=America/Winnipeg
+    depends_on:
+      - mosquitto
+      - esphome
+      - nodered
   mosquitto:
     image: eclipse-mosquitto:2.0.20
     container_name: mosquitto
@@ -36,8 +40,6 @@ services:
     ports:
     - "1883:1883"
     - "9001:9001"
-    networks:
-     - homeassistant
     restart: unless-stopped
     environment:
       - TZ=America/Winnipeg
