@@ -30,30 +30,49 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/data-mariadb:/var/lib/mysql
     restart: always
+	healthcheck:
+      test:
+        [
+          "CMD",
+          "/usr/local/bin/healthcheck.sh",
+          "--connect",
+          "--mariadbupgrade",
+          "--innodb_initialized",
+        ]
+      interval: 20s
+      start_period: 30s
+      timeout: 5s
+      retries: 10
 
   memcached:
-    image: memcached:1.6.18
+    image: memcached:1.6.29
     container_name: ${packageName}-memcached
     entrypoint: memcached -m 256
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:11.0-latest
+    image: seafileltd/seafile-mc:12.0-latest
     container_name: ${packageName}
     user: "${UID}:${GID}"
     environment:
       PUID: ${UID}
       PGID: ${GID}
-      DB_HOST: ''${DB_HOST}
+      DB_HOST: ''${DB_HOST:-db}
+	  DB_PORT: ''${DB_PORT:-3306}
+	  DB_USER: ''${DB_USER:-seafile}
       DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
       TIME_ZONE: ''${TIME_ZONE}
       SEAFILE_SERVER_HOSTNAME: ''${SEAFILE_SERVER_HOSTNAME}
-      SEAFILE_ADMIN_EMAIL: ''${SEAFILE_ADMIN_EMAIL}
-      SEAFILE_ADMIN_PASSWORD: ''${SEAFILE_ADMIN_PASSWORD}
+	  SEAFILE_SERVER_PROTOCOL: ''${SEAFILE_SERVER_PROTOCOL}
+      INIT_SEAFILE_ADMIN_EMAIL: ''${INIT_SEAFILE_ADMIN_EMAIL}
+      INIT_SEAFILE_ADMIN_PASSWORD: ''${SEAFILE_ADMIN_PASSWORD}
       SEAFILE_SERVER_LETSENCRYPT: ''${SEAFILE_SERVER_LETSENCRYPT}
+	  SEAFILE_MYSQL_DB_CCNET_DB_NAME: ''${SEAFILE_MYSQL_DB_CCNET_DB_NAME:-ccnet_db}
+	  SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAFILE_DB_NAME:-seafile_db}
+	  SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAHUB_DB_NAME:-seahub_db}
+	  SEAFILE_LOG_TO_STDOUT: true
     ports:
       - "3900:80"
-#     - "443:443"  # If https is enabled, cancel the comment.
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
     depends_on:
