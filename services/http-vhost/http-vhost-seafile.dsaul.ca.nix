@@ -28,7 +28,7 @@
 				'';
 			};
 			
-			"/seafhttp" = {
+			locations."/seafhttp" = {
 				proxyPass = "http://unix:/run/seafile/server.sock";
 				extraConfig = ''
 					proxy_ssl_server_name on;
