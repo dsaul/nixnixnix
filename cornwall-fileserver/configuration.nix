@@ -37,6 +37,7 @@ in
 		../services/services-seafile.nix
 		../stacks/navidrome/navidrome.nix
 		../stacks/jellyfin/jellyfin.nix
+		../stacks/gitea/gitea.nix
 	];
 
 	# Bootloader.

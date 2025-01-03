@@ -26,4 +26,5 @@ in
 	"hetzner-dns.age".publicKeys = systems ++ user-dan;
 	"davis-env.age".publicKeys = systems ++ user-dan;
 	"navidrome-env.age".publicKeys = systems ++ user-dan;
+	"gitea-env.age".publicKeys = systems ++ user-dan;
 }

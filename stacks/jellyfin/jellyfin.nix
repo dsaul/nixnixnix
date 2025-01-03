@@ -71,6 +71,6 @@ services:
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-cache
 	'';
 	
-	config.networking.firewall.allowedTCPPorts = [ 8096 ];
-	#config.networking.firewall.allowedUDPPorts = [ 8096 ];
+	config.networking.firewall.allowedTCPPorts = [ 8096 8920 ];
+	config.networking.firewall.allowedUDPPorts = [ 1900 7359 ];
 }
