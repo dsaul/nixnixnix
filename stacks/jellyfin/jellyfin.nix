@@ -21,9 +21,9 @@ services:
     container_name: ${packageName}
     ports:
       - 8096:8096
-	  - 8920:8920
-	  - 1900:1900/udp
-	  - 7359:7359/udp
+      - 8920:8920
+      - 1900:1900/udp
+      - 7359:7359/udp
     volumes:
       - ${stacksDataRoot}/${packageName}/data-config:/config
       - ${stacksDataRoot}/${packageName}/data-cache:/cache
@@ -48,7 +48,7 @@ services:
       - /mnt/MISC-01/Audio/Music:/mnt/MISC-01/Audio/Music:ro
     restart: "always"
     environment:
-	  PUID: ${UID}
+      PUID: ${UID}
       PGID: ${GID}
 '';
 	
