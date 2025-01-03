@@ -25,10 +25,11 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../generic-includes/agenix.nix
-		../generic-includes/home-manager.nix
+		../nixos/nixos-agenix.nix
+		../nixos/nixos-home-manager.nix
 		
 		# Hardware
+		../hardware/hardware-qemu-guest.nix
 		
 		# Users
 		../users/usersandgroups.nix
@@ -57,11 +58,13 @@ in
 		../stacks/jellyfin/jellyfin.nix
 		../stacks/gitea/gitea.nix
 		
+		# System
+		../system/system-docker.nix
+		
 		# Other
 		../generic-includes/generic-defaults.nix
 		../generic-includes/networking-defaults.nix
-		../generic-includes/qemu-guest.nix
-		../generic-includes/docker.nix
+		
 	];
 
 	# Bootloader.

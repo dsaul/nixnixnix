@@ -3,7 +3,7 @@
 {
 	imports = [
 		./docker.nix
-		./virtualisation.nix
+		../system/system-virtualisation.nix
 	];
 	
 	environment.systemPackages = with pkgs; [

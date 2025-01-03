@@ -21,8 +21,8 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../generic-includes/agenix.nix
-		../generic-includes/home-manager.nix
+		../nixos/nixos-agenix.nix
+		../nixos/nixos-home-manager.nix
 		
 		# Hardware
 		../hardware/hardware-bluetooth.nix
@@ -47,6 +47,9 @@ in
 		# Utilities
 		../utilities/utilities-fastflix.nix
 		
+		# System
+		../system/system-virtualisation.nix
+		
 		# Other
 		../generic-includes/generic-defaults.nix
 		../generic-includes/generic-defaults-gui.nix
@@ -55,7 +58,7 @@ in
 		../generic-includes/networking-defaults-gui.nix
 		../generic-includes/generic-sound.nix
 		../generic-includes/generic-games.nix
-		../generic-includes/virtualisation.nix
+		
 		../generic-includes/xrdp-kde.nix
 		../generic-includes/media.nix
 		../generic-includes/communication.nix
