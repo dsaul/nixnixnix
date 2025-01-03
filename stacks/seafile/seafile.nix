@@ -76,7 +76,7 @@ services:
       - "3900:80"
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
-      - ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
+      #- ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
       #- ${config.age.secrets."seafile-env.age".path}:/opt/seafile/conf/.env
     depends_on:
       - db
@@ -103,12 +103,12 @@ services:
 		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
 		
-		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile-conf
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile-conf
-		chmod a+w ${stacksDataRoot}/${packageName}/data-seafile-conf
+		#mkdir -p ${stacksDataRoot}/${packageName}/data-seafile-conf
+		#chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile-conf
+		#chmod a+w ${stacksDataRoot}/${packageName}/data-seafile-conf
 		
-		rm ${stacksDataRoot}/${packageName}/data-seafile-conf/.env || true
-		ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile-conf/.env
+		#rm ${stacksDataRoot}/${packageName}/data-seafile-conf/.env || true
+		#ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile-conf/.env
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
