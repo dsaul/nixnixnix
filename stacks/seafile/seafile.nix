@@ -99,6 +99,8 @@ services:
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
+		
+		ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile/.env
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
