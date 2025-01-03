@@ -24,7 +24,6 @@ in
 		../includes/docker.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
-		../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
 		../services/http-vhost/http-vhost-esphome.dsaul.ca.nix
 		../services/http-vhost/http-vhost-gitea.dsaul.ca.nix
 		../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
@@ -37,6 +36,7 @@ in
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		../stacks/mumble-server/mumble-server.nix
 		../stacks/mealie/mealie.nix
+		../stacks/davis/davis.nix
 	];
 
 	# Bootloader.

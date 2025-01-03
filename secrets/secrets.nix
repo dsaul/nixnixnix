@@ -24,4 +24,5 @@ in
 	"userHashedPasswordFile-tv.age".publicKeys = systems ++ users-admin;
 	"fileserver-smb.age".publicKeys = systems ++ user-dan;
 	"hetzner-dns.age".publicKeys = systems ++ user-dan;
+	"davis-env.age".publicKeys = systems ++ user-dan;
 }
