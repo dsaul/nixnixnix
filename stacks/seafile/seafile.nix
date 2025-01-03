@@ -71,8 +71,11 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p ${stacksDataRoot}/${packageName}/data
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
+		mkdir -p ${stacksDataRoot}/${packageName}/seafile-mysql
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-mysql
+		
+		mkdir -p ${stacksDataRoot}/${packageName}/seafile-data
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-data
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
