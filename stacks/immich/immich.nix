@@ -70,7 +70,7 @@ services:
     user: "${UID}:${GID}"
     image: docker.io/redis:6.2-alpine@sha256:e3b17ba9479deec4b7d1eeec1548a253acc5374d68d3b27937fcfe4df8d18c7e
     volumes:
-     - ./data-redis:/data
+     - ${stacksDataRoot}/${packageName}/data-redis:/data
     environment:
       PUID: ${UID}
       PGID: ${GID}
@@ -114,6 +114,9 @@ services:
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-library
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-library
+		
+		mkdir -p ${stacksDataRoot}/${packageName}/data-redis
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-redis
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/model-cache
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/model-cache
