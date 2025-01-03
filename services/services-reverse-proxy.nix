@@ -14,7 +14,7 @@
 		recommendedOptimisation = true;
 		
 		virtualHosts."_" = {
-			listen = [ { addr = "0.0.0.0"; port = 80; default = true; } ];
+			default = true;
 			locations."/" = {
 				
 				return = "200 '<html><body></body></html>'";
