@@ -20,7 +20,10 @@ services:
   ${packageName}-mariadb:
     image: mariadb:10.5
     container_name: ${packageName}-mariadb
+    user: "${UID}:${GID}"
     environment:
+      PUID: ${UID}
+      PGID: ${GID}
       MYSQL_ROOT_PASSWORD: ''${MYSQL_ROOT_PASSWORD}
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
     volumes:
@@ -30,13 +33,20 @@ services:
   ${packageName}-memcached:
     image: memcached:1.5.6
     container_name: ${packageName}-memcached
+    user: "${UID}:${GID}"
+    environment:
+      PUID: ${UID}
+      PGID: ${GID}
     entrypoint: memcached -m 256
     restart: always
 
   ${packageName}:
     image: seafileltd/seafile-mc:12.0.6
     container_name: ${packageName}
+    user: "${UID}:${GID}"
     environment:
+      PUID: ${UID}
+      PGID: ${GID}
       DB_HOST: ''${DB_HOST}
       DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
       TIME_ZONE: ''${TIME_ZONE}
