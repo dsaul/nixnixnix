@@ -37,6 +37,7 @@ in
 		../stacks/davis/davis.nix
 		../services/services-seafile.nix
 		../stacks/navidrome/navidrome.nix
+		../stacks/jellyfin/jellyfin.nix
 	];
 
 	# Bootloader.

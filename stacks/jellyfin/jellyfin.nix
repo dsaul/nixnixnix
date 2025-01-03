@@ -3,6 +3,7 @@ let
 	packageName = "jellyfin";
 	UID = "0";
 	GID = "0";
+	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
 in
 {
 	imports = [
@@ -24,28 +25,28 @@ services:
 	  - 1900:1900/udp
 	  - 7359:7359/udp
     volumes:
-      - /var/stacks/${packageName}/data-config:/config
-      - /var/stacks/${packageName}/data-cache:/cache
-      - /srv/MEDIA-01:/srv/MEDIA-01:ro
-      - /srv/MEDIA-02:/srv/MEDIA-02:ro
-      - /srv/MEDIA-03:/srv/MEDIA-03:ro
-      - /srv/MEDIA-04:/srv/MEDIA-04:ro
-      - /srv/MEDIA-05:/srv/MEDIA-05:ro
-      - /srv/MEDIA-06:/srv/MEDIA-06:ro
-      - /srv/MEDIA-07:/srv/MEDIA-07:ro
-      - /srv/MEDIA-08:/srv/MEDIA-08:ro
-      - /srv/MEDIA-09:/srv/MEDIA-09:ro
-      - /srv/MEDIA-10:/srv/MEDIA-10:ro
-      - /srv/MEDIA-11:/srv/MEDIA-11:ro
-      - /srv/MEDIA-12:/srv/MEDIA-12:ro
-      - /srv/MEDIA-13:/srv/MEDIA-13:ro
-      - /srv/MEDIA-14:/srv/MEDIA-14:ro
-      - /srv/MEDIA-15:/srv/MEDIA-15:ro
-      - /srv/MEDIA-16:/srv/MEDIA-16:ro
-      - /srv/MEDIA-17:/srv/MEDIA-17:ro
-      - /srv/MEDIA-18:/srv/MEDIA-18:ro
-      - /srv/MISC-01/Audio/Music:/srv/MISC-01/Audio/Music:ro
-    restart: "unless-stopped"
+      - ${stacksDataRoot}/${packageName}/data-config:/config
+      - ${stacksDataRoot}/${packageName}/data-cache:/cache
+      - /mnt/MEDIA-01:/mnt/MEDIA-01:ro
+      - /mnt/MEDIA-02:/mnt/MEDIA-02:ro
+      - /mnt/MEDIA-03:/mnt/MEDIA-03:ro
+      - /mnt/MEDIA-04:/mnt/MEDIA-04:ro
+      - /mnt/MEDIA-05:/mnt/MEDIA-05:ro
+      - /mnt/MEDIA-06:/mnt/MEDIA-06:ro
+      - /mnt/MEDIA-07:/mnt/MEDIA-07:ro
+      - /mnt/MEDIA-08:/mnt/MEDIA-08:ro
+      - /mnt/MEDIA-09:/mnt/MEDIA-09:ro
+      - /mnt/MEDIA-10:/mnt/MEDIA-10:ro
+      - /mnt/MEDIA-11:/mnt/MEDIA-11:ro
+      - /mnt/MEDIA-12:/mnt/MEDIA-12:ro
+      - /mnt/MEDIA-13:/mnt/MEDIA-13:ro
+      - /mnt/MEDIA-14:/mnt/MEDIA-14:ro
+      - /mnt/MEDIA-15:/mnt/MEDIA-15:ro
+      - /mnt/MEDIA-16:/mnt/MEDIA-16:ro
+      - /mnt/MEDIA-17:/mnt/MEDIA-17:ro
+      - /mnt/MEDIA-18:/mnt/MEDIA-18:ro
+      - /mnt/MISC-01/Audio/Music:/mnt/MISC-01/Audio/Music:ro
+    restart: "always"
     environment:
 	  PUID: ${UID}
       PGID: ${GID}
@@ -64,10 +65,10 @@ services:
 	};
 	
 	config.system.activationScripts.makeJellyfinDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data-config
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-config
-		mkdir -p /var/stacks/${packageName}/data-cache
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-cache
+		mkdir -p ${stacksDataRoot}/${packageName}/data-config
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-config
+		mkdir -p ${stacksDataRoot}/${packageName}/data-cache
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-cache
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 8096 ];
