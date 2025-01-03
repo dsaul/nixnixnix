@@ -19,16 +19,26 @@ in
 	imports = [
 		./hardware-configuration.nix
 		./block-devices.nix
-		./nfs-exports.nix
+		
+		# Nixos
+		# nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
+		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
+		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+		# nix-channel --update
 		../generic-includes/agenix.nix
 		../generic-includes/home-manager.nix
-		../services/services-samba.nix
-		../generic-includes/generic-defaults.nix
-		../generic-includes/networking-defaults.nix
-		../services/services-sshd.nix
+		
+		# Hardware
+		
+		# Users
 		../users/usersandgroups.nix
-		../generic-includes/qemu-guest.nix
-		../generic-includes/docker.nix
+		
+		# Editors
+		
+		# Services
+		../services/services-nfs.nix
+		./nfs-exports.nix
+		../services/services-samba.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/http-vhost/http-vhost-esphome.dsaul.ca.nix
@@ -37,14 +47,21 @@ in
 		../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
 		../services/http-vhost/http-vhost-paperless.dsaul.ca.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
+		../services/services-seafile.nix
+		
+		# Stacks
 		../stacks/mumble-server/mumble-server.nix
 		../stacks/mealie/mealie.nix
 		../stacks/davis/davis.nix
-		../services/services-seafile.nix
 		../stacks/navidrome/navidrome.nix
 		../stacks/jellyfin/jellyfin.nix
 		../stacks/gitea/gitea.nix
-		../services/services-nfs.nix
+		
+		# Other
+		../generic-includes/generic-defaults.nix
+		../generic-includes/networking-defaults.nix
+		../generic-includes/qemu-guest.nix
+		../generic-includes/docker.nix
 	];
 
 	# Bootloader.

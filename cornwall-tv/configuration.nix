@@ -1,6 +1,3 @@
-#sudo nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
-#sudo nix-channel --update "nixos-unstable"
-
 { config, pkgs, ... }:
 let
 	unstable = import <nixos-unstable> {
@@ -18,25 +15,38 @@ in
 	imports = [
 		./hardware-configuration.nix
 		./block-devices.nix
+		
+		# Nixos
+		# nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
+		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
+		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+		# nix-channel --update
 		../generic-includes/agenix.nix
 		../generic-includes/home-manager.nix
+		
+		# Hardware
 		../hardware/hardware-bluetooth.nix
-		../services/services-samba.nix
+		../hardware/hardware-nvidia.nix
+		../hardware/hardware-printers-cornwall.nix
+		./subwoofer-virtual-sink.nix
+		
+		# Users
+		../users/usersandgroups.nix
+		
+		# Editors
+		../editors/editors-daw.nix
+		
+		# Other
 		../generic-includes/generic-defaults.nix
 		../generic-includes/generic-defaults-gui.nix
 		../generic-includes/kde6-wayland.nix
 		../generic-includes/networking-defaults.nix
 		../generic-includes/networking-defaults-gui.nix
-		../hardware/hardware-nvidia.nix
-		../hardware/hardware-printers-cornwall.nix
 		../generic-includes/generic-sound.nix
-		../services/services-sshd.nix
 		../generic-includes/generic-games.nix
-		../users/usersandgroups.nix
-		../editors/editors-daw.nix
 		../generic-includes/media.nix
 		../generic-includes/communication.nix
-		./subwoofer-virtual-sink.nix
+		
 	];
 
 	# Bootloader.

@@ -1,6 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	imports = [
+		../services/services-samba.nix
+	];
+	
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts

@@ -1,6 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	imports = [
+		../services/services-sshd.nix
+	];
+	
 	# Locale
 	time.timeZone = "America/Winnipeg";
 	i18n.defaultLocale = "en_CA.UTF-8";

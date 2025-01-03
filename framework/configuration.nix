@@ -1,10 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+	unstable = import <nixos-unstable> {
+		system = "x86_64-linux";
+		config.allowUnfree = true;
+		config.allowBroken = true;
+	};
 in 
 {
 	nix.settings.experimental-features = [
@@ -15,22 +15,23 @@ in
 	imports = [
 		./hardware-configuration.nix
 		./block-devices.nix
+		
+		# Nixos
+		# nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
+		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
+		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+		# nix-channel --update
 		../generic-includes/agenix.nix
 		../generic-includes/home-manager.nix
+		
+		# Hardware
 		../hardware/hardware-bluetooth.nix
-		../services/services-samba.nix
-		../generic-includes/generic-defaults.nix
-		../generic-includes/generic-defaults-gui.nix
-		../generic-includes/kde6-wayland.nix
-		../generic-includes/networking-defaults.nix
-		../generic-includes/networking-defaults-gui.nix
 		../hardware/hardware-printers-cornwall.nix
-		../generic-includes/generic-sound.nix
-		../services/services-sshd.nix
-		../generic-includes/generic-games.nix
+		
+		# Users
 		../users/usersandgroups.nix
-		../generic-includes/virtualisation.nix
-		../generic-includes/xrdp-kde.nix
+		
+		# Editors
 		../editors/editors-tex.nix
 		../editors/editors-text.nix
 		../editors/editors-daw.nix
@@ -38,6 +39,17 @@ in
 		../editors/editors-notes.nix
 		../editors/editors-graphics.nix
 		../editors/editors-cad.nix
+		
+		# Other
+		../generic-includes/generic-defaults.nix
+		../generic-includes/generic-defaults-gui.nix
+		../generic-includes/kde6-wayland.nix
+		../generic-includes/networking-defaults.nix
+		../generic-includes/networking-defaults-gui.nix
+		../generic-includes/generic-sound.nix
+		../generic-includes/generic-games.nix
+		../generic-includes/virtualisation.nix
+		../generic-includes/xrdp-kde.nix
 		../generic-includes/media.nix
 		../generic-includes/communication.nix
 		../generic-includes/development.nix
