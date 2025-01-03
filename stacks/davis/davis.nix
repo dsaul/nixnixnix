@@ -10,7 +10,7 @@ in
 		../../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
 	];
 	
-	age.secrets."davis-env.age".file = ../../secrets/davis-env.age;
+	config.age.secrets."davis-env.age".file = ../../secrets/davis-env.age;
 	
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
