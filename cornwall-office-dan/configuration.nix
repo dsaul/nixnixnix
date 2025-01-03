@@ -21,24 +21,22 @@ in
 		./block-devices.nix
 		../includes/home-manager.nix
 		../includes/agenix.nix
-		../includes/bluetooth.nix
-		../includes/services-samba.nix
+		../includes/hardware-bluetooth.nix
+		../services/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
-		../includes/locale.nix
 		../includes/mdns.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
-		../includes/nvidia.nix
+		../includes/hardware-nvidia.nix
 		../includes/printers.nix
 		../includes/generic-sound.nix
-		../includes/services-sshd.nix
+		../services/services-sshd.nix
 		../includes/games.nix
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/fonts.nix
 		../includes/editors-tex.nix
 		../includes/editors-text.nix
 		../includes/editors-daw.nix

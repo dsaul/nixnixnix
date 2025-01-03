@@ -17,23 +17,21 @@ in
 		./block-devices.nix
 		../includes/agenix.nix
 		../includes/home-manager.nix
-		../includes/bluetooth.nix
-		../includes/services-samba.nix
+		../includes/hardware-bluetooth.nix
+		../services/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
-		../includes/locale.nix
 		../includes/mdns.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
 		../includes/printers.nix
 		../includes/generic-sound.nix
-		../includes/services-sshd.nix
+		../services/services-sshd.nix
 		../includes/games.nix
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/fonts.nix
 		../includes/editors-tex.nix
 		../includes/editors-text.nix
 		../includes/editors-daw.nix
@@ -45,8 +43,6 @@ in
 		../includes/communication.nix
 		../includes/development.nix
 		../includes/education.nix
-		../includes/framework.nix
-		../includes/firewall.nix
 	];
 
 	# Bootloader.
@@ -62,6 +58,7 @@ in
 	
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
+		fw-ectool # Allows for setting firmware settings.
 	];
 
 	# This value determines the NixOS release from which the default

@@ -20,25 +20,22 @@ in
 		./block-devices.nix
 		../includes/agenix.nix
 		../includes/home-manager.nix
-		../includes/bluetooth.nix
-		../includes/services-samba.nix
+		../includes/hardware-bluetooth.nix
+		../services/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
-		../includes/locale.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
-		../includes/nvidia.nix
+		../includes/hardware-nvidia.nix
 		../includes/printers.nix
 		../includes/generic-sound.nix
-		../includes/services-sshd.nix
+		../services/services-sshd.nix
 		../includes/games.nix
 		../users/usersandgroups.nix
-		../includes/fonts.nix
 		../includes/editors-daw.nix
 		../includes/media.nix
 		../includes/communication.nix
-		../includes/firewall.nix
 		../includes/subwoofer-virtual-sink.nix
 	];
 

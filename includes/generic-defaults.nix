@@ -1,6 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	# Locale
+	time.timeZone = "America/Winnipeg";
+	i18n.defaultLocale = "en_CA.UTF-8";
+	
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
