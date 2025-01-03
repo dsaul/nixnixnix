@@ -1,25 +1,26 @@
- 
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 # nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 # nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 # nix-channel --update
 
-
 { config, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+	unstable = import <nixos-unstable> {
+		system = "x86_64-linux";
+		config.allowUnfree = true;
+		config.allowBroken = true;
+	};
 in 
 {
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+	];
 
-	imports =
-	[
+	imports = [
+		./hardware-configuration.nix
+		./block-devices.nix
 		../includes/home-manager.nix
 		../includes/agenix.nix
-		../hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
 		../includes/generic-defaults.nix
@@ -37,9 +38,6 @@ in
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/filesystems-documents.nix
-		../includes/filesystems-media.nix
-		../includes/filesystems-fs.nix
 		../includes/fonts.nix
 		../includes/tex.nix
 		../includes/editors-text.nix
@@ -85,20 +83,8 @@ in
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
 	];
-
-	fileSystems."/mnt/Drive2" =
-	{
-		device = "/dev/disk/by-label/Drive2";
-		fsType = "xfs";
-		options = [ "nofail" "noexec" "nosuid" ];
-	};
-
-	fileSystems."/mnt/Scratch" =
-	{
-		device = "/dev/disk/by-label/Scratch";
-		fsType = "xfs";
-		options = [ "nofail" "noexec" "nosuid" ];
-	};
+	
+	
 	
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions

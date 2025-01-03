@@ -1,30 +1,31 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 #sudo nix-channel --add "https://nixos.org/channels/nixos-unstable" "nixos-unstable"
 #sudo nix-channel --update "nixos-unstable"
 
-
 { config, pkgs, ... }:
 let
-  unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
+	unstable = import <nixos-unstable> {
+		system = "x86_64-linux";
+		config.allowUnfree = true;
+		config.allowBroken = true;
+	};
 in
 {
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+	];
 
-	imports =
-	[
+	imports = [
+		./hardware-configuration.nix
+		./block-devices.nix
 		../includes/agenix.nix
 		../includes/home-manager.nix
-		./hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
 		../includes/locale.nix
-		#../includes/mdns.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
 		../includes/nvidia.nix
@@ -33,23 +34,10 @@ in
 		../includes/sshd.nix
 		../includes/games.nix
 		../users/usersandgroups.nix
-		#../includes/virtualisation.nix
-		#../includes/xrdp-kde.nix
-		#../includes/filesystems-documents.nix
-		../includes/filesystems-media.nix
-		../includes/filesystems-fs.nix
 		../includes/fonts.nix
-		#../includes/tex.nix
-		#../includes/editors-text.nix
 		../includes/editors-daw.nix
-		#../includes/editors-office.nix
-		#../includes/editors-notes.nix
-		#../includes/editors-graphics.nix
-		#../includes/editors-cad.nix
 		../includes/media.nix
 		../includes/communication.nix
-		#../includes/development.nix
-		#../includes/education.nix
 		../includes/firewall.nix
 		../includes/subwoofer-virtual-sink.nix
 	];
@@ -63,9 +51,6 @@ in
 	# Networking
 	networking.hostName = "cornwall-tv"; # Define your hostname.
 	networking.networkmanager.enable = true;
-
-	
-	
 	
 	environment.systemPackages = with pkgs; [
 

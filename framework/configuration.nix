@@ -7,13 +7,16 @@ let
   unstable = import <nixos-unstable> { system = "x86_64-linux"; config.allowUnfree = true; config.allowBroken = true; };
 in 
 {
-	nix.settings.experimental-features = ["nix-command" "flakes"];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+	];
 
-	imports =
-	[
+	imports = [
+		./hardware-configuration.nix
+		./block-devices.nix
 		../includes/agenix.nix
 		../includes/home-manager.nix
-		./hardware-configuration.nix
 		../includes/bluetooth.nix
 		../includes/cifs.nix
 		../includes/generic-defaults.nix
@@ -30,7 +33,6 @@ in
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
-		../includes/filesystems-documents.nix
 		../includes/fonts.nix
 		../includes/tex.nix
 		../includes/editors-text.nix
