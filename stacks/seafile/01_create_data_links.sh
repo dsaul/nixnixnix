@@ -52,3 +52,5 @@ if [[ -e /shared/nginx/conf/seafile.nginx.conf ]]; then
     rm -rf /etc/nginx/sites-enabled/seafile.nginx.conf && \
     ln -sf /shared/nginx/conf/seafile.nginx.conf /etc/nginx/sites-enabled
 fi
+
+ln -s /shared/seafile/conf/.env /opt/seafile/conf/.env || true

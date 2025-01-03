@@ -12,7 +12,7 @@ in
 	
 	config.age.secrets."seafile-env.age".file = ../../secrets/seafile-env.age;
 	
-	
+	config.environment.etc."stacks/${packageName}/01_create_data_links.sh".source = ./01_create_data_links.sh;
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
       /* yaml */
       ''
@@ -77,6 +77,7 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
       - /run/agenix/seafile-env.age:/run/agenix/seafile-env.age
+	  - ./01_create_data_links.sh:/etc/my_init.d/01_create_data_links.sh
       #- ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
       #- ${config.age.secrets."seafile-env.age".path}:/opt/seafile/conf/.env
     depends_on:
