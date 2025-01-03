@@ -1,14 +1,20 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	imports = [
+		./docker.nix
+		./virtualisation.nix
+	];
+	
 	environment.systemPackages = with pkgs; [
 		# Development Tools
 		dbeaver-bin
 		bruno
 		umlet
+		httpie
+		vscode
 		
 		# Development Backend
-		vscode
 		libgcc
 		cargo
 		gitRepo
@@ -24,7 +30,6 @@
 		nodejs
 		go
 		libicns
-		httpie
 	];
 }
 	

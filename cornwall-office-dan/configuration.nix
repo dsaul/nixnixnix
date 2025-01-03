@@ -21,19 +21,18 @@ in
 		./block-devices.nix
 		../includes/home-manager.nix
 		../includes/agenix.nix
-		../includes/hardware-bluetooth.nix
+		../hardware/hardware-bluetooth.nix
 		../services/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
-		../includes/mdns.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
-		../includes/hardware-nvidia.nix
-		../includes/hardware-printers-cornwall.nix
+		../hardware/hardware-nvidia.nix
+		../hardware/hardware-printers-cornwall.nix
 		../includes/generic-sound.nix
 		../services/services-sshd.nix
-		../includes/games.nix
+		../includes/generic-games.nix
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix

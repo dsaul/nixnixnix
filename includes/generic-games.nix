@@ -24,7 +24,10 @@
 		];
 		enable32Bit = true;
 	};
-
+	
+	# Required, otherwise some games will have sound that drops out. Spotify 
+	# requires setting it back to defualt specifically for that app, otherwise 
+	# it'll then sound like garbage.
 	environment.sessionVariables = rec {
 		PULSE_LATENCY_MSEC = "60";
 	};
