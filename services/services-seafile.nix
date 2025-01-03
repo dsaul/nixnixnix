@@ -7,7 +7,7 @@
 		./http-vhost/http-vhost-seafile.dsaul.ca.nix
 	];
 	
-	services.seafile = {
+	config.services.seafile = {
 		enable = true;
 
 		adminEmail = "dan@dsaul.ca";
