@@ -38,6 +38,11 @@ services:
     environment:
       PUID: ${UID}
       PGID: ${GID}
+      IMMICH_VERSION: ''${IMMICH_VERSION}
+      DB_PASSWORD: ''${DB_PASSWORD}
+      DB_USERNAME: ''${DB_USERNAME}
+      DB_DATABASE_NAME: ''${DB_DATABASE_NAME}
+      DB_HOSTNAME: ''${DB_HOSTNAME}
     restart: always
     healthcheck:
       disable: false
