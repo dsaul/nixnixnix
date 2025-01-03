@@ -12,7 +12,7 @@ in
 	
 	config.age.secrets."seafile-env.age".file = ../../secrets/seafile-env.age;
 	
-	config.environment.etc."stacks/${packageName}/01_create_data_links.sh".source = ./01_create_data_links.sh;
+	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
       /* yaml */
       ''
@@ -28,58 +28,31 @@ services:
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
       MARIADB_AUTO_UPGRADE: 1
     volumes:
-      - ${stacksDataRoot}/${packageName}/data-mariadb:/var/lib/mysql
+      - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "/usr/local/bin/healthcheck.sh",
-          "--connect",
-          "--mariadbupgrade",
-          "--innodb_initialized",
-        ]
-      interval: 20s
-      start_period: 30s
-      timeout: 5s
-      retries: 10
 
   memcached:
-    image: memcached:1.6.29
+    image: memcached:1.6.18
     container_name: ${packageName}-memcached
     entrypoint: memcached -m 256
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:12.0-latest
+    image: seafileltd/seafile-mc:11.0-latest
     container_name: ${packageName}
     user: "${UID}:${GID}"
     environment:
       PUID: ${UID}
       PGID: ${GID}
-      DB_HOST: ''${DB_HOST:-db}
-      DB_PORT: ''${DB_PORT:-3306}
-      DB_USER: ''${DB_USER:-seafile}
+      DB_HOST: ''${DB_HOST}
       DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
       TIME_ZONE: ''${TIME_ZONE}
       SEAFILE_SERVER_HOSTNAME: ''${SEAFILE_SERVER_HOSTNAME}
-      SEAFILE_SERVER_PROTOCOL: ''${SEAFILE_SERVER_PROTOCOL}
-      INIT_SEAFILE_ADMIN_EMAIL: ''${INIT_SEAFILE_ADMIN_EMAIL}
-      INIT_SEAFILE_ADMIN_PASSWORD: ''${SEAFILE_ADMIN_PASSWORD}
-      SEAFILE_SERVER_LETSENCRYPT: ''${SEAFILE_SERVER_LETSENCRYPT}
-      SEAFILE_MYSQL_DB_CCNET_DB_NAME: ''${SEAFILE_MYSQL_DB_CCNET_DB_NAME:-ccnet_db}
-      SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAFILE_DB_NAME:-seafile_db}
-      SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAHUB_DB_NAME:-seahub_db}
-      SEAFILE_LOG_TO_STDOUT: true
-      JWT: ''${JWT}
     ports:
       - "3900:80"
+#     - "443:443"  # If https is enabled, cancel the comment.
     volumes:
-      - ${stacksDataRoot}/${packageName}/data-seafile:/shared
-      - /run/agenix/seafile-env.age:/run/agenix/seafile-env.age
-      - ./01_create_data_links.sh:/etc/my_init.d/01_create_data_links.sh
-      #- ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
-      #- ${config.age.secrets."seafile-env.age".path}:/opt/seafile/conf/.env
+      - ${stacksDataRoot}/${packageName}/seafile-data:/shared
     depends_on:
       - db
       - memcached
@@ -99,22 +72,11 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p ${stacksDataRoot}/${packageName}/data-mariadb
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-mariadb
+		mkdir -p ${stacksDataRoot}/${packageName}/seafile-mysql
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-mysql
 		
-		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
-		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile/conf
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
-		
-		
-		
-		
-		#mkdir -p ${stacksDataRoot}/${packageName}/data-seafile-conf
-		#chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile-conf
-		#chmod a+w ${stacksDataRoot}/${packageName}/data-seafile-conf
-		
-		#rm ${stacksDataRoot}/${packageName}/data-seafile-conf/.env || true
-		ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile/seafile/conf/.env || true
+		mkdir -p ${stacksDataRoot}/${packageName}/seafile-data
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-data
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
