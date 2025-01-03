@@ -37,7 +37,7 @@ services:
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:12.0.6
+    image: seafileltd/seafile-mc:10.0.1
     container_name: ${packageName}
     user: "${UID}:${GID}"
     environment:
