@@ -20,7 +20,7 @@ services:
   ${packageName}-postgres:
     image: postgres:16
     container_name: ${packageName}-postgres
-	user: "${UID}:${GID}"
+    user: "${UID}:${GID}"
     environment:
       PUID: ${UID}
       PGID: ${GID}
@@ -33,7 +33,7 @@ services:
   ${packageName}:
     image: ghcr.io/tchapi/davis-standalone:5.0.2
     container_name: ${packageName}
-	user: "${UID}:${GID}"
+    user: "${UID}:${GID}"
     environment:
       PUID: ${UID}
       PGID: ${GID}
