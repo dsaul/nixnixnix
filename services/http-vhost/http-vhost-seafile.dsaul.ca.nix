@@ -6,7 +6,7 @@
 		../http-acme/certificate-dsaul.ca.nix
 	];
 	
-	services.nginx = {
+	config.services.nginx = {
 		
 		virtualHosts."seafile.dsaul.ca" = {
 			forceSSL = true;
