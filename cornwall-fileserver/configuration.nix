@@ -72,6 +72,10 @@ in
 	boot.loader.grub.enable = true;
 	boot.loader.grub.device = "/dev/vda";
 	boot.loader.grub.useOSProber = true;
+	
+	boot.kernel.sysctl = {
+		"fs.inotify.max_user_watches" = "1048576"; # 2 times the default 8192
+	};
 
 	networking.hostName = "cornwall-fileserver";
 	networking.networkmanager.enable = true;
