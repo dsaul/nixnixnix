@@ -13,8 +13,9 @@
 		recommendedGzipSettings = true;
 		recommendedOptimisation = true;
 		
-		virtualHosts."_" = {
+		virtualHosts.default = {
 			locations."/" = {
+				serverName = "_";
 				return = "200 '<html><body></body></html>'";
 				extraConfig = ''
 					default_type text/html;
