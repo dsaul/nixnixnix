@@ -30,7 +30,7 @@ in
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
 		../includes/hardware-nvidia.nix
-		../includes/printers.nix
+		../includes/hardware-printers-cornwall.nix
 		../includes/generic-sound.nix
 		../services/services-sshd.nix
 		../includes/games.nix

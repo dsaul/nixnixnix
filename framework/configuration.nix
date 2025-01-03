@@ -25,7 +25,7 @@ in
 		../includes/mdns.nix
 		../includes/networking-defaults.nix
 		../includes/networking-defaults-gui.nix
-		../includes/printers.nix
+		../includes/hardware-printers-cornwall.nix
 		../includes/generic-sound.nix
 		../services/services-sshd.nix
 		../includes/games.nix
