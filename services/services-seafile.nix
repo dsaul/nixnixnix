@@ -32,6 +32,11 @@
 			dataDir = "/mnt/DOCUMENTS-01/stacks/seafile-data";
 		};
 	};
+	
+	config.system.activationScripts.ensureSeafileDirs = lib.stringAfter [ "var" ] ''
+		mkdir -p /mnt/DOCUMENTS-01/stacks/seafile-data
+		chown -R seafile:seafile /mnt/DOCUMENTS-01/stacks/seafile-data
+	'';
 
 	#networking.firewall.allowedTCPPorts = [ 8443 ];
 	

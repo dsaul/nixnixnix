@@ -54,7 +54,7 @@ services:
 		];
 	};
 	
-	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
+	config.system.activationScripts.makeNavidromeDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p /var/stacks/${packageName}/data-navidrome
 		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-navidrome
 	'';

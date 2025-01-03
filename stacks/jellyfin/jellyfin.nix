@@ -63,7 +63,7 @@ services:
 		];
 	};
 	
-	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
+	config.system.activationScripts.makeJellyfinDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p /var/stacks/${packageName}/data-config
 		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-config
 		mkdir -p /var/stacks/${packageName}/data-cache

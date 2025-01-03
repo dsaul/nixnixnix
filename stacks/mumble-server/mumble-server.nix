@@ -52,7 +52,7 @@ services:
 		];
 	};
 	
-	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
+	config.system.activationScripts.makeMumbleDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p ${stacksDataRoot}/${packageName}/data
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
 	'';

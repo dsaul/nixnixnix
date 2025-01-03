@@ -72,7 +72,7 @@ services:
 		];
 	};
 	
-	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
+	config.system.activationScripts.makeDavisDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p ${stacksDataRoot}/${packageName}/data-postgres
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-postgres
 		
