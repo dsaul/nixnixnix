@@ -18,7 +18,6 @@ in
       ''
 services:
   ${packageName}-postgres:
-    env_file: ${config.age.secrets."davis-env.age".path}
     image: postgres:16
     container_name: ${packageName}-postgres
     environment:
@@ -29,7 +28,6 @@ services:
       - ${stacksDataRoot}/${packageName}/data-postgres:/var/lib/postgresql/data
 
   ${packageName}:
-    env_file: ${config.age.secrets."davis-env.age".path}
     image: ghcr.io/tchapi/davis-standalone:5.0.2
     container_name: ${packageName}
     environment:
@@ -63,7 +61,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			docker compose --env-file ${config.age.secrets."davis-env.age".path} -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
