@@ -28,7 +28,6 @@ in
 		../services/http-vhost/http-vhost-gitea.dsaul.ca.nix
 		../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
 		../services/http-vhost/http-vhost-immich.dsaul.ca.nix
-		../services/http-vhost/http-vhost-jellyfin.dsaul.ca.nix
 		../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
 		../services/http-vhost/http-vhost-paperless.dsaul.ca.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
