@@ -4,6 +4,7 @@
 {
 	imports = [
 		./services-acme.nix
+		../http-acme/certificate-dsaul.ca.nix
 	];
 	
 	services.nginx = {
@@ -13,6 +14,7 @@
 		recommendedGzipSettings = true;
 		recommendedOptimisation = true;
 		
+		# A default site so that it doesn't give the alphabetically first site for unknown hostnames.
 		virtualHosts."_" = {
 			forceSSL = true;
 			useACMEHost = "dsaul.ca";
