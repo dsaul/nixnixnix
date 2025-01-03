@@ -9,7 +9,7 @@
 	
 	config.services.seafile = {
 		enable = true;
-
+		dataDir = "/mnt/DOCUMENTS-01/stacks/seafile-data";
 		adminEmail = "dan@dsaul.ca";
 		initialAdminPassword = "change this later!";
 
@@ -28,8 +28,6 @@
 				enable = true;
 				dates = [ "Sun 03:00:00" ];
 			};
-			
-			dataDir = "/mnt/DOCUMENTS-01/stacks/seafile-data";
 		};
 	};
 	
