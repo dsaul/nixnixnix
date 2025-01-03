@@ -128,13 +128,13 @@ services:
 		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-paperless
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-media
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-media
+		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-media
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-export
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-export
+		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-export
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-consume
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-consume
+		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-consume
 		chmod -R a+w ${stacksDataRoot}/${packageName}/data-consume
 	'';
 	
