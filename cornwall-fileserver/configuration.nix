@@ -57,6 +57,7 @@ in
 		../stacks/navidrome/navidrome.nix
 		../stacks/jellyfin/jellyfin.nix
 		../stacks/gitea/gitea.nix
+		../stacks/immich/immich.nix
 		
 		# System
 		../system/system-docker.nix
