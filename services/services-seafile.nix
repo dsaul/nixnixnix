@@ -3,6 +3,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	# Remember seafile on nixos stores its data in a system wide mysql, REMEMBER TO DUMP THIS.
+	# mysqldump -u root -p --all-databases > alldb.sql
+	
 	imports = [
 		./http-vhost/http-vhost-seafile.dsaul.ca.nix
 	];

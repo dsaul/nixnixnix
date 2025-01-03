@@ -74,7 +74,7 @@ services:
 	
 	config.system.activationScripts.makeDavisDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p ${stacksDataRoot}/${packageName}/data-postgres
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-postgres
+		chown -R 999:999 ${stacksDataRoot}/${packageName}/data-postgres
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-davis
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-davis
