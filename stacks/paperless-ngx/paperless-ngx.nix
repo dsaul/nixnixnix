@@ -7,7 +7,7 @@ let
 in
 {
 	imports = [
-		../../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-paperless.dsaul.ca.nix
 	];
 	
 	config.age.secrets."paperless-ngx-env.age".file = ../../secrets/paperless-ngx-env.age;
