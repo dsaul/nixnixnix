@@ -20,19 +20,23 @@ services:
   homeassistant:
     image: "ghcr.io/home-assistant/home-assistant:2025.1.0"
     container_name: homeassistant
+    user: "${UID}:${GID}"
     ports:
      - '8123:8123'
     volumes:
      - ${stacksDataRoot}/${packageName}/data-homeassistant:/config
     restart: unless-stopped
     environment:
-     - TZ=America/Winnipeg
+      PUID: ${UID}
+      PGID: ${GID}
+      TZ: America/Winnipeg
     depends_on:
       - mosquitto
       - esphome
       - nodered
   mosquitto:
     image: eclipse-mosquitto:2.0.20
+    user: "${UID}:${GID}"
     container_name: mosquitto
     volumes:
     - ${stacksDataRoot}/${packageName}/config-mosquitto:/mosquitto/config
@@ -42,9 +46,12 @@ services:
     - "9001:9001"
     restart: unless-stopped
     environment:
-      - TZ=America/Winnipeg
+      PUID: ${UID}
+      PGID: ${GID}
+      TZ: America/Winnipeg
   esphome:
     container_name: esphome
+    user: "${UID}:${GID}"
     image: esphome/esphome:2024.12.2
     ports:
      - '6052:6052'
@@ -52,9 +59,12 @@ services:
      - ${stacksDataRoot}/${packageName}/data-esphome:/config
     restart: unless-stopped
     environment:
-      - TZ=America/Winnipeg
+      PUID: ${UID}
+      PGID: ${GID}
+      TZ: America/Winnipeg
   nodered:
     container_name: nodered
+    user: "${UID}:${GID}"
     image: nodered/node-red:4.0.8-20
     ports:
      - '1880:1880'
@@ -62,7 +72,9 @@ services:
      - ${stacksDataRoot}/${packageName}/data-nodered:/data
     restart: unless-stopped
     environment:
-     - TZ=America/Winnipeg
+      PUID: ${UID}
+      PGID: ${GID}
+      TZ: America/Winnipeg
 '';
 	
 	config.systemd.services."${packageName}" = {
