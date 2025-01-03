@@ -21,8 +21,8 @@ services:
     image: mariadb:10.5
     container_name: ${packageName}-mariadb
     environment:
-      MARIADB_ROOT_PASSWORD: ''${MARIADB_ROOT_PASSWORD}
-      MARIADB_LOG_CONSOLE: ''${MARIADB_LOG_CONSOLE}
+      MYSQL_ROOT_PASSWORD: ''${MYSQL_ROOT_PASSWORD}
+      MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
     volumes:
       - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
