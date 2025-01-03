@@ -20,16 +20,20 @@ services:
   ${packageName}-postgres:
     image: postgres:16
     container_name: ${packageName}-postgres
+	user: "${UID}:${GID}"
     environment:
-      - POSTGRES_PASSWORD=''${DB_PASSWORD}
-      - POSTGRES_DB=''${DB_DATABASE}
-      - POSTGRES_USER=''${DB_USER}
+      PUID: ${UID}
+      PGID: ${GID}
+      POSTGRES_PASSWORD: ''${DB_PASSWORD}
+      POSTGRES_DB: ''${DB_DATABASE}
+      POSTGRES_USER: ''${DB_USER}
     volumes:
       - ${stacksDataRoot}/${packageName}/data-postgres:/var/lib/postgresql/data
 
   ${packageName}:
     image: ghcr.io/tchapi/davis-standalone:5.0.2
     container_name: ${packageName}
+	user: "${UID}:${GID}"
     environment:
       PUID: ${UID}
       PGID: ${GID}
