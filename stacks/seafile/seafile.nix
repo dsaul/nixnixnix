@@ -31,7 +31,7 @@ services:
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:latest
+    image: seafileltd/seafile-mc:12.0.6
     container_name: ${packageName}
     ports:
       - "3900:80"
