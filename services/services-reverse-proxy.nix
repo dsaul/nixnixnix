@@ -4,7 +4,7 @@
 {
 	imports = [
 		./services-acme.nix
-		../http-acme/certificate-dsaul.ca.nix
+		./http-acme/certificate-dsaul.ca.nix
 	];
 	
 	services.nginx = {
