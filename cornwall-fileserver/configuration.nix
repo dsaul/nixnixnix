@@ -75,6 +75,7 @@ in
 	
 	boot.kernel.sysctl = {
 		"fs.inotify.max_user_watches" = "1048576"; # 2 times the default 8192
+		"vm.overcommit_memory" = "1"; # redis
 	};
 
 	networking.hostName = "cornwall-fileserver";

@@ -7,7 +7,7 @@ let
 in
 {
 	imports = [
-		../../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-immich.dsaul.ca.nix
 	];
 	
 	config.age.secrets."immich-env.age".file = ../../secrets/immich-env.age;
