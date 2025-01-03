@@ -51,7 +51,7 @@ services:
     restart: always
 
   ${packageName}:
-    image: seafileltd/seafile-mc:12.0-latest
+    image: seafileltd/seafile-mc:12.0.6
     container_name: ${packageName}
     user: "${UID}:${GID}"
     environment:
@@ -76,6 +76,7 @@ services:
       - "3900:80"
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
+	  - ${config.age.secrets."seafile-env.age".path}:/opt/seafile/seafile-server-12.0.6
     depends_on:
       - db
       - memcached
@@ -100,8 +101,6 @@ services:
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
-		
-		ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile/.env
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
