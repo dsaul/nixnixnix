@@ -58,6 +58,7 @@ in
 		../stacks/jellyfin/jellyfin.nix
 		../stacks/gitea/gitea.nix
 		../stacks/immich/immich.nix
+		../stacks/paperless-ngx/paperless-ngx.nix
 		
 		# System
 		../system/system-docker.nix
