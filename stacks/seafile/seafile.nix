@@ -28,7 +28,7 @@ services:
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
       MARIADB_AUTO_UPGRADE=1
     volumes:
-      - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
+      - ${stacksDataRoot}/${packageName}/data-mariadb:/var/lib/mysql
     restart: always
 
   memcached:
@@ -55,7 +55,7 @@ services:
       - "3900:80"
 #     - "443:443"  # If https is enabled, cancel the comment.
     volumes:
-      - ${stacksDataRoot}/${packageName}/seafile-data:/shared
+      - ${stacksDataRoot}/${packageName}/data-seafile:/shared
     depends_on:
       - db
       - memcached
@@ -75,11 +75,11 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p ${stacksDataRoot}/${packageName}/seafile-mysql
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-mysql
+		mkdir -p ${stacksDataRoot}/${packageName}/data-mariadb
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-mariadb
 		
-		mkdir -p ${stacksDataRoot}/${packageName}/seafile-data
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/seafile-data
+		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
