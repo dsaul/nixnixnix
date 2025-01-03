@@ -18,24 +18,24 @@ in
 	imports = [
 		./hardware-configuration.nix
 		./block-devices.nix
-		../includes/agenix.nix
-		../includes/home-manager.nix
+		../generic-includes/agenix.nix
+		../generic-includes/home-manager.nix
 		../hardware/hardware-bluetooth.nix
 		../services/services-samba.nix
-		../includes/generic-defaults.nix
-		../includes/generic-defaults-gui.nix
-		../includes/kde6-wayland.nix
-		../includes/networking-defaults.nix
-		../includes/networking-defaults-gui.nix
+		../generic-includes/generic-defaults.nix
+		../generic-includes/generic-defaults-gui.nix
+		../generic-includes/kde6-wayland.nix
+		../generic-includes/networking-defaults.nix
+		../generic-includes/networking-defaults-gui.nix
 		../hardware/hardware-nvidia.nix
 		../hardware/hardware-printers-cornwall.nix
-		../includes/generic-sound.nix
+		../generic-includes/generic-sound.nix
 		../services/services-sshd.nix
-		../includes/generic-games.nix
+		../generic-includes/generic-games.nix
 		../users/usersandgroups.nix
 		../editors/editors-daw.nix
-		../includes/media.nix
-		../includes/communication.nix
+		../generic-includes/media.nix
+		../generic-includes/communication.nix
 		./subwoofer-virtual-sink.nix
 	];
 

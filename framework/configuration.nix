@@ -15,22 +15,22 @@ in
 	imports = [
 		./hardware-configuration.nix
 		./block-devices.nix
-		../includes/agenix.nix
-		../includes/home-manager.nix
+		../generic-includes/agenix.nix
+		../generic-includes/home-manager.nix
 		../hardware/hardware-bluetooth.nix
 		../services/services-samba.nix
-		../includes/generic-defaults.nix
-		../includes/generic-defaults-gui.nix
-		../includes/kde6-wayland.nix
-		../includes/networking-defaults.nix
-		../includes/networking-defaults-gui.nix
+		../generic-includes/generic-defaults.nix
+		../generic-includes/generic-defaults-gui.nix
+		../generic-includes/kde6-wayland.nix
+		../generic-includes/networking-defaults.nix
+		../generic-includes/networking-defaults-gui.nix
 		../hardware/hardware-printers-cornwall.nix
-		../includes/generic-sound.nix
+		../generic-includes/generic-sound.nix
 		../services/services-sshd.nix
-		../includes/generic-games.nix
+		../generic-includes/generic-games.nix
 		../users/usersandgroups.nix
-		../includes/virtualisation.nix
-		../includes/xrdp-kde.nix
+		../generic-includes/virtualisation.nix
+		../generic-includes/xrdp-kde.nix
 		../editors/editors-tex.nix
 		../editors/editors-text.nix
 		../editors/editors-daw.nix
@@ -38,10 +38,10 @@ in
 		../editors/editors-notes.nix
 		../editors/editors-graphics.nix
 		../editors/editors-cad.nix
-		../includes/media.nix
-		../includes/communication.nix
-		../includes/development.nix
-		../includes/education.nix
+		../generic-includes/media.nix
+		../generic-includes/communication.nix
+		../generic-includes/development.nix
+		../generic-includes/education.nix
 	];
 
 	# Bootloader.

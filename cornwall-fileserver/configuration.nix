@@ -20,15 +20,15 @@ in
 		./hardware-configuration.nix
 		./block-devices.nix
 		./nfs-exports.nix
-		../includes/agenix.nix
-		../includes/home-manager.nix
+		../generic-includes/agenix.nix
+		../generic-includes/home-manager.nix
 		../services/services-samba.nix
-		../includes/generic-defaults.nix
-		../includes/networking-defaults.nix
+		../generic-includes/generic-defaults.nix
+		../generic-includes/networking-defaults.nix
 		../services/services-sshd.nix
 		../users/usersandgroups.nix
-		../includes/qemu-guest.nix
-		../includes/docker.nix
+		../generic-includes/qemu-guest.nix
+		../generic-includes/docker.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/http-vhost/http-vhost-esphome.dsaul.ca.nix
