@@ -26,7 +26,7 @@ services:
       PGID: ${GID}
       MYSQL_ROOT_PASSWORD: ''${MYSQL_ROOT_PASSWORD}
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
-      MARIADB_AUTO_UPGRADE=1
+      MARIADB_AUTO_UPGRADE: 1
     volumes:
       - ${stacksDataRoot}/${packageName}/data-mariadb:/var/lib/mysql
     restart: always
