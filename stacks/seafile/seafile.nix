@@ -101,14 +101,18 @@ services:
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-mariadb
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile
+		mkdir -p ${stacksDataRoot}/${packageName}/data-seafile/conf
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile
+		
+		
+		
 		
 		#mkdir -p ${stacksDataRoot}/${packageName}/data-seafile-conf
 		#chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-seafile-conf
 		#chmod a+w ${stacksDataRoot}/${packageName}/data-seafile-conf
 		
 		#rm ${stacksDataRoot}/${packageName}/data-seafile-conf/.env || true
-		#ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile-conf/.env
+		ln -s ${config.age.secrets."seafile-env.age".path} ${stacksDataRoot}/${packageName}/data-seafile/conf/.env
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 3900 ];
