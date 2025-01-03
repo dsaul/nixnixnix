@@ -29,7 +29,6 @@ in
 		../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
 		../services/http-vhost/http-vhost-immich.dsaul.ca.nix
 		../services/http-vhost/http-vhost-jellyfin.dsaul.ca.nix
-		../services/http-vhost/http-vhost-navidrome.dsaul.ca.nix
 		../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
 		../services/http-vhost/http-vhost-paperless.dsaul.ca.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
@@ -37,6 +36,7 @@ in
 		../stacks/mealie/mealie.nix
 		../stacks/davis/davis.nix
 		../services/services-seafile.nix
+		../stacks/navidrome/navidrome.nix
 	];
 
 	# Bootloader.

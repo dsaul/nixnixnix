@@ -9,6 +9,7 @@ in
 		../../services/http-vhost/http-vhost-navidrome.dsaul.ca.nix
 	];
 	
+	config.age.secrets."navidrome-env.age".file = ../../secrets/navidrome-env.age;
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
       /* yaml */
@@ -24,21 +25,21 @@ services:
     environment:
       PUID: ${UID}
       PGID: ${GID}
-      TZ: 'America/Winnipeg'
-      ND_SCANSCHEDULE: 1h
-      ND_LOGLEVEL: info
-      ND_BASEURL: ""
-      ND_LASTFM_ENABLED: true
-      ND_LASTFM_APIKEY: cc84840956aa5bfec224b69e9628b57c
-      ND_LASTFM_SECRET: d0413083144a3b1aace0f8672d742482
-      ND_LASTFM_LANGUAGE: en
-      ND_SPOTIFY_ID: 4fb134daf4ac4b439ae556f30cb591e8
-      ND_SPOTIFY_SECRET: 85178ea193ad42aead8d551e3bdc630c
-      ND_REVERSEPROXYUSERHEADER: Remote-User
-      ND_REVERSEPROXYWHITELIST: 10.0.0.0/8
+      TZ: ''${TZ}
+      ND_SCANSCHEDULE: ''${ND_SCANSCHEDULE}
+      ND_LOGLEVEL: ''${ND_LOGLEVEL}
+      ND_BASEURL: ''${ND_BASEURL}
+      ND_LASTFM_ENABLED: ''${ND_LASTFM_ENABLED}
+      ND_LASTFM_APIKEY: ''${ND_LASTFM_APIKEY}
+      ND_LASTFM_SECRET: ''${ND_LASTFM_SECRET}
+      ND_LASTFM_LANGUAGE: ''${ND_LASTFM_LANGUAGE}
+      ND_SPOTIFY_ID: ''${ND_SPOTIFY_ID}
+      ND_SPOTIFY_SECRET: ''${ND_SPOTIFY_SECRET}
+      ND_REVERSEPROXYUSERHEADER: ''${ND_REVERSEPROXYUSERHEADER}
+      ND_REVERSEPROXYWHITELIST: ''${ND_REVERSEPROXYWHITELIST}
     volumes:
-      - "/var/stacks/${packageName}/data-navidrome:/data"
-      - "/srv/MISC-01/Audio/Music:/music:ro"
+      - ${stacksDataRoot}/${packageName}/data-navidrome:/data
+      - "/mnt/MISC-01/Audio/Music:/music:ro"
     restart: unless-stopped
 '';
 	
@@ -47,7 +48,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			docker compose --env-file ${config.age.secrets."navidrome-env.age".path} -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
@@ -55,8 +56,8 @@ services:
 	};
 	
 	config.system.activationScripts.makeNavidromeDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/stacks/${packageName}/data-navidrome
-		chown -R ${UID}:${GID} /var/stacks/${packageName}/data-navidrome
+		mkdir -p ${stacksDataRoot}/${packageName}/data-navidrome
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-navidrome
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 4533 ];
