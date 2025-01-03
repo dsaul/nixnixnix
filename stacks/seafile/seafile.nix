@@ -33,10 +33,6 @@ services:
   ${packageName}-memcached:
     image: memcached:1.5.6
     container_name: ${packageName}-memcached
-    user: "${UID}:${GID}"
-    environment:
-      PUID: ${UID}
-      PGID: ${GID}
     entrypoint: memcached -m 256
     restart: always
 
