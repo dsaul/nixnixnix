@@ -122,7 +122,7 @@ services:
 	
 	config.system.activationScripts.makePaperlessNgxDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p ${stacksDataRoot}/${packageName}/data-redis
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-redis
+		chown -R 999:999 ${stacksDataRoot}/${packageName}/data-redis
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-paperless
 		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-paperless
