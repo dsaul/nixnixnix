@@ -17,7 +17,7 @@ in
       /* yaml */
       ''
 services:
-  ${packageName}-mariadb:
+  db:
     image: mariadb:10.5
     container_name: ${packageName}-mariadb
     user: "${UID}:${GID}"
@@ -30,7 +30,7 @@ services:
       - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
 
-  ${packageName}-memcached:
+  memcached:
     image: memcached:1.5.6
     container_name: ${packageName}-memcached
     entrypoint: memcached -m 256
@@ -53,8 +53,8 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/seafile-data:/shared
     depends_on:
-      - ${packageName}-mariadb
-      - ${packageName}-memcached
+      - db
+      - memcached
     restart: always
 '';
 	
