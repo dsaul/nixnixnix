@@ -35,7 +35,7 @@ services:
       PGID: ${GID}
       APP_ENV: prod
       DATABASE_DRIVER: postgresql
-      DATABASE_URL: postgresql://''${DB_USER}:''${DB_PASSWORD}@davis-postgres:5432/''${DB_DATABASE}?serverVersion=15&charset=UTF-8
+      DATABASE_URL: postgresql://''${DB_USER}:''${DB_PASSWORD}@${packageName}-postgres:5432/''${DB_DATABASE}?serverVersion=15&charset=UTF-8
       #MAILER_DSN: smtp://''${MAIL_USERNAME}:''${MAIL_PASSWORD}@''${MAIL_HOST}:''${MAIL_PORT}
       ADMIN_LOGIN: ''${ADMIN_LOGIN}
       ADMIN_PASSWORD: ''${ADMIN_PASSWORD}
@@ -69,8 +69,11 @@ services:
 	};
 	
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p ${stacksDataRoot}/${packageName}/data
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data
+		mkdir -p ${stacksDataRoot}/${packageName}/data-postgres
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-postgres
+		
+		mkdir -p ${stacksDataRoot}/${packageName}/data-davis
+		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-davis
 	'';
 	
 	config.networking.firewall.allowedTCPPorts = [ 9900 ];

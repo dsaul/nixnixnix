@@ -25,4 +25,5 @@ in
 	"fileserver-smb.age".publicKeys = systems ++ user-dan;
 	"hetzner-dns.age".publicKeys = systems ++ user-dan;
 	"davis-env.age".publicKeys = systems ++ user-dan;
+	"seafile-env.age".publicKeys = systems ++ user-dan;
 }

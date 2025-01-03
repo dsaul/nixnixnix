@@ -32,11 +32,11 @@ in
 		../services/http-vhost/http-vhost-navidrome.dsaul.ca.nix
 		../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
 		../services/http-vhost/http-vhost-paperless.dsaul.ca.nix
-		../services/http-vhost/http-vhost-seafile.dsaul.ca.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		../stacks/mumble-server/mumble-server.nix
 		../stacks/mealie/mealie.nix
 		../stacks/davis/davis.nix
+		../stacks/seafile/seafile.nix
 	];
 
 	# Bootloader.
