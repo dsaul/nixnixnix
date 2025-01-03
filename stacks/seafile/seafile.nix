@@ -30,7 +30,7 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/data-mariadb:/var/lib/mysql
     restart: always
-	healthcheck:
+    healthcheck:
       test:
         [
           "CMD",
