@@ -77,7 +77,7 @@ services:
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
       - /run/agenix/seafile-env.age:/run/agenix/seafile-env.age
-	  - ./01_create_data_links.sh:/etc/my_init.d/01_create_data_links.sh
+      - ./01_create_data_links.sh:/etc/my_init.d/01_create_data_links.sh
       #- ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
       #- ${config.age.secrets."seafile-env.age".path}:/opt/seafile/conf/.env
     depends_on:
