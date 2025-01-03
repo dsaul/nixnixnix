@@ -35,22 +35,22 @@ services:
     environment:
       PUID: ${UID}
       PGID: ${GID}
-      APP_ENV=prod
-      DATABASE_DRIVER=postgresql
-      DATABASE_URL=postgresql://''${DB_USER}:''${DB_PASSWORD}@davis-postgres:5432/''${DB_DATABASE}?serverVersion=15&charset=UTF-8
-      #MAILER_DSN=smtp://''${MAIL_USERNAME}:''${MAIL_PASSWORD}@''${MAIL_HOST}:''${MAIL_PORT}
-      ADMIN_LOGIN=''${ADMIN_LOGIN}
-      ADMIN_PASSWORD=''${ADMIN_PASSWORD}
-      AUTH_REALM=''${AUTH_REALM}
-      AUTH_METHOD=''${AUTH_METHOD}
-      CALDAV_ENABLED=''${CALDAV_ENABLED}
-      CARDDAV_ENABLED=''${CARDDAV_ENABLED}
-      WEBDAV_ENABLED=''${WEBDAV_ENABLED}
-      WEBDAV_TMP_DIR=''${WEBDAV_TMP_DIR}
-      WEBDAV_PUBLIC_DIR=''${WEBDAV_PUBLIC_DIR}
-      WEBDAV_HOMES_DIR=''${WEBDAV_HOMES_DIR}
-      INVITE_FROM_ADDRESS=''${INVITE_FROM_ADDRESS}
-      APP_TIMEZONE=''${TIMEZONE}
+      APP_ENV: prod
+      DATABASE_DRIVER: postgresql
+      DATABASE_URL: postgresql://''${DB_USER}:''${DB_PASSWORD}@davis-postgres:5432/''${DB_DATABASE}?serverVersion=15&charset=UTF-8
+      #MAILER_DSN: smtp://''${MAIL_USERNAME}:''${MAIL_PASSWORD}@''${MAIL_HOST}:''${MAIL_PORT}
+      ADMIN_LOGIN: ''${ADMIN_LOGIN}
+      ADMIN_PASSWORD: ''${ADMIN_PASSWORD}
+      AUTH_REALM: ''${AUTH_REALM}
+      AUTH_METHOD: ''${AUTH_METHOD}
+      CALDAV_ENABLED: ''${CALDAV_ENABLED}
+      CARDDAV_ENABLED: ''${CARDDAV_ENABLED}
+      WEBDAV_ENABLED: ''${WEBDAV_ENABLED}
+      WEBDAV_TMP_DIR: ''${WEBDAV_TMP_DIR}
+      WEBDAV_PUBLIC_DIR: ''${WEBDAV_PUBLIC_DIR}
+      WEBDAV_HOMES_DIR: ''${WEBDAV_HOMES_DIR}
+      INVITE_FROM_ADDRESS: ''${INVITE_FROM_ADDRESS}
+      APP_TIMEZONE: ''${TIMEZONE}
     volumes:
       - ${stacksDataRoot}/${packageName}/data-davis:/data
     ports:
