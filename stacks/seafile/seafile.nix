@@ -26,6 +26,7 @@ services:
       PGID: ${GID}
       MYSQL_ROOT_PASSWORD: ''${MYSQL_ROOT_PASSWORD}
       MYSQL_LOG_CONSOLE: ''${MYSQL_LOG_CONSOLE}
+	  MARIADB_AUTO_UPGRADE: true
     volumes:
       - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
