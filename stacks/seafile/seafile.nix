@@ -20,6 +20,9 @@ services:
   ${packageName}-mariadb:
     image: mariadb:10.5
     container_name: ${packageName}-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: ''${MARIADB_ROOT_PASSWORD}
+      MARIADB_LOG_CONSOLE: ''${MARIADB_LOG_CONSOLE}
     volumes:
       - ${stacksDataRoot}/${packageName}/seafile-mysql:/var/lib/mysql
     restart: always
@@ -33,6 +36,11 @@ services:
   ${packageName}:
     image: seafileltd/seafile-mc:12.0.6
     container_name: ${packageName}
+    environment:
+      DB_HOST: ''${DB_HOST}
+      DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
+      TIME_ZONE: ''${TIME_ZONE}
+      SEAFILE_SERVER_HOSTNAME: ''${SEAFILE_SERVER_HOSTNAME}
     ports:
       - "3900:80"
 #     - "443:443"  # If https is enabled, cancel the comment.
