@@ -71,7 +71,7 @@ services:
       SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAFILE_DB_NAME:-seafile_db}
       SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: ''${SEAFILE_MYSQL_DB_SEAHUB_DB_NAME:-seahub_db}
       SEAFILE_LOG_TO_STDOUT: true
-	  JWT: ''${JWT}
+      JWT: ''${JWT}
     ports:
       - "3900:80"
     volumes:
