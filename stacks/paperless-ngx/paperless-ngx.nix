@@ -125,7 +125,7 @@ services:
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-redis
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-paperless
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-paperless
+		chown -R 1000:1000 ${stacksDataRoot}/${packageName}/data-paperless
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-media
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-media
