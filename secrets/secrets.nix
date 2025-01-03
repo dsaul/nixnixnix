@@ -27,4 +27,5 @@ in
 	"davis-env.age".publicKeys = systems ++ user-dan;
 	"navidrome-env.age".publicKeys = systems ++ user-dan;
 	"gitea-env.age".publicKeys = systems ++ user-dan;
+	"immich-env.age".publicKeys = systems ++ user-dan;
 }
