@@ -19,7 +19,6 @@
 
 	environment.systemPackages = with pkgs; [
 		wl-clipboard
-
 		qemu
 		quickemu
 		virt-manager

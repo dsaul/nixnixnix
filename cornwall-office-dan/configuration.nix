@@ -40,6 +40,7 @@ in
 		../editors/editors-notes.nix
 		../editors/editors-graphics.nix
 		../editors/editors-cad.nix
+		../editors/editors-media.nix
 		
 		# Services
 		#../container-whishper/whishper.nix
@@ -60,7 +61,7 @@ in
 		../generic-includes/generic-games.nix
 		
 		../generic-includes/xrdp-kde.nix
-		../generic-includes/media.nix
+		../generic-includes/viewers-media.nix
 		../generic-includes/communication.nix
 		../generic-includes/development.nix
 		../generic-includes/education.nix
