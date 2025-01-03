@@ -22,11 +22,11 @@ in
 		./nfs-exports.nix
 		../includes/agenix.nix
 		../includes/home-manager.nix
-		../includes/cifs.nix
+		../includes/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/locale.nix
 		../includes/networking-defaults.nix
-		../includes/sshd.nix
+		../includes/services-sshd.nix
 		../users/usersandgroups.nix
 		../includes/qemu-guest.nix
 		../includes/docker.nix

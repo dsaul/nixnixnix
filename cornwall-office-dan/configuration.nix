@@ -22,7 +22,7 @@ in
 		../includes/home-manager.nix
 		../includes/agenix.nix
 		../includes/bluetooth.nix
-		../includes/cifs.nix
+		../includes/services-samba.nix
 		../includes/generic-defaults.nix
 		../includes/generic-defaults-gui.nix
 		../includes/kde6-wayland.nix
@@ -32,14 +32,14 @@ in
 		../includes/networking-defaults-gui.nix
 		../includes/nvidia.nix
 		../includes/printers.nix
-		../includes/sound.nix
-		../includes/sshd.nix
+		../includes/generic-sound.nix
+		../includes/services-sshd.nix
 		../includes/games.nix
 		../users/usersandgroups.nix
 		../includes/virtualisation.nix
 		../includes/xrdp-kde.nix
 		../includes/fonts.nix
-		../includes/tex.nix
+		../includes/editors-tex.nix
 		../includes/editors-text.nix
 		../includes/editors-daw.nix
 		../includes/editors-office.nix
