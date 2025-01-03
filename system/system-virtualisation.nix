@@ -2,7 +2,7 @@
 
 {
 	imports = [
-		./docker.nix
+		./system-docker.nix
 	];
 
 	# Libvirt
