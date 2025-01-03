@@ -47,6 +47,7 @@ services:
       DB_HOST: ''${DB_HOST}
       DB_ROOT_PASSWD: ''${DB_ROOT_PASSWD}
       TIME_ZONE: ''${TIME_ZONE}
+	  DEBUG: true
       SEAFILE_SERVER_HOSTNAME: ''${SEAFILE_SERVER_HOSTNAME}
     ports:
       - "3900:80"
