@@ -76,6 +76,7 @@ services:
       - "3900:80"
     volumes:
       - ${stacksDataRoot}/${packageName}/data-seafile:/shared
+      - /run/agenix/seafile-env.age:/run/agenix/seafile-env.age
       #- ${stacksDataRoot}/${packageName}/data-seafile-conf:/opt/seafile/conf
       #- ${config.age.secrets."seafile-env.age".path}:/opt/seafile/conf/.env
     depends_on:
