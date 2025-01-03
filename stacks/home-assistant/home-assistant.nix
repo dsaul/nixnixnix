@@ -36,7 +36,7 @@ services:
       - nodered
   mosquitto:
     image: eclipse-mosquitto:2.0.20
-    user: "${UID}:${GID}"
+    user: "1883:1883"
     container_name: mosquitto
     volumes:
     - ${stacksDataRoot}/${packageName}/config-mosquitto:/mosquitto/config
@@ -94,10 +94,10 @@ services:
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-homeassistant
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/config-mosquitto
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/config-mosquitto
+		chown -R 1883:1883 ${stacksDataRoot}/${packageName}/config-mosquitto
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-mosquitto
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-mosquitto
+		chown -R 1883:1883 ${stacksDataRoot}/${packageName}/data-mosquitto
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-esphome
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-esphome
