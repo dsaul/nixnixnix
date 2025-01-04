@@ -42,10 +42,6 @@ in
 		../services/services-samba.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
-		#../services/http-vhost/http-vhost-esphome.dsaul.ca.nix
-		#../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
-		#../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
-		#../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		../services/services-seafile.nix
 		
 		# Stacks

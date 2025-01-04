@@ -8,6 +8,9 @@ in
 {
 	imports = [
 		../../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-esphome.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-nodered.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 	];
 	
 	#config.age.secrets."davis-env.age".file = ../../secrets/davis-env.age;
