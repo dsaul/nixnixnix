@@ -5,7 +5,6 @@
 		steam
 		sunshine
 		moonlight-qt
-		ryujinx
 		(pkgs.wrapOBS {
 			plugins = with pkgs.obs-studio-plugins; [
 				wlrobs
@@ -13,6 +12,10 @@
 				obs-pipewire-audio-capture
 			];
 		})
+		
+		# Games
+		ryujinx
+		space-cadet-pinball
 	];
 
 
