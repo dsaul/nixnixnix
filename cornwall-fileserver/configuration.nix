@@ -40,6 +40,7 @@ in
 		../services/services-nfs.nix
 		./nfs-exports.nix
 		../services/services-samba.nix
+		./smb-shares.nix
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/services-seafile.nix
