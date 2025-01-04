@@ -138,7 +138,7 @@
 		fsType = "overlay";
 		options = [
 			"nofail"
-			"lowerdir=/mnt/MEDIA-01/Movies;/mnt/MEDIA-02/Movies"
+			"lowerdir=/mnt/MEDIA-01/Movies:/mnt/MEDIA-02/Movies"
 			#"upperdir=/upper"
 			#"workdir=/work"
 			"ro"
