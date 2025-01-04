@@ -137,6 +137,7 @@
 		device = "overlay";
 		fsType = "overlay";
 		options = [
+			"nofail"
 			"noauto"
 			"x-systemd.automount"
 			"lowerdir=/mnt/MEDIA-01/Movies:/mnt/MEDIA-02/Movies:/mnt/MEDIA-03/Movies:/mnt/MEDIA-04/Movies:/mnt/MEDIA-05/Movies:/mnt/MEDIA-06/Movies:/mnt/MEDIA-07/Movies:/mnt/MEDIA-08/Movies:/mnt/MEDIA-09/Movies:/mnt/MEDIA-10/Movies:/mnt/MEDIA-11/Movies:/mnt/MEDIA-12/Movies:/mnt/MEDIA-13/Movies:/mnt/MEDIA-14/Movies:/mnt/MEDIA-15/Movies:/mnt/MEDIA-16/Movies:/mnt/MEDIA-17/Movies:/mnt/MEDIA-18/Movies"
