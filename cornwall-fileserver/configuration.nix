@@ -43,6 +43,7 @@ in
 		../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/services-seafile.nix
+		#../../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		
 		# Stacks
 		../stacks/mumble-server/mumble-server.nix
