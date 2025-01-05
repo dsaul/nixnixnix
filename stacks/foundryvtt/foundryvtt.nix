@@ -10,7 +10,7 @@ in
 		../../services/http-vhost/http-vhost-foundryvtt.dsaul.ca.nix
 	];
 	
-	config.age.secrets."foundry-env.age".file = ../../secrets/foundry-env.age;
+	config.age.secrets."foundryvtt-env.age".file = ../../secrets/foundryvtt-env.age;
 	
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
