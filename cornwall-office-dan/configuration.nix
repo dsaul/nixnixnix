@@ -41,6 +41,7 @@ in
 		../editors/editors-graphics.nix
 		../editors/editors-cad.nix
 		../editors/editors-media.nix
+		../editors/editors-3d.nix
 		
 		# Services
 		#../container-whishper/whishper.nix
