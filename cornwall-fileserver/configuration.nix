@@ -56,6 +56,7 @@ in
 		../stacks/immich/immich.nix
 		../stacks/paperless-ngx/paperless-ngx.nix
 		../stacks/home-assistant/home-assistant.nix
+		../stacks/foundryvtt/foundryvtt.nix
 		
 		# System
 		../system/system-docker.nix

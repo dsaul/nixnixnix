@@ -29,4 +29,5 @@ in
 	"gitea-env.age".publicKeys = systems ++ user-dan;
 	"immich-env.age".publicKeys = systems ++ user-dan;
 	"paperless-ngx-env.age".publicKeys = systems ++ user-dan;
+	"foundry-env.age".publicKeys = systems ++ user-dan;
 }
