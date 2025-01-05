@@ -40,6 +40,10 @@ in
 		../editors/editors-graphics.nix
 		../editors/editors-cad.nix
 		../editors/editors-media.nix
+		../editors/editors-3d.nix
+		
+		# System
+		../system/system-virtualisation.nix
 		
 		# Other
 		../generic-includes/generic-defaults.nix
@@ -49,7 +53,7 @@ in
 		../generic-includes/networking-defaults-gui.nix
 		../generic-includes/generic-sound.nix
 		../generic-includes/generic-games.nix
-		../system/system-virtualisation.nix
+
 		../generic-includes/xrdp-kde.nix
 		../generic-includes/viewers-media.nix
 		../generic-includes/communication.nix
