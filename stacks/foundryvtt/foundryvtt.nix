@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 let
-	packageName = "foundry";
+	packageName = "foundryvtt";
 	UID = "0";
 	GID = "0";
 	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
@@ -17,9 +17,9 @@ in
       /* yaml */
       ''
 services:
-  foundry:
+  foundryvtt:
     image: felddy/foundryvtt:release
-    hostname: foundry
+    hostname: foundryvtt
     volumes:
       - ./data-foundryvtt:/data
     environment:
@@ -36,14 +36,14 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose --env-file ${config.age.secrets."foundry-env.age".path} -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			docker compose --env-file ${config.age.secrets."foundryvtt-env.age".path} -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
 		];
 	};
 	
-	config.system.activationScripts.makeFoundryDirs = lib.stringAfter [ "var" ] ''
+	config.system.activationScripts.makeFoundryVttDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p ${stacksDataRoot}/${packageName}/data-foundryvtt
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-foundryvtt
 	'';
