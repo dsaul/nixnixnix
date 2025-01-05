@@ -17,11 +17,11 @@ in
       /* yaml */
       ''
 services:
-  foundryvtt:
+  ${packageName}:
     image: felddy/foundryvtt:release
-    hostname: foundryvtt
+    hostname: ${packageName}
     volumes:
-      - ./data-foundryvtt:/data
+      - ${stacksDataRoot}/${packageName}/data-foundryvtt:/data
     environment:
       - FOUNDRY_PASSWORD=''${FOUNDRY_PASSWORD}
       - FOUNDRY_USERNAME=''${FOUNDRY_USERNAME}
