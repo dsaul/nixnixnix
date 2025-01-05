@@ -49,7 +49,7 @@ in
 		../generic-includes/networking-defaults-gui.nix
 		../generic-includes/generic-sound.nix
 		../generic-includes/generic-games.nix
-		../system-includes/system-virtualisation.nix
+		../system/system-virtualisation.nix
 		../generic-includes/xrdp-kde.nix
 		../generic-includes/viewers-media.nix
 		../generic-includes/communication.nix
