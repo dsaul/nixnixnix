@@ -121,16 +121,14 @@ services:
 	};
 
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
-		mkdir -p /var/whishper/mongo/data
-		chown -R 999:999 /var/whishper/mongo/data
-		mkdir -p /var/whishper/mongo/logs
-		chown -R 999:999 /var/whishper/mongo/logs
-		mkdir -p /var/whishper/libretranslate/data
-		chown -R 1032:1032 /var/whishper/libretranslate/data
-		mkdir -p /var/whishper/libretranslate/cache
-		chown -R 1032:1032 /var/whishper/libretranslate/cache
+		mkdir -p /var/whishper/mongo
+		chown -R 999:999 /var/whishper/mongo
+		mkdir -p /var/whishper/libretranslate
+		chown -R 1032:1032 /var/whishper/libretranslate
 		mkdir -p /var/whishper/uploads
+		chown -R a+w /var/whishper/uploads
 		mkdir -p /var/whishper/logs
+		chown -R a+w /var/whishper/logs
 	'';
 
 
