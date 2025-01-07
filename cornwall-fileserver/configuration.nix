@@ -58,7 +58,7 @@ in
 		../stacks/home-assistant/home-assistant.nix
 		../stacks/foundryvtt/foundryvtt.nix
 		../stacks/kms/kms.nix
-		../stacks/airsonic-advanced.nix/airsonic-advanced.nix
+		../stacks/airsonic-advanced/airsonic-advanced.nix
 		
 		# System
 		../system/system-docker.nix
