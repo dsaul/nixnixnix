@@ -17,9 +17,9 @@
 				proxyWebsockets = true; # needed if you need to use WebSocket
 				
 				extraConfig = ''
-					post_max_size 128M
-					upload_max_filesize 100M
-					memory_limit 256M
+					post_max_size 128M;
+					upload_max_filesize 100M;
+					memory_limit 256M;
 					proxy_ssl_server_name on;
 					allow 10.5.5.0/24; # cornwall lan
 					allow 172.16.0.0/24; # vpn
