@@ -28,7 +28,6 @@ services:
     image: mongo
     restart: unless-stopped
     container_name: whishper-mongo
-    user: root
     volumes:
       - /var/whishper/mongo/data:/data/db
       - /var/whishper/mongo/logs:/var/log/mongodb/
@@ -76,7 +75,6 @@ services:
       - /var/whishper/uploads:/app/uploads
       - /var/whishper/logs:/var/log/whishper
     container_name: whishper-app
-    user: root
     restart: unless-stopped
     networks:
       default:
@@ -122,13 +120,15 @@ services:
 
 	config.system.activationScripts.makeWhishperDirs = lib.stringAfter [ "var" ] ''
 		mkdir -p /var/whishper/mongo
+		mkdir -p /var/whishper/mongo/data
+		mkdir -p /var/whishper/mongo/data
 		chown -R 999:999 /var/whishper/mongo
 		mkdir -p /var/whishper/libretranslate
 		chown -R 1032:1032 /var/whishper/libretranslate
 		mkdir -p /var/whishper/uploads
-		chown -R a+w /var/whishper/uploads
+		chmod -R a+w /var/whishper/uploads
 		mkdir -p /var/whishper/logs
-		chown -R a+w /var/whishper/logs
+		chmod -R a+w /var/whishper/logs
 	'';
 
 
