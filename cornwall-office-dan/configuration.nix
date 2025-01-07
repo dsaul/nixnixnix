@@ -43,8 +43,8 @@ in
 		../editors/editors-media.nix
 		../editors/editors-3d.nix
 		
-		# Services
-		../container-whishper/whishper.nix
+		# Stacks
+		../stacks/whichper/whishper.nix
 		
 		# Utilities
 		../utilities/utilities-fastflix.nix
