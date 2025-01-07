@@ -44,7 +44,7 @@ in
 		../editors/editors-3d.nix
 		
 		# Stacks
-		../stacks/whichper/whishper.nix
+		../stacks/whishper/whishper.nix
 		
 		# Utilities
 		../utilities/utilities-fastflix.nix
