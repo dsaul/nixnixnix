@@ -7,6 +7,7 @@
 		metamorphose2
 		handbrake
 		flac
+		makemkv
 	];
 }
 	
