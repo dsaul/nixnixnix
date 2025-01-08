@@ -12,7 +12,7 @@
 		bruno
 		umlet
 		httpie
-		vscode
+		vscode.fhs
 		
 		# Development Backend
 		libgcc
