@@ -30,6 +30,7 @@
 		nodejs
 		go
 		libicns
+		jdk
 	];
 }
 	
