@@ -36,6 +36,7 @@
 			NIXOS_OZONE_WL = "1";
 			ELECTRON_OZONE_PLATFORM_HINT  = "wayland";
 			GSK_RENDERER = "gl";
+			_JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd"
 	};
 
 }
