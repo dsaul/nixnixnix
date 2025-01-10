@@ -25,6 +25,7 @@ services:
       - ${stacksDataRoot}/${packageName}/data-jupyter-home:/home/jovyan/work
     ports:
       - 8888:8888
+    command: start-notebook.py --PasswordIdentityProvider.hashed_password='argon2:$argon2id$v=19$m=10240,t=10,p=8$7TxdpzdVobiBHsIa1fUtEw$y1gWpnPuhPO7lVZsPqgjXBoSVry5Wsy+Sk88MN9umfg'
 '';
 	
 	config.systemd.services."${packageName}" = {
