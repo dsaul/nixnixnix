@@ -59,6 +59,7 @@ in
 		../stacks/foundryvtt/foundryvtt.nix
 		../stacks/kms/kms.nix
 		../stacks/airsonic-advanced/airsonic-advanced.nix
+		../stacks/pgadmin/pgadmin.nix
 		
 		# System
 		../system/system-docker.nix
