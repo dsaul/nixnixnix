@@ -7,7 +7,7 @@ let
 in
 {
 	imports = [
-		../../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-pgadmin.dsaul.ca.nix
 	];
 	
 	config.age.secrets."pgadmin-env.age".file = ../../secrets/pgadmin-env.age;
