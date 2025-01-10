@@ -11,6 +11,7 @@ in
 	];
 	
 	config.age.secrets."pgadmin-env.age".file = ../../secrets/pgadmin-env.age;
+	config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".file = ../../secrets/pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age;
 	
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
