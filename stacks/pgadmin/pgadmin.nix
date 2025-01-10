@@ -11,7 +11,6 @@ in
 	];
 	
 	config.age.secrets."pgadmin-env.age".file = ../../secrets/pgadmin-env.age;
-	config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".file = ../../secrets/pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age;
 	
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
@@ -26,12 +25,11 @@ services:
     volumes:
       # chown -R 5050:5050 ./data-pgadmin4
       - ${stacksDataRoot}/${packageName}/data-pgadmin4:/var/lib/pgadmin
-      - ${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}:${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}
     environment:
       - PUID=${UID}
       - PGID=${GID}
       - PGADMIN_DEFAULT_EMAIL=''${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD_FILE=${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}
+      - PGADMIN_DEFAULT_PASSWORD=''${PGADMIN_DEFAULT_PASSWORD}
       - PGADMIN_LISTEN_PORT=25003
 '';
 	
