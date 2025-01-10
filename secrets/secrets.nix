@@ -32,4 +32,5 @@ in
 	"foundryvtt-env.age".publicKeys = systems ++ user-dan;
 	"pgadmin-env.age".publicKeys = systems ++ user-dan;
 	"pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".publicKeys = systems ++ user-dan;
+	"dbsysdb-env.age".publicKeys = systems ++ user-dan;
 }

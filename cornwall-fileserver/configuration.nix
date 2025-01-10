@@ -60,6 +60,7 @@ in
 		../stacks/kms/kms.nix
 		../stacks/airsonic-advanced/airsonic-advanced.nix
 		../stacks/pgadmin/pgadmin.nix
+		../stacks/dbsysdb/dbsysdb.nix
 		
 		# System
 		../system/system-docker.nix
