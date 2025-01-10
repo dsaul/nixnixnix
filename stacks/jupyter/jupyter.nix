@@ -32,7 +32,7 @@ services:
 		after = ["docker.service" "docker.socket"];
 		path = [pkgs.docker];
 		script = ''
-			docker compose --env-file ${config.age.secrets."jupyter-env.age".path} -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
+			docker compose -f /etc/stacks/${packageName}/compose.yaml up --remove-orphans
 		'';
 		restartTriggers = [
 			config.environment.etc."stacks/${packageName}/compose.yaml".source
