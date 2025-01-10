@@ -26,7 +26,7 @@ services:
     volumes:
       # chown -R 5050:5050 ./data-pgadmin4
       - ${stacksDataRoot}/${packageName}/data-pgadmin4:/var/lib/pgadmin
-	  - ${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}:${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}
+      - ${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}:${config.age.secrets."pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".path}
     environment:
       - PUID=${UID}
       - PGID=${GID}
