@@ -64,4 +64,6 @@
 	};
 
 	nix.settings.auto-optimise-store = true; 
+	
+	system.copySystemConfiguration = true;
 }
