@@ -1,5 +1,8 @@
 # Do not do this!
 # config.password = builtins.readFile config.age.secrets.secret1.path;
+# ssh-keyscan localhost
+# agenix -e fileserver-smb.age
+# agenix --rekey
 let
 	user-dan = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4DXCWnspO5WUrirR33EAGTIl692+COgeds0Tvtw6Yd"];
 	user-lindsey = [];
@@ -10,11 +13,13 @@ let
 	system-cornwall-fileserver = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBIYQ275Dy/Kv3k2VjQuAk9SONeRilpky7zZ0CkcN+UZ";
 	system-cornwall-tv = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOfZeH0Gur/vvKTrzrK3QnWCrnCdUu+7EkWy8N+hvy8x";
 	system-framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpLsawdwQzRrP6yyk3JsvPT+3+8wiMpNZb+w46/iI+6";
+	system-ashburn-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIET4DXn9xMl6NAUAGzDskye/VnVodn7AU5NbDZcPCzjT";
 	systems = [ 
 		system-cornwall-office-dan
 		system-cornwall-fileserver
 		system-cornwall-tv
 		system-framework
+		system-ashburn-proxy
 	];
 in
 {
@@ -31,6 +36,5 @@ in
 	"paperless-ngx-env.age".publicKeys = systems ++ user-dan;
 	"foundryvtt-env.age".publicKeys = systems ++ user-dan;
 	"pgadmin-env.age".publicKeys = systems ++ user-dan;
-	"pgadmin-PGADMIN_DEFAULT_PASSWORD_FILE.age".publicKeys = systems ++ user-dan;
 	"dbsysdb-env.age".publicKeys = systems ++ user-dan;
 }
