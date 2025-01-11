@@ -37,6 +37,7 @@ in
 		../services/services-reverse-proxy.nix
 		../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
 		../services/http-vhost/http-vhost-foundryvtt.dsaul.ca.nix
+		../services/http-vhost/http-vhost-airsonic.dsaul.ca.nix
 		
 		# System
 		../system/system-docker.nix
