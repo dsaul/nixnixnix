@@ -37,4 +37,5 @@ in
 	"foundryvtt-env.age".publicKeys = systems ++ user-dan;
 	"pgadmin-env.age".publicKeys = systems ++ user-dan;
 	"dbsysdb-env.age".publicKeys = systems ++ user-dan;
+	"system-ashburn-proxy-wireguard-private-key.age".publicKeys = [system-ashburn-proxy] ++ user-dan;
 }

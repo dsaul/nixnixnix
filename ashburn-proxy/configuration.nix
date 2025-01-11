@@ -56,6 +56,30 @@ in
 	networking.hostName = "ashburn-proxy";
 	# networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../../secrets/system-ashburn-proxy-wireguard-private-key.age;
+	networking.wireguard.enable = true;
+	networking.wireguard.interfaces = {
+		wg0 = {
+			ips = [ "172.16.0.5/32" ];
+			privateKeyFile = config.age.secrets."system-ashburn-proxy-wireguard-private-key.age".path;
+			peers = [
+				{
+					publicKey = "Y6CpNkRgWV9FOGjkfRFrV0jc8Y4WI6lE13qwMCubHXQ=";
+					allowedIPs = [
+						"172.16.0.0/24"
+						"10.5.5.0/24"
+						"10.2.2.0/24"
+						"10.3.3.0/24"
+						"10.4.4.0/24"
+					];
+					endpoint = "cornwall.ip.infra.dsaul.ca:51001";
+					persistentKeepalive = 60;
+				}
+			];
+		};
+	};
+
+
 	environment.systemPackages = with pkgs; [
 		
 	];	
