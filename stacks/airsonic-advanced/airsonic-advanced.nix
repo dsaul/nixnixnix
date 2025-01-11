@@ -7,7 +7,7 @@ let
 in
 {
 	imports = [
-		../../services/http-vhost/http-vhost-calendar.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-airsonic.dsaul.ca.nix
 	];
 	
 	config.environment.etc."stacks/${packageName}/compose.yaml".text =
