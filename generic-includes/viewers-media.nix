@@ -10,6 +10,7 @@ in
 		calibre
 		#grayjay
 		supersonic-wayland
+		sublime-music
 	];	
 	
 }
