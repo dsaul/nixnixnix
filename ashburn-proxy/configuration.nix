@@ -56,7 +56,7 @@ in
 	networking.hostName = "ashburn-proxy";
 	# networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../../secrets/system-ashburn-proxy-wireguard-private-key.age;
+	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../secrets/system-ashburn-proxy-wireguard-private-key.age;
 	networking.wireguard.enable = true;
 	networking.wireguard.interfaces = {
 		wg0 = {
