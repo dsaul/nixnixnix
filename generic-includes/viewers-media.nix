@@ -9,6 +9,7 @@ in
 		spotify
 		calibre
 		#grayjay
+		supersonic-wayland
 	];	
 	
 }
