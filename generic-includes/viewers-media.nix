@@ -8,7 +8,6 @@ in
 		mplayer
 		spotify
 		calibre
-		clementine
 		#grayjay
 	];	
 	
