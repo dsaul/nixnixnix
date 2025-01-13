@@ -23,7 +23,7 @@ Categories=Settings
 StartupWMClass=chrome-calendar.dsaul.ca__-Default
 EOF
 
-	install -Dm644 ${./resources/logo.png} $out/share/icons/hicolor/scalable/apps/logo.png
+	install -Dm644 ${./resources/logo1024.png} $out/share/icons/hicolor/1024x1024/apps/webapp-davis.png
 	'';
 
 }

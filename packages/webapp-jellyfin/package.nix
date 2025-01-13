@@ -23,7 +23,7 @@ Categories=AudioVideo;Video
 StartupWMClass=chrome-jellyfin.dsaul.ca__-Default
 EOF
 
-	install -Dm644 ${./resources/icon-transparent.png} $out/share/icons/hicolor/scalable/apps/icon-transparent.png
+	install -Dm644 ${./resources/icon-transparent.png} $out/share/icons/hicolor/1024x1024/apps/webapp-jellyfin.png
 	'';
 
 }
