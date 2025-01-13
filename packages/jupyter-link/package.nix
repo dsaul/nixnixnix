@@ -1,10 +1,10 @@
 { lib
-, stdenv
+, stdenvNoCC
 , ungoogled-chromium
 , makeDesktopItem
 }:
 
-{
+stdenvNoCC.mkDerivation {
 	postInstall = ''
 	mkdir -p $out/share/applications
 	cat > $out/share/applications/fastflix.desktop << EOF
