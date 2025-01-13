@@ -1,8 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 let
 	packageName = "jupyter";
-	UID = "0";
-	GID = "0";
+	UID = "1000";
+	GID = "100";
 	stacksDataRoot = "/mnt/DOCUMENTS-01/stacks";
 in
 {
