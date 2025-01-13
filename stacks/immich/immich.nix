@@ -67,13 +67,9 @@ services:
 
   redis:
     container_name: immich_redis
-    user: "${UID}:${GID}"
     image: docker.io/redis:6.2-alpine@sha256:e3b17ba9479deec4b7d1eeec1548a253acc5374d68d3b27937fcfe4df8d18c7e
     volumes:
      - ${stacksDataRoot}/${packageName}/data-redis:/data
-    environment:
-      PUID: ${UID}
-      PGID: ${GID}
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
@@ -116,7 +112,7 @@ services:
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-library
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/data-redis
-		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/data-redis
+		chown -R 999:999 ${stacksDataRoot}/${packageName}/data-redis
 		
 		mkdir -p ${stacksDataRoot}/${packageName}/model-cache
 		chown -R ${UID}:${GID} ${stacksDataRoot}/${packageName}/model-cache
