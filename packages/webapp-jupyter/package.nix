@@ -20,10 +20,11 @@ Icon=webapp-jupyter
 Exec=chromium --app="https://jupyter.dsaul.ca/lab?" %U
 Terminal=false
 Categories=Development
-
+StartupWMClass=chrome-jupyter.dsaul.ca__lab-Default
 EOF
 
 	install -Dm644 ${./resources/Jupyter_logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-jupyter.svg
   '';
   #StartupWMClass=
 }
+#qdbus org.kde.KWin /KWin queryWindowInfo
