@@ -12,6 +12,7 @@ in
 		supersonic-wayland
 		sublime-music
 		(pkgs.callPackage ../packages/webapp-jellyfin/package.nix {})
+		(pkgs.callPackage ../packages/webapp-airsonic-advanced/package.nix {})
 	];	
 	
 }
