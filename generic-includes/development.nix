@@ -33,7 +33,7 @@
 		jdk
 		
 		# Webview Service apps
-		(pkgs.callPackage ../packages/jupyter-link/package.nix {})
+		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
 	];
 }
 	

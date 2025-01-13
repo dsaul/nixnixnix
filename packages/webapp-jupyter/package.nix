@@ -6,22 +6,24 @@
 
 stdenvNoCC.mkDerivation {
 	
-	name = "jupyter-link";
+	name = "webapp-jupyter";
 	src = ./.;
 	
 	postInstall = ''
 	mkdir -p $out/share/applications
-	cat > $out/share/applications/fastflix.desktop << EOF
+	cat > $out/share/applications/webapp-jupyter.desktop << EOF
 [Desktop Entry]
 Type=Application
 Name=Jupyter
 Comment=
-Icon=jupyter-link
+Icon=webapp-jupyter
 Exec=chromium --app="https://jupyter.dsaul.ca/lab?" %U
 Terminal=false
 Categories=Development
+
 EOF
 
-	install -Dm644 ${./resources/Jupyter_logo.svg} $out/share/icons/hicolor/scalable/apps/jupyter-link.svg
+	install -Dm644 ${./resources/Jupyter_logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-jupyter.svg
   '';
+  #StartupWMClass=
 }
