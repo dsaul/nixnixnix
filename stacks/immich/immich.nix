@@ -27,7 +27,7 @@ services:
   immich-server:
     container_name: immich_server
     user: "${UID}:${GID}"
-    image: ghcr.io/immich-app/immich-server:''${IMMICH_VERSION:-release}
+    image: ghcr.io/immich-app/immich-server:v1.122.0
     volumes:
       - ${stacksDataRoot}/${packageName}/data-library:/usr/src/app/upload
     ports:
