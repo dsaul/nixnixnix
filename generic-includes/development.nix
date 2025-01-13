@@ -32,6 +32,8 @@
 		libicns
 		jdk
 		
+		# Webview Service apps
+		(pkgs.callPackage ../packages/jupyter-link/package.nix {})
 	];
 }
 	
