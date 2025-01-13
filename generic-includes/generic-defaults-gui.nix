@@ -31,6 +31,7 @@
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
 		(pkgs.callPackage ../packages/webapp-home-assistant/package.nix {})
 		(pkgs.callPackage ../packages/webapp-immich/package.nix {})
+		(pkgs.callPackage ../packages/webapp-mealie/package.nix {})
 	];
 }
 	
