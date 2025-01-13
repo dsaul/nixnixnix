@@ -34,6 +34,7 @@
 		(pkgs.callPackage ../packages/webapp-mealie/package.nix {})
 		(pkgs.callPackage ../packages/webapp-pgadmin4/package.nix {})
 		(pkgs.callPackage ../packages/webapp-whishper/package.nix {})
+		(pkgs.callPackage ../packages/webapp-paperless-ngx/package.nix {})
 	];
 }
 	
