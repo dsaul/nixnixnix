@@ -31,6 +31,7 @@
 		go
 		libicns
 		jdk
+		
 	];
 }
 	
