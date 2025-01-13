@@ -11,6 +11,7 @@ in
 		#grayjay
 		supersonic-wayland
 		sublime-music
+		(pkgs.callPackage ../packages/webapp-jellyfin/package.nix {})
 	];	
 	
 }

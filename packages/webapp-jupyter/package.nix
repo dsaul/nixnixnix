@@ -24,7 +24,9 @@ StartupWMClass=chrome-jupyter.dsaul.ca__lab-Default
 EOF
 
 	install -Dm644 ${./resources/Jupyter_logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-jupyter.svg
-  '';
-  #StartupWMClass=
+	'';
+
 }
 #qdbus org.kde.KWin /KWin queryWindowInfo
+#StartupWMClass=
+#StartupWMClass was set to the resourceClass and this worked.
