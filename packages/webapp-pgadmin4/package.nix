@@ -19,7 +19,7 @@ Comment=
 Icon=webapp-pgadmin4
 Exec=chromium --app="https://pgadmin.dsaul.ca/" %U
 Terminal=false
-Categories=Office
+Categories=Development
 StartupWMClass=chrome-pgadmin.dsaul.ca__lab-Default
 EOF
 
