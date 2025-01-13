@@ -23,7 +23,7 @@ Categories=Graphics
 StartupWMClass=chrome-immich.dsaul.ca__-Default
 EOF
 
-	install -Dm644 ${./resources/icon-transparent.png} $out/share/icons/hicolor/scalable/apps/webapp-immich.png
+	install -Dm644 ${./resources/immich-logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-immich.png
 	'';
 
 }
