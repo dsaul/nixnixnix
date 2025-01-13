@@ -19,8 +19,8 @@ Comment=
 Icon=webapp-jellyfin
 Exec=chromium --app="https://jellyfin.dsaul.ca/" %U
 Terminal=false
-Categories=Multimedia
-StartupWMClass=chrome-jellyfin.dsaul.ca-Default
+Categories=AudioVideo;Video
+StartupWMClass=chrome-jellyfin.dsaul.ca__-Default
 EOF
 
 	install -Dm644 ${./resources/jellyfin.svg} $out/share/icons/hicolor/scalable/apps/webapp-jellyfin.svg
