@@ -30,3 +30,4 @@ EOF
 #qdbus org.kde.KWin /KWin queryWindowInfo
 #StartupWMClass=
 #StartupWMClass was set to the resourceClass and this worked.
+#https://specifications.freedesktop.org/menu-spec/latest/category-registry.html

@@ -22,7 +22,7 @@ services:
       PUID: ${UID}
       PGID: ${GID}
     volumes:
-      - ${stacksDataRoot}/${packageName}/data-jupyter-home:/home/jovyan/work
+      - ${stacksDataRoot}/${packageName}/data-jupyter-home:/home/jovyan
     ports:
       - 8888:8888
     
