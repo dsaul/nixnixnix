@@ -7,7 +7,7 @@
 stdenvNoCC.mkDerivation {
 	
 	name = "jupyter-link";
-	src = ${./};
+	src = ./;
 	
 	postInstall = ''
 	mkdir -p $out/share/applications
