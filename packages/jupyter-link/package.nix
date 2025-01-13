@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
 	
-	pname = "jupyter-link";
+	name = "jupyter-link";
 	
 	postInstall = ''
 	mkdir -p $out/share/applications
