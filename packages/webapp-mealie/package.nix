@@ -20,7 +20,7 @@ Icon=webapp-mealie
 Exec=chromium --app="https://mealie.dsaul.ca/" %U
 Terminal=false
 Categories=Office
-StartupWMClass=chrome-mealie.dsaul.ca__lab-Default
+StartupWMClass=chrome-mealie.dsaul.ca__-Default
 EOF
 
 	install -Dm644 ${./resources/mealie.svg} $out/share/icons/hicolor/scalable/apps/webapp-mealie.svg

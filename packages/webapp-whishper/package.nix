@@ -20,7 +20,7 @@ Icon=webapp-whishper
 Exec=chromium --app="https://whishper.dsaul.ca/" %U
 Terminal=false
 Categories=Office
-StartupWMClass=chrome-whishper.dsaul.ca__lab-Default
+StartupWMClass=chrome-whishper.dsaul.ca__-Default
 EOF
 
 	install -Dm644 ${./resources/logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-whishper.svg

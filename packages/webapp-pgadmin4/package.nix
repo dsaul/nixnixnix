@@ -20,7 +20,7 @@ Icon=webapp-pgadmin4
 Exec=chromium --app="https://pgadmin.dsaul.ca/" %U
 Terminal=false
 Categories=Development
-StartupWMClass=chrome-pgadmin.dsaul.ca__lab-Default
+StartupWMClass=chrome-pgadmin.dsaul.ca__-Default
 EOF
 
 	install -Dm644 ${./resources/pgadmin.svg} $out/share/icons/hicolor/scalable/apps/webapp-pgadmin4.svg
