@@ -5,6 +5,9 @@
 }:
 
 stdenvNoCC.mkDerivation {
+	
+	pname = "jupyter-link";
+	
 	postInstall = ''
 	mkdir -p $out/share/applications
 	cat > $out/share/applications/fastflix.desktop << EOF
