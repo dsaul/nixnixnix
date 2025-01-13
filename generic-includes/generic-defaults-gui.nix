@@ -33,6 +33,7 @@
 		(pkgs.callPackage ../packages/webapp-immich/package.nix {})
 		(pkgs.callPackage ../packages/webapp-mealie/package.nix {})
 		(pkgs.callPackage ../packages/webapp-pgadmin4/package.nix {})
+		(pkgs.callPackage ../packages/webapp-whishper/package.nix {})
 	];
 }
 	
