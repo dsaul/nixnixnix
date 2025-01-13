@@ -29,6 +29,7 @@
 		qmk-udev-rules
 		
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
+		(pkgs.callPackage ../packages/webapp-home-assistant/package.nix {})
 	];
 }
 	
