@@ -2,6 +2,7 @@
 , stdenvNoCC
 , ungoogled-chromium
 , makeDesktopItem
+, imagemagick
 }:
 let
 	terminalName = "webapp-jellyfin";
