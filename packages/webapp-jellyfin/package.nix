@@ -3,7 +3,12 @@
 , ungoogled-chromium
 , makeDesktopItem
 }:
-
+let
+	terminalName = "webapp-jellyfin";
+	displayName = "Jellyfin";
+	sourceIcon = ${./resources/icon-transparent.png};
+	startupWMClass = "chrome-jellyfin.dsaul.ca__-Default";
+in
 stdenvNoCC.mkDerivation {
 	
 	name = "webapp-jellyfin";
@@ -11,19 +16,21 @@ stdenvNoCC.mkDerivation {
 	
 	postInstall = ''
 	mkdir -p $out/share/applications
-	cat > $out/share/applications/webapp-jellyfin.desktop << EOF
+	cat > $out/share/applications/${terminalName}.desktop << EOF
 [Desktop Entry]
 Type=Application
-Name=Jellyfin
+Name=${displayName}
 Comment=
-Icon=webapp-jellyfin
+Icon=${terminalName}
 Exec=chromium --app="https://jellyfin.dsaul.ca/" %U
 Terminal=false
 Categories=AudioVideo;Video
-StartupWMClass=chrome-jellyfin.dsaul.ca__-Default
+StartupWMClass=${startupWMClass}
 EOF
-
-	install -Dm644 ${./resources/icon-transparent.png} $out/share/icons/hicolor/1024x1024/apps/webapp-jellyfin.png
+	for i in 16 24 48 64 96 128 256 512; do
+		mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
+		convert -background none -resize ''${i}x''${i} ${sourceIcon} $out/share/icons/hicolor/''${i}x''${i}/apps/${terminalName}.png
+	done
 	'';
 
 }
