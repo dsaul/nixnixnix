@@ -6,7 +6,6 @@
 let
 	terminalName = "webapp-jellyfin";
 	displayName = "Jellyfin";
-	sourceIcon = ${./resources/icon-transparent.png};
 	startupWMClass = "chrome-jellyfin.dsaul.ca__-Default";
 in
 stdenvNoCC.mkDerivation {
@@ -29,7 +28,7 @@ StartupWMClass=${startupWMClass}
 EOF
 	for i in 16 24 48 64 96 128 256 512; do
 		mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
-		convert -background none -resize ''${i}x''${i} ${sourceIcon} $out/share/icons/hicolor/''${i}x''${i}/apps/${terminalName}.png
+		convert -background none -resize ''${i}x''${i} ${./resources/icon-transparent.png} $out/share/icons/hicolor/''${i}x''${i}/apps/${terminalName}.png
 	done
 	'';
 
