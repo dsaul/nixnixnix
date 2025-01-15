@@ -14,6 +14,10 @@ stdenvNoCC.mkDerivation {
 	name = "webapp-jellyfin";
 	src = ./.;
 	
+	nativeBuildInputs = [
+		imagemagick # convert
+	];
+	
 	postInstall = ''
 	mkdir -p $out/share/applications
 	cat > $out/share/applications/${terminalName}.desktop << EOF
