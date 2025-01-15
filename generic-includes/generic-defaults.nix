@@ -46,6 +46,7 @@
 		elinks
 		nfs-utils
 		rpcbind
+		lm_sensors
 		
 		# Filesystems
 		xfsprogs
@@ -66,4 +67,9 @@
 	nix.settings.auto-optimise-store = true; 
 	
 	system.copySystemConfiguration = true;
+	
+	environment.interactiveShellInit = ''
+		alias gs='git status'
+		alias gitsave='git add *; git commit -m .; git push'
+	'';
 }
