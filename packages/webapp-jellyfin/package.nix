@@ -27,7 +27,7 @@ Terminal=false
 Categories=AudioVideo;Video
 StartupWMClass=${startupWMClass}
 EOF
-	for i in 16 24 48 64 96 128 256 512; do
+	for i in 16 24 48 64 96 128 256 512 1024; do
 		mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
 		convert -background none -resize ''${i}x''${i} ${./resources/icon-transparent.png} $out/share/icons/hicolor/''${i}x''${i}/apps/${terminalName}.png
 	done
