@@ -5,6 +5,7 @@
 		../services/services-samba.nix
 	];
 	
+	fonts.fontconfig.useEmbeddedBitmaps = true;
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
 		noto-fonts
