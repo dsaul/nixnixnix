@@ -33,14 +33,14 @@
 		jdk
 		pylint
 		
-		(pkgs.python312Full.withPackages (python-pkgs: with python-pkgs; [
+		#(pkgs.python312Full.withPackages (python-pkgs: with python-pkgs; [
 			# select Python packages here
-			pandas
-			requests
-			pytest
-			black
-			flake8
-		]))
+		#	pandas
+		#	requests
+		#	pytest
+		#	black
+		#	flake8
+		#]))
 		
 		# Webview Service apps
 		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
