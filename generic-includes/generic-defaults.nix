@@ -28,6 +28,16 @@
 
 	services.rpcbind.enable = true; # nfs
 	
+	security.pam.loginLimits = [
+		{
+			domain = "*";
+			type = "soft";
+			item = "nofile";
+			value = "8192";
+		}
+	];
+
+	
 	# Expected Packages
 	environment.systemPackages = with pkgs; [
 		usbutils
