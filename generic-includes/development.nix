@@ -32,6 +32,7 @@
 		libicns
 		jdk
 		pylint
+		python312Full
 		
 		#(pkgs.python312Full.withPackages (python-pkgs: with python-pkgs; [
 			# select Python packages here
