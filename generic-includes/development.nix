@@ -34,7 +34,7 @@
 		pylint
 		python312Full
 		python312Packages.pandas
-		
+		python312Packages.flake8
 		#(pkgs.python312Full.withPackages (python-pkgs: with python-pkgs; [
 			# select Python packages here
 		#	pandas
