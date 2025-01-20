@@ -33,6 +33,7 @@
 		jdk
 		pylint
 		python312Full
+		python312Packages.pandas
 		
 		#(pkgs.python312Full.withPackages (python-pkgs: with python-pkgs; [
 			# select Python packages here
