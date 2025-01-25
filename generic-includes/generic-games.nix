@@ -3,6 +3,7 @@
 {
 	nixpkgs.config.permittedInsecurePackages = [
 		"dotnet-sdk-6.0.428" # openra
+		"dotnet-runtime-6.0.36" # openra
 	];
 	
 	
