@@ -17,6 +17,7 @@
 		ryujinx
 		space-cadet-pinball
 		parsec-bin
+		openra
 	];
 
 
