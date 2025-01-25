@@ -1,6 +1,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+	nixpkgs.config.permittedInsecurePackages = [
+		"dotnet-sdk-6.0.428" # openra
+	];
+	
+	
 	environment.systemPackages = with pkgs; [
 		steam
 		sunshine
