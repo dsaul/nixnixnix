@@ -27,6 +27,7 @@
 	environment.systemPackages = with pkgs; [
 		kdePackages.yakuake
 		kdePackages.xdg-desktop-portal-kde
+		kdePackages.kcalc
 		xdg-desktop-portal
 		xfce.thunar # sshfs works best with this
 		qalculate-qt # a better calculator
