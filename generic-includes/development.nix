@@ -46,10 +46,10 @@
 	services.ollama = {
 		enable = true;
 		loadModels = [
+			"codellama:13b"
+			"deepseek-r1:14b"
+			"deepseek-coder-v2:latest"
 			"mistral"
-			"deepseek-r1"
-			"codellama"
-			"deepseek-coder-v2"
 		];
 	};
 	services.open-webui = {
