@@ -56,6 +56,7 @@
 		enable = true;
 		port = 25365;
 		openFirewall = true;
+		host = "0.0.0.0";
 	};
 }
 
