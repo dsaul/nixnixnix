@@ -41,7 +41,7 @@ in
 		./nfs-exports.nix
 		../services/services-samba.nix
 		./smb-shares.nix
-		../services/services-unifi.nix
+		#../services/services-unifi.nix
 		../services/services-reverse-proxy.nix
 		../services/services-seafile.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
