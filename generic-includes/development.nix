@@ -55,6 +55,7 @@
 	services.open-webui = {
 		enable = true;
 		port = 25365;
+		openFirewall = true;
 	};
 }
 
