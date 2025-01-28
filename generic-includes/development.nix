@@ -50,7 +50,7 @@
 			"deepseek-r1"
 			"codellama"
 			"deepseek-coder-v2"
-		]
+		];
 	};
 	services.open-webui = {
 		enable = true;
