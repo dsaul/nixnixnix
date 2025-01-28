@@ -42,7 +42,13 @@
 		# Webview Service apps
 		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
 	];
+	
+	services.ollama = {
+		enable = true;
+	};
 }
+
+
 	
 
 
