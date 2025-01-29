@@ -45,6 +45,7 @@ in
 		../services/services-seafile.nix
 		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
 		../services/http-vhost/http-vhost-openwebui.dsaul.ca.nix
+		../services/services-unifi.nix
 		
 		# Stacks
 		../stacks/mumble-server/mumble-server.nix
