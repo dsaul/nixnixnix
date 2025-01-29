@@ -46,6 +46,9 @@ in
 		# Stacks
 		../stacks/whishper/whishper.nix
 		
+		# Services
+		../services/services-unifi.nix
+		
 		# Utilities
 		../utilities/utilities-fastflix.nix
 		

@@ -57,6 +57,7 @@
 		nfs-utils
 		rpcbind
 		lm_sensors
+		ncdu
 		
 		# Filesystems
 		xfsprogs
