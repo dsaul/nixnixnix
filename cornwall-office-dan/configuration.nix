@@ -48,6 +48,8 @@ in
 		
 		# Services
 		../services/services-unifi.nix
+		../services/services-acme.nix
+		../services/services-reverse-proxy.nix
 		
 		# Utilities
 		../utilities/utilities-fastflix.nix
