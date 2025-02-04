@@ -10,6 +10,5 @@
 		thunderbird
 		hexchat
 		mumble
-		mailspring
 	];	
 }
