@@ -1,5 +1,11 @@
 { config, lib, pkgs, modulesPath, ... }:
-
+let
+	unstable = import <nixos-unstable> { 
+		system = "x86_64-linux"; 
+		config.allowUnfree = true; 
+		config.allowBroken = true; 
+	};
+in 
 {
 	imports = [
 		../services/services-samba.nix
@@ -28,6 +34,7 @@
 		qmk
 		qmk_hid
 		qmk-udev-rules
+		unstable.ladybird
 		
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
 		(pkgs.callPackage ../packages/webapp-home-assistant/package.nix {})
