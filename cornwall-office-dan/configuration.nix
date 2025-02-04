@@ -50,6 +50,7 @@ in
 		../services/services-unifi.nix
 		../services/services-acme.nix
 		../services/services-reverse-proxy.nix
+		../services/services-ollama.nix
 		
 		# Utilities
 		../utilities/utilities-fastflix.nix
