@@ -15,5 +15,8 @@ let
 		unstable.yt-dlp
 		wireguard-tools
 		inetutils
+		bmon
+		slurm-nm
+		tcptrack
 	];	
 }
