@@ -44,6 +44,8 @@ in
 		(pkgs.callPackage ../packages/webapp-whishper/package.nix {})
 		(pkgs.callPackage ../packages/webapp-paperless-ngx/package.nix {})
 	];
+	
+	programs.ladybird.enable = true;
 }
 	
 
