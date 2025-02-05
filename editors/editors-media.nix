@@ -10,6 +10,7 @@
 		handbrake
 		flac
 		makemkv
+		shntool
 	];
 }
 	
