@@ -12,7 +12,7 @@
 			forceSSL = true;
 			useACMEHost = "epsilonlabs.ca";
 			globalRedirect = "www.epsilonlabs.ca";
-		}
+		};
 		
 		virtualHosts."www.epsilonlabs.ca" = {
 			forceSSL = true;

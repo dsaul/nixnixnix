@@ -11,7 +11,7 @@
 			forceSSL = true;
 			useACMEHost = "dsaul.ca";
 			globalRedirect = "www.dsaul.ca";
-		}
+		};
 		
 		virtualHosts."www.dsaul.ca" = {
 			forceSSL = true;
