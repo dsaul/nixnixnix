@@ -8,7 +8,7 @@
 	
 	services.nginx = {
 		
-		virtualHosts."paperless.dsaul.ca" = {
+		virtualHosts."www.dsaul.ca" = {
 			forceSSL = true;
 			useACMEHost = "dsaul.ca";
 			
