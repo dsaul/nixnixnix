@@ -10,7 +10,11 @@ in
 		spotify
 		calibre
 		#grayjay
-		(pkgs.callPackage ../packages/grayjay-desktop/default.nix {})
+		(pkgs.callPackage ../packages/grayjay-desktop/default.nix {
+			internal = {
+				grayjay-web = (pkgs.callPackage ../packages/grayjay-web/default.nix {})
+			};
+		})
 		supersonic-wayland
 		sublime-music
 		(pkgs.callPackage ../packages/webapp-jellyfin/package.nix {})
