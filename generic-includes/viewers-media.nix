@@ -9,6 +9,7 @@ in
 		#kmplayer #broken
 		spotify
 		calibre
+		totem
 		#grayjay
 		supersonic-wayland
 		sublime-music
