@@ -6,7 +6,7 @@ in
 	environment.systemPackages = with pkgs; [
 		vlc
 		mplayer
-		#kmplayer #broken
+		kmplayer #broken
 		spotify
 		calibre
 		totem
