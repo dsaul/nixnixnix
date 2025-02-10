@@ -6,6 +6,7 @@ in
 	environment.systemPackages = with pkgs; [
 		vlc
 		mplayer
+		kmplayer
 		spotify
 		calibre
 		#grayjay
@@ -13,7 +14,7 @@ in
 		sublime-music
 		(pkgs.callPackage ../packages/webapp-jellyfin/package.nix {})
 		(pkgs.callPackage ../packages/webapp-airsonic-advanced/package.nix {})
-		mixxx
+		#mixxx
 	];	
 	
 }
