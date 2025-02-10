@@ -12,7 +12,9 @@ in
 		#grayjay
 		(pkgs.callPackage ../packages/grayjay-desktop/default.nix {
 			internal = {
-				grayjay-web = (pkgs.callPackage ../packages/grayjay-web/default.nix {});
+				grayjay-web = (pkgs.callPackage ../packages/grayjay-web/default.nix {
+					inherit internal;
+				});
 			};
 		})
 		supersonic-wayland
