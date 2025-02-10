@@ -5,8 +5,8 @@ in
 {
 	environment.systemPackages = with pkgs; [
 		vlc
-		mplayer
-		kmplayer
+		#mplayer
+		kmplayer #broken
 		spotify
 		calibre
 		#grayjay
