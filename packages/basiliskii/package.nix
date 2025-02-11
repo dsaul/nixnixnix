@@ -14,10 +14,10 @@ stdenv.mkDerivation (finalAttrs: {
   version = "unstable-2022-09-30";
 
   src = fetchFromGitHub {
-    owner = "kanjitalk755";
+    owner = "cebix";
     repo = "macemu";
-    rev = "2fa17a0783cf36ae60b77b5ed930cda4dc1824af";
-    sha256 = "+jkns6H2YjlewbUzgoteGSQYWJL+OWVu178aM+BtABM=";
+	rev = "96e512bd6376e78a2869f16dcc8a9028bce5ee72";
+    sha256 = "0000000000000000000000000000000000000000000000000000";
   };
   sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";
   patches = [ ./remove-redhat-6-workaround-for-scsi-sg.h.patch ];
