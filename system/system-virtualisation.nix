@@ -23,6 +23,5 @@
 		quickemu
 		virt-manager
 		libvirt
-		basiliskii
 	];
 }
