@@ -39,12 +39,12 @@ stdenv.mkDerivation (finalAttrs: {
 	readline
   ];
   preConfigure = ''
-    NO_CONFIGURE=1 ./autogen.sh
+     ./autogen.sh
   '';
   configureFlags = [
     "--enable-sdl-video"
     "--enable-sdl-audio"
-    #"--with-bincue"
+    "--with-bincue"
   ];
 
   meta = with lib; {
