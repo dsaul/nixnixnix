@@ -2,6 +2,7 @@
 
 {
 	environment.systemPackages = with pkgs; [
-		basiliskii
+		#basiliskii
+		(pkgs.callPackage ../packages/basiliskii/package.nix {})
 	];	
 }
