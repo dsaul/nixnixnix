@@ -43,10 +43,10 @@ stdenv.mkDerivation (finalAttrs: {
 	readline
   ];
   
-   #env =
-   # {
-   #   SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
-   # };
+   
+  env = {
+    SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
+  };
   
   # was in preConfigure before autogen:
   preConfigure = ''
