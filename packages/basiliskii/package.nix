@@ -31,6 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
     SDL2
     gtk2
     mpfr
+	libICE
   ];
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
