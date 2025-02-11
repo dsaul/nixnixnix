@@ -8,6 +8,7 @@
   SDL2,
   gtk2,
   mpfr,
+  libICE
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
