@@ -45,14 +45,12 @@ stdenv.mkDerivation (finalAttrs: {
   
    
   env = {
-    SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
+    #SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
+	PATH = lib.makeBinPath [ SDL2.dev ];
   };
   
   # was in preConfigure before autogen:
   preConfigure = ''
-  export SDL_CONFIG=${SDL2.dev}/bin/sdl2-config
-    export CPPFLAGS="-I${SDL2.dev}/include/SDL2 $CPPFLAGS"
-    export LDFLAGS="-L${SDL2.dev}/lib $LDFLAGS"
     NO_CONFIGURE=1 ./autogen.sh
   '';
   configureFlags = [
