@@ -1,17 +1,15 @@
-{
-  stdenv,
-  lib,
-  fetchFromGitHub,
-  autoconf,
-  automake,
-  pkg-config,
-  SDL2,
-  SDL2_sound,
-  SDL2_mixer,
-  SDL_audiolib,
-  gtk2,
-  mpfr,
-  libICE
+{ stdenv
+, lib
+, fetchFromGitHub
+, autoconf
+, automake
+, pkg-config
+, SDL2
+, SDL2_sound
+, gtk2
+, mpfr
+, libICE
+, ncurses
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -33,11 +31,10 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     SDL2
 	SDL2_sound
-	SDL2_mixer
-	SDL_audiolib
     gtk2
     mpfr
 	libICE
+	ncurses
   ];
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
