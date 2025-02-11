@@ -7,6 +7,8 @@
   pkg-config,
   SDL2,
   SDL2_sound,
+  SDL2_mixer,
+  SDL_audiolib,
   gtk2,
   mpfr,
   libICE
@@ -31,6 +33,8 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     SDL2
 	SDL2_sound
+	SDL2_mixer
+	SDL_audiolib
     gtk2
     mpfr
 	libICE
@@ -48,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "68k Macintosh emulator";
     homepage = "https://basilisk.cebix.net/";
     license = licenses.gpl2;
-    maintainers = with maintainers; [ quag ];
+    maintainers = with maintainers; [  ];
     platforms = platforms.linux;
     mainProgram = "BasiliskII";
   };
