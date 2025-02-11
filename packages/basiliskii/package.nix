@@ -10,6 +10,7 @@
 , mpfr
 , libICE
 , ncurses
+, readline
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -35,6 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     mpfr
 	libICE
 	ncurses
+	readline
   ];
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
