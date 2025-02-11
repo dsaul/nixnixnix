@@ -5,6 +5,7 @@
 , automake
 , pkg-config
 , SDL2
+, SDL2.dev
 , SDL2_sound
 , gtk2
 , mpfr
@@ -31,6 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     SDL2
+	SDL2.dev
 	SDL2_sound
     gtk2
     mpfr
