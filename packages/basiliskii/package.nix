@@ -6,6 +6,7 @@
   automake,
   pkg-config,
   SDL2,
+  SDL2_sound,
   gtk2,
   mpfr,
   libICE
@@ -29,6 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     SDL2
+	SDL2_sound
     gtk2
     mpfr
 	libICE
