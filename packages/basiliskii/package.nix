@@ -11,7 +11,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
-  version = "unstable-2022-09-30";
+  version = "unstable-2025-02-10";
 
   src = fetchFromGitHub {
     owner = "cebix";
