@@ -6,12 +6,12 @@
 , pkg-config
 , SDL2
 , SDL2_sound
+, SDL_sound
 , gtk2
 , mpfr
 , libICE
 , ncurses
 , readline
-, alsa-lib
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -33,12 +33,12 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     SDL2
 	SDL2_sound
+	SDL_sound
     gtk2
     mpfr
 	libICE
 	ncurses
 	readline
-	alsa-lib
   ];
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
