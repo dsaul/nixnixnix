@@ -20,7 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-ZWE51cRAKj8YFkiBHtd1/M5bWElbdNC30gmYk/cmxEo=";
   };
   sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";
-  patches = [ ./remove-redhat-6-workaround-for-scsi-sg.h.patch ];
+  patches = [ ];
   nativeBuildInputs = [
     autoconf
     automake
