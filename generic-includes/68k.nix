@@ -3,6 +3,7 @@
 {
 	environment.systemPackages = with pkgs; [
 		#basiliskii
-		(pkgs.callPackage ../packages/basiliskii/package.nix {})
+		SDL2
+		#(pkgs.callPackage ../packages/basiliskii/package.nix {})
 	];	
 }

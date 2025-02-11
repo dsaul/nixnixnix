@@ -38,6 +38,8 @@ stdenv.mkDerivation (finalAttrs: {
 	ncurses
 	readline
   ];
+  
+  # was in preConfigure before autogen: NO_CONFIGURE=1
   preConfigure = ''
      ./autogen.sh
   '';
