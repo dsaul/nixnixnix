@@ -59,8 +59,10 @@ in
 		../generic-includes/communication.nix
 		../generic-includes/development.nix
 		../generic-includes/education.nix
-		
-		../generic-includes/68k.nix
+	];
+	
+	environment.systemPackages = with pkgs; [
+		SDL2	
 	];
 
 	# Bootloader.
