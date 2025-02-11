@@ -60,10 +60,6 @@ in
 		../generic-includes/development.nix
 		../generic-includes/education.nix
 	];
-	
-	environment.systemPackages = with pkgs; [
-		SDL2	
-	];
 
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
@@ -79,6 +75,7 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		fw-ectool # Allows for setting firmware settings.
+		SDL2
 	];
 
 	# This value determines the NixOS release from which the default
