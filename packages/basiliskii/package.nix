@@ -11,6 +11,7 @@
 , libICE
 , ncurses
 , readline
+, alsa-lib
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -37,6 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
 	libICE
 	ncurses
 	readline
+	alsa-lib
   ];
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
