@@ -28,6 +28,8 @@ stdenv.mkDerivation (finalAttrs: {
     autoconf
     automake
     pkg-config
+	SDL2
+	SDL2_sound
 	SDL2.dev
   ];
   buildInputs = [
