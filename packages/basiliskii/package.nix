@@ -40,9 +40,9 @@ stdenv.mkDerivation (finalAttrs: {
 	readline
   ];
   
-  # was in preConfigure before autogen: 
+  # was in preConfigure before autogen:  NO_CONFIGURE=1
   preConfigure = ''
-    NO_CONFIGURE=1 ./autogen.sh
+     ./autogen.sh
   '';
   configureFlags = [
     "--enable-sdl-video"
