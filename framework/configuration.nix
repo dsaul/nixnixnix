@@ -76,6 +76,7 @@ in
 	environment.systemPackages = with pkgs; [
 		fw-ectool # Allows for setting firmware settings.
 		SDL2
+		SDL2.dev
 	];
 
 	# This value determines the NixOS release from which the default
