@@ -35,6 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     SDL2
 	SDL2_sound
+	SDL2.dev
     gtk2
     mpfr
 	libICE
@@ -42,10 +43,10 @@ stdenv.mkDerivation (finalAttrs: {
 	readline
   ];
   
-   env =
-    {
-      SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
-    };
+   #env =
+   # {
+   #   SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
+   # };
   
   # was in preConfigure before autogen:
   preConfigure = ''
