@@ -6,7 +6,6 @@
 , pkg-config
 , SDL2
 , SDL2_sound
-, SDL_sound
 , gtk2
 , mpfr
 , libICE
@@ -33,7 +32,6 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     SDL2
 	SDL2_sound
-	SDL_sound
     gtk2
     mpfr
 	libICE
@@ -46,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
   configureFlags = [
     "--enable-sdl-video"
     "--enable-sdl-audio"
-    "--with-bincue"
+    #"--with-bincue"
   ];
 
   meta = with lib; {
