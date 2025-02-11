@@ -5,7 +5,6 @@
 , automake
 , pkg-config
 , SDL2
-, SDL2.dev
 , SDL2_sound
 , gtk2
 , mpfr
