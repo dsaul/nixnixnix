@@ -23,6 +23,7 @@ buildDotnetModule rec {
 	
 	nugetFlags = [ "--force" ];
 	executables = [ "cp2" ];
+	dontRestoreNugetDeps = true;
 	
 	meta = with lib; {
 		homepage = "https://github.com/fadden/CiderPress2/";
