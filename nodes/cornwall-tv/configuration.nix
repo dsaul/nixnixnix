@@ -21,31 +21,31 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../nixos/nixos-agenix.nix
-		../nixos/nixos-home-manager.nix
+		../../nixos/nixos-agenix.nix
+		../../nixos/nixos-home-manager.nix
 		
 		# Hardware
-		../hardware/hardware-bluetooth.nix
-		../hardware/hardware-nvidia.nix
-		../hardware/hardware-printers-cornwall.nix
+		../../hardware/hardware-bluetooth.nix
+		../../hardware/hardware-nvidia.nix
+		../../hardware/hardware-printers-cornwall.nix
 		./subwoofer-virtual-sink.nix
 		
 		# Users
-		../users/usersandgroups.nix
+		../../users/usersandgroups.nix
 		
 		# Editors
-		../editors/editors-daw.nix
+		../../editors/editors-daw.nix
 		
 		# Other
-		../generic-includes/generic-defaults.nix
-		../generic-includes/generic-defaults-gui.nix
-		../generic-includes/kde6-wayland.nix
-		../generic-includes/networking-defaults.nix
-		../generic-includes/networking-defaults-gui.nix
-		../generic-includes/generic-sound.nix
-		../generic-includes/generic-games.nix
-		../generic-includes/viewers-media.nix
-		../generic-includes/communication.nix
+		../../generic-includes/generic-defaults.nix
+		../../generic-includes/generic-defaults-gui.nix
+		../../generic-includes/kde6-wayland.nix
+		../../generic-includes/networking-defaults.nix
+		../../generic-includes/networking-defaults-gui.nix
+		../../generic-includes/generic-sound.nix
+		../../generic-includes/generic-games.nix
+		../../generic-includes/viewers-media.nix
+		../../generic-includes/communication.nix
 		
 	];
 

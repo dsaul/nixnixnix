@@ -24,29 +24,29 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../nixos/nixos-agenix.nix
-		../nixos/nixos-home-manager.nix
+		../../nixos/nixos-agenix.nix
+		../../nixos/nixos-home-manager.nix
 		
 		# Hardware
-		../hardware/hardware-qemu-guest.nix
+		../../hardware/hardware-qemu-guest.nix
 		
 		# Users
-		../users/usersandgroups.nix
+		../../users/usersandgroups.nix
 		
 		# Services
-		../services/services-reverse-proxy.nix
-		../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
-		../services/http-vhost/http-vhost-foundryvtt.dsaul.ca.nix
-		../services/http-vhost/http-vhost-airsonic.dsaul.ca.nix
-		../services/http-vhost/http-vhost-www.epsilonlabs.ca.nix
-		../services/http-vhost/http-vhost-www.dsaul.ca.nix
+		../../services/services-reverse-proxy.nix
+		../../services/http-vhost/http-vhost-homeassistant.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-foundryvtt.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-airsonic.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-www.epsilonlabs.ca.nix
+		../../services/http-vhost/http-vhost-www.dsaul.ca.nix
 		
 		# System
-		../system/system-docker.nix
+		../../system/system-docker.nix
 		
 		# Other
-		../generic-includes/generic-defaults.nix
-		../generic-includes/networking-defaults.nix
+		../../generic-includes/generic-defaults.nix
+		../../generic-includes/networking-defaults.nix
 	];
 
 	# Bootloader.
@@ -61,7 +61,7 @@ in
 	networking.hostName = "ashburn-proxy";
 	# networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../secrets/system-ashburn-proxy-wireguard-private-key.age;
+	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../../secrets/system-ashburn-proxy-wireguard-private-key.age;
 	networking.wireguard.enable = true;
 	networking.wireguard.interfaces = {
 		wg0 = {

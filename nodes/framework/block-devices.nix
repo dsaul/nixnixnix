@@ -3,7 +3,7 @@
 
 {
 	imports = [
-		../shares/shares-documents.nix
+		../../shares/shares-documents.nix
 	];
 	
 	fileSystems."/" = {

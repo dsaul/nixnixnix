@@ -24,24 +24,24 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../nixos/nixos-agenix.nix
-		../nixos/nixos-home-manager.nix
+		../../nixos/nixos-agenix.nix
+		../../nixos/nixos-home-manager.nix
 		
 		# Hardware
-		../hardware/hardware-qemu-guest.nix
+		../../hardware/hardware-qemu-guest.nix
 		
 		# Users
-		../users/usersandgroups.nix
+		../../users/usersandgroups.nix
 		
 		# Services
-		../services/services-reverse-proxy.nix
+		../../services/services-reverse-proxy.nix
 		
 		# System
-		../system/system-docker.nix
+		../../system/system-docker.nix
 		
 		# Other
-		../generic-includes/generic-defaults.nix
-		../generic-includes/networking-defaults.nix
+		../../generic-includes/generic-defaults.nix
+		../../generic-includes/networking-defaults.nix
 	];
 
 	# Bootloader.
@@ -56,7 +56,7 @@ in
 	networking.hostName = "pfweb";
 	# networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../secrets/system-ashburn-proxy-wireguard-private-key.age;
+	age.secrets."system-ashburn-proxy-wireguard-private-key.age".file = ../../secrets/system-ashburn-proxy-wireguard-private-key.age;
 	networking.wireguard.enable = true;
 	#networking.wireguard.interfaces = {
 	#	wg0 = {

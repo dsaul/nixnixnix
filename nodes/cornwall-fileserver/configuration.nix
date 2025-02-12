@@ -25,51 +25,51 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../nixos/nixos-agenix.nix
-		../nixos/nixos-home-manager.nix
+		../../nixos/nixos-agenix.nix
+		../../nixos/nixos-home-manager.nix
 		
 		# Hardware
-		../hardware/hardware-qemu-guest.nix
+		../../hardware/hardware-qemu-guest.nix
 		
 		# Users
-		../users/usersandgroups.nix
+		../../users/usersandgroups.nix
 		
 		# Editors
 		
 		# Services
-		../services/services-nfs.nix
+		../../services/services-nfs.nix
 		./nfs-exports.nix
-		../services/services-samba.nix
+		../../services/services-samba.nix
 		./smb-shares.nix
-		../services/services-reverse-proxy.nix
-		../services/services-seafile.nix
-		../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
-		../services/http-vhost/http-vhost-openwebui.dsaul.ca.nix
-		#../services/services-unifi.nix
+		../../services/services-reverse-proxy.nix
+		../../services/services-seafile.nix
+		../../services/http-vhost/http-vhost-whishper.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-openwebui.dsaul.ca.nix
+		#../../services/services-unifi.nix
 		
 		# Stacks
-		../stacks/mumble-server/mumble-server.nix
-		../stacks/mealie/mealie.nix
-		../stacks/davis/davis.nix
-		../stacks/navidrome/navidrome.nix
-		../stacks/jellyfin/jellyfin.nix
-		../stacks/gitea/gitea.nix
-		../stacks/immich/immich.nix
-		../stacks/paperless-ngx/paperless-ngx.nix
-		../stacks/home-assistant/home-assistant.nix
-		../stacks/foundryvtt/foundryvtt.nix
-		../stacks/kms/kms.nix
-		../stacks/airsonic-advanced/airsonic-advanced.nix
-		../stacks/pgadmin/pgadmin.nix
-		../stacks/dbsysdb/dbsysdb.nix
-		../stacks/jupyter/jupyter.nix
+		../../stacks/mumble-server/mumble-server.nix
+		../../stacks/mealie/mealie.nix
+		../../stacks/davis/davis.nix
+		../../stacks/navidrome/navidrome.nix
+		../../stacks/jellyfin/jellyfin.nix
+		../../stacks/gitea/gitea.nix
+		../../stacks/immich/immich.nix
+		../../stacks/paperless-ngx/paperless-ngx.nix
+		../../stacks/home-assistant/home-assistant.nix
+		../../stacks/foundryvtt/foundryvtt.nix
+		../../stacks/kms/kms.nix
+		../../stacks/airsonic-advanced/airsonic-advanced.nix
+		../../stacks/pgadmin/pgadmin.nix
+		../../stacks/dbsysdb/dbsysdb.nix
+		../../stacks/jupyter/jupyter.nix
 		
 		# System
-		../system/system-docker.nix
+		../../system/system-docker.nix
 		
 		# Other
-		../generic-includes/generic-defaults.nix
-		../generic-includes/networking-defaults.nix
+		../../generic-includes/generic-defaults.nix
+		../../generic-includes/networking-defaults.nix
 		
 	];
 
