@@ -17,8 +17,8 @@ buildDotnetModule rec {
 	};
 
 	projectFile = "cp2/cp2.csproj";
-	dotnet-sdk = dotnetCorePackages.sdk_6_0;
-	dotnet-runtime = dotnetCorePackages.runtime_6_0;
+	dotnet-sdk = dotnetCorePackages.sdk_8_0;
+	dotnet-runtime = dotnetCorePackages.runtime_8_0;
 	nugetDeps = ./deps.nix; # create a blank file here, then populate it with `nix-build -A fetch-deps && ./result`
 	
 	nugetFlags = [ "--force" ];
