@@ -35,7 +35,6 @@ in
 		qmk_hid
 		qmk-udev-rules
 		solaar
-		logitech-udev-rules
 		#unstable.ladybird
 		
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
@@ -50,11 +49,12 @@ in
 		adwaita-icon-theme
 	];
 	
+	hardware.logitech.wireless.enable = true;
+	
 	#programs.ladybird.enable = true;
 	
 	# reduce gnome errors
 	programs.dconf.enable = true;
-	#services.gnome3.tracker.enable = true;
 	services.gnome.tinysparql.enable = true;
 	services.gnome.localsearch.enable = true; # tracker errors
 }
