@@ -105,6 +105,7 @@ in
 			pytestCheckHook = python312Packages.pytestCheckHook;
 			setuptools = python312Packages.setuptools;
 			wheel = python312Packages.wheel;
+			poetry-core = python312Packages.poetry-core;
 		})
 	];
 	

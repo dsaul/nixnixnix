@@ -4,6 +4,7 @@
 , pytestCheckHook
 , setuptools
 , wheel
+, poetry-core
 }:
 
 buildPythonPackage rec {
@@ -19,7 +20,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [
     setuptools
-	
+	poetry-core
   ];
   
   buildInputs = [
