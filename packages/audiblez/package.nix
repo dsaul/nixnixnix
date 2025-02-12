@@ -21,6 +21,7 @@ python.buildPythonPackage rec {
   buildInputs = with python; [
 	wheel
 	beautifulsoup4
+	ebooklib
   ];
 
   nativeCheckInputs = [
