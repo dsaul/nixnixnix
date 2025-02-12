@@ -34,6 +34,8 @@ in
 		qmk
 		qmk_hid
 		qmk-udev-rules
+		solaar
+		logitech-udev-rules
 		#unstable.ladybird
 		
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
