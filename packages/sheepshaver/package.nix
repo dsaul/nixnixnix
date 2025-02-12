@@ -13,7 +13,7 @@
 , readline
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "basiliskii";
+  pname = "sheepshaver";
   version = "unstable-2025-02-10";
 
   src = fetchFromGitHub {
@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
 	rev = "96e512bd6376e78a2869f16dcc8a9028bce5ee72";
     hash = "sha256-ZWE51cRAKj8YFkiBHtd1/M5bWElbdNC30gmYk/cmxEo=";
   };
-  sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";
+  sourceRoot = "${finalAttrs.src.name}/SheepShaver/src/Unix";
   patches = [ ];
   nativeBuildInputs = [
     autoconf
@@ -52,11 +52,11 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   meta = with lib; {
-    description = "68k Macintosh emulator";
+    description = "PPC Macintosh emulator";
     homepage = "https://basilisk.cebix.net/";
     license = licenses.gpl2;
     maintainers = with maintainers; [  ];
     platforms = platforms.linux;
-    mainProgram = "BasiliskII";
+    mainProgram = "SheepShaver";
   };
 })

@@ -60,7 +60,7 @@ in
 		../generic-includes/development.nix
 		../generic-includes/education.nix
 		
-		../generic-includes/68k.nix
+		../generic-includes/tarragon.nix
 	];
 
 	# Bootloader.
