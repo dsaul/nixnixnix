@@ -45,13 +45,13 @@ stdenv.mkDerivation (finalAttrs: {
     NO_CONFIGURE=1 ./autogen.sh
   '';
   configureFlags = [
-	"--with-gtk"
+	#"--with-gtk"
 	"--with-sdl2"
     "--enable-sdl-video"
     "--enable-sdl-audio"
     "--with-bincue"
-	"--with-libvhd"
-	"--with-vdeplug"
+	#"--with-libvhd"
+	#"--with-vdeplug"
   ];
 
   meta = with lib; {
