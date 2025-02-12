@@ -24,8 +24,6 @@ buildPythonPackage rec {
 	
   ];
 
-  doCheck = false;
-
   meta = with lib; {
     changelog = "https://pypi.org/project/audiblez/${version}/";
     description = "Generate audiobooks from e-books";
