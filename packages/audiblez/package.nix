@@ -25,8 +25,8 @@ python.buildPythonPackage rec {
 	#kokoro
 	#misaki
 	
-	#pick
-	#pydub
+	pick
+	pydub
 	#soundfile
 	#spacy
   ];
