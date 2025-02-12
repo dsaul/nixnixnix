@@ -11,6 +11,7 @@
 , libICE
 , ncurses
 , readline
+, libadwaita
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -38,6 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
 	libICE
 	ncurses
 	readline
+	libadwaita
   ];
   
   # was in preConfigure before autogen:
