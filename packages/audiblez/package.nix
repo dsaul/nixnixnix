@@ -27,7 +27,7 @@ python.buildPythonPackage rec {
 	
 	pick
 	pydub
-	#soundfile
+	soundfile
 	#spacy
   ];
 
