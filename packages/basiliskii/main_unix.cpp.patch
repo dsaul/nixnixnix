@@ -1,9 +1,11 @@
---- ./main_unix.cpp	2025-02-12 08:56:31.395866275 -0600
-+++ ./main_unix.cpp	2025-02-12 08:57:03.037967067 -0600
-@@ -1768,7 +1768,7 @@
- 											   GTK_MESSAGE_WARNING,
- 											   GTK_BUTTONS_NONE,
- 											   GetString(title_id), NULL);
+diff --git a/BasiliskII/src/Unix/main_unix.cpp b/BasiliskII/src/Unix/main_unix.cpp
+index af2df100..e86bb8b9 100755
+--- a/BasiliskII/src/Unix/main_unix.cpp
++++ b/BasiliskII/src/Unix/main_unix.cpp
+@@ -1681,7 +1681,7 @@ void display_alert(int title_id, int prefix_id, int button_id, const char *text)
+ 	                                           GTK_MESSAGE_WARNING,
+ 	                                           GTK_BUTTONS_NONE,
+ 	                                           GetString(title_id), NULL);
 -	gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialog), text);
 +	gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialog), "%s", text);
  	gtk_dialog_add_button(GTK_DIALOG(dialog), GetString(button_id), GTK_RESPONSE_CLOSE);
