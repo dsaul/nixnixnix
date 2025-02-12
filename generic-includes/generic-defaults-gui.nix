@@ -46,7 +46,6 @@ in
 		
 		
 		adwaita-icon-theme
-		localsearch
 	];
 	
 	#programs.ladybird.enable = true;
@@ -54,7 +53,7 @@ in
 	# reduce gnome errors
 	programs.dconf.enable = true;
 	#services.gnome3.tracker.enable = true;
-	#services.gnome3.tracker-miners.enable = true;
+	services.gnome.localsearch.enable = true;
 }
 	
 
