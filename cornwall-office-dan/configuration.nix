@@ -101,11 +101,11 @@ in
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
 		(pkgs.callPackage ../packages/audiblez/package.nix {
-			buildPythonPackage = python312Packages.buildPythonPackage;
-			pytestCheckHook = python312Packages.pytestCheckHook;
-			setuptools = python312Packages.setuptools;
-			wheel = python312Packages.wheel;
-			poetry-core = python312Packages.poetry-core;
+			buildPythonPackage = unstable.python313Packages.buildPythonPackage;
+			pytestCheckHook = unstable.python313Packages.pytestCheckHook;
+			setuptools = unstable.python313Packages.setuptools;
+			wheel = unstable.python313Packages.wheel;
+			poetry-core = unstable.python313Packages.poetry-core;
 		})
 	];
 	
