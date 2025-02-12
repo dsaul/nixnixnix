@@ -1,6 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchPypi
+, pytestCheckHook
 , setuptools
 }:
 
