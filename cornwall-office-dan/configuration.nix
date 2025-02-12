@@ -74,6 +74,7 @@ in
 		../generic-includes/education.nix
 		
 		../generic-includes/tarragon.nix
+		#../utilities/utilities-audiblez.nix
 	];
 	
 	#hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -100,9 +101,6 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
-		(pkgs.callPackage ../packages/audiblez/package.nix {
-			python = unstable.python313Packages;
-		})
 	];
 	
 	

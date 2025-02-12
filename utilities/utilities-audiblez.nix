@@ -4,8 +4,9 @@ let
 in
 {
 	environment.systemPackages = with pkgs; [
-		(pkgs.callPackage ../packages/fastflix/package.nix {})
-		(pkgs.callPackage ../packages/NVEnc/package.nix {})
+		(pkgs.callPackage ../packages/audiblez/package.nix {
+			python = unstable.python313Packages;
+		})
 	];
 }
 
