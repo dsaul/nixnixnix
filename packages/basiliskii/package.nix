@@ -28,9 +28,9 @@ stdenv.mkDerivation (finalAttrs: {
     autoconf
     automake
     pkg-config
-	SDL2
-	SDL2_sound
-	SDL2.dev
+	#SDL2
+	#SDL2_sound
+	#SDL2.dev
   ];
   buildInputs = [
     SDL2
@@ -44,16 +44,17 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   
    
-  env = {
-    #SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
-	PATH = lib.makeBinPath [ SDL2.dev ];
-  };
+  #env = {
+  #  #SDL_CONFIG = "${SDL2.dev}/bin/sdl2-config";
+#	PATH = lib.makeBinPath [ SDL2.dev ];
+ # };
   
   # was in preConfigure before autogen:
   preConfigure = ''
     NO_CONFIGURE=1 ./autogen.sh
   '';
   configureFlags = [
+	"--with-sdl2"
     "--enable-sdl-video"
     "--enable-sdl-audio"
     "--with-bincue"
