@@ -1,8 +1,5 @@
 { lib
 , python
-, setuptools
-, wheel
-, poetry-core
 }:
 
 python.buildPythonPackage rec {
