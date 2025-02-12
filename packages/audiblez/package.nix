@@ -3,6 +3,7 @@
 , fetchPypi
 , pytestCheckHook
 , setuptools
+, wheel
 }:
 
 buildPythonPackage rec {
@@ -18,6 +19,11 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [
     setuptools
+	
+  ];
+  
+  buildInputs = [
+	wheel
   ];
 
   nativeCheckInputs = [

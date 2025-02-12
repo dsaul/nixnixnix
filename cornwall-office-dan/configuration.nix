@@ -104,6 +104,7 @@ in
 			buildPythonPackage = python312Packages.buildPythonPackage;
 			pytestCheckHook = python312Packages.pytestCheckHook;
 			setuptools = python312Packages.setuptools;
+			wheel = python312Packages.wheel;
 		})
 	];
 	
