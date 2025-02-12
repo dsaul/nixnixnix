@@ -11,8 +11,8 @@ in
 		calibre
 		totem
 		#grayjay
-		supersonic-wayland
-		sublime-music
+		#supersonic-wayland
+		#sublime-music
 		(pkgs.callPackage ../packages/webapp-jellyfin/package.nix {})
 		(pkgs.callPackage ../packages/webapp-airsonic-advanced/package.nix {})
 		#mixxx

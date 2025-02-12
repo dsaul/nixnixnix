@@ -34,7 +34,7 @@ in
 		qmk
 		qmk_hid
 		qmk-udev-rules
-		unstable.ladybird
+		#unstable.ladybird
 		
 		(pkgs.callPackage ../packages/webapp-davis/package.nix {})
 		(pkgs.callPackage ../packages/webapp-home-assistant/package.nix {})
@@ -45,7 +45,11 @@ in
 		(pkgs.callPackage ../packages/webapp-paperless-ngx/package.nix {})
 	];
 	
-	programs.ladybird.enable = true;
+	#programs.ladybird.enable = true;
+	
+	# reduce gnome errors
+	services.gnome3.tracker.enable = true;
+	services.gnome3.tracker-miners.enable = true;
 }
 	
 
