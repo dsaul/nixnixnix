@@ -53,7 +53,8 @@ in
 	# reduce gnome errors
 	programs.dconf.enable = true;
 	#services.gnome3.tracker.enable = true;
-	services.gnome.localsearch.enable = true;
+	services.gnome.tinysparql.enable = true;
+	services.gnome.localsearch.enable = true; # tracker errors
 }
 	
 
