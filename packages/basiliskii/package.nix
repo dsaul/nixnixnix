@@ -15,12 +15,12 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
-  version = "unstable-2025-02-10";
+  version = "unstable-kanjitalk755-2025-01-30";
 
   src = fetchFromGitHub {
-    owner = "cebix";
+    owner = "kanjitalk755";
     repo = "macemu";
-	rev = "96e512bd6376e78a2869f16dcc8a9028bce5ee72";
+	rev = "6ddff7bc02c5966a064c7df7bf400d10b3994c87";
     hash = "sha256-ZWE51cRAKj8YFkiBHtd1/M5bWElbdNC30gmYk/cmxEo=";
   };
   sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";

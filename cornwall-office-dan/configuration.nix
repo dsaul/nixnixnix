@@ -72,6 +72,8 @@ in
 		../generic-includes/communication.nix
 		../generic-includes/development.nix
 		../generic-includes/education.nix
+		
+		../generic-includes/tarragon.nix
 	];
 	
 	#hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
