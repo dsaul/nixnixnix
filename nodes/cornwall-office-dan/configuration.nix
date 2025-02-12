@@ -21,60 +21,60 @@ in
 		# nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix
 		# nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 		# nix-channel --update
-		../nixos/nixos-agenix.nix
-		../nixos/nixos-home-manager.nix
+		../../nixos/nixos-agenix.nix
+		../../nixos/nixos-home-manager.nix
 		
 		# Hardware
-		../hardware/hardware-bluetooth.nix
-		../hardware/hardware-nvidia.nix
-		../hardware/hardware-printers-cornwall.nix
+		../../hardware/hardware-bluetooth.nix
+		../../hardware/hardware-nvidia.nix
+		../../hardware/hardware-printers-cornwall.nix
 		
 		# Users
 		../users/usersandgroups.nix
 		
 		# Editors
-		../editors/editors-tex.nix
-		../editors/editors-text.nix
-		../editors/editors-daw.nix
-		../editors/editors-office.nix
-		../editors/editors-notes.nix
-		../editors/editors-graphics.nix
-		../editors/editors-cad.nix
-		../editors/editors-media.nix
-		../editors/editors-3d.nix
+		../../editors/editors-tex.nix
+		../../editors/editors-text.nix
+		../../editors/editors-daw.nix
+		../../editors/editors-office.nix
+		../../editors/editors-notes.nix
+		../../editors/editors-graphics.nix
+		../../editors/editors-cad.nix
+		../../editors/editors-media.nix
+		../../editors/editors-3d.nix
 		
 		# Stacks
 		../stacks/whishper/whishper.nix
 		
 		# Services
-		../services/services-unifi.nix
-		../services/services-acme.nix
-		../services/services-reverse-proxy.nix
-		../services/services-ollama.nix
+		../../services/services-unifi.nix
+		../../services/services-acme.nix
+		../../services/services-reverse-proxy.nix
+		../../services/services-ollama.nix
 		
 		# Utilities
-		../utilities/utilities-fastflix.nix
+		../../utilities/utilities-fastflix.nix
 		
 		# System
-		../system/system-virtualisation.nix
+		../../system/system-virtualisation.nix
 		
 		# Other
-		../generic-includes/generic-defaults.nix
-		../generic-includes/generic-defaults-gui.nix
-		../generic-includes/kde6-wayland.nix
-		../generic-includes/networking-defaults.nix
-		../generic-includes/networking-defaults-gui.nix
-		../generic-includes/generic-sound.nix
-		../generic-includes/generic-games.nix
+		../../generic-includes/generic-defaults.nix
+		../../generic-includes/generic-defaults-gui.nix
+		../../generic-includes/kde6-wayland.nix
+		../../generic-includes/networking-defaults.nix
+		../../generic-includes/networking-defaults-gui.nix
+		../../generic-includes/generic-sound.nix
+		../../generic-includes/generic-games.nix
 		
-		../generic-includes/xrdp-kde.nix
-		../generic-includes/viewers-media.nix
-		../generic-includes/communication.nix
-		../generic-includes/development.nix
-		../generic-includes/education.nix
+		../../generic-includes/xrdp-kde.nix
+		../../generic-includes/viewers-media.nix
+		../../generic-includes/communication.nix
+		../../generic-includes/development.nix
+		../../generic-includes/education.nix
 		
-		../generic-includes/tarragon.nix
-		#../utilities/utilities-audiblez.nix
+		../../generic-includes/tarragon.nix
+		#../../utilities/utilities-audiblez.nix
 	];
 	
 	#hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
