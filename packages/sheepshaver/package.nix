@@ -11,6 +11,7 @@
 , libICE
 , ncurses
 , readline
+, perl
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "sheepshaver";
@@ -38,6 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
 	libICE
 	ncurses
 	readline
+	perl
   ];
   
   # was in preConfigure before autogen:
@@ -48,7 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
 	"--with-sdl2"
     "--enable-sdl-video"
     "--enable-sdl-audio"
-    "--with-bincue"
+    #"--with-bincue"
   ];
 
   meta = with lib; {
