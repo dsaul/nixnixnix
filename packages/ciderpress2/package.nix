@@ -12,7 +12,7 @@ buildDotnetModule rec {
     owner = "fadden";
     repo = pname;
     rev = "v${version}";
-    sha256 = "";
+    sha256 = "sha256-pRvOu3bXTaFkwbwniL5qpZXdDLodgr+PD5I6jQOWvPM=";
   };
 
   projectFile = "cp2/cp2.csproj";
