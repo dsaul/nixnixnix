@@ -12,6 +12,7 @@
 , ncurses
 , readline
 , perl
+, file
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "sheepshaver";
@@ -29,6 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
     autoconf
     automake
     pkg-config
+	file
   ];
   buildInputs = [
     SDL2
