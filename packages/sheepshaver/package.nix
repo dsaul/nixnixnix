@@ -46,6 +46,11 @@ stdenv.mkDerivation (finalAttrs: {
   
   # was in preConfigure before autogen:
   preConfigure = ''
+  
+  cd ${finalAttrs.src.name}/SheepShaver/
+  make links
+  cd ${finalAttrs.src.name}/SheepShaver/src/Unix
+  
     NO_CONFIGURE=1 ./autogen.sh
   '';
   configureFlags = [
