@@ -100,6 +100,7 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
+		(pkgs.callPackage ../packages/audiblez/package.nix {})
 	];
 	
 	
