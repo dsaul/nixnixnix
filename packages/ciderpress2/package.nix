@@ -10,10 +10,10 @@ buildDotnetModule rec {
 	version = "1.0.6";
 
 	src = fetchFromGitHub {
-		owner = "fadden";
+		owner = "dsaul";
 		repo = pname;
-		rev = "v${version}";
-		sha256 = "sha256-pRvOu3bXTaFkwbwniL5qpZXdDLodgr+PD5I6jQOWvPM=";
+		rev = "316573e366b60fa2a998a325703bb8630728879b";
+		sha256 = "";
 	};
 
 	projectFile = "cp2/cp2.csproj";
@@ -21,7 +21,6 @@ buildDotnetModule rec {
 	dotnet-runtime = dotnetCorePackages.runtime_8_0;
 	nugetDeps = ./deps.nix; # create a blank file here, then populate it with `nix-build -A fetch-deps && ./result`
 	
-	nugetFlags = [ "--force" ];
 	executables = [ "cp2" ];
 	dontRestoreNugetDeps = true;
 	
