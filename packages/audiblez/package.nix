@@ -1,30 +1,29 @@
 { lib
-, buildPythonPackage
-, fetchPypi
-, pytestCheckHook
+, python
 , setuptools
 , wheel
 , poetry-core
 }:
 
-buildPythonPackage rec {
+python.buildPythonPackage rec {
   pname = "audiblez";
   version = "0.4.4";
   format = "pyproject";
   doCheck = false;
 
-  src = fetchPypi {
+  src = python.fetchPypi {
     inherit pname version;
     hash = "sha256-oYeE+hFpuKh7zkrAG48voxMYdkpu70lwtSOgjU5dUvw=";
   };
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with python; [
     setuptools
 	poetry-core
   ];
   
-  buildInputs = [
+  buildInputs = with python; [
 	wheel
+	beautifulsoup4
   ];
 
   nativeCheckInputs = [
