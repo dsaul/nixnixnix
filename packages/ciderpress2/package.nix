@@ -21,6 +21,9 @@ buildDotnetModule rec {
 	dotnet-runtime = dotnetCorePackages.runtime_6_0;
 	nugetDeps = ./deps.nix; # create a blank file here, then populate it with `nix-build -A fetch-deps && ./result`
 	
+	nugetFlags = [ "--force" ];
+	executables = [ "cp2" ];
+	
 	meta = with lib; {
 		homepage = "https://github.com/fadden/CiderPress2/";
 		description = "Tool for working with Apple II and vintage Mac disk images and file archives. ";
