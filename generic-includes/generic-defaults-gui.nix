@@ -45,7 +45,7 @@ in
 		(pkgs.callPackage ../packages/webapp-paperless-ngx/package.nix {})
 		
 		
-		gnome.adwaita-icon-theme
+		adwaita-icon-theme
 	];
 	
 	#programs.ladybird.enable = true;
