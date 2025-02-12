@@ -20,8 +20,14 @@ python.buildPythonPackage rec {
   
   buildInputs = with python; [
 	wheel
-	beautifulsoup4
+	beautifulsoup4 #bs4
 	ebooklib
+	#kokoro
+	#misaki
+	pick
+	pydub
+	soundfile
+	spacy
   ];
 
   nativeCheckInputs = [
