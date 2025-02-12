@@ -24,10 +24,11 @@ python.buildPythonPackage rec {
 	ebooklib
 	#kokoro
 	#misaki
-	pick
-	pydub
-	soundfile
-	spacy
+	
+	#pick
+	#pydub
+	#soundfile
+	#spacy
   ];
 
   nativeCheckInputs = [
