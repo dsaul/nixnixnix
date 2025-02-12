@@ -30,7 +30,7 @@ in
 		../../hardware/hardware-printers-cornwall.nix
 		
 		# Users
-		../users/usersandgroups.nix
+		../../users/usersandgroups.nix
 		
 		# Editors
 		../../editors/editors-tex.nix
@@ -44,7 +44,7 @@ in
 		../../editors/editors-3d.nix
 		
 		# Stacks
-		../stacks/whishper/whishper.nix
+		../../stacks/whishper/whishper.nix
 		
 		# Services
 		../../services/services-unifi.nix
