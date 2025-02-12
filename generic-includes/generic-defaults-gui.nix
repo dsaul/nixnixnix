@@ -46,6 +46,7 @@ in
 		
 		
 		adwaita-icon-theme
+		localsearch
 	];
 	
 	#programs.ladybird.enable = true;
