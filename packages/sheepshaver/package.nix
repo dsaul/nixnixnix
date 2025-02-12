@@ -16,13 +16,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "sheepshaver";
-  version = "unstable-2025-02-10";
+  version = "unstable-kanjitalk755-2025-01-30";
 
   src = fetchFromGitHub {
-    owner = "cebix";
+    owner = "kanjitalk755";
     repo = "macemu";
-	rev = "96e512bd6376e78a2869f16dcc8a9028bce5ee72";
-    hash = "sha256-ZWE51cRAKj8YFkiBHtd1/M5bWElbdNC30gmYk/cmxEo=";
+	rev = "6ddff7bc02c5966a064c7df7bf400d10b3994c87";
+    hash = "sha256-fHfOpdZFHkCSZUoOMhJmMCDxahUrog7vdIwFEhFUIUM=";
   };
   sourceRoot = "${finalAttrs.src.name}/SheepShaver/src/Unix";
   patches = [ ];
@@ -46,11 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
   
   # was in preConfigure before autogen:
   preConfigure = ''
-  
-  cd ../..
-  make links
-  cd src/Unix
-  
     NO_CONFIGURE=1 ./autogen.sh
   '';
   configureFlags = [
