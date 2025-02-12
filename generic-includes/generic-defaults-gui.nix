@@ -43,13 +43,17 @@ in
 		(pkgs.callPackage ../packages/webapp-pgadmin4/package.nix {})
 		(pkgs.callPackage ../packages/webapp-whishper/package.nix {})
 		(pkgs.callPackage ../packages/webapp-paperless-ngx/package.nix {})
+		
+		
+		gnome.adwaita-icon-theme
 	];
 	
 	#programs.ladybird.enable = true;
 	
 	# reduce gnome errors
-	services.gnome3.tracker.enable = true;
-	services.gnome3.tracker-miners.enable = true;
+	programs.dconf.enable = true;
+	#services.gnome3.tracker.enable = true;
+	#services.gnome3.tracker-miners.enable = true;
 }
 	
 
