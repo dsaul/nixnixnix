@@ -100,7 +100,9 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
-		(pkgs.callPackage ../packages/audiblez/package.nix {})
+		(pkgs.callPackage ../packages/audiblez/package.nix {
+			buildPythonPackage = python312Packages.buildPythonPackage;
+		})
 	];
 	
 	
