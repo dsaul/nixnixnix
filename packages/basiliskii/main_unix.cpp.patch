@@ -1,7 +1,7 @@
 diff --git a/BasiliskII/src/Unix/main_unix.cpp b/BasiliskII/src/Unix/main_unix.cpp
 index af2df100..e86bb8b9 100755
---- a/BasiliskII/src/Unix/main_unix.cpp
-+++ b/BasiliskII/src/Unix/main_unix.cpp
+--- a/main_unix.cpp
++++ b/main_unix.cpp
 @@ -1681,7 +1681,7 @@ void display_alert(int title_id, int prefix_id, int button_id, const char *text)
  	                                           GTK_MESSAGE_WARNING,
  	                                           GTK_BUTTONS_NONE,
