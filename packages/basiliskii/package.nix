@@ -12,7 +12,7 @@
 , ncurses
 , readline
 , libadwaita
-, gnome3.gnome_themes_standard
+, gnome-themes-extra
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
