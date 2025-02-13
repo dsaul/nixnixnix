@@ -19,10 +19,10 @@ stdenv.mkDerivation (finalAttrs: {
   version = "unstable-kanjitalk755-2025-01-30";
 
   src = fetchFromGitHub {
-    owner = "kanjitalk755";
+    owner = "dsaul";
     repo = "macemu";
-	rev = "6ddff7bc02c5966a064c7df7bf400d10b3994c87";
-    hash = "sha256-fHfOpdZFHkCSZUoOMhJmMCDxahUrog7vdIwFEhFUIUM=";
+	rev = "583d890b93cbc9ec9bcf4b53c95ade272c75572a";
+    hash = "";
   };
   sourceRoot = "${finalAttrs.src.name}/SheepShaver/src/Unix";
   patches = [ ];

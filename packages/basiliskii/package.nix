@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "dsaul";
     repo = "macemu";
 	rev = "583d890b93cbc9ec9bcf4b53c95ade272c75572a";
-    hash = "sha256-fHfOpdZFHkCSZUoOMhJmMCDxahUrog7vdIwFEhFUIUM=";
+    hash = "";
   };
   sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";
   patches = [ 
