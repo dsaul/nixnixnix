@@ -101,6 +101,7 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		cudaPackages.cudatoolkit
+		gnome-maps
 	];
 	
 	
