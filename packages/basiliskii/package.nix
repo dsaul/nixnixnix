@@ -26,7 +26,6 @@ stdenv.mkDerivation (finalAttrs: {
   sourceRoot = "${finalAttrs.src.name}/BasiliskII/src/Unix";
   patches = [ 
 	./remove-redhat-6-workaround-for-scsi-sg.h.patch 
-	./main_unix.cpp.patch
 	];
   nativeBuildInputs = [
     autoconf
