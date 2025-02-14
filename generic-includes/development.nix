@@ -46,6 +46,10 @@
 		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
 	];
 	
+	environment.sessionVariables = {
+		DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+	};
+	
 	services.ollama = {
 		enable = true;
 		loadModels = [
