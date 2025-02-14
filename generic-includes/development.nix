@@ -39,6 +39,8 @@
 		python312Packages.black
 		python312Packages.flake8
 		
+		dotnet-sdk
+		
 		# Webview Service apps
 		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
 	];
