@@ -40,6 +40,7 @@
 		python312Packages.flake8
 		
 		dotnet-sdk
+		dotnet-runtime
 		
 		# Webview Service apps
 		(pkgs.callPackage ../packages/webapp-jupyter/package.nix {})
