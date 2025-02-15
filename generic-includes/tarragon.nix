@@ -17,5 +17,5 @@ in
 	];	
 	
 	
-	environment.etc."tarragon/libpython.so".source = "${pkgs.python312Full}/lib/libpython3.12.so";
+	environment.etc."tarragon/libpython.so".target = "${pkgs.python312Full}/lib/libpython3.12.so";
 }
