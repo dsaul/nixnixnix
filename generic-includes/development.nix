@@ -13,6 +13,7 @@
 		umlet
 		httpie
 		vscode.fhs
+		dhex
 		
 		# Development Backend
 		libgcc
