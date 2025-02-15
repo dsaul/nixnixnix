@@ -15,8 +15,5 @@ in
 		(pkgs.callPackage ../packages/ciderpress2/package.nix {})
 		#(pkgs.callPackage ../packages/sheepshaver/package.nix {})
 	];	
-	
-	
-	environment.etc."tarragon/libpython.so".source = "${pkgs.python312Full}/lib/libpython3.12.so";
-	environment.etc."tarragon/site-packages/numpy".source = "${pkgs.python312Packages.numpy}/lib/python3.12/site-packages/numpy";
+
 }

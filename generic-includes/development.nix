@@ -66,11 +66,6 @@
 		openFirewall = true;
 		host = "0.0.0.0";
 	};
-	
-	fileSystems."/tmp/dev-fhs-etc" = {
-		device = "/dev";
-		options = ["bind"];
-	};
 }
 
 
