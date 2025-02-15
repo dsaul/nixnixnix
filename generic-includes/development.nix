@@ -67,7 +67,7 @@
 		host = "0.0.0.0";
 	};
 	
-	fileSystems."/dev-fhs-etc" = {
+	fileSystems."/tmp/dev-fhs-etc" = {
 		device = "/dev";
 		options = ["bind"];
 	};
