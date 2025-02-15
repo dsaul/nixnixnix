@@ -14,6 +14,7 @@
 , readline
 , libadwaita
 , gnome-themes-extra
+, makeWrapper
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "basiliskii";
@@ -45,6 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
 	ncurses
 	readline
 	libadwaita
+	makeWrapper
   ];
   
   # was in preConfigure before autogen:
@@ -60,6 +62,10 @@ stdenv.mkDerivation (finalAttrs: {
 	#"--with-libvhd"
 	#"--with-vdeplug"
   ];
+  
+  postInstall = ''
+	wrapProgram "$out/bin/BasiliskII" --set SDL_VIDEODRIVER wayland
+  '';
 
   meta = with lib; {
     description = "68k Macintosh emulator";
