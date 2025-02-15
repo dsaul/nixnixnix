@@ -38,6 +38,7 @@
 		python312Packages.pytest
 		python312Packages.black
 		python312Packages.flake8
+		python312Packages.pythonnet
 		
 		dotnet-sdk
 		dotnet-runtime
