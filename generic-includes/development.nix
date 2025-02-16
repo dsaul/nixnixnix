@@ -14,6 +14,7 @@
 		httpie
 		vscode.fhs
 		dhex
+		ghex
 		
 		# Development Backend
 		libgcc
