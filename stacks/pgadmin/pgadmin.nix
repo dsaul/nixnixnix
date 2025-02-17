@@ -18,7 +18,7 @@ in
       ''
 services:
   pgadmin:
-    image: dpage/pgadmin4:8.14
+    image: dpage/pgadmin4:9
     restart: always
     ports:
       - 25003:25003
