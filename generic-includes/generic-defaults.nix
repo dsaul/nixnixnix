@@ -58,6 +58,7 @@
 		rpcbind
 		lm_sensors
 		ncdu
+		ethtool
 		
 		# Filesystems
 		xfsprogs
