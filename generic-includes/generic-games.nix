@@ -24,6 +24,7 @@
 		space-cadet-pinball
 		parsec-bin
 		openra
+		retroarchFull
 	];
 
 
