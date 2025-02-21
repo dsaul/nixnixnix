@@ -25,7 +25,8 @@
 		parsec-bin
 		openra
 		retroarchFull
-		yabause
+		#yabause # broken
+		mednafen
 	];
 
 
