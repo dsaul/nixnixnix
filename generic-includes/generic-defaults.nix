@@ -64,6 +64,11 @@
 		xfsprogs
 		ntfs3g
 		cifs-utils
+		btrfs-progs
+		exfatprogs
+		exfat
+		f2fs-tools
+		hfsprogs
 		
 		#tmp
 		patchelf
