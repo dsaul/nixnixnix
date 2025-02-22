@@ -3,7 +3,7 @@
 , fetchFromGitHub
 , libuuid
 }:
-stdenv.mkDerivation (finalAttrs: {
+stdenv.mkDerivation {
 	pname = "hfsinspect";
 	version = "unstable-rjvb-2018-09-16";
 
@@ -33,10 +33,6 @@ runHook postInstall
 	'';
 
 	
-
-	#postInstall = ''
-	#	wrapProgram "$out/bin/BasiliskII" --set SDL_VIDEODRIVER wayland
-	#'';
 
 	meta = with lib; {
 		description = "An open-source HFS+ filesystem explorer and debugger (in the spirit of hfsdebug) ";
