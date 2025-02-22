@@ -36,7 +36,7 @@ runHook postInstall
 
 	meta = with lib; {
 		description = "An open-source HFS+ filesystem explorer and debugger (in the spirit of hfsdebug) ";
-		homepage = "https://github.com/RJVB/hfsinspect;
+		homepage = "https://github.com/RJVB/hfsinspect";
 		license = licenses.mit;
 		maintainers = with maintainers; [  ];
 		platforms = platforms.linux;
