@@ -59,6 +59,8 @@
 		lm_sensors
 		ncdu
 		ethtool
+		dmidecode
+		lshw
 		
 		# Filesystems
 		xfsprogs
