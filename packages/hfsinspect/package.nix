@@ -11,7 +11,7 @@ stdenv.mkDerivation {
 		owner = "RJVB";
 		repo = "hfsinspect";
 		rev = "a5d0a25b9fc433faf62f71a1895be0052e892d66";
-		hash = "";
+		hash = "sha256-ScYvP4cTCb/JBwp/4Uh8xNwm2R4TGv80bYr1Ko0SBek=";
 	};
 
 	buildInputs = [
