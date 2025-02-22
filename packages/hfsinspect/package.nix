@@ -5,7 +5,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
 	pname = "hfsinspect";
-	version = "unstable-rjvb-2025-01-30";
+	version = "unstable-rjvb-2018-09-16";
 
 	src = fetchFromGitHub {
 		owner = "RJVB";
