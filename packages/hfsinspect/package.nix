@@ -11,7 +11,7 @@ stdenv.mkDerivation {
 		owner = "ahknight";
 		repo = "hfsinspect";
 		rev = "02e0853b68e13cdb3dff5b82056bc17ae96275c9";
-		hash = "sha256-ScYvP4cTCb/JBwp/4Uh8xNwm2R4TGv80bYr1Ko0SBek=";
+		hash = "sha256-NoQkcktMDqOu6WCG+tnxJuDVI2o2MHaqCFt7JWuQKJs=";
 	};
 
 	buildInputs = [
