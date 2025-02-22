@@ -61,6 +61,7 @@
 		ethtool
 		dmidecode
 		lshw
+		lshw-gui
 		
 		# Filesystems
 		xfsprogs
