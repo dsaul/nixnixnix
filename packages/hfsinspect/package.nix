@@ -2,6 +2,7 @@
 , lib
 , fetchFromGitHub
 , libuuid
+, libbsd
 }:
 stdenv.mkDerivation {
 	pname = "hfsinspect";
@@ -16,6 +17,7 @@ stdenv.mkDerivation {
 
 	buildInputs = [
 		libuuid
+		libbsd
 	];
 
 
