@@ -6,10 +6,10 @@
 }:
 stdenv.mkDerivation {
 	pname = "hfsinspect";
-	version = "unstable-ahknight-2015-03-03";
+	version = "unstable-rjvb-2018-09-16";
 
 	src = fetchgit {
-		url = "https://github.com/ahknight/hfsinspect.git";
+		url = "https://github.com/RJVB/hfsinspect.git";
 		rev = "02e0853b68e13cdb3dff5b82056bc17ae96275c9";
 		hash = "sha256-tZHNNmOiEKDqCEvzYBKW/4vumMabv486y9va9+sjRfw=";
 		fetchSubmodules = true;
