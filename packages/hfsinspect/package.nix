@@ -11,7 +11,7 @@ stdenv.mkDerivation {
 	src = fetchgit {
 		url = "https://github.com/ahknight/hfsinspect.git";
 		rev = "02e0853b68e13cdb3dff5b82056bc17ae96275c9";
-		hash = "sha256-NoQkcktMDqOu6WCG+tnxJuDVI2o2MHaqCFt7JWuQKJs=";
+		hash = "sha256-tZHNNmOiEKDqCEvzYBKW/4vumMabv486y9va9+sjRfw=";
 		fetchSubmodules = true;
 	};
 
