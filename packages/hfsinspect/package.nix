@@ -3,6 +3,7 @@
 , fetchgit
 , libuuid
 , libbsd
+, pkg-config
 }:
 stdenv.mkDerivation {
 	pname = "hfsinspect";
@@ -14,6 +15,10 @@ stdenv.mkDerivation {
 		hash = "sha256-tZHNNmOiEKDqCEvzYBKW/4vumMabv486y9va9+sjRfw=";
 		fetchSubmodules = true;
 	};
+
+	nativeBuildInputs = [
+		pkg-config
+	];
 
 	buildInputs = [
 		libuuid
