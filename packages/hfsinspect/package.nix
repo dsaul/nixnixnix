@@ -20,12 +20,9 @@ stdenv.mkDerivation {
 		libbsd
 	];
 
-	postConfigure = ''
-    # Rename or move the Vagrantfile so it won't be executed
-    if [ -f Vagrantfile ]; then
-      mv Vagrantfile Vagrantfile.disabled
-    fi
-  '';
+	prePatch = ''
+        rm -f Vagrantfile
+    '';
 
 	installPhase = ''
 runHook preInstall
