@@ -60,7 +60,6 @@
 		ncdu
 		ethtool
 		dmidecode
-		lshw
 		lshw-gui
 		
 		# Filesystems
