@@ -26,10 +26,10 @@ stdenv.mkDerivation (finalAttrs: {
 
 
 	installPhase = ''
-	runHook preInstall
-	mkdir -p $out/bin
-	make install PREFIX=$out
-	runHook postInstall
+runHook preInstall
+mkdir -p $out/bin
+make install PREFIX=$out
+runHook postInstall
 	'';
 
 	
@@ -45,4 +45,4 @@ stdenv.mkDerivation (finalAttrs: {
 		maintainers = with maintainers; [  ];
 		platforms = platforms.linux;
 	};
-})
+}
