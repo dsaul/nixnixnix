@@ -25,10 +25,6 @@ stdenv.mkDerivation {
 		libbsd
 	];
 
-	prePatch = ''
-        rm -f Vagrantfile
-    '';
-
 	installPhase = ''
 runHook preInstall
 mkdir -p $out/bin
