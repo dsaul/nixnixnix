@@ -14,12 +14,6 @@ stdenv.mkDerivation {
 		hash = "";
 	};
 
-
-	nativeBuildInputs = [
-		autoconf
-		automake
-		pkg-config
-	];
 	buildInputs = [
 		libuuid
 	];
