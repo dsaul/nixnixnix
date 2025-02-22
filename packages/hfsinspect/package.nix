@@ -44,6 +44,5 @@ stdenv.mkDerivation (finalAttrs: {
 		license = licenses.mit;
 		maintainers = with maintainers; [  ];
 		platforms = platforms.linux;
-		mainProgram = "BasiliskII";
 	};
 })
