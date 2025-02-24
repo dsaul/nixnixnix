@@ -12,6 +12,7 @@
 		makemkv
 		shntool
 		cuetools
+		davinci-resolve
 	];
 }
 	
