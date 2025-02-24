@@ -13,7 +13,7 @@ buildDotnetModule rec {
 		owner = "dsaul";
 		repo = pname;
 		rev = "813a4aaa3ac6976428a78c44ccca15e51c5dd4e8";
-		sha256 = "sha256-aE6KPUBHu7tkbMRVpf302rW5hn2LiiukWhqEQNa/fd4=";
+		sha256 = "sha256-R3yNLS0vdPAT4g08I31MjbTat06FvOtRiddnl6+nJVE=";
 	};
 
 	projectFile = "cp2/cp2.csproj";
