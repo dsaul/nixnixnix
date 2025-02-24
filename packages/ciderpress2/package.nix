@@ -7,12 +7,12 @@
 
 buildDotnetModule rec {
 	pname = "CiderPress2";
-	version = "1.0.6";
+	version = "1.0.7-dev1";
 
 	src = fetchFromGitHub {
 		owner = "dsaul";
 		repo = pname;
-		rev = "316573e366b60fa2a998a325703bb8630728879b";
+		rev = "813a4aaa3ac6976428a78c44ccca15e51c5dd4e8";
 		sha256 = "sha256-aE6KPUBHu7tkbMRVpf302rW5hn2LiiukWhqEQNa/fd4=";
 	};
 
