@@ -43,7 +43,7 @@
 		#python312Packages.flake8
 		#python312Packages.pythonnet
 		
-		python312.withPackages (ps: with ps; [
+		(python312.withPackages (ps: with ps; [
 			pandas
 			numpy
 			requests
