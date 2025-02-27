@@ -36,6 +36,7 @@
 		pylint
 		python312Full
 		python312Packages.pandas
+		python312Packages.numpy
 		python312Packages.requests
 		python312Packages.pytest
 		python312Packages.black
