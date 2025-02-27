@@ -33,15 +33,7 @@
 		go
 		libicns
 		jdk
-		pylint
-		#python312Full
-		#python312Packages.pandas
-		#python312Packages.numpy
-		#python312Packages.requests
-		#python312Packages.pytest
-		#python312Packages.black
-		#python312Packages.flake8
-		#python312Packages.pythonnet
+		#pylint
 		
 		(python312.withPackages (ps: with ps; [
 			pandas
