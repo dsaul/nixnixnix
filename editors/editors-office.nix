@@ -9,6 +9,5 @@ in
 		dia
 		ocrmypdf
 		pdftk
-		calligra
 	];
 }
