@@ -16,6 +16,7 @@ in
 		freerdp3
 		ungoogled-chromium
 		floorp
+		librewolf
 	];
 
 	programs.firefox = {
