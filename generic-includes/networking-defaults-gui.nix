@@ -10,10 +10,15 @@ in
 		transmission_4-qt
 		unstable.winbox4
 		remmina
-		wireshark
+		
 		seafile-client
-		freerdp
-		freerdp3
+		#freerdp
+		#freerdp3
+		
+		# Tools
+		wireshark
+		
+		# Browsers
 		ungoogled-chromium
 		floorp
 		librewolf
