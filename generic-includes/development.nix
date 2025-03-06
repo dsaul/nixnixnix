@@ -15,6 +15,9 @@
 		vscode.fhs
 		dhex
 		ghex
+		plantuml
+		
+		
 		
 		# Development Backend
 		libgcc
