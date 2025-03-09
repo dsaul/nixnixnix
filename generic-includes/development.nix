@@ -47,6 +47,7 @@
 			flake8
 			pythonnet
 			pylint
+			pygments
 		]))
 		
 		dotnet-sdk
