@@ -57,7 +57,6 @@ in
 		../../stacks/gitea/gitea.nix
 		../../stacks/immich/immich.nix
 		../../stacks/paperless-ngx/paperless-ngx.nix
-		../../stacks/home-assistant/home-assistant.nix
 		../../stacks/foundryvtt/foundryvtt.nix
 		../../stacks/kms/kms.nix
 		../../stacks/airsonic-advanced/airsonic-advanced.nix
