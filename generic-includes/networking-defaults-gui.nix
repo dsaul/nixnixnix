@@ -20,7 +20,7 @@ in
 		
 		# Browsers
 		ungoogled-chromium
-		floorp-unwrapped
+		floorp
 		librewolf
 	];
 
