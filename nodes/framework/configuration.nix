@@ -77,6 +77,8 @@ in
 	# Installed Packages
 	environment.systemPackages = with pkgs; [
 		fw-ectool # Allows for setting firmware settings.
+		
+		(pkgs.callPackage ../packages/affinity/package.nix {})
 	];
 
 	# This value determines the NixOS release from which the default
