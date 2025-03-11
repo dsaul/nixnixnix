@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 	pname = "affinity-photo";
 	version = "2.5.7";
 	
-	src = /home/dan/Downloads/affinity-photo-msi-2.5.7.exe
+	src = /home/dan/Downloads/affinity-photo-msi-2.5.7.exe;
 
 	dontUnpack = true;
 
