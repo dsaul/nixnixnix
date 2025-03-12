@@ -1,7 +1,7 @@
 # https://github.com/lucasew/nixcfg/blob/master/nix/pkgs/wrapWine.nix
 # https://d1gl0nrskhax8d.cloudfront.net/windows/designer2/2.5.7/affinity-designer-2.5.7.msix?Expires=1736807487&Signature=DBMs7mzTkRlgOSA9HbVMXA9eZoGjLUiOuh880RcNgtrK03d8H9nygRqK-v44sKMuXksge4mwCxsQhSXdSzFrbeNwa4VnNZ0hBaVzj1b2VjorsOZLRhKp-biXSKmA6Xr-ZPnQzoRTPi0~CugD0DrjnZ1bjBKwmpOYTMtsAScMTw3z9ru4jcOgEwPqcFcoJF41BPlzk0fmvqTKS5mikv2XCEH-Twn4Dd5GY8oI0T3gyqbCZ4MbfZ9KSuSuUMuFL19NzxiKIYL8zAFCbkMHnJiSUJafnP5px99WngrArXp~Qelm6nfM9ys5TtDDXkJLJhLfDghCllM4PkvUwqijnCV9Mg__&Key-Pair-Id=APKAIMMPYSI7GSVTEAAQ
 # https://github.com/emmanuelrosa/erosanix/tree/master/pkgs/mkwindowsapp
-
+# https://github.com/juliamertz/affinity-nixos
 
 
 # winbox nix file as example starting point:

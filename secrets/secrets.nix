@@ -38,4 +38,9 @@ in
 	"pgadmin-env.age".publicKeys = systems ++ user-dan;
 	"dbsysdb-env.age".publicKeys = systems ++ user-dan;
 	"system-ashburn-proxy-wireguard-private-key.age".publicKeys = [system-ashburn-proxy] ++ user-dan;
+	
+	# ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILk366RT+WY/OyQFEwj8BLRWMBN2kWtzsd24WDqW8ugP www.dsaul.ca nixos-package
+	"id_ed25519-www.dsaul.ca-nixos_package".publicKeys = systems ++ user-dan;
+	# ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGG1LERyHN8BxFivMQjwkpXqheQL6S/NuoJuGbdmcYm+ www.epsilonlabs.ca nixos-package
+	"id_ed25519-www.epsilonlabs.ca-nixos_package".publicKeys = systems ++ user-dan;
 }

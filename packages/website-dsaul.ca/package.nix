@@ -1,32 +1,20 @@
-{ lib
-, stdenvNoCC
-, ungoogled-chromium
-, makeDesktopItem
-}:
+{ buildNpmPackage, lib, ... }:
 
-stdenvNoCC.mkDerivation {
-	
-	name = "webapp-whishper";
-	src = ./.;
-	
-	postInstall = ''
-	mkdir -p $out/share/applications
-	cat > $out/share/applications/webapp-whishper.desktop << EOF
-[Desktop Entry]
-Type=Application
-Name=Whishper
-Comment=
-Icon=webapp-whishper
-Exec=chromium --app="https://whishper.dsaul.ca/" %U
-Terminal=false
-Categories=Office
-StartupWMClass=chrome-whishper.dsaul.ca__-Default
-EOF
 
-	install -Dm644 ${./resources/logo.svg} $out/share/icons/hicolor/scalable/apps/webapp-whishper.svg
-	'';
+#https://joshkingsley.me/blog/publishing-static-site-nix.html
 
+buildNpmPackage {
+	name = "website-dsaul.ca";
+	src = fetchgit {
+		url = "git@github.com:dsaul/www.dsaul.ca.git";
+		rev = "a3d7a33b4eb547a5b9c1f32159bf5f656e960481";
+		hash = "";
+		#fetchSubmodules = true;
+		extraConfig = {
+			core = {
+				sshCommand = "ssh -i /path/to/your/private_key -F /dev/null";
+			};
+		};
+	};
+	npmDepsHash = lib.fakeHash;
 }
-#qdbus org.kde.KWin /KWin queryWindowInfo
-#StartupWMClass=
-#StartupWMClass was set to the resourceClass and this worked.
