@@ -1,4 +1,6 @@
-{ buildNpmPackage, lib, ... }:
+{ buildNpmPackage
+, fetchgit
+, lib, ... }:
 let
 	age.secrets."id_ed25519-www.dsaul.ca-nixos_package".file = ../../secrets/id_ed25519-www.dsaul.ca-nixos_package.age;
 #https://joshkingsley.me/blog/publishing-static-site-nix.html
