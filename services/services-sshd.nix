@@ -11,10 +11,10 @@
 		settings.PermitRootLogin = "yes";
 	};
 	programs.ssh.startAgent = true;
-	programs.ssh.extraConfig = ''
-		Host github.com
-		User root
-		IdentityFile ${config.age.secrets."id_ed25519-www.dsaul.ca-nixos_package".path}
-		IdentitiesOnly yes
-	'';
+	#programs.ssh.extraConfig = ''
+	#	Host github.com
+	#	User root
+	#	IdentityFile ${config.age.secrets."id_ed25519-www.dsaul.ca-nixos_package".path}
+	#	IdentitiesOnly yes
+	#'';
 }
