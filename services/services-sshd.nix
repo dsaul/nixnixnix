@@ -2,7 +2,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-	age.secrets."id_ed25519-www.dsaul.ca-nixos_package".file = ../../secrets/id_ed25519-www.dsaul.ca-nixos_package.age;
+	#age.secrets."id_ed25519-www.dsaul.ca-nixos_package".file = ../../secrets/id_ed25519-www.dsaul.ca-nixos_package.age;
 	
 	services.openssh = {
 		enable = true;
