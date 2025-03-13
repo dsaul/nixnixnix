@@ -86,7 +86,7 @@ in
 
 
 	environment.systemPackages = with pkgs; [
-		(pkgs.callPackage ../../packages/website-dsaul.ca/package.nix {})
+		(pkgs.callPackage ../../packages/website-dsaul.ca/package.nix { fetchgit: builtins.fetchGit })
 	];	
 
 	
