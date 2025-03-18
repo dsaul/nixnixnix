@@ -14,7 +14,7 @@ in
 	fonts.fontconfig.useEmbeddedBitmaps = true;
 	fonts.enableDefaultPackages = true;
 	fonts.packages = with pkgs; [
-		fontforge
+		fontforge-gtk
 		noto-fonts
 		noto-fonts-cjk-sans
 		noto-fonts-emoji
