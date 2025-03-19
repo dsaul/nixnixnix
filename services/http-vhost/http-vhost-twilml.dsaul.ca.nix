@@ -18,7 +18,7 @@
 				#root = "/var/www/blog";
 				
 				
-				return = "200 '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Dial answerOnBridge="true">+12049630285</Dial></Response>'";
+				return = "200 '<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Dial answerOnBridge=\"true\">+12049630285</Dial></Response>'";
 				
 				extraConfig = ''
 					default_type text/html;
