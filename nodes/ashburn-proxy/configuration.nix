@@ -40,6 +40,7 @@ in
 		../../services/http-vhost/http-vhost-airsonic.dsaul.ca.nix
 		../../services/http-vhost/http-vhost-www.epsilonlabs.ca.nix
 		../../services/http-vhost/http-vhost-www.dsaul.ca.nix
+		../../services/http-vhost/http-vhost-twilml.dsaul.ca.nix
 		
 		# System
 		../../system/system-docker.nix
