@@ -38,6 +38,15 @@
 		jdk
 		#pylint
 		jetbrains.goland
+		jetbrains.writerside
+		jetbrains.webstorm
+		jetbrains.rust-rover
+		jetbrains.rider
+		jetbrains.pycharm-professional
+		jetbrains.mps
+		jetbrains.idea-ultimate
+		jetbrains.datagrip
+		jetbrains.clion
 		
 		(python312.withPackages (ps: with ps; [
 			pandas
