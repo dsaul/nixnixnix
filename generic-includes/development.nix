@@ -37,6 +37,7 @@
 		libicns
 		jdk
 		#pylint
+		jetbrains.goland
 		
 		(python312.withPackages (ps: with ps; [
 			pandas
